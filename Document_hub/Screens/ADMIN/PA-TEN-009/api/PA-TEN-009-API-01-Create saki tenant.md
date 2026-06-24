@@ -284,25 +284,35 @@ Không áp dụng.
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
 | 1 | tenant_code | Bắt buộc nhập | CMS-VAL-23 | テナントコードを入力してください。 |
-| 2 | tenant_code | Định dạng: Chỉ cho phép ký tự tiếng Anh nửa dòng và chữ số, không khoảng trắng, không ký tự đặc biệt | CMS-VAL-27 | テナントコードは数値で入力してください。 |
+| 2 | tenant_code | Định dạng: Chỉ cho phép ký tự tiếng Anh nửa dòng và chữ số, không khoảng trắng, không ký tự đặc biệt | CMS-VAL-24 | テナントコードに正しい形式を指定してください。 |
 | 3 | tenant_code | Tối đa 50 ký tự | CMS-VAL-6 | テナントコードは50文字以内で入力してください。 |
 | 4 | tenant_code | Phải là duy nhất (không trùng lặp trong platform.tenant_registry) | CMS-VAL-11 | テナントコードの値は既に存在しています。 |
-| 5 | domain | Bắt buộc nhập | CMS-VAL-23 | domainを入力してください。 |
-| 6 | domain | Tối đa 50 ký tự | CMS-VAL-6 | domainは50文字以内で入力してください。 |
-| 7 | domain | Định dạng: chỉ chứa ký tự thường a-z, số 0-9 và dấu gạch ngang - | CMS-VAL-27 | domainは数値で入力してください。 |
-| 8 | domain | Phải là duy nhất (không trùng lặp trong platform.tenant_registry) | CMS-VAL-11 | domainの値は既に存在しています。 |
-| 9 | plan_code | Bắt buộc nhập, phải có giá trị trong (LITE, STANDARD, PRO, ENTERPRISE) | CMS-VAL-23 | プランコードを入力してください。 |
-| 10 | official_name_ja | Bắt buộc nhập, tối đa 100 ký tự | CMS-VAL-23 | official_name_jaを入力してください。 |
-| 11 | display_name_ja | Bắt buộc nhập, tối đa 24 ký tự | CMS-VAL-23 | display_name_jaを入力してください。 |
-| 12 | postal_code | Bắt buộc nhập, định dạng đúng 7 ký tự số liên tục | CMS-VAL-23 | postal_codeを入力してください。 |
-| 13 | tel | Bắt buộc nhập, đúng định dạng điện thoại | CMS-VAL-23 | 電話番号を入力してください。 |
-| 14 | address_ja | Bắt buộc nhập, tối đa 100 ký tự | CMS-VAL-23 | address_jaを入力してください。 |
-| 15 | admin_user | Bắt buộc nhập cấu trúc | CMS-VAL-23 | admin_userを入力してください。 |
-| 16 | admin_user.last_name_ja | Bắt buộc nhập, tối đa 24 ký tự | CMS-VAL-23 | admin_user.last_name_jaを入力してください。 |
-| 17 | admin_user.first_name_ja | Bắt buộc nhập, tối đa 24 ký tự | CMS-VAL-23 | admin_user.first_name_jaを入力してください。 |
-| 18 | admin_user.email | Bắt buộc nhập, định dạng email hợp lệ | CMS-VAL-23 | admin_user.emailを入力してください。 |
-| 19 | admin_user.email | Phải là duy nhất trong schema/bảng quản trị | CMS-VAL-11 | admin_user.emailの値は既に存在しています。 |
-| 20 | admin_user.tel | Bắt buộc nhập, đúng định dạng điện thoại | CMS-VAL-23 | admin_user.telを入力してください。 |
+| 5 | domain | Bắt buộc nhập | CMS-VAL-23 | ドメインを入力してください。 |
+| 6 | domain | Tối đa 50 ký tự | CMS-VAL-6 | ドメインは50文字以内で入力してください。 |
+| 7 | domain | Định dạng: chỉ chứa ký tự thường a-z, số 0-9 và dấu gạch ngang - | CMS-VAL-24 | ドメインに正しい形式を指定してください。 |
+| 8 | domain | Phải là duy nhất (không trùng lặp trong platform.tenant_registry) | CMS-VAL-11 | ドメインの値は既に存在しています。 |
+| 9 | plan_code | Bắt buộc nhập | CMS-VAL-23 | プランコードを入力してください。 |
+| 10 | plan_code | Phải thuộc danh sách: LITE, STANDARD, PRO, ENTERPRISE | CMS-VAL-41 | 選択されたプランコードは正しくありません。 |
+| 11 | official_name_ja | Bắt buộc nhập | CMS-VAL-23 | 公式会社名（和文）を入力してください。 |
+| 12 | official_name_ja | Tối đa 100 ký tự | CMS-VAL-6 | 公式会社名（和文）は100文字以内で入力してください。 |
+| 13 | display_name_ja | Bắt buộc nhập | CMS-VAL-23 | 表示名（和文）を入力してください。 |
+| 14 | display_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 表示名（和文）は24文字以内で入力してください。 |
+| 15 | postal_code | Bắt buộc nhập | CMS-VAL-23 | 郵便番号を入力してください。 |
+| 16 | postal_code | Đúng 7 chữ số | CMS-VAL-53 | 郵便番号は7文字で入力してください。 |
+| 17 | tel | Bắt buộc nhập | CMS-VAL-23 | 電話番号を入力してください。 |
+| 18 | tel | Đúng định dạng số điện thoại | CMS-VAL-9 | 電話番号は有効な電話番号を入力してください。 |
+| 19 | address_ja | Bắt buộc nhập | CMS-VAL-23 | 住所（和文）を入力してください。 |
+| 20 | address_ja | Tối đa 100 ký tự | CMS-VAL-6 | 住所（和文）は100文字以内で入力してください。 |
+| 21 | admin_user | Bắt buộc nhập cấu trúc | CMS-VAL-23 | 管理者情報を入力してください。 |
+| 22 | admin_user.last_name_ja | Bắt buộc nhập | CMS-VAL-23 | 管理者氏名（姓）を入力してください。 |
+| 23 | admin_user.last_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 管理者氏名（姓）は24文字以内で入力してください。 |
+| 24 | admin_user.first_name_ja | Bắt buộc nhập | CMS-VAL-23 | 管理者氏名（名）を入力してください。 |
+| 25 | admin_user.first_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 管理者氏名（名）は24文字以内で入力してください。 |
+| 26 | admin_user.email | Bắt buộc nhập | CMS-VAL-23 | 管理者メールアドレスを入力してください。 |
+| 27 | admin_user.email | Đúng định dạng Email | CMS-VAL-48 | 管理者メールアドレスには、有効なメールアドレスを指定してください。 |
+| 28 | admin_user.email | Phải là duy nhất trong schema/bảng quản trị | CMS-VAL-11 | 管理者メールアドレスの値は既に存在しています。 |
+| 29 | admin_user.tel | Bắt buộc nhập | CMS-VAL-23 | 管理者電話番号を入力してください。 |
+| 30 | admin_user.tel | Đúng định dạng số điện thoại | CMS-VAL-9 | 管理者電話番号は有効な電話番号を入力してください。 |
 
 ---
 

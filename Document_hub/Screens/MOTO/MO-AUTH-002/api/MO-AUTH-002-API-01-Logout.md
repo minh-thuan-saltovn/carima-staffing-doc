@@ -279,7 +279,7 @@ HTTP Status: 500 Internal Server Error
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
 | 1 | Authorization | Bắt buộc | CMS-VAL-23 | Authorizationを入力してください。 |
-| 2 | Authorization | Format Bearer token | INVALID_TOKEN_FORMAT | 認証情報の形式が正しくありません |
+| 2 | Authorization | Format Bearer token | CMS-VAL-24 | Authorizationに正しい形式を指定してください。 |
 | 3 | logout_all_devices | Nếu truyền thì phải là boolean | CMS-VAL-58 | logout_all_devicesは、trueかfalseを指定してください。 |
 | 4 | logout_all_devices | Nếu không truyền thì default false | - | - |
 

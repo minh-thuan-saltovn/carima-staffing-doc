@@ -228,7 +228,7 @@ Không áp dụng.
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | id | Phải đúng định dạng ULID (26 ký tự) | INVALID_TENANT_ID | The tenant ID format is invalid. |
+| 1 | id | Phải đúng định dạng ULID (26 ký tự) | CMS-VAL-53 | IDは26文字で入力してください。 |
 | 2 | plan_code | Bắt buộc nhập | CMS-VAL-23 | プランコードを入力してください。 |
 | 3 | plan_code | Phải thuộc danh sách: LITE, STANDARD, PRO, ENTERPRISE | CMS-VAL-41 | 選択されたプランコードは正しくありません。 |
 

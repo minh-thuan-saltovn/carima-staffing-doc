@@ -326,7 +326,7 @@ Không áp dụng.
 | --- | --- | --- | --- | --- |
 | 1 | page | Không bắt buộc, số nguyên >= 1 | CMS-VAL-40 | ページは整数で指定してください。 |
 | 2 | limit | Không bắt buộc, số nguyên thuộc danh sách: 10, 20, 50 | CMS-VAL-40 | 表示件数は整数で指定してください。 |
-| 3 | keyword | Không bắt buộc, string, tối đa 100 ký tự | CMS-VAL-6 | keywordは100文字以内で入力してください。 |
+| 3 | keyword | Không bắt buộc, string, tối đa 100 ký tự | CMS-VAL-6 | 検索キーワードは100文字以内で入力してください。 |
 | 4 | office_id | Không bắt buộc, string, tối đa 20 ký tự | CMS-VAL-6 | 事業所IDは20文字以内で入力してください。 |
 | 5 | status | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | ステータスは整数で指定してください。 |
 | 6 | sort_column | Không bắt buộc, phải thuộc: department_id, display_name_ja, status, created_at | CMS-VAL-41 | 選択されたソートカラムは正しくありません。 |

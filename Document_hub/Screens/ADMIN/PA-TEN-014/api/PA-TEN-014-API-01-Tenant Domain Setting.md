@@ -270,12 +270,15 @@ Không áp dụng.
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | id | Bắt buộc, phải đúng định dạng ULID (26 ký tự) | CMS-VAL-23 | idを入力してください。 |
-| 2 | domain_type | Bắt buộc, giá trị phải là 1 (Subdomain) hoặc 2 (Custom Domain) | CMS-VAL-23 | domain_typeを入力してください。 |
-| 3 | domain_name | Bắt buộc nhập, tối đa 255 ký tự | CMS-VAL-23 | domain_nameを入力してください。 |
-| 4 | domain_name | Nếu domain_type = 1: Chỉ cho phép chữ thường a-z, số 0-9 và dấu gạch ngang -, giới hạn 2-63 ký tự | CMS-VAL-27 | domain_nameは数値で入力してください。 |
-| 5 | domain_name | Nếu domain_type = 2: Đúng định dạng tên miền FQDN hợp lệ | INVALID_CUSTOM_DOMAIN_FORMAT | Custom domain format is invalid. |
-| 6 | domain_name | Tên miền đầy đủ (bao gồm cả phần sinh tự động suffix .carima.link đối với loại Subdomain) phải là duy nhất và chưa được đăng ký bởi bất kỳ Tenant nào khác trong hệ thống | CMS-VAL-11 | domain_nameの値は既に存在しています。 |
+| 1 | id | Bắt buộc | CMS-VAL-23 | IDを入力してください。 |
+| 2 | id | Đúng định dạng ULID (26 ký tự) | CMS-VAL-53 | IDは26文字で入力してください。 |
+| 3 | domain_type | Bắt buộc | CMS-VAL-23 | ドメイン区分を入力してください。 |
+| 4 | domain_type | Phải thuộc: 1 (Subdomain) hoặc 2 (Custom Domain) | CMS-VAL-41 | 選択されたドメイン区分は正しくありません。 |
+| 5 | domain_name | Bắt buộc nhập | CMS-VAL-23 | ドメイン名を入力してください。 |
+| 6 | domain_name | Tối đa 255 ký tự | CMS-VAL-6 | ドメイン名は255文字以内で入力してください。 |
+| 7 | domain_name | Nếu domain_type = 1: Chỉ cho phép chữ thường a-z, số 0-9 và dấu gạch ngang -, giới hạn 2-63 ký tự | CMS-VAL-24 | ドメイン名に正しい形式を指定してください。 |
+| 8 | domain_name | Nếu domain_type = 2: Đúng định dạng tên miền FQDN hợp lệ | CMS-VAL-24 | ドメイン名に正しい形式を指定してください。 |
+| 9 | domain_name | Tên miền đầy đủ (bao gồm cả phần sinh tự động suffix .carima.link đối với loại Subdomain) phải là duy nhất và chưa được đăng ký bởi bất kỳ Tenant nào khác trong hệ thống | CMS-VAL-11 | ドメイン名の値は既に存在しています。 |
 
 ---
 

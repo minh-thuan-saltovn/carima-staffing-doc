@@ -377,7 +377,7 @@ Không áp dụng.
 | 7 | status | Không bắt buộc, số nguyên thuộc: 0, 1, 2 | CMS-VAL-40 | ステータスは整数で指定してください。 |
 | 8 | is_approver_only | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | 承認者のみフラグは整数で指定してください。 |
 | 9 | is_active_only | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | 有効ユーザーのみフラグは整数で指定してください。 |
-| 10 | sort_column | Không bắt buộc, phải thuộc: user_id, last_name_ja, email, office_id, department_id, status, created_at, last_login_at | CMS-VAL-48 | ソートカラムには、有効なメールアドレスを指定してください。 |
+| 10 | sort_column | Không bắt buộc, phải thuộc: user_id, last_name_ja, email, office_id, department_id, status, created_at, last_login_at | CMS-VAL-41 | 選択されたソートカラムは正しくありません。 |
 | 11 | sort_direction | Không bắt buộc, phải là asc hoặc desc | CMS-VAL-41 | 選択されたソート方向は正しくありません。 |
 
 ---

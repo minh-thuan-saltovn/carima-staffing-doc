@@ -233,15 +233,15 @@ HTTP Status: 500 Internal Server Error
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | current_password | Bắt buộc | CMS-VAL-23 | current_passwordを入力してください。 |
-| 2 | current_password | Tối đa 255 ký tự | CMS-VAL-6 | current_passwordは255文字以内で入力してください。 |
-| 3 | new_password | Bắt buộc | CMS-VAL-23 | new_passwordを入力してください。 |
-| 4 | new_password | Tối thiểu 8 ký tự | CMS-VAL-29 | new_passwordには、8以上の数字を指定してください。 |
-| 5 | new_password | Tối đa 255 ký tự | CMS-VAL-6 | new_passwordは255文字以内で入力してください。 |
-| 6 | new_password | Độ phức tạp (Chứa chữ hoa, chữ thường, số, ký tự đặc biệt) | CMS-VAL-27 | new_passwordは数値で入力してください。 |
+| 1 | current_password | Bắt buộc | CMS-VAL-23 | 現在のパスワードを入力してください。 |
+| 2 | current_password | Tối đa 255 ký tự | CMS-VAL-6 | 現在のパスワードは255文字以内で入力してください。 |
+| 3 | new_password | Bắt buộc | CMS-VAL-23 | 新しいパスワードを入力してください。 |
+| 4 | new_password | Tối thiểu 8 ký tự | CMS-VAL-51 | 新しいパスワードは8文字から255文字の間で指定してください。 |
+| 5 | new_password | Tối đa 255 ký tự | CMS-VAL-6 | 新しいパスワードは255文字以内で入力してください。 |
+| 6 | new_password | Độ phức tạp (Chứa chữ hoa, chữ thường, số, ký tự đặc biệt) | CMS-VAL-8 | 新しいパスワードは英大文字と英小文字、数字・記号を含む8文字以上のパスワードを入力してください。 |
 | 7 | new_password | Khác current_password | SAME_AS_OLD | 新しいパスワードは現在のパスワードと異なるものを入力してください |
-| 8 | new_password_confirmation | Bắt buộc | CMS-VAL-23 | new_password_confirmationを入力してください。 |
-| 9 | new_password_confirmation | Khớp với new_password | CONFIRMATION_MISMATCH | 新しいパスワードと新しいパスワード（確認）が一致しません |
+| 8 | new_password_confirmation | Bắt buộc | CMS-VAL-23 | 新しいパスワード（確認）を入力してください。 |
+| 9 | new_password_confirmation | Khớp với new_password | CMS-VAL-57 | 新しいパスワードと新しいパスワード（確認）が一致しません。 |
 
 ### 7.1 Validation xử lý trước Business Rule
 

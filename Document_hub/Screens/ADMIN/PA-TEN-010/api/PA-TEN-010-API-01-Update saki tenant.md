@@ -298,18 +298,32 @@ PUT /api/v1/admin/saki-tenants/{id}
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | id | Bắt buộc, đúng định dạng ULID (26 ký tự) | CMS-VAL-23 | idを入力してください。 |
-| 2 | plan_code | Bắt buộc, string, tối đa 20 ký tự | CMS-VAL-23 | プランコードを入力してください。 |
-| 3 | company_profile.official_name_ja | Bắt buộc, string, tối đa 100 ký tự | CMS-VAL-23 | company_profile.official_name_jaを入力してください。 |
-| 4 | company_profile.official_name_kana | Bắt buộc, string, tối đa 200 ký tự | CMS-VAL-23 | company_profile.official_name_kanaを入力してください。 |
-| 5 | company_profile.display_name_ja | Bắt buộc, string, tối đa 24 ký tự | CMS-VAL-23 | company_profile.display_name_jaを入力してください。 |
-| 6 | company_profile.postal_code | Bắt buộc, 7 chữ số Half-width | CMS-VAL-23 | company_profile.postal_codeを入力してください。 |
-| 7 | company_profile.address_ja | Bắt buộc, string, tối đa 50 ký tự | CMS-VAL-23 | company_profile.address_jaを入力してください。 |
-| 8 | company_profile.address2_ja | Không bắt buộc, string, tối đa 50 ký tự | CMS-VAL-6 | company_profile.address2_jaは50文字以内で入力してください。 |
-| 9 | admin_user.last_name_ja | Bắt buộc, string, tối đa 24 ký tự | CMS-VAL-23 | admin_user.last_name_jaを入力してください。 |
-| 10 | admin_user.first_name_ja | Bắt buộc, string, tối đa 24 ký tự | CMS-VAL-23 | admin_user.first_name_jaを入力してください。 |
-| 11 | admin_user.email | Bắt buộc, đúng định dạng Email, tối đa 128 ký tự | CMS-VAL-23 | admin_user.emailを入力してください。 |
-| 12 | admin_user.tel | Bắt buộc, số điện thoại Half-width, tối đa 15 ký tự | CMS-VAL-23 | admin_user.telを入力してください。 |
+| 1 | id | Bắt buộc | CMS-VAL-23 | IDを入力してください。 |
+| 2 | id | Đúng định dạng ULID (26 ký tự) | CMS-VAL-53 | IDは26文字で入力してください。 |
+| 3 | plan_code | Bắt buộc | CMS-VAL-23 | プランコードを入力してください。 |
+| 4 | plan_code | Tối đa 20 ký tự | CMS-VAL-6 | プランコードは20文字以内で入力してください。 |
+| 5 | company_profile.official_name_ja | Bắt buộc | CMS-VAL-23 | 公式会社名（和文）を入力してください。 |
+| 6 | company_profile.official_name_ja | Tối đa 100 ký tự | CMS-VAL-6 | 公式会社名（和文）は100文字以内で入力してください。 |
+| 7 | company_profile.official_name_kana | Bắt buộc | CMS-VAL-23 | 公式会社名（カナ）を入力してください。 |
+| 8 | company_profile.official_name_kana | Phải là Katakana toàn giác | CMS-VAL-72 | 公式会社名（カナ）は全角カタカナで入力してください。 |
+| 9 | company_profile.official_name_kana | Tối đa 200 ký tự | CMS-VAL-6 | 公式会社名（カナ）は200文字以内で入力してください。 |
+| 10 | company_profile.display_name_ja | Bắt buộc | CMS-VAL-23 | 表示名（和文）を入力してください。 |
+| 11 | company_profile.display_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 表示名（和文）は24文字以内で入力してください。 |
+| 12 | company_profile.postal_code | Bắt buộc | CMS-VAL-23 | 郵便番号を入力してください。 |
+| 13 | company_profile.postal_code | Đúng 7 chữ số | CMS-VAL-53 | 郵便番号は7文字で入力してください。 |
+| 14 | company_profile.address_ja | Bắt buộc | CMS-VAL-23 | 住所（和文）を入力してください。 |
+| 15 | company_profile.address_ja | Tối đa 50 ký tự | CMS-VAL-6 | 住所（和文）は50文字以内で入力してください。 |
+| 16 | company_profile.address2_ja | Tối đa 50 ký tự | CMS-VAL-6 | 住所2（和文）は50文字以内で入力してください。 |
+| 17 | admin_user.last_name_ja | Bắt buộc | CMS-VAL-23 | 管理者氏名（姓）を入力してください。 |
+| 18 | admin_user.last_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 管理者氏名（姓）は24文字以内で入力してください。 |
+| 19 | admin_user.first_name_ja | Bắt buộc | CMS-VAL-23 | 管理者氏名（名）を入力してください。 |
+| 20 | admin_user.first_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 管理者氏名（名）は24文字以内で入力してください。 |
+| 21 | admin_user.email | Bắt buộc | CMS-VAL-23 | 管理者メールアドレスを入力してください。 |
+| 22 | admin_user.email | Đúng định dạng Email | CMS-VAL-48 | 管理者メールアドレスには、有効なメールアドレスを指定してください。 |
+| 23 | admin_user.email | Tối đa 128 ký tự | CMS-VAL-6 | 管理者メールアドレスは128文字以内で入力してください。 |
+| 24 | admin_user.tel | Bắt buộc | CMS-VAL-23 | 管理者電話番号を入力してください。 |
+| 25 | admin_user.tel | Đúng định dạng số điện thoại | CMS-VAL-9 | 管理者電話番号は有効な電話番号を入力してください。 |
+| 26 | admin_user.tel | Tối đa 15 ký tự | CMS-VAL-6 | 管理者電話番号は15文字以内で入力してください。 |
 
 ---
 

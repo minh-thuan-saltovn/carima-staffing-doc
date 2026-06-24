@@ -277,12 +277,20 @@ Không áp dụng.
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | id (Path) | Bắt buộc, tồn tại trong mst_saki_approval_group | CMS-VAL-23 | id (Path)を入力してください。 |
-| 2 | route_name | Bắt buộc, string, tối đa 24 ký tự | CMS-VAL-23 | route_nameを入力してください。 |
-| 3 | target_module | Bắt buộc, string, thuộc danh sách cho phép | CMS-VAL-23 | target_moduleを入力してください。 |
-| 4 | status | Bắt buộc, số nguyên, phải là 0 hoặc 1 | CMS-VAL-23 | ステータスを入力してください。 |
-| 5 | approver_user_ids | Bắt buộc, mảng, có từ 1 đến 3 phần tử | CMS-VAL-23 | approver_user_idsを入力してください。 |
-| 6 | approver_user_ids[] | Bắt buộc, tồn tại trong bảng mst_saki_user của tenant | CMS-VAL-23 | approver_user_ids[]を入力してください。 |
+| 1 | id (Path) | Bắt buộc | CMS-VAL-23 | IDを入力してください。 |
+| 2 | id (Path) | Tồn tại trong mst_saki_approval_group | CMS-VAL-25 | IDが存在していません。 |
+| 3 | route_name | Bắt buộc | CMS-VAL-23 | ルート名を入力してください。 |
+| 4 | route_name | Tối đa 24 ký tự | CMS-VAL-6 | ルート名は24文字以内で入力してください。 |
+| 5 | target_module | Bắt buộc | CMS-VAL-23 | 対象モジュールを入力してください。 |
+| 6 | target_module | Phải thuộc danh sách cho phép | CMS-VAL-41 | 選択された対象モジュールは正しくありません。 |
+| 7 | status | Bắt buộc | CMS-VAL-23 | ステータスを入力してください。 |
+| 8 | status | Phải là số nguyên | CMS-VAL-40 | ステータスは整数で指定してください。 |
+| 9 | status | Phải thuộc: 0 hoặc 1 | CMS-VAL-41 | 選択されたステータスは正しくありません。 |
+| 10 | approver_user_ids | Bắt buộc | CMS-VAL-23 | 承認者ユーザーID一覧を入力してください。 |
+| 11 | approver_user_ids | Phải là mảng | CMS-VAL-62 | 承認者ユーザーID一覧は配列でなくてはなりません。 |
+| 12 | approver_user_ids | Tối đa 3 phần tử | CMS-VAL-33 | 承認者ユーザーID一覧には、3以下の値を指定してください。 |
+| 13 | approver_user_ids[] | Bắt buộc | CMS-VAL-23 | 承認者ユーザーIDを入力してください。 |
+| 14 | approver_user_ids[] | Phải tồn tại trong bảng mst_saki_user của tenant | CMS-VAL-25 | 承認者ユーザーIDが存在していません。 |
 
 ---
 

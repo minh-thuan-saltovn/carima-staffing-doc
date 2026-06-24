@@ -278,15 +278,16 @@ delete_login_bg_flg: 0
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | id | Bắt buộc, đúng định dạng ULID (26 ký tự) | CMS-VAL-23 | idを入力してください。 |
-| 2 | theme_color | Bắt buộc nhập | CMS-VAL-23 | theme_colorを入力してください。 |
-| 3 | theme_color | Đúng định dạng mã màu HEX 6 ký tự. Pattern: ^#[0-9A-Fa-f]{6}$ | CMS-VAL-41 | 選択されたthemecolorは正しくありません。 |
-| 4 | logo_file | Nếu có upload: Chỉ chấp nhận định dạng PNG hoặc JPEG (MIME type: image/png, image/jpeg) | CMS-VAL-41 | 選択されたlogofileは正しくありません。 |
-| 5 | logo_file | Nếu có upload: Dung lượng tối đa 2MB (2,097,152 bytes) | CMS-VAL-6 | logo_fileは2文字以内で入力してください。 |
-| 6 | login_bg_file | Nếu có upload: Chỉ chấp nhận định dạng PNG hoặc JPEG | CMS-VAL-41 | 選択されたloginbgfileは正しくありません。 |
-| 7 | login_bg_file | Nếu có upload: Dung lượng tối đa 5MB (5,242,880 bytes) | CMS-VAL-6 | login_bg_fileは5文字以内で入力してください。 |
-| 8 | delete_logo_flg | Nếu có: Giá trị phải là 0 hoặc 1 | CMS-VAL-41 | 選択されたdelete_logo_flgは正しくありません。 |
-| 9 | delete_login_bg_flg | Nếu có: Giá trị phải là 0 hoặc 1 | CMS-VAL-41 | 選択されたdelete_login_bg_flgは正しくありません。 |
+| 1 | id | Bắt buộc | CMS-VAL-23 | IDを入力してください。 |
+| 2 | id | Đúng định dạng ULID (26 ký tự) | CMS-VAL-53 | IDは26文字で入力してください。 |
+| 3 | theme_color | Bắt buộc nhập | CMS-VAL-23 | テーマカラーを入力してください。 |
+| 4 | theme_color | Đúng định dạng mã màu HEX 6 ký tự. Pattern: ^#[0-9A-Fa-f]{6}$ | CMS-VAL-24 | テーマカラーに正しい形式を指定してください。 |
+| 5 | logo_file | Nếu có upload: Chỉ chấp nhận định dạng PNG hoặc JPEG (MIME type: image/png, image/jpeg) | CMS-VAL-42 | ロゴファイルには、画像ファイルを指定してください。 |
+| 6 | logo_file | Nếu có upload: Dung lượng tối đa 2MB (2,097,152 bytes) | CMS-VAL-32 | ロゴファイルには、2MB以下のファイルを指定してください。 |
+| 7 | login_bg_file | Nếu có upload: Chỉ chấp nhận định dạng PNG hoặc JPEG | CMS-VAL-42 | ログイン背景画像には、画像ファイルを指定してください。 |
+| 8 | login_bg_file | Nếu có upload: Dung lượng tối đa 5MB (5,242,880 bytes) | CMS-VAL-32 | ログイン背景画像には、5MB以下のファイルを指定してください。 |
+| 9 | delete_logo_flg | Nếu có: Giá trị phải là 0 hoặc 1 | CMS-VAL-41 | 選択されたロゴ削除フラグは正しくありません。 |
+| 10 | delete_login_bg_flg | Nếu có: Giá trị phải là 0 hoặc 1 | CMS-VAL-41 | 選択されたログイン背景画像削除フラグは正しくありません。 |
 
 ---
 

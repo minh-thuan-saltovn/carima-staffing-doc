@@ -292,50 +292,50 @@ Không áp dụng.
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | official_name_ja | Bắt buộc | CMS-VAL-23 | official_name_jaを入力してください。 |
-| 2 | official_name_ja | Tối đa 100 ký tự | CMS-VAL-6 | official_name_jaは100文字以内で入力してください。 |
-| 3 | official_name_kana | Bắt buộc | CMS-VAL-23 | official_name_kanaを入力してください。 |
-| 4 | official_name_kana | Chỉ chữ Katakana | INVALID_KATAKANA | Vui lòng chỉ nhập ký tự Katakana cho Tên công ty chính thức (Katakana). |
-| 5 | official_name_kana | Tối đa 200 ký tự | CMS-VAL-6 | official_name_kanaは200文字以内で入力してください。 |
-| 6 | display_name_ja | Bắt buộc | CMS-VAL-23 | display_name_jaを入力してください。 |
-| 7 | display_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | display_name_jaは24文字以内で入力してください。 |
-| 8 | official_name_en | Bắt buộc | CMS-VAL-23 | official_name_enを入力してください。 |
-| 9 | official_name_en | Ký tự Half-width | INVALID_FORMAT | Vui lòng chỉ nhập các chữ cái tiếng Anh, chữ số và ký tự half-width cho Tên công ty chính thức (tiếng Anh). |
-| 10 | official_name_en | Tối đa 100 ký tự | CMS-VAL-6 | official_name_enは100文字以内で入力してください。 |
-| 11 | display_name_en | Bắt buộc | CMS-VAL-23 | display_name_enを入力してください。 |
-| 12 | display_name_en | Ký tự Half-width | INVALID_FORMAT | Vui lòng chỉ nhập các chữ cái tiếng Anh, chữ số và ký tự half-width cho Tên công ty hiển thị (tiếng Anh). |
-| 13 | display_name_en | Tối đa 24 ký tự | CMS-VAL-6 | display_name_enは24文字以内で入力してください。 |
-| 14 | postal_code | Bắt buộc | CMS-VAL-23 | postal_codeを入力してください。 |
-| 15 | postal_code | Đúng 7 chữ số | CMS-VAL-27 | postal_codeは数値で入力してください。 |
-| 16 | address_ja | Bắt buộc | CMS-VAL-23 | address_jaを入力してください。 |
-| 17 | address_ja | Tối đa 50 ký tự | CMS-VAL-6 | address_jaは50文字以内で入力してください。 |
-| 18 | address2_ja | Tối đa 50 ký tự | CMS-VAL-6 | address2_jaは50文字以内で入力してください。 |
-| 19 | manage_permit_by_office_flg | Bắt buộc | CMS-VAL-23 | manage_permit_by_office_flgを入力してください。 |
-| 20 | manage_permit_by_office_flg | Giá trị 0 hoặc 1 | INVALID_VALUE | Cờ quản lý số giấy phép chỉ nhận giá trị 0 hoặc 1. |
-| 21 | dispatch_permit_first | Bắt buộc khi quản lý ở công ty | CMS-VAL-23 | dispatch_permit_firstを入力してください。 |
-| 22 | dispatch_permit_first | Tối đa 2 ký tự | CMS-VAL-6 | dispatch_permit_firstは2文字以内で入力してください。 |
-| 23 | dispatch_permit_last | Bắt buộc khi quản lý ở công ty | CMS-VAL-23 | dispatch_permit_lastを入力してください。 |
-| 24 | dispatch_permit_last | Đúng 6 chữ số | CMS-VAL-27 | dispatch_permit_lastは数値で入力してください。 |
-| 25 | qualified_invoice_status | Bắt buộc | CMS-VAL-23 | qualified_invoice_statusを入力してください。 |
-| 26 | qualified_invoice_status | Giá trị 0 hoặc 1 | INVALID_VALUE | Tình trạng đăng ký hóa đơn chỉ nhận giá trị 0 hoặc 1. |
-| 27 | qualified_invoice_no | Bắt buộc khi đăng ký hóa đơn | CMS-VAL-23 | qualified_invoice_noを入力してください。 |
-| 28 | qualified_invoice_no | Đúng 13 chữ số | CMS-VAL-27 | qualified_invoice_noは数値で入力してください。 |
-| 29 | contacts | Bắt buộc | CMS-VAL-23 | contactsを入力してください。 |
-| 30 | contacts | Số lượng phần tử | CMS-VAL-27 | contactsは数値で入力してください。 |
-| 31 | contacts[].seq_no | Bắt buộc | CMS-VAL-23 | contacts[].seq_noを入力してください。 |
-| 32 | contacts[].seq_no | Giá trị 1 hoặc 2 | INVALID_VALUE | Thứ tự người phụ trách chỉ nhận giá trị 1 hoặc 2. |
-| 33 | contacts[].department | Tối đa 100 ký tự | CMS-VAL-6 | contacts[].departmentは100文字以内で入力してください。 |
-| 34 | contacts[].name_ja | Bắt buộc | CMS-VAL-23 | contacts[].name_jaを入力してください。 |
-| 35 | contacts[].name_ja | Tối đa 48 ký tự | CMS-VAL-6 | contacts[].name_jaは48文字以内で入力してください。 |
-| 36 | contacts[].name_kana | Chỉ chữ Katakana | INVALID_KATAKANA | Vui lòng chỉ nhập ký tự Katakana cho Họ tên người phụ trách (Katakana). |
-| 37 | contacts[].name_kana | Tối đa 48 ký tự | CMS-VAL-6 | contacts[].name_kanaは48文字以内で入力してください。 |
-| 38 | contacts[].tel | Bắt buộc | CMS-VAL-23 | contacts[].telを入力してください。 |
-| 39 | contacts[].tel | Tối đa 15 ký tự | CMS-VAL-6 | contacts[].telは15文字以内で入力してください。 |
-| 40 | contacts[].tel | Đúng định dạng | INVALID_FORMAT | Số điện thoại liên hệ không hợp lệ. |
-| 41 | contacts[].email | Bắt buộc | CMS-VAL-23 | contacts[].emailを入力してください。 |
-| 42 | contacts[].email | Đúng định dạng | INVALID_EMAIL | Địa chỉ email không đúng định dạng. |
-| 43 | contacts[].email | Tối đa 128 ký tự | CMS-VAL-6 | contacts[].emailは128文字以内で入力してください。 |
-| 44 | contacts[].remarks | Tối đa 500 ký tự | CMS-VAL-6 | contacts[].remarksは500文字以内で入力してください。 |
+| 1 | official_name_ja | Bắt buộc | CMS-VAL-23 | 公式会社名（和文）を入力してください。 |
+| 2 | official_name_ja | Tối đa 100 ký tự | CMS-VAL-6 | 公式会社名（和文）は100文字以内で入力してください。 |
+| 3 | official_name_kana | Bắt buộc | CMS-VAL-23 | 公式会社名（カナ）を入力してください。 |
+| 4 | official_name_kana | Chỉ chữ Katakana | CMS-VAL-72 | 公式会社名（カナ）は全角カタカナで入力してください。 |
+| 5 | official_name_kana | Tối đa 200 ký tự | CMS-VAL-6 | 公式会社名（カナ）は200文字以内で入力してください。 |
+| 6 | display_name_ja | Bắt buộc | CMS-VAL-23 | 表示名（和文）を入力してください。 |
+| 7 | display_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 表示名（和文）は24文字以内で入力してください。 |
+| 8 | official_name_en | Bắt buộc | CMS-VAL-23 | 公式会社名（英語）を入力してください。 |
+| 9 | official_name_en | Ký tự Half-width | CMS-VAL-24 | 公式会社名（英語）に正しい形式を指定してください。 |
+| 10 | official_name_en | Tối đa 100 ký tự | CMS-VAL-6 | 公式会社名（英語）は100文字以内で入力してください。 |
+| 11 | display_name_en | Bắt buộc | CMS-VAL-23 | 表示名（英語）を入力してください。 |
+| 12 | display_name_en | Ký tự Half-width | CMS-VAL-24 | 表示名（英語）に正しい形式を指定してください。 |
+| 13 | display_name_en | Tối đa 24 ký tự | CMS-VAL-6 | 表示名（英語）は24文字以内で入力してください。 |
+| 14 | postal_code | Bắt buộc | CMS-VAL-23 | 郵便番号を入力してください。 |
+| 15 | postal_code | Đúng 7 chữ số | CMS-VAL-53 | 郵便番号は7文字で入力してください。 |
+| 16 | address_ja | Bắt buộc | CMS-VAL-23 | 住所（和文）を入力してください。 |
+| 17 | address_ja | Tối đa 50 ký tự | CMS-VAL-6 | 住所（和文）は50文字以内で入力してください。 |
+| 18 | address2_ja | Tối đa 50 ký tự | CMS-VAL-6 | 住所2（和文）は50文字以内で入力してください。 |
+| 19 | manage_permit_by_office_flg | Bắt buộc | CMS-VAL-23 | 許可番号管理フラグを入力してください。 |
+| 20 | manage_permit_by_office_flg | Giá trị 0 hoặc 1 | CMS-VAL-41 | 選択された許可番号管理フラグは正しくありません。 |
+| 21 | dispatch_permit_first | Bắt buộc khi quản lý ở công ty | CMS-VAL-23 | 派遣許可番号（前半）を入力してください。 |
+| 22 | dispatch_permit_first | Tối đa 2 ký tự | CMS-VAL-6 | 派遣許可番号（前半）は2文字以内で入力してください。 |
+| 23 | dispatch_permit_last | Bắt buộc khi quản lý ở công ty | CMS-VAL-23 | 派遣許可番号（後半）を入力してください。 |
+| 24 | dispatch_permit_last | Đúng 6 chữ số | CMS-VAL-53 | 派遣許可番号（後半）は6文字で入力してください。 |
+| 25 | qualified_invoice_status | Bắt buộc | CMS-VAL-23 | 適格請求書発行事業者ステータスを入力してください。 |
+| 26 | qualified_invoice_status | Giá trị 0 hoặc 1 | CMS-VAL-41 | 選択された適格請求書発行事業者ステータスは正しくありません。 |
+| 27 | qualified_invoice_no | Bắt buộc khi đăng ký hóa đơn | CMS-VAL-23 | 適格請求書発行事業者登録番号を入力してください。 |
+| 28 | qualified_invoice_no | Đúng 13 chữ số | CMS-VAL-53 | 適格請求書発行事業者登録番号は13文字で入力してください。 |
+| 29 | contacts | Bắt buộc | CMS-VAL-23 | 担当者情報を入力してください。 |
+| 30 | contacts | Tối đa 2 phần tử | CMS-VAL-33 | 担当者情報には、2以下の値を指定してください。 |
+| 31 | contacts[].seq_no | Bắt buộc | CMS-VAL-23 | 担当者連番を入力してください。 |
+| 32 | contacts[].seq_no | Giá trị 1 hoặc 2 | CMS-VAL-41 | 選択された担当者連番は正しくありません。 |
+| 33 | contacts[].department | Tối đa 100 ký tự | CMS-VAL-6 | 担当者部門は100文字以内で入力してください。 |
+| 34 | contacts[].name_ja | Bắt buộc | CMS-VAL-23 | 担当者名（和文）を入力してください。 |
+| 35 | contacts[].name_ja | Tối đa 48 ký tự | CMS-VAL-6 | 担当者名（和文）は48文字以内で入力してください。 |
+| 36 | contacts[].name_kana | Chỉ chữ Katakana | CMS-VAL-72 | 担当者名（カナ）は全角カタカナで入力してください。 |
+| 37 | contacts[].name_kana | Tối đa 48 ký tự | CMS-VAL-6 | 担当者名（カナ）は48文字以内で入力してください。 |
+| 38 | contacts[].tel | Bắt buộc | CMS-VAL-23 | 担当者電話番号を入力してください。 |
+| 39 | contacts[].tel | Tối đa 15 ký tự | CMS-VAL-6 | 担当者電話番号は15文字以内で入力してください。 |
+| 40 | contacts[].tel | Đúng định dạng | CMS-VAL-9 | 担当者電話番号は有効な電話番号を入力してください。 |
+| 41 | contacts[].email | Bắt buộc | CMS-VAL-23 | 担当者メールアドレスを入力してください。 |
+| 42 | contacts[].email | Đúng định dạng | CMS-VAL-48 | 担当者メールアドレスには、有効なメールアドレスを指定してください。 |
+| 43 | contacts[].email | Tối đa 128 ký tự | CMS-VAL-6 | 担当者メールアドレスは128文字以内で入力してください。 |
+| 44 | contacts[].remarks | Tối đa 500 ký tự | CMS-VAL-6 | 担当者備考は500文字以内で入力してください。 |
 
 ---
 

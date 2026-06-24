@@ -242,7 +242,8 @@ Không áp dụng (Request Body gửi rỗng `{}`).
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | id | Bắt buộc, đúng định dạng ULID (26 ký tự) | CMS-VAL-23 | idを入力してください。 |
+| 1 | id | Bắt buộc | CMS-VAL-23 | IDを入力してください。 |
+| 2 | id | Đúng định dạng ULID (26 ký tự) | CMS-VAL-53 | IDは26文字で入力してください。 |
 
 ---
 

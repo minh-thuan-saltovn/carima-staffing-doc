@@ -277,7 +277,7 @@ Không áp dụng cho phương thức GET.
 | --- | --- | --- | --- | --- |
 | 1 | page | Không bắt buộc, số nguyên > 0 | CMS-VAL-40 | ページは整数で指定してください。 |
 | 2 | limit | Không bắt buộc, số nguyên từ 1 đến 100 | CMS-VAL-40 | 表示件数は整数で指定してください。 |
-| 3 | keyword | Không bắt buộc, chuỗi ký tự, tối đa 100 ký tự | CMS-VAL-6 | keywordは100文字以内で入力してください。 |
+| 3 | keyword | Không bắt buộc, chuỗi ký tự, tối đa 100 ký tự | CMS-VAL-6 | 検索キーワードは100文字以内で入力してください。 |
 | 4 | status | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | ステータスは整数で指定してください。 |
 
 ---
