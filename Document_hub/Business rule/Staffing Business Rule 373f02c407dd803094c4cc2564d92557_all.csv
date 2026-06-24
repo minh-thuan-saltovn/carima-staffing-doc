@@ -1,0 +1,12 @@
+﻿Title,Column 1,Column 2
+Giới hạn vòng đời mật khẩu định kỳ,,"Mật khẩu chỉ có giá trị sử dụng tối đa 90 ngày. Hết hạn hệ thống tự động chặn quyền truy cập và yêu cầu đổi mật khẩu.  "
+Bảo mật khóa tài khoản hệ thống,,"Nếu người dùng nhập sai mật khẩu liên tiếp quá 03 lần, hệ thống tự động chuyển trạng thái tài khoản sang ""Bị khóa"" (Lock).  "
+Ràng buộc pháp lý người chịu trách nhiệm phái cử,,"Người chịu trách nhiệm bên tiếp nhận phái cử (派遣先責任者) phải là người làm việc cố định tại chính chi nhánh đó. Không được kiêm nhiệm nhiều cơ sở khác địa lý.  "
+Khóa tính năng đề xuất khi đạt chỉ tiêu tuyển dụng,,"Khi số lượng ứng viên đề xuất từ Bên phái cử bằng chỉ tiêu cần tuyển, hệ thống chuyển trạng thái sang ""Đã phản hồi đủ"" (回答済) và ẩn nút [Phản hồi].  "
+Giới hạn thời gian lưu trữ dữ liệu tạm thời,,"Bản nháp (Draft) Yêu cầu phái cử tự xóa sau 8 ngày; Yêu cầu hợp đồng tự xóa sau 3 tháng nếu không nộp.  "
+Khóa vĩnh viễn dữ liệu Hợp đồng đã Hủy xác lập,,"Hợp đồng đã chốt trạng thái ""Hủy xác lập"" (取消:確定) và đã chọn nút ẩn [済] sẽ bị đóng băng vĩnh viễn, không cho phép sử dụng chức năng khôi phục hiển thị.  "
+Tự động đóng chiến dịch tuyển dụng (Auto-Close),,"Khi hợp đồng liên quan được duyệt chốt thành công, hệ thống tự chuyển Yêu cầu phái cử sang ""Đã đóng"" (クローズ) và thông báo dừng tuyển dụng tới các bên phái cử khác.  "
+Ràng buộc quyền thu hồi hồ sơ hợp đồng,,"Trạng thái ""Đã gửi yêu cầu"" (依頼済): Bên phái cử được bấm nút [Rút về] (取下) để sửa. Trạng thái ""Đang kiểm tra"" (確認中): Khóa quyền rút, bắt buộc Bên tiếp nhận phải bấm [Trả về] (差戻し).  "
+Ràng buộc Thỏa thuận 36 (36協定) trên Thẻ chấm công,,"Hệ thống chỉ tính toán số giờ làm tăng ca (ngoài giờ) khi hợp đồng tương ứng đã hoàn thành liên kết dữ liệu Thỏa thuận 36 hợp lệ. Nếu trống, giờ làm thêm không được tích lũy.  "
+Ràng buộc điền dữ liệu theo loại hình ngày chấm công,,"Chọn ""Nghỉ phép năm"" (年休)/""Vắng mặt"" (欠勤): Khóa ô điền giờ và khóa chọn Địa điểm. Chọn ""Ngày thường"" (通常)/""Làm việc ngày nghỉ"" (休出): Bắt buộc điền giờ và chọn Địa điểm.  "
+URL Rule,,

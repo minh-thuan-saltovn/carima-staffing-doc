@@ -1,0 +1,239 @@
+﻿Message ID,Message (Tiếng Nhật),Dịch Message Tiếng Việt,Giải thích logic kiểm tra,Validation Rule,Parameter,Ví dụ nhập đúng,Ví dụ nhập sai,Status,Select,Screen list
+CMS-VAL-73,{0}は半角カタカナで入力してください。,Vui lòng nhập {0} bằng ký tự Katakana nửa dòng (half-width).,"Bắt buộc dùng Katakana nhỏ (Hankaku). Sai nếu nhập Katakana lớn (Zenkaku), chữ Alphabet hoặc Hiragana.",hankakukana,,ﾔﾏﾀﾞ ﾀﾛｳ,"ヤマダ タロウ
+Yamada
+やまだ",Not started,Dynamic Message,
+CMS-VAL-72,{0}は全角カタカナで入力してください。,Vui lòng nhập {0} bằng ký tự Katakana toàn dòng (full-width).,"Bắt buộc dùng Katakana lớn (Zenkaku). Sai nếu nhập Katakana nhỏ (Hankaku), Alphabet hoặc Hiragana.",zenkakukana,,"ABC123
+ＡＢＣ１２３",ABC-123,Not started,Dynamic Message,
+CMS-VAL-71,{0}は全角文字で入力してください。,Vui lòng nhập {0} bằng ký tự toàn dòng (full-width).,"Chấp nhận mọi ký tự miễn là dạng Toàn dòng (Zenkaku) bao gồm cả Kanji, Hiragana, Katakana lớn, số lớn. Sai nếu chứa chữ/số nửa dòng (Hankaku).",zenkaku,,"ヤマダ
+やまだ
+漢字
+１２３","Yamada
+123",Not started,Dynamic Message,
+CMS-VAL-70,{0}は{1}年までの日付で指定してください。,Vui lòng chỉ định ngày cho {0} tối đa là năm {1}.,Năm của ngày được chọn không được vượt quá mốc năm {1}.,business_date_year,,"2026/06/04
+2030/12/31","2031/01/01
+2035/05/15",Not started,Dynamic Message,
+CMS-VAL-69,{0}は{1}から{2}の間で指定してください。,Vui lòng chỉ định {0} trong khoảng từ {1} đến {2}.,"Ngày được chọn phải nằm trong đoạn [{1} , {2}]. Sai nếu nằm ngoài khoảng này.",between_date,"開始日, 終了日",2026/06/04,"2025/12/31
+2027/01/01",Not started,Dynamic Message,
+CMS-VAL-68,{0}は{1}から{2}の間で指定してください。,Vui lòng chỉ định {0} trong khoảng năm từ {1} đến {2}.,Giá trị năm (hoặc số năm) nhập vào phải nằm trong khoảng từ {1} đến {2}.,between_year,"開始日, 終了日","2024
+2026","2019
+2027",Not started,Dynamic Message,
+CMS-VAL-67,{0}は{1}から{2}の間の営業日を指定してください。,Vui lòng chỉ định ngày làm việc cho {0} trong khoảng từ {1} đến {2}.,"Ngày được chọn vừa phải nằm trong khoảng thời gian quy định, vừa phải là ngày làm việc (Business day), không được rơi vào ngày nghỉ/lễ.",business_date,"開始日, 終了日","Chọn ngày 2026/06/04
+(Thứ Năm - Ngày đi làm bình thường)","Chọn ngày 2026/06/07
+(Chủ Nhật hoặc ngày lễ lịch Nhật)",Not started,Dynamic Message,
+CMS-VAL-66,{0}を承認してください。,Vui lòng chấp thuận {0}.,"Áp dụng cho các ô Checkbox như ""Đồng ý với điều khoản"". Bắt buộc phải check vào thì mới Pass.",accepted,,Tích chọn ô (isChecked = true),Để trống ô (isChecked = false),Not started,Dynamic Message,
+CMS-VAL-65,{0}が有効なURLではありません。,{0} không phải là một đường dẫn URL hợp lệ.,Định dạng URL phải đúng quy chuẩn và Domain đó phải thực sự tồn tại/đang hoạt động (Ping được). URL chết hoặc sai định dạng sẽ Fail.,active_url,,https://www.google.com/,"https://www.domain-khong-ton-tai-abc.com
+ftp://invalid-url",Not started,Dynamic Message,
+CMS-VAL-63,{0}には、{1}より後の日付を指定してください。,Vui lòng chỉ định ngày cho {0} là ngày sau ngày {1}.,Ngày được chọn phải hoàn toàn lớn hơn mốc {1}. Nhập ngày bằng hoặc trước mốc đó sẽ Fail.,after,より後,"2026/06/05
+2026/12/31","2026/06/04
+2026/05/01",Not started,Dynamic Message,
+CMS-VAL-64,{0}には、{1}以降の日付を指定してください。,Vui lòng chỉ định ngày cho {0} là ngày từ ngày {1} trở về sau.,Ngày được chọn phải lớn hơn hoặc bằng mốc {1} (Chấp nhận ngày trùng khít với mốc so sánh).,after_or_equal,以降,"2026/06/04
+2026/06/05",2026/06/03,Not started,Dynamic Message,
+CMS-VAL-62,{0}は配列でなくてはなりません。,{0} phải là một mảng (array).,Dữ liệu truyền lên bắt buộc phải bọc trong dấu ngoặc vuông [] để định dạng thành một danh sách (Array).,array,,"[""IT"", ""HR""]
+[1, 2, 3]","""IT"" (Dạng chuỗi thuần)
+123 (Dạng số thuần)",Not started,Dynamic Message,
+CMS-VAL-61,{0}には、{1}より前の日付をご利用ください。,Vui lòng chỉ định ngày cho {0} là ngày trước ngày {1}.,Ngày được chọn phải hoàn toàn nhỏ hơn mốc {1}. Nhập ngày bằng hoặc sau mốc đó sẽ Fail.,before,より前,"2026/06/03
+1999/01/01","2026/06/04
+2026/07/01",Not started,Dynamic Message,
+CMS-VAL-60,{0}には、{1}以前の日付をご利用ください。,Vui lòng chỉ định ngày cho {0} là ngày từ ngày {1} trở về trước.,Ngày được chọn phải nhỏ hơn hoặc bằng mốc {1} (Chấp nhận ngày trùng khít với mốc so sánh).,before_or_equal,以前,"2026/06/04
+2026/06/03",2026/06/05,Not started,Dynamic Message,
+CMS-VAL-59,{0}は、{1}から{2}の間で指定してください。,Vui lòng chỉ định giá trị {0} nằm trong khoảng từ {1} đến {2}.,"Áp dụng cho số lượng hoặc giá trị số. Đầu vào bắt buộc phải nằm trong đoạn toán học [{1} , {2}] (tính cả 2 đầu mút).",between,"最小値, 最大値","10
+35
+50","9
+51",Not started,Dynamic Message,
+CMS-VAL-58,{0}は、trueかfalseを指定してください。,Vui lòng chỉ định giá trị cho {0} là true hoặc false.,Dữ liệu gửi lên phải là kiểu Boolean nguyên bản. Mọi dạng chuỗi ký tự thông thường khác đều bị từ chối.,boolean,,"true
+false","""true"" (Nếu hệ thống bắt nghiêm ngặt kiểu chữ)
+""Yes""
+2",Not started,Dynamic Message,
+CMS-VAL-57,{0}と｛1｝が一致していません。,Giá trị của {0} và {1} không trùng khớp với nhau.,"Thường dùng cho cặp trường ""Mật khẩu"" và ""Xác nhận mật khẩu"". Hệ thống sẽ so sánh chính xác từng ký tự (phân biệt hoa/thường).",confirmed,,"Trường 1: Pass123
+Trường 2: Pass123","Trường 1: Pass123
+Trường 2: pass123",Not started,Dynamic Message,
+CMS-VAL-56,{0}は{1}と同じ日付を指定してください。,Vui lòng chỉ định ngày cho {0} giống với ngày {1}.,"Hai trường ngày tháng được so sánh bắt buộc phải trùng khít nhau, không được lệch dù chỉ 1 ngày.",date_equals,同一日,2026/06/04,"2026/06/05
+2026/06/03",Not started,Dynamic Message,
+CMS-VAL-54,{0}は{1}形式で指定してください。,Vui lòng chỉ định {0} theo đúng định dạng {1}.,Chuỗi nhập vào phải khớp hoàn toàn với cấu trúc định dạng quy định (sai ký tự phân tách hoặc thiếu số 0 hàng đơn vị đều tạch).,date_format,日付形式,2026/06/04,"04-06-2026
+20260604
+2026/6/4",Not started,Dynamic Message,
+CMS-VAL-55,{0}と{1}には、異なった内容を指定してください。,Vui lòng chỉ định nội dung cho {0} và {1} khác nhau.,Hai trường dữ liệu được chỉ định tuyệt đối không được giống nhau (thường dùng cho tính năng Đổi mật khẩu).,different,相違,"Trường {0} (Mật khẩu cũ): Old@123
+Trường {1} (Mật khẩu mới): New@123","Trường {0}: Old@123
+Trường {1}: Old@123",Not started,Dynamic Message,
+CMS-VAL-53,{0}は{1}文字で入力してください。,Vui lòng nhập {0} với độ dài chính xác là {1} ký tự số.,Đầu vào phải là chuỗi số thuần túy và có độ dài chính xác bằng {1}. Chứa chữ hay ký tự đặc biệt sẽ Fail.,digits,桁数,1000001,"100001 (6 số)
+10000002 (8 số)
+100-0001 (chứa ký tự -)",Not started,Dynamic Message,
+CMS-VAL-51,{0}は{1}文字から{2}文字の間で指定してください。,Vui lòng nhập {0} có độ dài trong khoảng từ {1} đến {2} ký tự số.,"Tương tự như digits nhưng độ dài chuỗi số được phép linh hoạt nằm trong đoạn [{1}, {2}].",digits_between,"最小値, 最大値","123 (3 số)
+12345 (5 số)","12 (2 số - quá ngắn)
+123456 (6 số - quá dài)
+123a (chứa chữ)",Not started,Dynamic Message,
+CMS-VAL-52,{0}の図形サイズが正しくありません。,Kích thước hình ảnh của {0} không chính xác.,Hệ thống kiểm tra thuộc tính chiều rộng (width) và chiều cao (height) của tệp ảnh tải lên xem có đúng tỷ lệ/kích thước yêu cầu không.,dimensions,,Upload file ảnh có thông số chính xác 200x200 pixel.,Upload file ảnh kích thước 800x600 pixel.,Not started,Dynamic Message,
+CMS-VAL-50,{0}には、異なった値を指定してください。,Vui lòng chỉ định các giá trị không trùng lặp cho {0}.,Áp dụng khi người dùng nhập một danh sách (Array). Các phần tử bên trong không được phép trùng nhau.,distinct,,"Đăng ký ca làm việc:
+[""Thứ 2"", ""Thứ 3"", ""Thứ 4""]","Đăng ký ca làm việc:
+[""Thứ 2"", ""Thứ 2"", ""Thứ 4""]",Not started,Dynamic Message,
+CMS-VAL-48,{0}には、有効なメールアドレスを指定してください。,Vui lòng nhập định dạng email hợp lệ cho {0}.,"Chuỗi bắt buộc phải tuân theo cấu trúc chuẩn của một địa chỉ Email (phải có @, phần domain và phần mở rộng tên miền hợp lệ).",email,,"staff@company.co.jp
+test.dev@gmail.com","staff@company
+staff.com
+staff@gmail.",Not started,Dynamic Message,
+CMS-VAL-49,{0}には、{1}のどれかで終わる値を指定してください。,Giá trị của {0} phải kết thúc bằng một trong các giá trị: {1}.,Chuỗi ký tự nhập vào bắt buộc phải kết thúc bằng một trong các hậu tố đã được quy định trong danh sách {1}.,ends_with,値,"test@company.co.jp
+mysite.com","test@company.net
+mysite.org",Not started,Dynamic Message,
+CMS-VAL-46,選択された:{0}は正しくありません。,Mục {0} được chọn không hợp lệ (không tồn tại trong hệ thống).,Hệ thống sẽ chọc vào Database (DB) để check. Nếu ID/Mã gửi lên không tìm thấy dòng nào tương ứng trong DB thì sẽ báo lỗi.,exists,,Chọn Mã phòng ban: DEPT_01,Gửi Mã phòng ban: DEPT_99,Not started,Dynamic Message,
+CMS-VAL-47,{0}にファイルをアップロードしてください。,Vui lòng tải một tệp lên cho {0}.,Kiểm tra xem người dùng đã thực hiện thao tác đính kèm tệp tin (upload tệp) lên trường dữ liệu này hay chưa.,file,,Chọn và tải lên một file hợp lệ (Ví dụ: avatar.jpg hoặc cv.pdf).,Không chọn file nào hết nhưng vẫn bấm nút Upload / Submit.,Not started,Dynamic Message,
+CMS-VAL-45,{0}に値を指定してください。,Vui lòng nhập hoặc chọn giá trị cho {0}.,"Khác với required (bắt buộc phải có mặt key), filled quy định: Nếu trường này có xuất hiện trong dữ liệu gửi lên, thì giá trị của nó không được phép để rỗng ("""" hoặc null).",filled,,"Truyền dữ liệu: {""note"": ""Đã check""}","Truyền dữ liệu rỗng: {""note"": """"}",Not started,Dynamic Message,
+CMS-VAL-44,{0}は{1}より大きい値を指定してください。,Vui lòng chỉ định giá trị {0} lớn hơn {1}.,Giá trị nhập vào phải hoàn toàn lớn hơn mốc so sánh {1} (Không chấp nhận dấu bằng).,gt,より大きい,"1
+5","0 (Bằng mốc so sánh là SAI)
+-2",Not started,Dynamic Message,
+CMS-VAL-43,{0}には、{1}以上の値を指定してください。,Vui lòng chỉ định giá trị {0} từ {1} trở lên.,Giá trị nhập vào phải lớn hơn hoặc bằng mốc so sánh {1} (Chấp nhận trường hợp bằng khít với mốc).,gte,以上,"1000 (Bằng mốc so sánh là ĐÚNG)
+1500",999,Not started,Dynamic Message,
+CMS-VAL-42,{0}には、画像ファイルを指定してください。,Vui lòng chỉ định một tệp hình ảnh cho {0}.,Hệ thống kiểm tra định dạng tệp tải lên bắt buộc phải là tệp hình ảnh thông thường.,image,,"Tải lên các tệp có đuôi: avatar.jpg, logo.png, banner.gif, photo.jpeg","Tải lên các tệp: document.pdf, data.xlsx, archive.zip",Not started,Dynamic Message,
+CMS-VAL-41,選択された{0}は正しくありません。,{0} được chọn không hợp lệ.,Giá trị được chọn bắt buộc phải nằm trong danh sách các tùy chọn cố định được định nghĩa trên hệ thống.,in,,Giá trị truyền lên trùng khớp với các tùy chọn có sẵn (Ví dụ combobox Giới tính chọn 1 cho Nam hoặc 2 cho Nữ).,Người dùng cố tình truyền giá trị 3 thông qua API trong khi hệ thống chỉ cấu hình 1 và 2.,Not started,Dynamic Message,
+CMS-VAL-39,{0}には、{1}の値を指定してください。,Giá trị của {0} phải thuộc danh sách các giá trị của {1}.,Giá trị của trường được chỉ định bắt buộc phải xuất hiện như một phần tử nằm bên trong mảng {1}.,in_array,一致,"Trường dữ liệu cần kiểm tra có giá trị là ""Phái cử"" và mảng đối chiếu {1} là [""Phái cử"", ""Chính thức"", ""Thời vụ""].","Trường dữ liệu kiểm tra là ""Thực tập sinh"" (Không có tên trong mảng đối chiếu phía trên).",Not started,Dynamic Message,
+CMS-VAL-40,{0}は整数で指定してください。,Vui lòng chỉ định {0} là một số nguyên.,Đầu vào bắt buộc phải là một số nguyên (không có phần thập phân).,integer,,"25
+0
+-10","25.5
+""25"" (Nếu hệ thống kiểm tra nghiêm ngặt cả kiểu dữ liệu gốc Strict Type)",Not started,Dynamic Message,
+CMS-VAL-38,{0}には、有効なIPアドレスを指定してください。,Vui lòng nhập địa chỉ IP hợp lệ cho {0}.,Định dạng chuỗi nhập vào phải tuân thủ đúng cấu trúc mạng của hoặc địa chỉ IPv4 hoặc địa chỉ IPv6.,ip,,"192.168.1.1 (IPv4)
+2001:db8::1 (IPv6)","192.168.1.300
+2001:db8::xyz",Not started,Dynamic Message,
+CMS-VAL-37,{0}には、有効なIPv4アドレスを指定してください。,Vui lòng nhập địa chỉ IPv4 hợp lệ cho {0}.,"Hệ thống chỉ chấp nhận cấu trúc địa chỉ IPv4 chuẩn (gồm 4 nhóm số cách nhau bằng dấu chấm ., mỗi nhóm từ 0 đến 255).",ipv4,,"10.0.0.1
+172.16.254.1","10.0.0.abc
+2001:db8::1 (Địa chỉ IPv6 sẽ bị loại bỏ ở đây)",Not started,Dynamic Message,
+CMS-VAL-36,{0}には、有効なIPv6アドレスを指定してください。,Vui lòng nhập địa chỉ IPv6 hợp lệ cho {0}.,Hệ thống chỉ chấp nhận cấu trúc địa chỉ IPv6 chuẩn (8 nhóm số hệ thập lục phân cách nhau bởi dấu hai chấm :).,ipv6,,"3ffe:1900:4545:3:200:f8ff:fe21:67cf
+::1 (Vòng lặp localhost v6)",192.168.1.1 (Địa chỉ IPv4 sẽ bị loại bỏ ở đây),Not started,Dynamic Message,
+CMS-VAL-35,{0}には、有効なJSON文字列を指定してください。,Vui lòng nhập chuỗi JSON hợp lệ cho {0}.,Chuỗi văn bản nhập vào phải phân tách cú pháp (parse) thành công theo quy chuẩn JSON toàn cầu.,json,,"{""id"": 101, ""role"": ""staff""}
+[] (Mảng rỗng vẫn là JSON hợp lệ)","{'id': 101} (Sai vì dùng nháy đơn)
+{id: 101} (Sai vì key thiếu nháy kép)",Not started,Dynamic Message,
+CMS-VAL-34,{0}には、{1}より小さな値を指定してください。,Vui lòng chỉ định giá trị {0} nhỏ hơn {1}.,Giá trị nhập vào phải hoàn toàn nhỏ hơn mốc so sánh {1} (Không chấp nhận dấu bằng).,lt,より小さい,"7.5
+5","8 (Bằng mốc so sánh là SAI)
+9",Not started,Dynamic Message,
+CMS-VAL-33,{0}には、{1}以下の値を指定してください。,Vui lòng chỉ định giá trị {0} từ {1} trở xuống.,Giá trị nhập vào phải nhỏ hơn hoặc bằng mốc so sánh {1} (Chấp nhận trường hợp bằng khít với mốc).,lte,以下,"24 (Bằng mốc so sánh là ĐÚNG)
+20","24.1
+25",Not started,Dynamic Message,
+CMS-VAL-32,{0}には、{1}以下の数字を指定してください。,Vui lòng chỉ định giá trị số (hoặc độ dài) cho {0} từ {1} trở xuống.,"Tùy thuộc vào kiểu dữ liệu: Nếu dữ liệu là số thì kiểm tra giá trị số, nếu dữ liệu là chuỗi văn bản hoặc tệp tin thì kiểm tra độ dài ký tự hoặc dung lượng tệp không vượt quá mốc {1}.",max,以下,"Nếu là số: Nhập 95 (≥100).
+Nếu là chuỗi văn bản: Nhập đoạn văn có 50 ký tự.","Nếu là số: Nhập 105 (<100).
+Nếu là chuỗi văn bản: Nhập đoạn văn có 120 ký tự.",Not started,Dynamic Message,
+CMS-VAL-31,{0}には、{1}タイプのファイルを指定してください。,Vui lòng chỉ định tệp cho {0} thuộc một trong các định dạng sau: {1}.,Hệ thống kiểm tra phần mở rộng (đuôi file) của tệp tin xem có trùng khớp với danh sách đuôi cho phép trong cấu hình {1} hay không.,mimes,拡張子,"Tải lên tệp: report.pdf, contract.docx","Tải lên tệp: image.png, script.sh",Not started,Dynamic Message,
+CMS-VAL-30,{0}には、{1}タイプのファイルを指定してください。,Vui lòng chỉ định tệp cho {0} thuộc kiểu MIME tương ứng: {1}.,Hệ thống kiểm tra cấu trúc nội dung sâu bên trong tệp (MIME type) để chặn việc người dùng cố tình đổi đuôi file (file fake) để qua mặt hệ thống.,mimetypes,MIMEタイプ,Tải lên file .csv thật có nội dung văn bản phân tách bằng dấu phẩy.,Đổi đuôi một file ảnh photo.png thành photo.csv rồi upload lên.,Not started,Dynamic Message,
+CMS-VAL-29,{0}には、{1}以上の数字を指定してください。,Vui lòng chỉ định giá trị số (hoặc độ dài) cho {0} từ {1} trở lên.,Tùy vào kiểu dữ liệu: Kiểm tra giá trị số hoặc độ dài ký tự của chuỗi bắt buộc phải lớn hơn hoặc bằng mốc {1}.,min,以上,"Nếu là số: Nhập 18 hoặc 25 (≥18).
+Nếu là chuỗi: Nhập text có 20 ký tự.","Nếu là số: Nhập 17 (< 18).
+Nếu là chuỗi: Nhập text có 15 ký tự.",Not started,Dynamic Message,
+CMS-VAL-28,選択された:{0}は正しくありません。,Mục {0} được chọn không hợp lệ.,Giá trị nhập vào tuyệt đối không được phép nằm trong danh sách đen bị cấm của hệ thống.,not_in,,"Nhập: staff_user, carima_member","Nhập: Admin, Superuser",Not started,Dynamic Message,
+CMS-VAL-26,{0}の形式が正しくありません。,Định dạng của {0} không chính xác.,Dữ liệu đầu vào không được phép khớp (trùng) với biểu thức chính quy (Regex) bị cấm.,not_regex,正規表現にマッチしない,Nhập: Carima2026,Nhập: Carima@2026,Not started,Dynamic Message,
+CMS-VAL-27,{0}は数値で入力してください。,Vui lòng nhập {0} dưới dạng một giá trị số.,"Đầu vào phải là ký tự số nửa dòng (Hankaku), có thể có dấu âm hoặc dấu thập phân. Không nhận chữ cái hoặc số dạng Toàn dòng.",numeric,,"12345
+-99.5","123a5
+１２３ (Số Zenkaku)",Not started,Dynamic Message,
+CMS-VAL-25,{0}が存在していません。,Trường dữ liệu {0} phải xuất hiện trong yêu cầu (request).,"Khác với required (check giá trị), present chỉ kiểm tra sự tồn tại của Khóa (Key) trong gói tin gửi lên, bất kể value của nó là gì.",present,,"Payload gửi lên API:
+{""id"": 1, ""status"": ""active""}
+{""id"": 1, ""status"": """"}","Payload gửi lên API:
+{""id"": 1} (Mất tích hẳn trường status)",Not started,Dynamic Message,
+CMS-VAL-24,{0}に正しい形式を指定してください。,Vui lòng nhập {0} đúng định dạng yêu cầu.,"Trường bắt buộc phải có giá trị thực tế, không được bỏ trống hoặc truyền giá trị rỗng.",regex,正規表現にマッチ,100-0001,"1000001
+100-001",Not started,Dynamic Message,
+CMS-VAL-23,{0}を入力してください。,Vui lòng không để trống trường {0}.,"Trường bắt buộc phải có giá trị thực tế, không được bỏ trống hoặc truyền giá trị rỗng.",required,,"Nguyễn Văn A
+0 (Nếu số 0 là giá trị hợp lệ)",""""" (Chuỗi rỗng)
+null
+[] (Mảng rỗng)",Not started,Dynamic Message,
+CMS-VAL-22,現在の入力では:{0}は必須です。,"Với các dữ liệu vừa nhập hiện tại, trường {0} là bắt buộc.",Trường chỉ định sẽ trở thành bắt buộc (required) chỉ khi một trường khác thỏa mãn điều kiện đưa ra.,required_if,,"(Ví dụ: Nếu kết hôn thì BẮT BUỘC nhập tên vợ/chồng)
+
+Tình trạng: Đã kết hôn → Nhập tên vợ: Mari
+Tình trạng: Độc thân → Bỏ trống tên vợ.",Tình trạng: Đã kết hôn → Để trống trường tên vợ.,Not started,Dynamic Message,
+CMS-VAL-20,valuesを指定する場合は、:{0}も指定してください。,"Khi chỉ định các giá trị (values), bắt buộc phải điền kèm trường {0}.","Nếu bất kỳ trường nào trong danh sách đi kèm có dữ liệu, thì trường hiện tại lập tức biến thành trường bắt buộc.",required_with,空でない,"(Ví dụ: Nếu nhập số ĐT bàn thì BẮT BUỘC điền Mã vùng)
+
+Nhập ĐT bàn → Nhập Mã vùng: 024
+Bỏ trống ĐT bàn →Bỏ trống Mã vùng.",Nhập ĐT bàn→ Để trống trường Mã vùng.,Not started,Dynamic Message,
+CMS-VAL-19,valuesを指定する場合は、:{0}も指定してください。,"Khi chỉ định tất cả các giá trị (values), bắt buộc phải điền kèm trường {0}. 
+
+","Chỉ khi TẤT CẢ các trường trong danh sách đi kèm đồng thời có dữ liệu, trường hiện tại mới trở thành bắt buộc.",required_with_all,空でない,"(Ví dụ: Nếu điền đầy đủ cả Tỉnh và Quận thì BẮT BUỘC điền Số nhà)
+
+Điền đủ cả Tỉnh + Quận → Nhập số nhà: 123
+Chỉ điền mỗi Tỉnh (Quận trống) → Bỏ trống số nhà.",Điền đầy đủ cả Tỉnh và Quận →Để trống trường Số nhà.,Not started,Dynamic Message,
+CMS-VAL-18,valuesを指定しない場合は、:{0}を指定してください。,"Khi không chỉ định các giá trị (values), bắt buộc phải điền trường {0}.","Nếu một trường bất kỳ trong danh sách đi kèm bị bỏ trống, trường hiện tại bắt buộc phải có dữ liệu để thay thế.",required_without,空,"(Ví dụ: Nếu không điền ĐT bàn thì BẮT BUỘC điền Số di động)
+
+Bỏ trống ĐT bàn →Nhập di động: 090...
+Có điền ĐT bàn → Di động được phép bỏ trống.",Bỏ trống ĐT bàn →Để trống luôn cả trường Số di động.,Not started,Dynamic Message,
+CMS-VAL-17,valuesのどれも指定しない場合は、:{0}を指定してください。,"Khi không chỉ định bất kỳ giá trị nào (values), bắt buộc phải điền trường {0}.","Chỉ khi TẤT CẢ các trường trong danh sách đi kèm đều bị bỏ trống, trường hiện tại mới kích hoạt trạng thái bắt buộc nhập.",required_without_all,空,"(Ví dụ: Nếu cả ĐT bàn và Số di động đều không điền thì BẮT BUỘC phải điền Email)
+
+Bỏ trống cả ĐT bàn + Di động → Nhập Email: a@b.com",Bỏ trống cả ĐT bàn và Di động → Để trống luôn cả trường Email.,Not started,Dynamic Message,
+CMS-VAL-16,{0}と{1}には、同じ値を指定してください。,Vui lòng chỉ định cùng một giá trị cho {0} và {1}.,Hai trường được chỉ định phải giống hệt nhau từng ký tự (phân biệt chữ hoa/chữ thường).,same,一致,"Mật khẩu mới: Carima@2026
+Nhập lại mật khẩu: Carima@2026","Mật khẩu mới: Carima@2026
+Nhập lại mật khẩu: carima@2026",Not started,Dynamic Message,
+CMS-VAL-15,{0}は{1}を指定してください。,Kích thước (hoặc giá trị) của {0} phải chính xác là {1}.,Giá trị (đối với kiểu số) hoặc độ dài ký tự (đối với kiểu chuỗi) phải bằng khít với con số {1}.,size,整数値,"(Ví dụ mốc {1} = 4)
+
+Nếu là chuỗi: Nhập Tokyo (4 chữ).
+Nếu là số: Nhập đúng giá trị số 4.","Nếu là chuỗi: Nhập Japan (5 chữ).
+Nếu là số: Nhập giá trị số 5.",Not started,Dynamic Message,
+CMS-VAL-13,{0}には、{1}のどれかで始まる値を指定してください。,Giá trị của {0} phải được bắt đầu bằng một trong các giá trị: {1}.,Chuỗi ký tự nhập vào bắt buộc phải có tiền tố (bắt đầu bằng) một trong các từ khóa quy định trong danh sách {1}.,starts_with,はじまる値,"(Ví dụ {1} = STF, CMS)
+
+STF_0019
+CMS-VAL-01","EMP_0019
+VAL-01",Not started,Dynamic Message,
+CMS-VAL-14,{0}は文字列を指定してください。,Vui lòng nhập {0} dưới dạng chuỗi ký tự (string).,Kiểu dữ liệu truyền lên hệ thống phải là kiểu Chuỗi (String). Báo lỗi nếu truyền sai kiểu dữ liệu (Data type mismatch).,string,,"""Nguyễn Văn A""
+""12345"" (Dạng chuỗi số)","12345 (Dạng số nguyên gốc)
+true (Dạng Boolean gốc)",Not started,Dynamic Message,
+CMS-VAL-11,{0}の値は既に存在しています。,Giá trị của {0} đã tồn tại trong hệ thống (không được trùng lặp).,"Kiểm tra toàn bộ cơ sở dữ liệu (DB), giá trị nhập vào không được phép trùng với bất kỳ bản ghi nào đã tồn tại trước đó.",unique,,"Nhập Email: new_staff@gmail.com
+(Email này chưa từng đăng ký)","Nhập Email: old_staff@gmail.com
+(Email này đã có trong hệ thống)",Not started,Dynamic Message,
+CMS-VAL-10,{0}に正しい形式を指定してください。,Vui lòng nhập định dạng đường dẫn URL chính xác cho {0}.,"Kiểm tra định dạng chuỗi phải chứa đầy đủ thành phần của một URL chuẩn (giao thức http/https, tên miền hợp lệ).",url,,"https://carima.co.jp
+http://localhost:8080","www.carima.co.jp
+https://carima",Not started,Dynamic Message,
+CMS-VAL-9,{0}は有効な電話番号を入力してください。,Vui lòng nhập số điện thoại hợp lệ cho {0}.,"Chuỗi phải tuân theo định dạng chuẩn của số điện thoại (chỉ bao gồm số, dấu gạch ngang -, có độ dài từ 9-11 số).",tel,,"09012345678
+03-1234-5678","090-AAAA-123
+1234 (quá ngắn)",Not started,Dynamic Message,
+CMS-VAL-8,{0}は英大文字と英小文字、数字・記号を含む10文字以上のパスワードを入力してください。,"Vui lòng nhập mật khẩu {0} từ 10 ký tự trở lên, bao gồm chữ hoa, chữ thường, chữ số và ký tự đặc biệt","Mật khẩu phải đạt độ dài tối thiểu là 10 và phải chứa đủ cả 4 nhóm ký tự: Chữ hoa, chữ thường, số, và ký tự đặc biệt (@, #, $,...).",password,,"Carima@2026 (Độ dài 11 ký tự, đủ 4 nhóm)","carima@2026 (Thiếu chữ hoa)
+Carima2026 (Thiếu ký tự đặc biệt)
+C@123 (Chỉ có 5 ký tự)",Not started,Dynamic Message,
+CMS-VAL-7,{0}は英小文字、数字を含む6文字以上のパスワードを入力してください。,"Vui lòng nhập mật khẩu {0} từ 6 ký tự trở lên, bao gồm chữ thường và chữ số",Mật khẩu phải đạt độ dài tối thiểu là 6 và phải chứa ít nhất 2 nhóm ký tự: Chữ cái viết thường và chữ số.,password,,"staff123 (Độ dài 8 ký tự, đủ 2 nhóm)","stafffff (Thiếu chữ số)
+123456 (Thiếu chữ thường)
+st12 (Chỉ có 4 ký tự)",Not started,Dynamic Message,
+CMS-VAL-6,{0}は{1}文字以内で入力してください。,Vui lòng nhập {0} trong vòng {1} ký tự trở xuống.,Tổng độ dài chuỗi ký tự không được vượt quá giới hạn tối đa của con số {1}.,length,,"(Ví dụ mốc {1} = 5)
+Hello (5 ký tự ≤ 5)",Hello! (6 ký tự > 5),Not started,Dynamic Message,
+CMS-VAL-5,{0}は小数点を含む{1}文字以内で入力してください。,Vui lòng nhập {0} trong vòng {1} ký tự tính cả dấu thập phân.,"Kiểm tra tổng độ dài chuỗi số, hệ thống sẽ đếm tất cả các ký tự số bao gồm cả dấu chấm thập phân ..",length_dec_point,桁数,"(Ví dụ mốc {1} = 6)
+
+123.45 (Độ dài chuỗi bằng 6)",1234.56 (Độ dài chuỗi bằng 7),Not started,Dynamic Message,
+CMS-VAL-4,{0}は小数点第{1}位までの半角数字で入力してください。,Vui lòng nhập {0} dưới dạng số nửa dòng (half-width) và tối đa là {1} chữ số sau dấu phẩy.,Bắt buộc phải là số nửa dòng (Hankaku) và số lượng chữ số ở phần thập phân (sau dấu chấm .) không được vượt quá {1}.,decimal_point,小数点以下桁数,"(Ví dụ {1} = 2)
+
+10.5
+99.75 (Hợp lệ)","10.123 (Có 3 chữ số sau dấu chấm)
+１０.５ (Số Toàn dòng - Zenkaku)",Not started,Dynamic Message,
+CMS-VAL-3,{0}は全角または半角 of 英数字で入力してください。,Vui lòng nhập {0} bằng các ký tự chữ cái và chữ số dạng toàn dòng hoặc nửa dòng.,"Hệ thống chỉ chấp nhận chữ cái (A-Z, a-z) và số (0-9) ở cả hai định dạng Zenkaku/Hankaku. Báo lỗi nếu chứa ký tự đặc biệt hoặc dấu cách.",alpha_num_zenhankaku,,"ABC123
+ＡＢＣ１２３","ABC_123
+ABC-123",Not started,Dynamic Message,
+CMS-VAL-2,{0}は全角文字、半角スペースで入力してください。,Vui lòng nhập {0} bằng ký tự toàn dòng (full-width) hoặc khoảng trắng nửa dòng (half-width space).,Chữ phải là Toàn dòng (Zenkaku) nhưng dấu cách phân tách bắt buộc phải là dấu cách nhỏ (Half-width space).,zenkaku_halfsp,,"ヤマダ タロウ
+漢字 タロウ","ヤマダ タロウ (Khoảng trắng Toàn dòng)
+ﾔﾏﾀﾞ ﾀﾛｳ (Chữ Katakana nhỏ - Hankaku)",Not started,Dynamic Message,
+CMS-VAL-74,電話番号（自宅または携帯）を入力してください。,Vui lòng nhập số điện thoại (số nhà hoặc số di động).,"Hệ thống kiểm tra chuỗi nhập vào bắt buộc phải là ký tự số nửa dòng (Half-width), cho phép hoặc không cho phép dấu gạch ngang - tùy cấu hình Regex, và phải nằm trong độ dài tiêu chuẩn của số điện thoại (thường từ 10 đến 11 chữ số).",tel_home_mobile,,"Định dạng Nhật:
+09012345678 (Di động)
+03-1234-5678 (Bàn)
+Định dạng Việt:
+0901234567
+02412345678","090-ABCD-1234
+12345 (Quá ngắn)
+09012345678901 (Quá dài)
+０９０１２３４５６７８",Not started,Static message,
+CMS-VAL-103,1件以上選択してください。,Vui lòng chọn ít nhất 1 dữ liệu.,Kiểm tra trước khi thực hiện Bulk Action hoặc Action yêu cầu chọn dữ liệu.,row_selection_required,,Chọn ≥ 1 record,Không chọn record nào,Not started,Static message,
+CMS-VAL-106,データが存在しません。,Dữ liệu không tồn tại.,Kiểm tra Record trước khi thực hiện Detail/Edit/Delete/Action.,record_not_found,,Record tồn tại,Record đã bị xóa hoặc không tồn tại,Not started,Static message,
+CMS-VAL-105,データが更新されています。再読み込みしてください。,Dữ liệu đã được cập nhật. Vui lòng tải lại màn hình.,Kiểm tra Optimistic Lock khi Update/Delete/Approve.,optimistic_lock_error,,Version hợp lệ,Version không khớp,Not started,Static message,
+CMS-VAL-104,このステータスでは実行できません。,Không thể thực hiện thao tác với trạng thái hiện tại.,Kiểm tra Status trước khi thực hiện Action nghiệp vụ.,action_not_allowed,,Status hợp lệ,Status không hợp lệ,Not started,Static message,
+CMS-VAL-93,不正な要求です。入力データを確認してください。,Yêu cầu không hợp lệ. Vui lòng kiểm tra lại dữ liệu nhập vào.,"Dữ liệu gửi từ Client lên Server bị sai cú pháp, sai định dạng JSON, hoặc thiếu các tham số bắt buộc mà tầng API Validator không thông qua được.",400_error,Bad Request,,,Not started,System Error Messages,
+CMS-VAL-94,セッションの有効期限が切れました。再度ログインしてください。,Phiên làm việc đã hết hạn. Vui lòng đăng nhập lại.,"Hệ thống không xác thực được danh tính của người gửi yêu cầu (Thiếu Token, Token sai, hoặc Session/Token đã hết hạn).",401_error,Unauthorized,,,Not started,System Error Messages,
+CMS-VAL-95,この機能・リソースへのアクセス権限がありません。,Bạn không có quyền truy cập vào chức năng/tài nguyên này.,"Người dùng đã Login thành công, nhưng kiểm tra phân quyền (RBAC) thì tài khoản này không có quyền thực hiện hành động hoặc xem dữ liệu đó.",403_error,Forbidden,,,Not started,System Error Messages,
+CMS-VAL-96,お探しのページまたはデータが見つかりません。,Không tìm thấy trang hoặc dữ liệu mà bạn đang tìm kiếm.,"Server không tìm thấy URL đường dẫn được yêu cầu, hoặc dữ liệu cụ thể (bản ghi trong DB, file upload) đã bị xóa hoặc không tồn tại.",404_error,Not Found,,,Not started,System Error Messages,
+CMS-VAL-97,許可されていないリクエスト方法です。,Phương thức gửi yêu cầu này không được hệ thống cho phép.,"Đường dẫn URL thì đúng, nhưng phương thức HTTP (GET, POST, PUT, DELETE...) được sử dụng lại không khớp với cấu hình Routing của API.",405_error,Method Not Allowed,,,Not started,System Error Messages,
+CMS-VAL-98,入力内容が業務ルールに違反しています。,Nội dung nhập vào đã vi phạm quy tắc nghiệp vụ/logic của hệ thống.,"Lỗi Validation Logic Nghiệp Vụ ( 相関チェック ). Cú pháp dữ liệu gửi lên đúng, nhưng nội dung dữ liệu bên trong vi phạm ràng buộc nghiệp vụ.",422_error,Unprocessable Entity,,,Not started,System Error Messages,
+CMS-VAL-100,リクエスト回数が多すぎます。しばらく時間を置いてから再度お試しください。,Số lượng gửi yêu cầu quá nhiều. Vui lòng đợi một lát rồi thử lại.,Hệ thống kích hoạt tính năng Giới hạn lưu lượng (Rate Limiting). Số lượng request từ 1 IP hoặc 1 tài khoản vượt quá hạn mức trong thời gian ngắn.,429_error,Too Many Requests,,,Not started,System Error Messages,
+CMS-VAL-99,システムエラーが発生しました。管理者へお問い合わせください。,Đã xảy ra lỗi hệ thống. Vui lòng liên hệ với người quản trị.,Lỗi hệ thống phía Backend. Server gặp phải một ngoại lệ chưa được xử lý (Unhandled Exception) trong quá trình chạy code khiến luồng xử lý bị gãy ngang.,500_error,Internal Server Error,,,Not started,System Error Messages,
+CMS-VAL-101,現在システムはメンテナンス中か、または一時的に混雑しています。,Hệ thống hiện đang bảo trì hoặc đang bị quá tải tạm thời.,Server hiện tại không thể xử lý yêu cầu vì đang ở trạng thái tạm thời ngưng hoạt động (Bảo trì định kỳ) hoặc do CPU/RAM của máy chủ bị đẩy lên 100%.,503_error,Service Unavailable,,,Not started,System Error Messages,
+CMS-VAL-102,サーバーからの応答が制限時間を超えました。再度お試しください。,Đã quá thời gian chờ phản hồi từ máy chủ. Vui lòng thử lại.,"Máy chủ trung gian (Nginx, Load Balancer, Cloudflare...) không nhận được phản hồi kịp thời từ máy chủ ứng dụng phía sau (App Server) trong thời gian quy định.",504_error,Gateway Timeout,,,Not started,System Error Messages,
+CMS-VAL-76,{Field name}が正しくありません。,{Field name} không chính xác.,"Quy tắc kiểm tra định dạng tổng quát của hệ thống dành cho các trường dữ liệu mang thuật toán kiểm tra riêng (Ví dụ: Mã số My Number của Nhật, Số thẻ bảo hiểm).",incorrect_format,,Nhập đúng cấu trúc logic của trường dữ liệu đặc biệt.,Nhập chuỗi bừa bãi phá vỡ thuật toán check format của hệ thống.,Not started,Dynamic Message,
+CMS-VAL-75,メールアドレスが有効な形式ではありません。,Định dạng địa chỉ email không hợp lệ.,Hệ thống kiểm tra cấu trúc Regex của Email ngay trên giao diện (Client-side) trước khi gửi đi.,email_invalid_format,,,,Not started,Processing,
+CMS-VAL-77,メールアドレスが正しくありません。,Địa chỉ email không chính xác.,"Khác với lỗi định dạng, lỗi này hiển thị sau khi Server kiểm tra tính đúng đắn/sự tồn tại của email trong nghiệp vụ (Ví dụ: Đăng nhập sai, tìm không thấy tài khoản).",email_incorrect,,,,Not started,Processing,
+CMS-VAL-78,検索条件を指定してください。,Vui lòng chỉ định điều kiện tìm kiếm.,Áp dụng cho các màn hình danh sách lớn yêu cầu bắt buộc phải chọn ít nhất một điều kiện lọc trước khi query để tránh quá tải hệ thống.,search_condition_required,,,,Not started,Processing,
+CMS-VAL-79,{Screen name}を更新しました。,Đã cập nhật {Screen name}.,Thông báo Toast/Popup dạng Thành công (Success) sau khi người dùng thực hiện lưu chỉnh sửa một màn hình cấu hình cụ thể.,screen_updated,,,,Not started,Processing,
+CMS-VAL-85,{Target}を更新します。よろしいですか。,Sẽ tiến hành cập nhật {Target}. Bạn có chắc chắn không?,Hộp thoại xác nhận (Confirmation Dialog) nhằm ngăn người dùng vô tình bấm nhầm làm thay đổi dữ liệu quan trọng.,confirm_update,,,,Not started,Processing,
+CMS-VAL-84,エラーが発生しました。,Đã xảy ra lỗi.,"Lỗi chung (Generic Error) dùng làm ""tấm lưới"" bọc lại các trường hợp ngoại lệ bất ngờ trên giao diện để hệ thống không bị crash trắng màn hình.",error_occurred,,,,Not started,Processing,
+CMS-VAL-83,一時保存しました。,Đã lưu tạm thời thành công.,"Hiển thị khi người dùng lưu dữ liệu dưới dạng Bản nháp (Draft), dữ liệu được ghi nhận nhưng chưa kích hoạt luồng nghiệp vụ tiếp theo.",temporary_saved,,,,Not started,Processing,
+CMS-VAL-82,登録しました。,Đã đăng ký thành công.,Chỉ hiển thị khi thực hiện hành động Tạo mới dữ liệu (Insert/Create) thành công vào hệ thống.,registered,,,,Not started,Processing,
+CMS-VAL-81,選択した{Target}のCSVを一括出力します。よろしいですか。,Sẽ xuất hàng loạt file CSV cho {Target} đã chọn. Bạn có chắc chắn không?,Hộp thoại xác nhận trước khi hệ thống thực hiện hành động export dữ liệu hàng loạt (Bulk action).,confirm_csv_export,,,,Not started,Processing,
+CMS-VAL-80,CSVファイルを出力しました。,Đã xuất file CSV thành công.,Thông báo Toast báo hiệu quá trình render dữ liệu và tạo file vật lý thành công.,csv_exported,,,,Not started,Processing,
+CMS-VAL-87,システムエラーが発生しました。,Đã xảy ra lỗi hệ thống.,Thông báo lỗi nghiêm trọng phía Backend (System Exception). Tuyệt đối không dùng lỗi này cho các lỗi do người dùng nhập sai dữ liệu.,system_error,,,,Not started,Processing,
+CMS-VAL-86,承認します。よろしいですか。,Bạn có chắc chắn muốn phê duyệt không?,Xác nhận hành động duyệt dữ liệu trong Luồng phê duyệt (Approval Flow).,confirm_approval,,,,Not started,Processing,
+CMS-VAL-88,承認を依頼しました。,Đã gửi yêu cầu phê duyệt.,Thông báo thành công sau khi dữ liệu được chuyển giao trạng thái sang cho cấp trên phê duyệt.,approval_requested,,,,Not started,Processing,
+CMS-VAL-89,否認します。よろしいですか。,Bạn có chắc chắn muốn từ chối (bác bỏ) không?,Xác nhận hành động hủy/bác bỏ dữ liệu trong luồng phê duyệt (Thường đi kèm ô bắt buộc nhập Lý do từ chối).,confirm_rejection,,,,Not started,Processing,
+CMS-VAL-90,否認しました。,Đã từ chối (bác bỏ).,Thông báo trạng thái cuối cùng sau khi hành động Từ chối đơn được thực thi thành công.,rejected,,,,Not started,Processing,
+CMS-VAL-92,,,,,,,,Not started,,
+CMS-VAL-91,,,,,,,,Not started,,
