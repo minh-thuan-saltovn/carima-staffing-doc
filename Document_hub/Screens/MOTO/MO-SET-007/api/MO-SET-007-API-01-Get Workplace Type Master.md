@@ -4,10 +4,10 @@
 | --- | --- |
 | API Name | Get Workplace Type Master |
 | Description | Lấy danh sách thông tin master loại nơi làm việc của MOTO. |
-| Endpoint | `/api/v1/moto/settings/workplace-type-master` |
+| Endpoint | /api/v1/moto/settings/workplace-type-master |
 | Menu | Company Settings |
 | Method | GET |
-| Related Tables | `tenant_db.mst_moto_workplace_type` (được đề xuất thay thế cho `workplace_type_master` đang để TBD) |
+| Related Tables | tenant_db.mst_moto_workplace_type (được đề xuất thay thế cho workplace_type_master đang để TBD) |
 | Screen list | 就業場所区分マスタ (MO-SET-007) - Workplace Type Master |
 | System | MOTO Portal |
 | 説明 | 勤務場所区分マスタの情報を取得する (Lấy thông tin master loại nơi làm việc). |
@@ -26,8 +26,8 @@
 | Ngày tạo | 2026/06/23 |
 | Ngày cập nhật | 2026/06/23 |
 | Người tạo | Thuận |
-| Người review | Duy |
-| Trạng thái | Draft |
+| Người review |  |
+| Trạng thái | VN Review |
 
 ---
 
@@ -35,7 +35,8 @@
 
 | Version | Ngày | Người chỉnh sửa | Nội dung thay đổi |
 | --- | --- | --- | --- |
-| v1.0 | 2026/06/23 | Thuận | Khởi tạo tài liệu đặc tả chi tiết API Get Workplace Type Master (GET) bám sát UI giao diện thực tế và cấu trúc DB MOTO. |
+| v1.0 | 2026/06/23 | Thuận | Khởi tạo tài liệu đặc tả chi tiết API Get Workplace Type Master. |
+| v1.1 | 2026/06/24 | Antigravity | Cập nhật bám sát UI list_workplace_type.png (bổ sung workplace_type_name_en) và cấu trúc ERD; loại bỏ dấu backtick trong các bảng. |
 
 ---
 
@@ -59,28 +60,23 @@
 | Phạm vi Tenant | Tenant Schema / Không cho phép Cross Tenant |
 | Có Transaction không | Không |
 | Xử lý file | Không |
-| Trạng thái | Draft |
+| Trạng thái | VN Review |
 
 ---
 
 ## 3.2 Mô tả API
 
 ### Mục đích
-
-API này được gọi khi người dùng truy cập màn hình **就業場所区分マスタ (Workplace Type Master - MO-SET-007)** trên MOTO Portal. API thực hiện:
-1. Truy vấn danh sách các loại nơi làm việc từ bảng `mst_moto_workplace_type` trong tenant schema tương ứng.
-2. Hỗ trợ tìm kiếm tương đối theo từ khóa (Mã loại `workplace_type_code` hoặc Tên loại `workplace_type_name`).
-3. Hỗ trợ lọc theo trạng thái hoạt động (`status`).
-4. Phân trang dữ liệu và trả về response JSON theo chuẩn `Paginated Collection`.
+Lấy danh sách các loại nơi làm việc của MOTO từ bảng `mst_moto_workplace_type` (hỗ trợ tìm kiếm tương đối, lọc theo trạng thái và phân trang).
 
 ### Ngữ cảnh nghiệp vụ
 
-| Hạng mục | Nội dung |
+| Hạng mục | Mô tả |
 | --- | --- |
-| Hành động kích hoạt | Truy cập màn hình, thực hiện tìm kiếm bằng từ khóa, chọn bộ lọc trạng thái, hoặc chuyển trang |
-| Actor | MOTO Admin / MOTO Staff (người dùng có quyền xem cài đặt master của MOTO) |
-| Trước khi gọi API | Đăng nhập thành công và có quyền truy cập vào MOTO Portal |
-| Sau khi gọi API | Hiển thị danh sách loại nơi làm việc tương ứng lên bảng dữ liệu của màn hình |
+| Kích hoạt | Khi mở màn hình, tìm kiếm, lọc trạng thái hoặc phân trang |
+| Actor | MOTO Admin, MOTO Staff |
+| Trước khi gọi | Đã đăng nhập và có quyền workplace_type.view |
+| Sau khi gọi | Hiển thị danh sách lên Grid |
 
 ---
 
@@ -139,6 +135,7 @@ Không áp dụng cho phương thức GET.
     {
       "workplace_type_code": "WPT001",
       "workplace_type_name": "クライアント常駐",
+      "workplace_type_name_en": "Client On-site",
       "work_style_type": 1,
       "is_transportation_eligible": 1,
       "status": 1,
@@ -148,6 +145,7 @@ Không áp dụng cho phương thức GET.
     {
       "workplace_type_code": "WPT002",
       "workplace_type_name": "完全在宅勤務",
+      "workplace_type_name_en": "Fully Remote",
       "work_style_type": 2,
       "is_transportation_eligible": 0,
       "status": 1,
@@ -157,6 +155,7 @@ Không áp dụng cho phương thức GET.
     {
       "workplace_type_code": "WPT005",
       "workplace_type_name": "旧・社内常駐",
+      "workplace_type_name_en": "Former Internal On-site",
       "work_style_type": 1,
       "is_transportation_eligible": 0,
       "status": 0,
@@ -191,6 +190,7 @@ Không áp dụng cho phương thức GET.
 | data | array | Danh sách các loại nơi làm việc |
 | data[].workplace_type_code | string | Mã loại nơi làm việc |
 | data[].workplace_type_name | string | Tên loại nơi làm việc |
+| data[].workplace_type_name_en | string | Tên loại nơi làm việc (tiếng Anh) |
 | data[].work_style_type | number | Hình thức làm việc (1: 常駐 - On-site, 2: 在宅 - Remote, 3: ハイブリッド - Hybrid, 4: 出張 - Business Trip) |
 | data[].is_transportation_eligible | number | Đối tượng chi trả phí đi lại (0: Không, 1: Có) |
 | data[].status | number | Trạng thái (0: Vô hiệu, 1: Hoạt động) |
@@ -278,7 +278,8 @@ Không áp dụng cho phương thức GET.
 | 1 | page | Không bắt buộc, số nguyên > 0 | CMS-VAL-40 | ページは整数で指定してください。 |
 | 2 | limit | Không bắt buộc, số nguyên từ 1 đến 100 | CMS-VAL-40 | 表示件数は整数で指定してください。 |
 | 3 | keyword | Không bắt buộc, chuỗi ký tự, tối đa 100 ký tự | CMS-VAL-6 | 検索キーワードは100文字以内で入力してください。 |
-| 4 | status | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | ステータスは整数で指定してください。 |
+| 4 | status | Không bắt buộc, số nguyên | CMS-VAL-40 | ステータスは整数で指定してください。 |
+| 5 | status | Không bắt buộc, phải thuộc tập hợp: 0, 1 | CMS-VAL-41 | 選択されたステータスは正しくありません。 |
 
 ---
 
@@ -286,9 +287,9 @@ Không áp dụng cho phương thức GET.
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Tenant isolation | Chỉ truy vấn dữ liệu từ schema `tenant_moto_<company_id>` của MOTO tenant hiện tại dựa trên JWT context của user đăng nhập. Nghiêm cấm truy cập chéo tenant. |
-| BR-002 | Role authorization | Chỉ cho phép người dùng thuộc MOTO Portal có vai trò phù hợp và sở hữu quyền `workplace_type.view` thực hiện API này. |
-| BR-003 | Default Sorting | Kết quả danh sách mặc định được sắp xếp tăng dần theo Mã loại nơi làm việc (`workplace_type_code` ASC). |
+| BR-001 | Tenant isolation | Chỉ truy vấn dữ liệu từ schema tenant hiện tại qua JWT token. Nghiêm cấm truy cập chéo tenant. |
+| BR-002 | Role authorization | Yêu cầu quyền workplace_type.view để thực hiện API. |
+| BR-003 | Default Sorting | Kết quả sắp xếp tăng dần theo workplace_type_code (ASC). |
 
 ---
 
@@ -310,10 +311,9 @@ Không áp dụng cho phương thức GET.
 ## 9.2 Logic kiểm tra quyền
 
 ```
-1. Validate JWT token gửi kèm trong header Authorization.
-2. Trích xuất thông tin người dùng và quyền hạn từ token.
-3. Xác minh người dùng thuộc MOTO Portal và sở hữu quyền "workplace_type.view".
-4. Nếu hợp lệ, cho phép xử lý tiếp. Ngược lại, trả về HTTP 403 Forbidden.
+1. Kiểm tra JWT token trong Header.
+2. Trích xuất quyền hạn của user.
+3. Nếu không có quyền workplace_type.view, trả về 403 Forbidden.
 ```
 
 ---
@@ -324,8 +324,8 @@ Không áp dụng cho phương thức GET.
 
 | Query Param | Table | Column | Mô tả |
 | --- | --- | --- | --- |
-| keyword | tenant_moto.mst_moto_workplace_type | workplace_type_code / workplace_type_name | Điều kiện tìm kiếm tương đối (`LIKE %keyword%`) |
-| status | tenant_moto.mst_moto_workplace_type | status | Điều kiện lọc chính xác (`= status`) |
+| keyword | tenant_moto.mst_moto_workplace_type | workplace_type_code / workplace_type_name | Điều kiện tìm kiếm tương đối (LIKE %keyword%) |
+| status | tenant_moto.mst_moto_workplace_type | status | Điều kiện lọc chính xác (= status) |
 
 ## 10.2 Mapping từ DB ra Response
 
@@ -333,6 +333,7 @@ Không áp dụng cho phương thức GET.
 | --- | --- | --- | --- |
 | tenant_moto.mst_moto_workplace_type | workplace_type_code | data[].workplace_type_code | Mã loại nơi làm việc |
 | tenant_moto.mst_moto_workplace_type | workplace_type_name | data[].workplace_type_name | Tên loại nơi làm việc |
+| tenant_moto.mst_moto_workplace_type | workplace_type_name_en | data[].workplace_type_name_en | Tên loại nơi làm việc (tiếng Anh) |
 | tenant_moto.mst_moto_workplace_type | work_style_type | data[].work_style_type | Hình thức làm việc (1: On-site, 2: Remote, 3: Hybrid, 4: Business Trip) |
 | tenant_moto.mst_moto_workplace_type | is_transportation_eligible | data[].is_transportation_eligible | Đối tượng chi trả phí đi lại (0: Không, 1: Có) |
 | tenant_moto.mst_moto_workplace_type | status | data[].status | Trạng thái (0: Vô hiệu, 1: Hoạt động) |
@@ -356,16 +357,15 @@ Không áp dụng.
 # 13. Sequence / Processing Flow
 
 ```
-1. Client gửi yêu cầu: GET /api/v1/moto/settings/workplace-type-master kèm query parameters.
-2. Middleware kiểm tra xác thực JWT và phân quyền (yêu cầu quyền "workplace_type.view").
-3. Validate tham số đầu vào (page, limit, keyword, status). Trả về HTTP 422 nếu lỗi.
-4. Xác định tenant từ user context, thiết lập kết nối động tới schema `tenant_moto_<company_id>`.
-5. Thực hiện truy vấn dữ liệu từ bảng `mst_moto_workplace_type`:
-   - Áp dụng điều kiện lọc `status` nếu truyền lên.
-   - Áp dụng tìm kiếm tương đối `workplace_type_code LIKE %keyword%` OR `workplace_type_name LIKE %keyword%` nếu có `keyword`.
-   - Sắp xếp mặc định theo `workplace_type_code` ASC.
-   - Thực hiện phân trang dựa theo `page` và `limit`.
-6. Định dạng danh sách kết quả qua API Resource và trả về response JSON kèm HTTP 200 OK.
+1. Nhận request GET kèm query parameters.
+2. Xác thực JWT và kiểm tra quyền workplace_type.view.
+3. Validate tham số đầu vào (page, limit, keyword, status). Trả về 422 nếu lỗi.
+4. Kết nối tới schema tenant dựa trên thông tin JWT.
+5. Truy vấn bảng mst_moto_workplace_type:
+   - Lọc theo status nếu truyền lên.
+   - Lọc theo keyword (LIKE %keyword%) trên workplace_type_code hoặc workplace_type_name.
+   - Sắp xếp tăng dần theo workplace_type_code và phân trang.
+6. Trả về response JSON của danh sách kết quả kèm HTTP 200.
 ```
 
 ---
@@ -420,9 +420,9 @@ Không áp dụng cho phương thức GET.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Phải xác thực JWT token và kiểm tra quyền `workplace_type.view` của người dùng trước khi xử lý. |
-| 2 | Tenant Isolation | Thiết lập kết nối động tới đúng tenant schema dựa trên thông tin công ty của người dùng đăng nhập để cách ly dữ liệu. Không cho phép truyền tham số `company_id` từ client để thay đổi tenant truy vấn dữ liệu. |
-| 3 | Input Sanitization & SQL Injection | Sử dụng Eloquent ORM / Parameterized Query để chèn các tham số tìm kiếm (`keyword`, `status`) vào câu lệnh SQL để ngăn chặn tấn công SQL injection. |
+| 1 | Authentication & Authorization | Phải xác thực JWT token và kiểm tra quyền workplace_type.view của người dùng trước khi xử lý. |
+| 2 | Tenant Isolation | Thiết lập kết nối động tới đúng tenant schema dựa trên thông tin công ty của người dùng đăng nhập để cách ly dữ liệu. Không cho phép truyền tham số company_id từ client để thay đổi tenant truy vấn dữ liệu. |
+| 3 | Input Sanitization & SQL Injection | Sử dụng Eloquent ORM / Parameterized Query để chèn các tham số tìm kiếm (keyword, status) vào câu lệnh SQL để ngăn chặn tấn công SQL injection. |
 
 ---
 
@@ -433,7 +433,7 @@ Không áp dụng cho phương thức GET.
 | Thời gian response kỳ vọng | Trong vòng 0.3 giây |
 | Lượng truy cập dự kiến | Thấp |
 | Pagination | Có (mặc định 20 bản ghi/trang) |
-| Index cần thiết | Khóa chính trên bảng `mst_moto_workplace_type`. |
+| Index cần thiết | Khóa chính trên bảng mst_moto_workplace_type. |
 | Cache cần thiết | Không |
 | Bulk Processing | Không |
 | Async Processing | Không |
@@ -449,7 +449,7 @@ Không áp dụng cho phương thức GET.
 | Screen Detail Design | MO-SET-007 |
 | ERD | Carima-Staffing Data Dictionary / ERD |
 | Permission Matrix | Portal Permission Matrix |
-| Validation Rule | Section 7. Validation Rules |
+| Validation Rule | Validation Rules |
 | NFR | Performance Requirement |
 
 ---
