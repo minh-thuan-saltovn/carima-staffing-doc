@@ -296,14 +296,14 @@ HTTP Status: 500 Internal Server Error
 
 ## 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | user_id | Bắt buộc | CMS-VAL-23 | ユーザーIDを入力してください。 |
-| 2 | user_id | Tối đa 100 ký tự | CMS-VAL-6 | ユーザーIDは100文字以内で入力してください。 |
-| 3 | user_id | Trim trước khi xử lý | - | - |
-| 4 | password | Bắt buộc | CMS-VAL-23 | パスワードを入力してください。 |
-| 5 | password | Tối đa 255 ký tự | CMS-VAL-6 | パスワードは255文字以内で入力してください。 |
-| 6 | remember_me | Nếu truyền thì phải là boolean | CMS-VAL-58 | ログイン状態保持は、trueかfalseを指定してください。 |
+| 1 | user_id | required | - | required |
+| 2 | user_id | max | 100 | max |
+| 3 | user_id | string | - | string |
+| 4 | password | required | - | required |
+| 5 | password | max | 255 | max |
+| 6 | remember_me | boolean | - | boolean |
 
 ### 7.1 Validation xử lý trước Business Rule
 

@@ -541,10 +541,10 @@ Không áp dụng (Phương thức GET không sử dụng Request Body).
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | id | Bắt buộc | CMS-VAL-23 | IDを入力してください。 |
-| 2 | id | Đúng định dạng ULID (26 ký tự) | CMS-VAL-53 | IDは26文字で入力してください。 |
+| 1 | id | required | - | required |
+| 2 | id | size | 26 | size |
 
 ---
 

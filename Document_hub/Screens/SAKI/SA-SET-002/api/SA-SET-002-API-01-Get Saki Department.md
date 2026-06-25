@@ -322,15 +322,15 @@ Không áp dụng.
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | page | Không bắt buộc, số nguyên >= 1 | CMS-VAL-40 | ページは整数で指定してください。 |
-| 2 | limit | Không bắt buộc, số nguyên thuộc danh sách: 10, 20, 50 | CMS-VAL-40 | 表示件数は整数で指定してください。 |
-| 3 | keyword | Không bắt buộc, string, tối đa 100 ký tự | CMS-VAL-6 | 検索キーワードは100文字以内で入力してください。 |
-| 4 | office_id | Không bắt buộc, string, tối đa 20 ký tự | CMS-VAL-6 | 事業所IDは20文字以内で入力してください。 |
-| 5 | status | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | ステータスは整数で指定してください。 |
-| 6 | sort_column | Không bắt buộc, phải thuộc: department_id, display_name_ja, status, created_at | CMS-VAL-41 | 選択されたソートカラムは正しくありません。 |
-| 7 | sort_direction | Không bắt buộc, phải là asc hoặc desc | CMS-VAL-41 | 選択されたソート方向は正しくありません。 |
+| 1 | page | integer | - | integer |
+| 2 | limit | integer | - | integer |
+| 3 | keyword | max | 100 | max |
+| 4 | office_id | max | 20 | max |
+| 5 | status | integer | - | integer |
+| 6 | sort_column | string | - | string |
+| 7 | sort_direction | string | - | string |
 
 ---
 

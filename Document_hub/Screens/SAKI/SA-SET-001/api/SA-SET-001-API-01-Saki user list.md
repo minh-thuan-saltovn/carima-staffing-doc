@@ -366,19 +366,19 @@ Không áp dụng.
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | page | Không bắt buộc, số nguyên >= 1 | CMS-VAL-40 | ページは整数で指定してください。 |
-| 2 | limit | Không bắt buộc, số nguyên thuộc danh sách: 20, 50, 100 | CMS-VAL-40 | 表示件数は整数で指定してください。 |
-| 3 | user_name | Không bắt buộc, string, tối đa 100 ký tự | CMS-VAL-6 | ユーザー名は100文字以内で入力してください。 |
-| 4 | user_id | Không bắt buộc, string, tối đa 100 ký tự | CMS-VAL-6 | ユーザーIDは100文字以内で入力してください。 |
-| 5 | department_id | Không bắt buộc, string, tối đa 20 ký tự | CMS-VAL-6 | 部門IDは20文字以内で入力してください。 |
-| 6 | execution_role_id | Không bắt buộc, string, tối đa 64 ký tự | CMS-VAL-6 | 実行ロールIDは64文字以内で入力してください。 |
-| 7 | status | Không bắt buộc, số nguyên thuộc: 0, 1, 2 | CMS-VAL-40 | ステータスは整数で指定してください。 |
-| 8 | is_approver_only | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | 承認者のみフラグは整数で指定してください。 |
-| 9 | is_active_only | Không bắt buộc, số nguyên thuộc: 0, 1 | CMS-VAL-40 | 有効ユーザーのみフラグは整数で指定してください。 |
-| 10 | sort_column | Không bắt buộc, phải thuộc: user_id, last_name_ja, email, office_id, department_id, status, created_at, last_login_at | CMS-VAL-41 | 選択されたソートカラムは正しくありません。 |
-| 11 | sort_direction | Không bắt buộc, phải là asc hoặc desc | CMS-VAL-41 | 選択されたソート方向は正しくありません。 |
+| 1 | page | integer | - | integer |
+| 2 | limit | integer | - | integer |
+| 3 | user_name | max | 100 | max |
+| 4 | user_id | max | 100 | max |
+| 5 | department_id | max | 20 | max |
+| 6 | execution_role_id | max | 64 | max |
+| 7 | status | in | 0, 1, 2 | in |
+| 8 | is_approver_only | integer | - | integer |
+| 9 | is_active_only | integer | - | integer |
+| 10 | sort_column | email | - | email |
+| 11 | sort_direction | string | - | string |
 
 ---
 

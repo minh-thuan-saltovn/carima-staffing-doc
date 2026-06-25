@@ -226,11 +226,11 @@ Không áp dụng.
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | id | Phải đúng định dạng ULID (26 ký tự) | CMS-VAL-53 | IDは26文字で入力してください。 |
-| 2 | plan_code | Bắt buộc nhập | CMS-VAL-23 | プランコードを入力してください。 |
-| 3 | plan_code | Phải thuộc danh sách: LITE, STANDARD, PRO, ENTERPRISE | CMS-VAL-41 | 選択されたプランコードは正しくありません。 |
+| 1 | id | size | 26 | size |
+| 2 | plan_code | required | - | required |
+| 3 | plan_code | string | - | string |
 
 ---
 

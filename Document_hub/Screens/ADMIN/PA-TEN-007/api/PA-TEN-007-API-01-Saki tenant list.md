@@ -310,16 +310,16 @@ Không áp dụng.
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | page | Không bắt buộc, phải là số nguyên >= 1 | CMS-VAL-40 | ページは整数で指定してください。 |
-| 2 | limit | Không bắt buộc, phải thuộc danh sách: 20, 50, 100 | CMS-VAL-41 | 選択された表示件数は正しくありません。 |
-| 3 | status | Không bắt buộc, giá trị phải là 0 hoặc 1 | CMS-VAL-41 | 選択されたステータスは正しくありません。 |
-| 4 | plan_code | Không bắt buộc, phải thuộc danh sách: LITE, STANDARD, PRO, ENTERPRISE | CMS-VAL-41 | 選択されたプランコードは正しくありません。 |
-| 5 | tenant_code | Không bắt buộc, tối đa 50 ký tự | CMS-VAL-6 | テナントコードは50文字以内で入力してください。 |
-| 6 | company_name | Không bắt buộc, tối đa 255 ký tự | CMS-VAL-6 | 企業名は255文字以内で入力してください。 |
-| 7 | sort_column | Phải thuộc: tenant_code, company_name, plan_code, connected_moto_count, active_contract_count, approval_user_count, billing_status, status, created_at | CMS-VAL-41 | 選択されたソートカラムは正しくありません。 |
-| 8 | sort_direction | Phải là asc hoặc desc | CMS-VAL-41 | 選択されたソート方向は正しくありません。 |
+| 1 | page | integer | - | integer |
+| 2 | limit | string | - | string |
+| 3 | status | in | 0, 1 | in |
+| 4 | plan_code | string | - | string |
+| 5 | tenant_code | max | 50 | max |
+| 6 | company_name | max | 255 | max |
+| 7 | sort_column | string | - | string |
+| 8 | sort_direction | string | - | string |
 
 ---
 

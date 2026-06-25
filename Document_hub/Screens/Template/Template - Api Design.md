@@ -281,15 +281,15 @@ POST /api/v1/job-requests
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | client_company_id | Bắt buộc | REQUIRED | Client company is required. |
-| 2 | client_company_id | Phải tồn tại trong tenant schema | NOT_FOUND | Client company does not exist. |
-| 3 | start_date | Bắt buộc | REQUIRED | Start date is required. |
-| 4 | end_date | Bắt buộc | REQUIRED | End date is required. |
-| 5 | end_date | Phải >= start_date | INVALID_DATE_RANGE | End date must be greater than or equal to start date. |
-| 6 | required_number | Phải >= 1 | INVALID_NUMBER | Required number must be greater than zero. |
-| 7 | work_end_time | Phải lớn hơn work_start_time | INVALID_TIME_RANGE | Work end time must be greater than work start time. |
+| 1 | client_company_id | required | - | required |
+| 2 | client_company_id | exists | - | exists |
+| 3 | start_date | required | - | required |
+| 4 | end_date | required | - | required |
+| 5 | end_date | after_or_equal | start_date | after_or_equal |
+| 6 | required_number | after_or_equal | 1 | after_or_equal |
+| 7 | work_end_time | after | work_start_time | after |
 
 ---
 

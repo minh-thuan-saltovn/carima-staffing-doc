@@ -244,11 +244,11 @@ Không áp dụng.
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | id | Bắt buộc, đúng định dạng ULID (26 ký tự) | CMS-VAL-23 | IDを入力してください。 |
-| 2 | onboarding_type | Bắt buộc, phải bằng 2 | CMS-VAL-23 | オンボーディングタイプを入力してください。 |
-| 3 | notes | Tối đa 500 ký tự | CMS-VAL-6 | 備考は500文字以内で入力してください。 |
+| 1 | id | required | - | required |
+| 2 | onboarding_type | required | - | required |
+| 3 | notes | max | 500 | max |
 
 ---
 

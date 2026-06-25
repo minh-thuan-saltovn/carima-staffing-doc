@@ -272,17 +272,17 @@ Không áp dụng.
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | route_name | Bắt buộc | CMS-VAL-23 | ルート名を入力してください。 |
-| 2 | route_name | Tối đa 24 ký tự | CMS-VAL-6 | ルート名は24文字以内で入力してください。 |
-| 3 | target_module | Bắt buộc | CMS-VAL-23 | 対象モジュールを入力してください。 |
-| 4 | target_module | Phải thuộc danh sách cho phép | CMS-VAL-41 | 選択された対象モジュールは正しくありません。 |
-| 5 | approver_user_ids | Bắt buộc | CMS-VAL-23 | 承認者ユーザーID一覧を入力してください。 |
-| 6 | approver_user_ids | Phải là mảng | CMS-VAL-62 | 承認者ユーザーID一覧は配列でなくてはなりません。 |
-| 7 | approver_user_ids | Tối đa 3 phần tử | CMS-VAL-33 | 承認者ユーザーID一覧には、3以下の値を指定してください。 |
-| 8 | approver_user_ids[] | Bắt buộc | CMS-VAL-23 | 承認者ユーザーIDを入力してください。 |
-| 9 | approver_user_ids[] | Phải tồn tại trong bảng mst_saki_user của tenant | CMS-VAL-25 | 承認者ユーザーIDが存在していません。 |
+| 1 | route_name | required | - | required |
+| 2 | route_name | max | 24 | max |
+| 3 | target_module | required | - | required |
+| 4 | target_module | string | - | string |
+| 5 | approver_user_ids | required | - | required |
+| 6 | approver_user_ids | string | - | string |
+| 7 | approver_user_ids | max | 3 | max |
+| 8 | approver_user_ids[] | required | - | required |
+| 9 | approver_user_ids[] | exists | mst_saki_user,approver_user_ids[] | exists |
 
 ---
 

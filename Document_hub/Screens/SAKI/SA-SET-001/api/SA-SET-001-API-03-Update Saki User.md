@@ -333,31 +333,31 @@ Không áp dụng.
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | id (path) | Bắt buộc | CMS-VAL-23 | IDを入力してください。 |
-| 2 | id (path) | Tồn tại trong mst_saki_user | CMS-VAL-25 | IDが存在していません。 |
-| 3 | last_name_ja | Bắt buộc nhập | CMS-VAL-23 | 姓（和文）を入力してください。 |
-| 4 | last_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 姓（和文）は24文字以内で入力してください。 |
-| 5 | first_name_ja | Bắt buộc nhập | CMS-VAL-23 | 名（和文）を入力してください。 |
-| 6 | first_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 名（和文）は24文字以内で入力してください。 |
-| 7 | last_name_kana | Bắt buộc nhập | CMS-VAL-23 | 姓（カナ）を入力してください。 |
-| 8 | last_name_kana | Phải là Katakana toàn giác | CMS-VAL-72 | 姓（カナ）は全角カタカナで入力してください。 |
-| 9 | first_name_kana | Bắt buộc nhập | CMS-VAL-23 | 名（カナ）を入力してください。 |
-| 10 | first_name_kana | Phải là Katakana toàn giác | CMS-VAL-72 | 名（カナ）は全角カタカナで入力してください。 |
-| 11 | office_id | Bắt buộc nhập | CMS-VAL-23 | 事業所IDを入力してください。 |
-| 12 | office_id | Phải tồn tại trong mst_saki_office | CMS-VAL-25 | 事業所IDが存在していません。 |
-| 13 | department_id | Bắt buộc nhập | CMS-VAL-23 | 部門IDを入力してください。 |
-| 14 | department_id | Phải tồn tại trong mst_saki_department | CMS-VAL-25 | 部門IDが存在していません。 |
-| 15 | email | Bắt buộc nhập | CMS-VAL-23 | メールアドレスを入力してください。 |
-| 16 | email | Đúng định dạng email | CMS-VAL-48 | メールアドレスには、有効なメールアドレスを指定してください。 |
-| 17 | tel | Bắt buộc nhập | CMS-VAL-23 | 電話番号を入力してください。 |
-| 18 | tel | Tối đa 15 ký tự half-width | CMS-VAL-6 | 電話番号は15文字以内で入力してください。 |
-| 19 | reference_scope | Bắt buộc nhập | CMS-VAL-23 | 参照範囲を入力してください。 |
-| 20 | reference_scope | Giá trị từ 1 đến 6 | CMS-VAL-41 | 選択された参照範囲は正しくありません。 |
-| 21 | user_scopes | Bắt buộc nhập khi reference_scope = 6 | CMS-VAL-23 | user_scopesを入力してください。 |
-| 22 | user_scopes[].target_id | Tồn tại trong office_id hoặc department_id | SCOPE_TARGET_NOT_FOUND | Đối tượng tham chiếu chỉ định không tồn tại. |
-| 23 | cost_center_code | Không chứa ký tự Katakana half-width | CMS-VAL-24 | コストセンターコードに正しい形式を指定してください。 |
+| 1 | id (path) | required | - | required |
+| 2 | id (path) | exists | mst_saki_user,id (path) | exists |
+| 3 | last_name_ja | required | - | required |
+| 4 | last_name_ja | max | 24 | max |
+| 5 | first_name_ja | required | - | required |
+| 6 | first_name_ja | max | 24 | max |
+| 7 | last_name_kana | required | - | required |
+| 8 | last_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
+| 9 | first_name_kana | required | - | required |
+| 10 | first_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
+| 11 | office_id | required | - | required |
+| 12 | office_id | exists | mst_saki_office,office_id | exists |
+| 13 | department_id | required | - | required |
+| 14 | department_id | exists | mst_saki_department,department_id | exists |
+| 15 | email | required | - | required |
+| 16 | email | email | - | email |
+| 17 | tel | required | - | required |
+| 18 | tel | max | 15 | max |
+| 19 | reference_scope | required | - | required |
+| 20 | reference_scope | in | 1, 2, 3, 4, 5, 6 | in |
+| 21 | user_scopes | required | - | required |
+| 22 | user_scopes[].target_id | exists | - | exists |
+| 23 | cost_center_code | regex | /^[ァ-ヶー]+$/u | regex |
 
 ---
 

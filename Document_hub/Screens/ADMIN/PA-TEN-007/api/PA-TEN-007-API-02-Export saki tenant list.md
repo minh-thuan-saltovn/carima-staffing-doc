@@ -214,14 +214,14 @@ Không áp dụng (Phương thức GET không sử dụng Request Body).
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | status | Không bắt buộc, giá trị phải là 0 hoặc 1 | CMS-VAL-41 | 選択されたステータスは正しくありません。 |
-| 2 | plan_code | Không bắt buộc, phải thuộc danh sách: LITE, STANDARD, PRO, ENTERPRISE | CMS-VAL-41 | 選択されたプランコードは正しくありません。 |
-| 3 | tenant_code | Không bắt buộc, tối đa 50 ký tự | CMS-VAL-6 | テナントコードは50文字以内で入力してください。 |
-| 4 | company_name | Không bắt buộc, tối đa 255 ký tự | CMS-VAL-6 | 企業名は255文字以内で入力してください。 |
-| 5 | sort_column | Phải thuộc: tenant_code, company_name, plan_code, status, created_at | CMS-VAL-41 | 選択されたソートカラムは正しくありません。 |
-| 6 | sort_direction | Phải là asc hoặc desc | CMS-VAL-41 | 選択されたソート方向は正しくありません。 |
+| 1 | status | in | 0, 1 | in |
+| 2 | plan_code | string | - | string |
+| 3 | tenant_code | max | 50 | max |
+| 4 | company_name | max | 255 | max |
+| 5 | sort_column | string | - | string |
+| 6 | sort_direction | string | - | string |
 
 ---
 

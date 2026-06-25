@@ -278,39 +278,39 @@ HTTP Status: 500 Internal Server Error
 
 # 7. Validation Rules
 
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | user_id | Bắt buộc | CMS-VAL-23 | ユーザーIDを入力してください。 |
-| 2 | user_id | Tối đa 100 ký tự | CMS-VAL-6 | ユーザーIDは100文字以内で入力してください。 |
-| 3 | user_id | Không chứa ký tự đặc biệt cấm | CMS-VAL-24 | ユーザーIDに正しい形式を指定してください。 |
-| 4 | user_id | Phải là duy nhất | CMS-VAL-11 | ユーザーIDの値は既に存在しています。 |
-| 5 | last_name_ja | Bắt buộc nhập | CMS-VAL-23 | 姓（和文）を入力してください。 |
-| 6 | last_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 姓（和文）は24文字以内で入力してください。 |
-| 7 | first_name_ja | Bắt buộc nhập | CMS-VAL-23 | 名（和文）を入力してください。 |
-| 8 | first_name_ja | Tối đa 24 ký tự | CMS-VAL-6 | 名（和文）は24文字以内で入力してください。 |
-| 9 | last_name_kana | Bắt buộc nhập | CMS-VAL-23 | 姓（カナ）を入力してください。 |
-| 10 | last_name_kana | Phải là Katakana toàn giác | CMS-VAL-72 | 姓（カナ）は全角カタカナで入力してください。 |
-| 11 | last_name_kana | Tối đa 24 ký tự | CMS-VAL-6 | 姓（カナ）は24文字以内で入力してください。 |
-| 12 | first_name_kana | Bắt buộc nhập | CMS-VAL-23 | 名（カナ）を入力してください。 |
-| 13 | first_name_kana | Phải là Katakana toàn giác | CMS-VAL-72 | 名（カナ）は全角カタカナで入力してください。 |
-| 14 | first_name_kana | Tối đa 24 ký tự | CMS-VAL-6 | 名（カナ）は24文字以内で入力してください。 |
-| 15 | email | Bắt buộc | CMS-VAL-23 | メールアドレスを入力してください。 |
-| 16 | email | Định dạng email hợp lệ | CMS-VAL-48 | メールアドレスには、有効なメールアドレスを指定してください。 |
-| 17 | email | Phải là duy nhất | CMS-VAL-11 | メールアドレスの値は既に存在しています。 |
-| 18 | tel | Bắt buộc | CMS-VAL-23 | 電話番号を入力してください。 |
-| 19 | tel | Đúng định dạng số điện thoại | CMS-VAL-9 | 電話番号は有効な電話番号を入力してください。 |
-| 20 | tel | Tối đa 15 ký tự | CMS-VAL-6 | 電話番号は15文字以内で入力してください。 |
-| 21 | office_id | Bắt buộc nhập | CMS-VAL-23 | 事業所IDを入力してください。 |
-| 22 | office_id | Phải tồn tại trong mst_saki_office | CMS-VAL-25 | 事業所IDが存在していません。 |
-| 23 | department_id | Bắt buộc nhập | CMS-VAL-23 | 部門IDを入力してください。 |
-| 24 | department_id | Phải tồn tại trong mst_saki_department | CMS-VAL-25 | 部門IDが存在していません。 |
-| 25 | reference_scope | Bắt buộc nhập | CMS-VAL-23 | 参照範囲を入力してください。 |
-| 26 | reference_scope | Giá trị từ 1 đến 6 | CMS-VAL-41 | 選択された参照範囲は正しくありません。 |
-| 27 | custom_scopes | Bắt buộc nếu reference_scope = 6 | CMS-VAL-23 | カスタム範囲を入力してください。 |
-| 28 | password | Bắt buộc nếu password_generation_type = 2 | CMS-VAL-23 | パスワードを入力してください。 |
-| 29 | password | Tối thiểu 8 ký tự | CMS-VAL-51 | パスワードは8文字から255文字の間で指定してください。 |
-| 30 | password | Tối đa 255 ký tự | CMS-VAL-6 | パスワードは255文字以内で入力してください。 |
-| 31 | password | Độ phức tạp (chữ hoa, chữ thường, số, ký tự đặc biệt) | CMS-VAL-8 | パスワードは英大文字と英小文字、数字・記号を含む10文字以上のパスワードを入力してください。 |
+| 1 | user_id | required | - | required |
+| 2 | user_id | max | 100 | max |
+| 3 | user_id | string | - | string |
+| 4 | user_id | unique | - | unique |
+| 5 | last_name_ja | required | - | required |
+| 6 | last_name_ja | max | 24 | max |
+| 7 | first_name_ja | required | - | required |
+| 8 | first_name_ja | max | 24 | max |
+| 9 | last_name_kana | required | - | required |
+| 10 | last_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
+| 11 | last_name_kana | max | 24 | max |
+| 12 | first_name_kana | required | - | required |
+| 13 | first_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
+| 14 | first_name_kana | max | 24 | max |
+| 15 | email | required | - | required |
+| 16 | email | email | - | email |
+| 17 | email | unique | - | unique |
+| 18 | tel | required | - | required |
+| 19 | tel | regex | /^[0-9-]+$/ | regex |
+| 20 | tel | max | 15 | max |
+| 21 | office_id | required | - | required |
+| 22 | office_id | exists | mst_saki_office,office_id | exists |
+| 23 | department_id | required | - | required |
+| 24 | department_id | exists | mst_saki_department,department_id | exists |
+| 25 | reference_scope | required | - | required |
+| 26 | reference_scope | in | 1, 2, 3, 4, 5, 6 | in |
+| 27 | custom_scopes | required | - | required |
+| 28 | password | required | - | required |
+| 29 | password | min | 8 | min |
+| 30 | password | max | 255 | max |
+| 31 | password | regex | /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ | regex |
 
 ## 7.1 Validation xử lý trước Business Rule
 
