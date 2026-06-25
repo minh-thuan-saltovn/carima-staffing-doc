@@ -184,45 +184,52 @@ Không áp dụng.
 | data.updated_at | datetime | Thời điểm cập nhật gần nhất |
 
 ---
+### 6.3 Error Response - Validation Error
 
-## 6.3 Error Response
+### 6.4 Error Response - Invalid Credentials
 
-### Validation Error
+HTTP Status: 401 Unauthorized
 
-```
-422 Unprocessable Entity
-```
+### 6.5 Error Response - Account Locked
 
-### Unauthorized
+HTTP Status: 403 Forbidden
 
-```
-401 Unauthorized
-```
+### 6.6 Error Response - Account Inactive
 
-### Forbidden
+### 6.7 Error Response - Tenant Not Found
 
-```
-403 Forbidden
-```
+HTTP Status: 404 Not Found
 
-### Not Found
+### 6.8 Error Response - System Error
 
-```
-404 Not Found
-```
+HTTP Status: 500 Internal Server Error
 
-### System Error
+### 6.9 Error Response - Bad Request
 
-```
-500 Internal Server Error
-```
+HTTP Status: 400 Bad Request
 
----
+### 6.10 Error Response - Method Not Allowed
+
+HTTP Status: 405 Method Not Allowed
+
+### 6.11 Error Response - Too Many Requests
+
+HTTP Status: 429 Too Many Requests
+
+### 6.12 Error Response - Service Unavailable
+
+HTTP Status: 503 Service Unavailable
+
+### 6.13 Error Response - Gateway Timeout
+
+HTTP Status: 504 Gateway Timeout
+
+Untitled
 
 
 # 7. Validation Rules
 
-Message list 
+[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

@@ -183,44 +183,52 @@ HTTP Status: 200 OK
   "message": "ログアウトしました"
 }
 ```
+### 6.3 Error Response - Validation Error
 
-### 6.3 Định nghĩa field response thành công
-
-| Field | Type | Mô tả |
-| --- | --- | --- |
-| success | boolean | Kết quả xử lý |
-| data.logged_out | boolean | Kết quả logout |
-| data.logout_all_devices | boolean | Có logout tất cả thiết bị hay không |
-| data.revoked_token_count | integer | Số lượng token bị revoke, chỉ trả khi logout_all_devices = true |
-| data.logout_at | string | Thời điểm logout |
-| message | string | Message trả về |
-
-### 6.4 Error Response - Unauthorized
+### 6.4 Error Response - Invalid Credentials
 
 HTTP Status: 401 Unauthorized
 
-### 6.5 Error Response - Token Expired
+### 6.5 Error Response - Account Locked
 
-HTTP Status: 401 Unauthorized
+HTTP Status: 403 Forbidden
 
-### 6.6 Error Response - Token Revoked
+### 6.6 Error Response - Account Inactive
 
-HTTP Status: 401 Unauthorized
+### 6.7 Error Response - Tenant Not Found
 
-### 6.7 Error Response - Validation Error
-
-HTTP Status: 422 Unprocessable Entity
+HTTP Status: 404 Not Found
 
 ### 6.8 Error Response - System Error
 
 HTTP Status: 500 Internal Server Error
 
----
+### 6.9 Error Response - Bad Request
+
+HTTP Status: 400 Bad Request
+
+### 6.10 Error Response - Method Not Allowed
+
+HTTP Status: 405 Method Not Allowed
+
+### 6.11 Error Response - Too Many Requests
+
+HTTP Status: 429 Too Many Requests
+
+### 6.12 Error Response - Service Unavailable
+
+HTTP Status: 503 Service Unavailable
+
+### 6.13 Error Response - Gateway Timeout
+
+HTTP Status: 504 Gateway Timeout
+
+Untitled
 
 
 ## 7. Validation Rules
 
-Message list 
+[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

@@ -203,34 +203,47 @@ Không áp dụng cho phương thức GET.
 | data.contacts[].remarks | string \| null | Ghi chú thêm |
 
 ---
+### 6.3 Error Response - Validation Error
 
-## 6.3 Error Response
+### 6.4 Error Response - Invalid Credentials
 
-### Unauthorized
+HTTP Status: 401 Unauthorized
 
-```
-401 Unauthorized
-```
+### 6.5 Error Response - Account Locked
 
-### Forbidden
+HTTP Status: 403 Forbidden
 
-```
-403 Forbidden
-```
+### 6.6 Error Response - Account Inactive
 
-### Not Found
+### 6.7 Error Response - Tenant Not Found
 
-```
-404 Not Found
-```
+HTTP Status: 404 Not Found
 
-### System Error
+### 6.8 Error Response - System Error
 
-```
-500 Internal Server Error
-```
+HTTP Status: 500 Internal Server Error
 
----
+### 6.9 Error Response - Bad Request
+
+HTTP Status: 400 Bad Request
+
+### 6.10 Error Response - Method Not Allowed
+
+HTTP Status: 405 Method Not Allowed
+
+### 6.11 Error Response - Too Many Requests
+
+HTTP Status: 429 Too Many Requests
+
+### 6.12 Error Response - Service Unavailable
+
+HTTP Status: 503 Service Unavailable
+
+### 6.13 Error Response - Gateway Timeout
+
+HTTP Status: 504 Gateway Timeout
+
+Untitled
 
 
 # 7. Validation Rules

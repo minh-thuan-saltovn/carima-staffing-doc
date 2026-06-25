@@ -194,7 +194,7 @@ Không áp dụng (Hành động khôi phục thông qua Path Parameter không c
 
 # 7. Validation Rules
 
-Message list 
+[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

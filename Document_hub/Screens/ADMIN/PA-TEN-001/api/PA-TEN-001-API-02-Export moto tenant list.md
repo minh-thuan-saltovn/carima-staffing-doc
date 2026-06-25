@@ -160,29 +160,52 @@ Không áp dụng (Phương thức GET không sử dụng Request Body).
 | 12 | Ngày Tạo | `platform.tenant_registry.created_at` | Ngày tạo bản ghi hệ thống |
 
 ---
+### 6.3 Error Response - Validation Error
 
-## 6.3 Error Response
+### 6.4 Error Response - Invalid Credentials
 
-*Trả về JSON dạng lỗi nếu validate bộ lọc thất bại hoặc không có quyền gọi API.*
+HTTP Status: 401 Unauthorized
 
-### Validation Error
+### 6.5 Error Response - Account Locked
 
-```
-422 Unprocessable Entity
-```
+HTTP Status: 403 Forbidden
 
-### Unauthorized
+### 6.6 Error Response - Account Inactive
 
-```
-401 Unauthorized
-```
+### 6.7 Error Response - Tenant Not Found
 
----
+HTTP Status: 404 Not Found
+
+### 6.8 Error Response - System Error
+
+HTTP Status: 500 Internal Server Error
+
+### 6.9 Error Response - Bad Request
+
+HTTP Status: 400 Bad Request
+
+### 6.10 Error Response - Method Not Allowed
+
+HTTP Status: 405 Method Not Allowed
+
+### 6.11 Error Response - Too Many Requests
+
+HTTP Status: 429 Too Many Requests
+
+### 6.12 Error Response - Service Unavailable
+
+HTTP Status: 503 Service Unavailable
+
+### 6.13 Error Response - Gateway Timeout
+
+HTTP Status: 504 Gateway Timeout
+
+Untitled
 
 
 # 7. Validation Rules
 
-Message list 
+[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
