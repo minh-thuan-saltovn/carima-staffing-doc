@@ -4,10 +4,10 @@
 | --- | --- |
 | API Name | Update Workplace Type Master |
 | Description | Cập nhật thông tin master loại nơi làm việc của MOTO. |
-| Endpoint | /api/v1/moto/settings/workplace-type-master/{workplace_type_code} |
+| Endpoint | /api/v1/moto/settings/workplace-type-master/{workplace_code} |
 | Menu | Company Settings |
 | Method | PATCH |
-| Related Tables | tenant_db.mst_moto_workplace_type (được đề xuất thay thế cho workplace_type_master đang để TBD) |
+| Related Tables | tenant_moto_<id>.mst_moto_workplace_type |
 | Screen list | 就業場所区分マスタ (MO-SET-007) - Workplace Type Master |
 | System | MOTO Portal |
 | 説明 | 勤務場所区分マスタを更新する (Cập nhật master loại nơi làm việc). |
@@ -22,9 +22,9 @@
 | Tên tài liệu | API Detail Design - Update Workplace Type Master |
 | Diagram / Flow áp dụng | BF-001 User Management Flow / Tenant Master Management |
 | Portal áp dụng | MOTO Portal |
-| Version | v1.0 |
+| Version | v1.2 |
 | Ngày tạo | 2026/06/24 |
-| Ngày cập nhật | 2026/06/24 |
+| Ngày cập nhật | 2026/06/25 |
 | Người tạo | Antigravity |
 | Người review | Duy |
 | Trạng thái | Draft |
@@ -36,6 +36,7 @@
 | Version | Ngày | Người chỉnh sửa | Nội dung thay đổi |
 | --- | --- | --- | --- |
 | v1.0 | 2026/06/24 | Antigravity | Khởi tạo tài liệu đặc tả chi tiết API Update Workplace Type Master (PATCH) bám sát UI giao diện thực tế và cấu trúc DB MOTO. |
+| v1.2 | 2026/06/25 | Antigravity | Cập nhật cấu trúc trường theo bảng mst_moto_workplace_type của ERD chuẩn và logic tính hiệu lực. |
 
 ---
 
@@ -50,10 +51,10 @@
 | Business Flow liên quan | Tenant Master Management Flow |
 | Screen ID liên quan | MO-SET-007 |
 | Chức năng liên quan | Workplace Type Master Management |
-| Mục đích API | Cập nhật thông tin chi tiết của một loại nơi làm việc đã tồn tại (tên loại, tên tiếng Anh, hình thức làm việc, chế độ đi lại và trạng thái hoạt động). |
+| Mục đích API | Cập nhật thông tin chi tiết của một loại nơi làm việc đã tồn tại (tên hiển thị PC/Mobile bằng tiếng Nhật/Anh, tháng hiệu lực, cờ sử dụng WebTC/FAX). |
 | Loại API | Frontend API |
 | Method | PATCH |
-| Endpoint | /api/v1/moto/settings/workplace-type-master/{workplace_type_code} |
+| Endpoint | /api/v1/moto/settings/workplace-type-master/{workplace_code} |
 | Authentication | Có |
 | Authorization | Có |
 | Phạm vi Tenant | Tenant Schema / Không cho phép Cross Tenant |
@@ -66,13 +67,13 @@
 ## 3.2 Mô tả API
 
 ### Mục đích
-Cập nhật thông tin chi tiết (tên loại, tên tiếng Anh, hình thức làm việc, chế độ đi lại và trạng thái) của một loại nơi làm việc cụ thể trong bảng `mst_moto_workplace_type` theo tenant.
+Cập nhật thông tin chi tiết của một loại nơi làm việc cụ thể trong bảng mst_moto_workplace_type theo tenant.
 
 ### Ngữ cảnh nghiệp vụ
 
 | Hạng mục | Mô tả |
 | --- | --- |
-| Kích hoạt | Người dùng nhấn nút "Lưu" trên form chỉnh sửa |
+| Kích hoạt | Người dùng nhấn nút Lưu trên form chỉnh sửa |
 | Actor | MOTO Admin, MOTO Staff |
 | Trước khi gọi | Đã mở form chỉnh sửa của bản ghi cụ thể và nhập các thông tin hợp lệ |
 | Sau khi gọi | Hiển thị Toast thành công, đóng form và reload danh sách |
@@ -84,7 +85,7 @@ Cập nhật thông tin chi tiết (tên loại, tên tiếng Anh, hình thức 
 ## 4.1 Endpoint
 
 ```
-PATCH /api/v1/moto/settings/workplace-type-master/{workplace_type_code}
+PATCH /api/v1/moto/settings/workplace-type-master/{workplace_code}
 ```
 
 ## 4.2 Request Header
@@ -99,7 +100,7 @@ PATCH /api/v1/moto/settings/workplace-type-master/{workplace_type_code}
 
 | Parameter | Type | Bắt buộc | Mô tả | Ví dụ |
 | --- | --- | --- | --- | --- |
-| workplace_type_code | string | Có | Mã loại nơi làm việc cần cập nhật | WPT001 |
+| workplace_code | string | Có | Mã loại nơi làm việc cần cập nhật | OFFICE |
 
 ## 4.4 Query Parameters
 
@@ -113,11 +114,13 @@ Không áp dụng.
 
 ```json
 {
-  "workplace_type_name": "クライアント常駐(更新)",
-  "workplace_type_name_en": "Client On-site (Updated)",
-  "work_style_type": 1,
-  "is_transportation_eligible": 1,
-  "status": 1
+  "pc_display_name": "オフィス(更新)",
+  "pc_display_name_en": "Office (Updated)",
+  "mobile_display_name": "オウ",
+  "mobile_display_name_en": "Off-U",
+  "valid_from_month": "2026-01",
+  "valid_to_month": "2027-12",
+  "use_fax_flg": 1
 }
 ```
 
@@ -125,11 +128,13 @@ Không áp dụng.
 
 | Field | Type | Bắt buộc | Mô tả |
 | --- | --- | --- | --- |
-| workplace_type_name | string | Có | Tên loại nơi làm việc |
-| workplace_type_name_en | string | Không | Tên loại nơi làm việc (tiếng Anh) |
-| work_style_type | number | Có | Hình thức làm việc (1: 常駐 - On-site, 2: 在宅 - Remote, 3: ハイブリッド - Hybrid, 4: 出張 - Business Trip) |
-| is_transportation_eligible | number | Có | Đối tượng chi trả phí đi lại (0: Không, 1: Có) |
-| status | number | Có | Trạng thái (0: Vô hiệu, 1: Hoạt động) |
+| pc_display_name | string | Có | Tên hiển thị trên PC (Tiếng Nhật) |
+| pc_display_name_en | string | Không | Tên hiển thị trên PC (Tiếng Anh) |
+| mobile_display_name | string | Có | Tên hiển thị trên Mobile (Tiếng Nhật) |
+| mobile_display_name_en | string | Không | Tên hiển thị trên Mobile (Tiếng Anh) |
+| valid_from_month | string | Có | Tháng bắt đầu áp dụng (Định dạng YYYY-MM) |
+| valid_to_month | string | Không | Tháng kết thúc áp dụng (Định dạng YYYY-MM hoặc null) |
+| use_fax_flg | number | Có | Cờ sử dụng cho FAX (1: Có, 0: Không) |
 
 ---
 
@@ -148,31 +153,35 @@ Không áp dụng.
 ```json
 {
   "data": {
-    "workplace_type_code": "WPT001",
-    "workplace_type_name": "クライアント常駐(更新)",
-    "workplace_type_name_en": "Client On-site (Updated)",
-    "work_style_type": 1,
-    "is_transportation_eligible": 1,
-    "status": 1,
+    "id": 1,
+    "workplace_code": "OFFICE",
+    "pc_display_name": "オフィス(更新)",
+    "pc_display_name_en": "Office (Updated)",
+    "mobile_display_name": "オウ",
+    "mobile_display_name_en": "Off-U",
+    "valid_from_month": "2026-01",
+    "valid_to_month": "2027-12",
+    "use_fax_flg": 1,
     "created_at": "2026-06-23T08:00:00+09:00",
     "updated_at": "2026-06-24T17:08:00+09:00"
   }
 }
 ```
 
----
-
 ## 6.2 Định nghĩa field response thành công
 
 | Field | Type | Mô tả |
 | --- | --- | --- |
 | data | object | Thông tin chi tiết loại nơi làm việc vừa cập nhật |
-| data.workplace_type_code | string | Mã loại nơi làm việc |
-| data.workplace_type_name | string | Tên loại nơi làm việc |
-| data.workplace_type_name_en | string | Tên loại nơi làm việc (tiếng Anh) |
-| data.work_style_type | number | Hình thức làm việc (1: 常駐 - On-site, 2: 在宅 - Remote, 3: ハイブリッド - Hybrid, 4: 出張 - Business Trip) |
-| data.is_transportation_eligible | number | Đối tượng chi trả phí đi lại (0: Không, 1: Có) |
-| data.status | number | Trạng thái (0: Vô hiệu, 1: Hoạt động) |
+| data.id | number | ID tự tăng khóa chính |
+| data.workplace_code | string | Mã loại nơi làm việc |
+| data.pc_display_name | string | Tên hiển thị trên PC (Tiếng Nhật) |
+| data.pc_display_name_en | string | Tên hiển thị trên PC (Tiếng Anh) |
+| data.mobile_display_name | string | Tên hiển thị trên Mobile (Tiếng Nhật) |
+| data.mobile_display_name_en | string | Tên hiển thị trên Mobile (Tiếng Anh) |
+| data.valid_from_month | string | Tháng bắt đầu áp dụng (YYYY-MM) |
+| data.valid_to_month | string | Tháng kết thúc áp dụng (YYYY-MM hoặc null) |
+| data.use_fax_flg | number | Cờ sử dụng cho FAX (1: Có, 0: Không) |
 | data.created_at | datetime | Thời điểm tạo |
 | data.updated_at | datetime | Thời điểm cập nhật |
 
@@ -193,8 +202,8 @@ Không áp dụng.
     "message": "Validation failed.",
     "details": [
       {
-        "field": "workplace_type_name",
-        "message": "The workplace_type_name field is required."
+        "field": "pc_display_name",
+        "message": "The pc_display_name field is required."
       }
     ]
   }
@@ -267,20 +276,20 @@ Không áp dụng.
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |
-| 1 | workplace_type_code | Bắt buộc (Path Parameter), chuỗi ký tự | CMS-VAL-23 | 種別コードを入力してください。 |
-| 2 | workplace_type_code | Tối đa 20 ký tự | CMS-VAL-6 | 種別コードは20文字以内で入力してください。 |
-| 3 | workplace_type_name | Bắt buộc, chuỗi ký tự | CMS-VAL-23 | 種別名を入力してください。 |
-| 4 | workplace_type_name | Tối đa 100 ký tự | CMS-VAL-6 | 種別名は100文字以内で入力してください。 |
-| 5 | workplace_type_name_en | Không bắt buộc, chuỗi ký tự, tối đa 100 ký tự | CMS-VAL-6 | 種別名（英字）は100文字以内で入力してください。 |
-| 6 | work_style_type | Bắt buộc, số nguyên | CMS-VAL-23 | 勤務形態を入力してください。 |
-| 7 | work_style_type | Phải là số nguyên | CMS-VAL-40 | 勤務形態は整数で指定してください。 |
-| 8 | work_style_type | Phải thuộc tập hợp: 1, 2, 3, 4 | CMS-VAL-41 | 選択された勤務形態は正しくありません。 |
-| 9 | is_transportation_eligible | Bắt buộc, số nguyên | CMS-VAL-23 | 交通費対象を入力してください。 |
-| 10 | is_transportation_eligible | Phải là số nguyên | CMS-VAL-40 | 交通費対象は整数で指定してください。 |
-| 11 | is_transportation_eligible | Phải thuộc tập hợp: 0, 1 | CMS-VAL-41 | 選択された交通費対象は正しくありません。 |
-| 12 | status | Bắt buộc, số nguyên | CMS-VAL-23 | ステータスを入力してください。 |
-| 13 | status | Phải là số nguyên | CMS-VAL-40 | ステータスは整数で指定してください。 |
-| 14 | status | Phải thuộc tập hợp: 0, 1 | CMS-VAL-41 | 選択されたステータスは正しくありません。 |
+| 1 | workplace_code | Bắt buộc (Path Parameter), chuỗi ký tự | CMS-VAL-23 | 区分コードを入力してください. |
+| 2 | workplace_code | Tối đa 20 ký tự, Half-width | CMS-VAL-6 | 区分コードは20文字以内で入力してください. |
+| 3 | pc_display_name | Bắt buộc, chuỗi ký tự | CMS-VAL-23 | PC表示名を入力してください. |
+| 4 | pc_display_name | Tối đa 50 ký tự | CMS-VAL-6 | PC表示名は50文字以内で入力してください. |
+| 5 | pc_display_name_en | Không bắt buộc, chuỗi ký tự, tối đa 50 ký tự | CMS-VAL-6 | PC表示名（英語）は50文字以内で入力してください. |
+| 6 | mobile_display_name | Bắt buộc, chuỗi ký tự | CMS-VAL-23 | モバイル表示名を入力してください. |
+| 7 | mobile_display_name | Tối đa 20 ký tự | CMS-VAL-6 | モバイル表示名は20文字以内で入力してください. |
+| 8 | mobile_display_name_en | Không bắt buộc, chuỗi ký tự, tối đa 20 ký tự | CMS-VAL-6 | モバイル表示名（英語）は20文字以内で入力してください. |
+| 9 | valid_from_month | Bắt buộc, định dạng YYYY-MM | CMS-VAL-23 | 適用開始月を入力してください. |
+| 10 | valid_from_month | Đúng định dạng YYYY-MM | CMS-VAL-24 | 適用開始月に正しい形式を指定してください. |
+| 11 | valid_to_month | Không bắt buộc, định dạng YYYY-MM | CMS-VAL-24 | 適用終了月に正しい形式を指定してください. |
+| 12 | valid_to_month | Phải >= valid_from_month | CMS-VAL-41 | 適用終了月は適用開始月以降を指定してください. |
+| 13 | use_fax_flg | Bắt buộc, số nguyên | CMS-VAL-23 | FAX利用フラグを入力してください. |
+| 14 | use_fax_flg | Phải thuộc tập hợp: 0, 1 | CMS-VAL-41 | 選択されたFAX利用フラグは正しくありません. |
 
 ---
 
@@ -292,7 +301,7 @@ Không áp dụng.
 | BR-002 | Role authorization | Yêu cầu quyền workplace_type.update để thực hiện API. |
 | BR-003 | Database Transaction | Bắt buộc bọc xử lý trong Database Transaction, rollback nếu có lỗi xảy ra. |
 | BR-004 | Auditing Fields | Tự động ghi nhận thông tin updated_at và updated_by khi lưu thành công. |
-| BR-005 | Resource check | Kiểm tra sự tồn tại của workplace_type_code trước khi cập nhật; trả về 404 nếu không tìm thấy. |
+| BR-005 | Resource check | Kiểm tra sự tồn tại của workplace_code trước khi cập nhật; trả về 404 nếu không tìm thấy. |
 
 ---
 
@@ -327,32 +336,40 @@ Không áp dụng.
 
 | Request Param | Table | Column | Mô tả |
 | --- | --- | --- | --- |
-| workplace_type_code (Path) | tenant_moto.mst_moto_workplace_type | workplace_type_code | Điều kiện tìm kiếm khóa chính để cập nhật |
-| workplace_type_name (Body) | tenant_moto.mst_moto_workplace_type | workplace_type_name | Cập nhật tên loại nơi làm việc |
-| workplace_type_name_en (Body) | tenant_moto.mst_moto_workplace_type | workplace_type_name_en | Cập nhật tên loại nơi làm việc (tiếng Anh) |
-| work_style_type (Body) | tenant_moto.mst_moto_workplace_type | work_style_type | Cập nhật hình thức làm việc |
-| is_transportation_eligible (Body) | tenant_moto.mst_moto_workplace_type | is_transportation_eligible | Cập nhật đối tượng chi trả phí đi lại |
-| status (Body) | tenant_moto.mst_moto_workplace_type | status | Cập nhật trạng thái hoạt động |
+| workplace_code (Path) | tenant_moto_<id>.mst_moto_workplace_type | workplace_code | Điều kiện tìm kiếm khóa chính để cập nhật |
+| pc_display_name (Body) | tenant_moto_<id>.mst_moto_workplace_type | pc_display_name | Cập nhật tên hiển thị trên PC (Tiếng Nhật) |
+| pc_display_name_en (Body) | tenant_moto_<id>.mst_moto_workplace_type | pc_display_name_en | Cập nhật tên hiển thị trên PC (Tiếng Anh) |
+| mobile_display_name (Body) | tenant_moto_<id>.mst_moto_workplace_type | mobile_display_name | Cập nhật tên hiển thị trên Mobile (Tiếng Nhật) |
+| mobile_display_name_en (Body) | tenant_moto_<id>.mst_moto_workplace_type | mobile_display_name_en | Cập nhật tên hiển thị trên Mobile (Tiếng Anh) |
+| valid_from_month (Body) | tenant_moto_<id>.mst_moto_workplace_type | valid_from_month | Cập nhật tháng bắt đầu áp dụng |
+| valid_to_month (Body) | tenant_moto_<id>.mst_moto_workplace_type | valid_to_month | Cập nhật tháng kết thúc áp dụng |
+| use_fax_flg (Body) | tenant_moto_<id>.mst_moto_workplace_type | use_fax_flg | Cờ sử dụng cho FAX |
 
 ## 10.2 Mapping từ DB ra Response
 
 | Table | Column | Response Field | Mô tả |
 | --- | --- | --- | --- |
-| tenant_moto.mst_moto_workplace_type | workplace_type_code | data.workplace_type_code | Mã loại nơi làm việc |
-| tenant_moto.mst_moto_workplace_type | workplace_type_name | data.workplace_type_name | Tên loại nơi làm việc |
-| tenant_moto.mst_moto_workplace_type | workplace_type_name_en | data.workplace_type_name_en | Tên loại nơi làm việc (tiếng Anh) |
-| tenant_moto.mst_moto_workplace_type | work_style_type | data.work_style_type | Hình thức làm việc |
-| tenant_moto.mst_moto_workplace_type | is_transportation_eligible | data.is_transportation_eligible | Đối tượng chi trả phí đi lại |
-| tenant_moto.mst_moto_workplace_type | status | data.status | Trạng thái |
-| tenant_moto.mst_moto_workplace_type | created_at | data.created_at | Thời điểm tạo |
-| tenant_moto.mst_moto_workplace_type | updated_at | data.updated_at | Thời điểm cập nhật |
+| tenant_moto_<id>.mst_moto_workplace_type | id | data.id | ID tự tăng khóa chính |
+| tenant_moto_<id>.mst_moto_workplace_type | workplace_code | data.workplace_code | Mã loại nơi làm việc |
+| tenant_moto_<id>.mst_moto_workplace_type | pc_display_name | data.pc_display_name | Tên hiển thị trên PC (Tiếng Nhật) |
+| tenant_moto_<id>.mst_moto_workplace_type | pc_display_name_en | data.pc_display_name_en | Tên hiển thị trên PC (Tiếng Anh) |
+| tenant_moto_<id>.mst_moto_workplace_type | mobile_display_name | data.mobile_display_name | Tên hiển thị trên Mobile (Tiếng Nhật) |
+| tenant_moto_<id>.mst_moto_workplace_type | mobile_display_name_en | data.mobile_display_name_en | Tên hiển thị trên Mobile (Tiếng Anh) |
+| tenant_moto_<id>.mst_moto_workplace_type | valid_from_month | data.valid_from_month | Tháng bắt đầu áp dụng |
+| tenant_moto_<id>.mst_moto_workplace_type | valid_to_month | data.valid_to_month | Tháng kết thúc áp dụng |
+| tenant_moto_<id>.mst_moto_workplace_type | use_fax_flg | data.use_fax_flg | Cờ sử dụng cho FAX |
+| tenant_moto_<id>.mst_moto_workplace_type | created_at | data.created_at | Thời điểm tạo |
+| tenant_moto_<id>.mst_moto_workplace_type | updated_at | data.updated_at | Thời điểm cập nhật |
 
 ---
 
 # 11. Database Transaction
 
-Áp dụng cho phương thức ghi dữ liệu (PATCH).
-Toàn bộ quá trình kiểm tra sự tồn tại và thực hiện lệnh UPDATE phải được đặt trong DB::transaction để đảm bảo tính nhất quán dữ liệu. Nếu xảy ra bất kỳ lỗi runtime nào, toàn bộ các thay đổi cơ sở dữ liệu sẽ bị rollback.
+| Hạng mục | Nội dung |
+| --- | --- |
+| Transaction | Áp dụng (PATCH) |
+| Phạm vi áp dụng | Bao bọc toàn bộ quá trình SELECT kiểm tra tồn tại và UPDATE |
+| Xử lý rollback | Tự động rollback nếu xảy ra bất kỳ ngoại lệ nào trong quá trình xử lý |
 
 ---
 
@@ -365,15 +382,10 @@ Không áp dụng.
 # 13. Sequence / Processing Flow
 
 ```
-1. Nhận request PATCH kèm request body và path parameter.
-2. Xác định JWT và kiểm tra quyền workplace_type.update.
-3. Validate dữ liệu đầu vào. Trả về 422 nếu không hợp lệ.
-4. Kết nối tới schema tenant dựa trên thông tin JWT.
-5. Khởi tạo DB Transaction:
-   - Tìm kiếm loại nơi làm việc theo workplace_type_code. Nếu không tồn tại, rollback và trả về 404.
-   - Cập nhật các trường dữ liệu và ghi nhận audit log (updated_at, updated_by).
-6. Commit Transaction.
-7. Trả về response JSON của bản ghi sau cập nhật kèm HTTP 200.
+1. Xác thực quyền workplace_type.update và validate request.
+2. Tìm bản ghi theo workplace_code (chưa bị xóa, deleted_at IS NULL) của tenant. Nếu không tồn tại, trả về HTTP 404.
+3. Trong Transaction: Cập nhật các trường dữ liệu, ghi log audit (updated_at, updated_by) và commit.
+4. Trả về HTTP 200 kèm thông tin bản ghi sau cập nhật.
 ```
 
 ---
@@ -396,8 +408,8 @@ Không áp dụng.
 | --- | --- |
 | Lớp đối tượng | WorkplaceTypeMaster |
 | Hành động | Update |
-| ID bản ghi | workplace_type_code |
-| Mô tả chi tiết | Cập nhật thông tin loại nơi làm việc: {workplace_type_code}. |
+| ID bản ghi | workplace_code |
+| Mô tả chi tiết | Cập nhật thông tin loại nơi làm việc: {workplace_code}. |
 | Người thực hiện | user_id (Lấy từ JWT token) |
 | Thời gian | Thời điểm hệ thống xử lý ghi thành công |
 
@@ -435,9 +447,9 @@ Không áp dụng.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Phải xác thực JWT token và kiểm tra quyền workplace_type.update của người dùng trước khi xử lý. |
-| 2 | Tenant Isolation | Thiết lập kết nối động tới đúng tenant schema dựa trên thông tin công ty của người dùng đăng nhập để cách ly dữ liệu. Không cho phép truyền tham số company_id từ client để thay đổi tenant truy vấn dữ liệu. |
-| 3 | Input Sanitization & SQL Injection | Sử dụng Eloquent ORM / Parameterized Query để chèn các tham số cập nhật và điều kiện tìm kiếm vào câu lệnh SQL để ngăn chặn tấn công SQL injection. |
+| 1 | Auth | Xác thực JWT và kiểm tra quyền workplace_type.update. |
+| 2 | Tenant Isolation | Kết nối động tới schema tenant theo JWT, cấm truyền company_id từ client. |
+| 3 | SQL Injection | Dùng Eloquent/Parameterized Query để phòng ngừa SQL injection. |
 
 ---
 

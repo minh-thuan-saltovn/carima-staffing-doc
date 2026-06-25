@@ -80,21 +80,23 @@ Sau khi lưu thành công:
 ---
 
 ## Bộ lọc tìm kiếm
-- Trạng thái: Mặc định chọn "Hoạt động".
-- Từ khóa: Tìm kiếm tương đối theo Mã hoặc Tên loại nơi làm việc.
+- Trạng thái: Lọc theo Trạng thái. Mặc định chọn "Hoạt động".
+- Từ khóa: Tìm kiếm tương đối theo Mã loại hoặc Tên hiển thị PC.
 
 ---
 
 ## Bảng dữ liệu
-- Hiển thị 6 cột dữ liệu và cột Thao tác.
-- Trạng thái: Badge màu xanh (Hoạt động) hoặc xám (Vô hiệu).
-- Hình thức làm việc: Nhãn màu tương ứng (Thường trú: Xanh dương, Tại nhà: Xanh lá, Hybrid: Tím, Công tác: Cam).
-- Phí đi lại: Hiển thị "Có" hoặc "Không".
+- Cột hiển thị: Mã loại, Tên hiển thị PC, Tên hiển thị PC (Tiếng Anh), Tên hiển thị Mobile, Tên hiển thị Mobile (Tiếng Anh), Tháng bắt đầu, Tháng kết thúc, FAX, Trạng thái.
+- FAX: Hiển thị "Có" (nếu flg = 1) hoặc "Không" (nếu flg = 0).
+- Trạng thái hiệu lực: Badge màu xanh (Hoạt động) hoặc màu xám.
 
 ---
 
 ## Form nhập liệu (Thêm mới/Cập nhật)
-- Mã loại: Cho phép nhập khi thêm mới; Readonly khi chỉnh sửa.
+- Mã loại: Cho phép nhập khi thêm mới; Readonly khi chỉnh sửa. Chỉ cho phép chữ và số Half-width.
+- Các tên hiển thị: Tên hiển thị PC/Mobile bằng tiếng Nhật và tiếng Anh.
+- Khoảng áp dụng: Tháng bắt đầu (bắt buộc) và Tháng kết thúc (tùy chọn) định dạng YYYY-MM.
+- Bật/tắt sử dụng: Bật/tắt cho hệ thống WebTimeCard (mặc định Bật) và hệ thống FAX (mặc định Tắt).
 - Trường bắt buộc: Hiển thị dấu * đỏ sau nhãn.
 
 ---
@@ -105,8 +107,8 @@ Sau khi lưu thành công:
 
 | No | Item | Type | Required | Format | DB |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Trạng thái | Radio | No | 有効 / 無効 | status |
-| 2 | Từ khóa | Textbox | No | 100 ký tự | workplace_type_code / workplace_type_name |
+| 1 | Trạng thái | Radio | No | Hoạt động / Hết hiệu lực / Tất cả | (Tính toán động từ valid_from_month và valid_to_month) |
+| 2 | Từ khóa | Textbox | No | 100 ký tự | workplace_code / pc_display_name |
 
 ---
 
@@ -114,12 +116,15 @@ Sau khi lưu thành công:
 
 | No | Item | Type | Required | Format | DB |
 | --- | --- | --- | --- | --- | --- |
-| 3 | Mã loại | Textbox | Yes | 20 ký tự | workplace_type_code |
-| 4 | Trạng thái | Dropdown | Yes | 有効 / 無効 | status |
-| 5 | Tên loại | Textbox | Yes | 100 ký tự | workplace_type_name |
-| 6 | Tên tiếng Anh | Textbox | No | 100 ký tự | workplace_type_name_en |
-| 7 | Hình thức làm việc | Dropdown | Yes | 1: On-site, 2: Remote, 3: Hybrid, 4: Business Trip | work_style_type |
-| 8 | Đối tượng phí đi lại | Radio | Yes | 0: Không, 1: Có | is_transportation_eligible |
+| 3 | Mã loại | Textbox | Yes | 20 ký tự, Half-width | workplace_code |
+| 4 | Tên hiển thị PC | Textbox | Yes | 50 ký tự | pc_display_name |
+| 5 | Tên hiển thị PC (English) | Textbox | No | 50 ký tự | pc_display_name_en |
+| 6 | Tên hiển thị Mobile | Textbox | Yes | 20 ký tự | mobile_display_name |
+| 7 | Tên hiển thị Mobile (English) | Textbox | No | 20 ký tự | mobile_display_name_en |
+| 8 | Tháng bắt đầu áp dụng | Textbox (DatePicker YYYY-MM) | Yes | YYYY-MM | valid_from_month |
+| 9 | Tháng kết thúc áp dụng | Textbox (DatePicker YYYY-MM) | No | YYYY-MM | valid_to_month |
+| 10 | Sử dụng WebTimeCard | Toggle/Checkbox | Yes | 1: Có, 0: Không (Mặc định 1) | use_webtc_flg |
+| 11 | Sử dụng FAX | Toggle/Checkbox | Yes | 1: Có, 0: Không (Mặc định 0) | use_fax_flg |
 
 ---
 
@@ -133,62 +138,81 @@ Sau khi lưu thành công:
 | Lịch sử (履歴) | Button | - | Xem popup lịch sử thay đổi dòng tương ứng |
 | Quay lại (<-) | Link/Button | - | Hủy bỏ và quay lại danh sách |
 
+
 ---
 
 # 8. Validation
 
-## Mã loại nơi làm việc (workplace_type_code)
+## workplace_code
 
 | Rule | Message Code | Message |
 | --- | --- | --- |
-| Required | CMS-VAL-23 | 種別コードを入力してください。 (Vui lòng không để trống trường Mã loại nơi làm việc.) |
-| Max 20 | CMS-VAL-6 | 種別コードは20文字以内で入力してください。 (Vui lòng nhập Mã loại nơi làm việc trong vòng 20 ký tự trở xuống.) |
-| Format | CMS-VAL-24 | 種別コードに正しい形式を指定してください。 (Vui lòng nhập Mã loại nơi làm việc đúng định dạng yêu cầu.) |
-| Unique | CMS-VAL-11 | 種別コードの値は既に存在しています。 (Giá trị của Mã loại nơi làm việc đã tồn tại trong hệ thống (không được trùng lặp).) |
+| Required | CMS-VAL-23 | 区分コードを入力してください。 (Vui lòng không để trống trường Mã loại.) |
+| Max 20 | CMS-VAL-6 | 区分コードは20文字以内で入力してください。 (Vui lòng nhập Mã loại trong vòng 20 ký tự trở xuống.) |
+| Format | CMS-VAL-24 | 区分コードに正しい形式を指定してください。 (Vui lòng nhập Mã loại đúng định dạng yêu cầu.) |
+| Unique | CMS-VAL-11 | 区分コードの値は既に存在しています。 (Giá trị của Mã loại đã tồn tại trong hệ thống (không được trùng lặp).) |
 
 ---
 
-## Tên loại nơi làm việc (workplace_type_name)
+## pc_display_name
 
 | Rule | Message Code | Message |
 | --- | --- | --- |
-| Required | CMS-VAL-23 | 種別名を入力してください。 (Vui lòng không để trống trường Tên loại nơi làm việc.) |
-| Max 100 | CMS-VAL-6 | 種別名は100文字以内で入力してください。 (Vui lòng nhập Tên loại nơi làm việc trong vòng 100 ký tự trở xuống.) |
+| Required | CMS-VAL-23 | PC表示名を入力してください。 (Vui lòng không để trống trường Tên hiển thị PC.) |
+| Max 50 | CMS-VAL-6 | PC表示名は50文字以内で入力してください。 (Vui lòng nhập Tên hiển thị PC trong vòng 50 ký tự trở xuống.) |
 
 ---
 
-## Tên tiếng Anh (workplace_type_name_en)
+## pc_display_name_en
 
 | Rule | Message Code | Message |
 | --- | --- | --- |
-| Max 100 | CMS-VAL-6 | 種別名（英字）は100文字以内で入力してください。 (Vui lòng nhập Tên tiếng Anh trong vòng 100 ký tự trở xuống.) |
+| Max 50 | CMS-VAL-6 | PC表示名（英語）は50文字以内で入力してください。 (Vui lòng nhập Tên hiển thị PC (Tiếng Anh) trong vòng 50 ký tự trở xuống.) |
 
 ---
 
-## Hình thức làm việc (work_style_type)
+## Tên hiển thị Mobile (mobile_display_name)
 
 | Rule | Message Code | Message |
 | --- | --- | --- |
-| Required | CMS-VAL-23 | 勤務形態を入力してください。 (Vui lòng không để trống trường Hình thức làm việc.) |
-| In | CMS-VAL-41 | 選択された勤務形態は正しくありません。 (Hình thức làm việc được chọn không hợp lệ.) |
+| Required | CMS-VAL-23 | モバイル表示名を入力してください。 (Vui lòng không để trống trường Tên hiển thị Mobile.) |
+| Max 20 | CMS-VAL-6 | モバイル表示名は20文字以内で入力してください。 (Vui lòng nhập Tên hiển thị Mobile trong vòng 20 ký tự trở xuống.) |
 
 ---
 
-## Đối tượng phí đi lại (is_transportation_eligible)
+## Tên hiển thị Mobile English (mobile_display_name_en)
 
 | Rule | Message Code | Message |
 | --- | --- | --- |
-| Required | CMS-VAL-23 | 交通費対象を入力してください。 (Vui lòng không để trống trường Đối tượng phí đi lại.) |
-| In | CMS-VAL-41 | 選択された交通費対象は正しくありません。 (Đối tượng phí đi lại được chọn không hợp lệ.) |
+| Max 20 | CMS-VAL-6 | モバイル表示名（英語）は20文字以内で入力してください。 (Vui lòng nhập Tên hiển thị Mobile (Tiếng Anh) trong vòng 20 ký tự trở xuống.) |
 
 ---
 
-## Trạng thái (status)
+## valid_from_month
 
 | Rule | Message Code | Message |
 | --- | --- | --- |
-| Required | CMS-VAL-23 | ステータスを入力してください。 (Vui lòng không để trống trường Trạng thái.) |
-| In | CMS-VAL-41 | 選択されたステータスは正しくありません。 (Trạng thái được chọn không hợp lệ.) |
+| Required | CMS-VAL-23 | 適用開始月を入力してください。 (Vui lòng không để trống trường Tháng bắt đầu áp dụng.) |
+| Format | CMS-VAL-24 | 適用開始月に正しい形式を指定してください。 (Tháng bắt đầu áp dụng không đúng định dạng YYYY-MM.) |
+
+---
+
+## valid_to_month
+
+| Rule | Message Code | Message |
+| --- | --- | --- |
+| Format | CMS-VAL-24 | 適用終了月に正しい形式を指定してください。 (Tháng kết thúc áp dụng không đúng định dạng YYYY-MM.) |
+| Min | CMS-VAL-41 | 適用終了月は適用開始月以降を指定してください。 (Tháng kết thúc áp dụng phải lớn hơn hoặc bằng Tháng bắt đầu áp dụng.) |
+
+---
+
+## use_fax_flg
+
+| Rule | Message Code | Message |
+| --- | --- | --- |
+| Required | CMS-VAL-23 | FAX利用フラグを入力してください。 (Vui lòng không để trống cờ Sử dụng FAX.) |
+| In | CMS-VAL-41 | 選択されたFAX利用フラグは正しくありません。 (Giá trị cờ Sử dụng FAX không hợp lệ.) |
+
 
 ---
 
@@ -256,15 +280,19 @@ Quay lại màn hình danh sách, hủy bỏ mọi thay đổi chưa lưu.
 
 | Column | Type |
 | --- | --- |
+| id | bigint |
 | company_id | varchar(20) |
-| workplace_type_code | varchar(20) |
-| workplace_type_name | varchar(100) |
-| workplace_type_name_en | varchar(100) |
-| work_style_type | smallint |
-| is_transportation_eligible | smallint |
-| status | smallint |
+| workplace_code | varchar(20) |
+| pc_display_name | varchar(50) |
+| mobile_display_name | varchar(20) |
+| pc_display_name_en | varchar(50) |
+| mobile_display_name_en | varchar(20) |
+| valid_from_month | varchar(7) |
+| valid_to_month | varchar(7) |
+| use_fax_flg | smallint |
 | created_at | timestamptz |
 | updated_at | timestamptz |
+| deleted_at | timestamptz |
 | created_by | varchar(100) |
 | updated_by | varchar(100) |
 
@@ -284,7 +312,7 @@ Request
 {
   "page": 1,
   "limit": 20,
-  "keyword": "常駐",
+  "keyword": "オフィス",
   "status": 1
 }
 ```
@@ -295,12 +323,15 @@ Response
 {
   "data": [
     {
-      "workplace_type_code": "WPT001",
-      "workplace_type_name": "クライアント常駐",
-      "workplace_type_name_en": "Client On-site",
-      "work_style_type": 1,
-      "is_transportation_eligible": 1,
-      "status": 1,
+      "id": 1,
+      "workplace_code": "OFFICE",
+      "pc_display_name": "オフィス",
+      "pc_display_name_en": "Office",
+      "mobile_display_name": "オ",
+      "mobile_display_name_en": "Off",
+      "valid_from_month": "2026-01",
+      "valid_to_month": null,
+      "use_fax_flg": 0,
       "created_at": "2026-06-23T08:00:00+09:00",
       "updated_at": "2026-06-23T08:00:00+09:00"
     }
@@ -313,18 +344,20 @@ Response
 ## Update Workplace Type Master
 
 ```
-PATCH /api/v1/moto/settings/workplace-type-master/{workplace_type_code}
+PATCH /api/v1/moto/settings/workplace-type-master/{workplace_code}
 ```
 
 Request
 
 ```json
 {
-  "workplace_type_name": "クライアント常駐(更新)",
-  "workplace_type_name_en": "Client On-site (Updated)",
-  "work_style_type": 1,
-  "is_transportation_eligible": 1,
-  "status": 1
+  "pc_display_name": "オフィス(更新)",
+  "pc_display_name_en": "Office (Updated)",
+  "mobile_display_name": "オウ",
+  "mobile_display_name_en": "Off-U",
+  "valid_from_month": "2026-01",
+  "valid_to_month": "2027-12",
+  "use_fax_flg": 1
 }
 ```
 
@@ -333,12 +366,15 @@ Response
 ```json
 {
   "data": {
-    "workplace_type_code": "WPT001",
-    "workplace_type_name": "クライアント常駐(更新)",
-    "workplace_type_name_en": "Client On-site (Updated)",
-    "work_style_type": 1,
-    "is_transportation_eligible": 1,
-    "status": 1,
+    "id": 1,
+    "workplace_code": "OFFICE",
+    "pc_display_name": "オフィス(更新)",
+    "pc_display_name_en": "Office (Updated)",
+    "mobile_display_name": "オウ",
+    "mobile_display_name_en": "Off-U",
+    "valid_from_month": "2026-01",
+    "valid_to_month": "2027-12",
+    "use_fax_flg": 1,
     "created_at": "2026-06-23T08:00:00+09:00",
     "updated_at": "2026-06-24T17:08:00+09:00"
   }
