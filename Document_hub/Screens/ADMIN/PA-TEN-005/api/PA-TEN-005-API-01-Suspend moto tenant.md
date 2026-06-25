@@ -253,6 +253,8 @@ Không áp dụng (Hành động tạm ngưng thông qua Path Parameter, không 
 
 # 7. Validation Rules
 
+Message list 
+
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id | required | - | required |

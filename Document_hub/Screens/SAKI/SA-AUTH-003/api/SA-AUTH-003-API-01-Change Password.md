@@ -161,75 +161,24 @@ HTTP Status: 200 OK
 
 HTTP Status: 422 Unprocessable Entity
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "入力内容を確認してください",
-    "details": [
-      {
-        "field": "new_password",
-        "code": "MIN_LENGTH",
-        "message": "新しいパスワードは8文字以上で入力してください"
-      }
-    ]
-  }
-}
-```
-
 ### 6.4 Error Response - Password Incompatibility
 
 HTTP Status: 422 Unprocessable Entity
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "入力内容を確認してください",
-    "details": [
-      {
-        "field": "current_password",
-        "code": "INCORRECT",
-        "message": "現在のパスワードが正しくありません"
-      }
-    ]
-  }
-}
-```
 
 ### 6.5 Error Response - Unauthorized
 
 HTTP Status: 401 Unauthorized
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "ログインセッションの有効期限が切れました"
-  }
-}
-```
-
 ### 6.6 Error Response - System Error
 
 HTTP Status: 500 Internal Server Error
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "システムエラーが発生しました"
-  }
-}
-```
-
 ---
 
+
 ## 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

@@ -180,39 +180,18 @@ Không áp dụng (Phương thức GET không sử dụng Request Body).
 422 Unprocessable Entity
 ```
 
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Validation failed.",
-    "details": [
-      {
-        "field": "status",
-        "message": "Status must be 0 or 1."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized
 
 ```
 401 Unauthorized
 ```
 
-```json
-{
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Authentication is required."
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

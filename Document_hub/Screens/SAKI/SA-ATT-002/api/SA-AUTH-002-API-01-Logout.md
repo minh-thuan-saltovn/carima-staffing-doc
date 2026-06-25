@@ -201,82 +201,28 @@ HTTP Status: 200 OK
 
 HTTP Status: 401 Unauthorized
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "認証が必要です"
-  }
-}
-```
-
 ### 6.5 Error Response - Token Expired
 
 HTTP Status: 401 Unauthorized
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "TOKEN_EXPIRED",
-    "message": "セッションの有効期限が切れています"
-  }
-}
-```
 
 ### 6.6 Error Response - Token Revoked
 
 HTTP Status: 401 Unauthorized
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "TOKEN_REVOKED",
-    "message": "セッションは既に無効です"
-  }
-}
-```
-
 ### 6.7 Error Response - Validation Error
 
 HTTP Status: 422 Unprocessable Entity
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "入力内容を確認してください",
-    "details": [
-      {
-        "field": "logout_all_devices",
-        "code": "INVALID_TYPE",
-        "message": "logout_all_devicesの形式が正しくありません"
-      }
-    ]
-  }
-}
-```
 
 ### 6.8 Error Response - System Error
 
 HTTP Status: 500 Internal Server Error
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "システムエラーが発生しました"
-  }
-}
-```
-
 ---
 
+
 ## 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

@@ -194,6 +194,8 @@ Không áp dụng (Hành động khôi phục thông qua Path Parameter không c
 
 # 7. Validation Rules
 
+Message list 
+
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id | required | - | required |

@@ -174,57 +174,18 @@ Không áp dụng.
 
 ### Validation Error (422 Unprocessable Entity)
 
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Validation failed.",
-    "details": [
-      {
-        "field": "plan_code",
-        "message": "Plan code is invalid."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized (401 Unauthorized)
-
-```json
-{
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Authentication is required."
-  }
-}
-```
 
 ### Forbidden (403 Forbidden)
 
-```json
-{
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "You do not have permission to perform this operation."
-  }
-}
-```
-
 ### Not Found (404 Not Found)
-
-```json
-{
-  "error": {
-    "code": "TENANT_NOT_FOUND",
-    "message": "Tenant not found."
-  }
-}
-```
 
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

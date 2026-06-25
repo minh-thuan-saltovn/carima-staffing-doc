@@ -225,38 +225,11 @@ HTTP Status: 200 OK
 
 HTTP Status: 422 Unprocessable Entity
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Vui lòng kiểm tra lại thông tin nhập.",
-    "details": [
-      {
-        "field": "user_id",
-        "code": "REQUIRED",
-        "message": "Vui lòng nhập tài khoản."
-      }
-    ]
-  }
-}
-```
-
 ---
 
 ### 6.4 Error Response - Invalid Credentials
 
 HTTP Status: 401 Unauthorized
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INVALID_CREDENTIALS",
-    "message": "Tài khoản hoặc mật khẩu không chính xác."
-  }
-}
-```
 
 ---
 
@@ -264,31 +237,11 @@ HTTP Status: 401 Unauthorized
 
 HTTP Status: 403 Forbidden
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "ACCOUNT_LOCKED",
-    "message": "Tài khoản này đã bị khóa do đăng nhập sai nhiều lần. Vui lòng liên hệ quản trị viên."
-  }
-}
-```
-
 ---
 
 ### 6.6 Error Response - Account Inactive
 
 HTTP Status: 403 Forbidden
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "ACCOUNT_INACTIVE",
-    "message": "Tài khoản này đã bị vô hiệu hóa."
-  }
-}
-```
 
 ---
 
@@ -296,35 +249,18 @@ HTTP Status: 403 Forbidden
 
 HTTP Status: 404 Not Found
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "TENANT_NOT_FOUND",
-    "message": "Không tìm thấy thông tin Tenant tương ứng với tên miền truy cập."
-  }
-}
-```
-
 ---
 
 ### 6.8 Error Response - System Error
 
 HTTP Status: 500 Internal Server Error
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "Đã xảy ra lỗi hệ thống nghiêm trọng."
-  }
-}
-```
-
 ---
 
+
 ## 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

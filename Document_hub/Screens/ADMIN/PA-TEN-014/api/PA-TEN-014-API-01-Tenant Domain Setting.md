@@ -174,34 +174,10 @@ Không áp dụng.
 422 Unprocessable Entity
 ```
 
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Validation failed.",
-    "details": [
-      {
-        "field": "domain_name",
-        "message": "The custom domain format is invalid."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized
 
 ```
 401 Unauthorized
-```
-
-```json
-{
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Authentication is required."
-  }
-}
 ```
 
 ### Forbidden
@@ -210,28 +186,10 @@ Không áp dụng.
 403 Forbidden
 ```
 
-```json
-{
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "You do not have permission to perform this operation."
-  }
-}
-```
-
 ### Not Found
 
 ```
 404 Not Found
-```
-
-```json
-{
-  "error": {
-    "code": "TENANT_NOT_FOUND",
-    "message": "Tenant not found."
-  }
-}
 ```
 
 ### State Conflict / Duplicate Value
@@ -240,33 +198,18 @@ Không áp dụng.
 409 Conflict
 ```
 
-```json
-{
-  "error": {
-    "code": "DOMAIN_ALREADY_EXISTS",
-    "message": "The domain name has already been registered by another tenant."
-  }
-}
-```
-
 ### System Error
 
 ```
 500 Internal Server Error
 ```
 
-```json
-{
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "An unexpected error occurred."
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

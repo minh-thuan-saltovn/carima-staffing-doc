@@ -217,34 +217,10 @@ PUT /api/v1/admin/saki-tenants/{id}
 422 Unprocessable Entity
 ```
 
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Validation failed.",
-    "details": [
-      {
-        "field": "company_profile.postal_code",
-        "message": "The postal code must be exactly 7 digits."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized
 
 ```
 401 Unauthorized
-```
-
-```json
-{
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Authentication is required."
-  }
-}
 ```
 
 ### Forbidden
@@ -253,28 +229,10 @@ PUT /api/v1/admin/saki-tenants/{id}
 403 Forbidden
 ```
 
-```json
-{
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "You do not have permission to perform this operation."
-  }
-}
-```
-
 ### Not Found
 
 ```
 404 Not Found
-```
-
-```json
-{
-  "error": {
-    "code": "TENANT_NOT_FOUND",
-    "message": "Tenant SAKI not found."
-  }
-}
 ```
 
 ### System Error
@@ -283,18 +241,12 @@ PUT /api/v1/admin/saki-tenants/{id}
 500 Internal Server Error
 ```
 
-```json
-{
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "An unexpected error occurred."
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

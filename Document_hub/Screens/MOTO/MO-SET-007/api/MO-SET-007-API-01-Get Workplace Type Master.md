@@ -208,34 +208,10 @@ Không áp dụng cho phương thức GET.
 422 Unprocessable Entity
 ```
 
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Validation failed.",
-    "details": [
-      {
-        "field": "status",
-        "message": "The status field must be 0 or 1."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized
 
 ```
 401 Unauthorized
-```
-
-```json
-{
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Authentication is required."
-  }
-}
 ```
 
 ### Forbidden
@@ -244,33 +220,18 @@ Không áp dụng cho phương thức GET.
 403 Forbidden
 ```
 
-```json
-{
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "You do not have permission to perform this operation."
-  }
-}
-```
-
 ### System Error
 
 ```
 500 Internal Server Error
 ```
 
-```json
-{
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "An unexpected error occurred."
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Error Code | Error Message |
 | --- | --- | --- | --- | --- |

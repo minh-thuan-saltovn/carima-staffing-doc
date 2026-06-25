@@ -182,34 +182,10 @@ delete_login_bg_flg: 0
 422 Unprocessable Entity
 ```
 
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Validation failed.",
-    "details": [
-      {
-        "field": "theme_color",
-        "message": "The theme color must be a valid HEX color code (e.g., #1E3A8A)."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized
 
 ```
 401 Unauthorized
-```
-
-```json
-{
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Authentication is required."
-  }
-}
 ```
 
 ### Forbidden
@@ -218,28 +194,10 @@ delete_login_bg_flg: 0
 403 Forbidden
 ```
 
-```json
-{
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "You do not have permission to perform this operation."
-  }
-}
-```
-
 ### Not Found
 
 ```
 404 Not Found
-```
-
-```json
-{
-  "error": {
-    "code": "TENANT_NOT_FOUND",
-    "message": "Tenant not found."
-  }
-}
 ```
 
 ### Payload Too Large
@@ -248,33 +206,18 @@ delete_login_bg_flg: 0
 413 Payload Too Large
 ```
 
-```json
-{
-  "error": {
-    "code": "FILE_TOO_LARGE",
-    "message": "The uploaded file exceeds the maximum allowed size."
-  }
-}
-```
-
 ### System Error
 
 ```
 500 Internal Server Error
 ```
 
-```json
-{
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "An unexpected error occurred."
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

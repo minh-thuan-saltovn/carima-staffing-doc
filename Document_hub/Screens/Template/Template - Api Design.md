@@ -197,36 +197,10 @@ POST /api/v1/job-requests
 400 Bad Request
 ```
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Validation failed.",
-    "details": [
-      {
-        "field": "end_date",
-        "message": "End date must be greater than or equal to start date."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized
 
 ```
 401 Unauthorized
-```
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Authentication is required."
-  }
-}
 ```
 
 ### Forbidden
@@ -235,30 +209,10 @@ POST /api/v1/job-requests
 403 Forbidden
 ```
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "You do not have permission to perform this operation."
-  }
-}
-```
-
 ### Not Found
 
 ```
 404 Not Found
-```
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "NOT_FOUND",
-    "message": "Target resource was not found."
-  }
-}
 ```
 
 ### System Error
@@ -267,19 +221,12 @@ POST /api/v1/job-requests
 500 Internal Server Error
 ```
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "An unexpected error occurred."
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

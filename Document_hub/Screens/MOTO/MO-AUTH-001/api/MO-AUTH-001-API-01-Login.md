@@ -198,112 +198,57 @@ HTTP Status: 200 OK
 
 ### 6.3 Error Response - Validation Error
 
-HTTP Status: 422 Unprocessable Entity
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "入力内容を確認してください",
-    "details": [
-      {
-        "field": "user_id",
-        "code": "REQUIRED",
-        "message": "ユーザーIDを入力してください"
-      },
-      {
-        "field": "password",
-        "code": "REQUIRED",
-        "message": "パスワードを入力してください"
-      }
-    ]
-  }
-}
-```
-
 ### 6.4 Error Response - Invalid Credentials
 
 HTTP Status: 401 Unauthorized
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INVALID_CREDENTIALS",
-    "message": "ユーザーIDまたはパスワードが正しくありません"
-  }
-}
-```
 
 ### 6.5 Error Response - Account Locked
 
 HTTP Status: 403 Forbidden
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "ACCOUNT_LOCKED",
-    "message": "アカウントがロックされています"
-  }
-}
-```
-
 ### 6.6 Error Response - Account Inactive
-
-HTTP Status: 403 Forbidden
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "ACCOUNT_INACTIVE",
-    "message": "このアカウントは利用できません"
-  }
-}
-```
 
 ### 6.7 Error Response - Tenant Not Found
 
 HTTP Status: 404 Not Found
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "TENANT_NOT_FOUND",
-    "message": "テナント情報が見つかりません"
-  }
-}
-```
-
 ### 6.8 Error Response - System Error
 
 HTTP Status: 500 Internal Server Error
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "システムエラーが発生しました"
-  }
-}
-```
+### 6.9 Error Response - Bad Request
 
----
+HTTP Status: 400 Bad Request
+
+### 6.10 Error Response - Method Not Allowed
+
+HTTP Status: 405 Method Not Allowed
+
+### 6.11 Error Response - Too Many Requests
+
+HTTP Status: 429 Too Many Requests
+
+### 6.12 Error Response - Service Unavailable
+
+HTTP Status: 503 Service Unavailable
+
+### 6.13 Error Response - Gateway Timeout
+
+HTTP Status: 504 Gateway Timeout
+
+Untitled
 
 ## 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | user_id | required | - | required |
 | 2 | user_id | max | 100 | max |
-| 3 | user_id | string | - | string |
-| 4 | password | required | - | required |
-| 5 | password | max | 255 | max |
-| 6 | remember_me | boolean | - | boolean |
+| 3 | password | required | - | required |
+| 4 | password | max | 255 | max |
+| 5 | remember_me | boolean | - | boolean |
 
 ### 7.1 Validation xử lý trước Business Rule
 

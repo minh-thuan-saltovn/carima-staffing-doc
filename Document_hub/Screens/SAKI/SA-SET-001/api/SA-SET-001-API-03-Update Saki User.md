@@ -249,36 +249,10 @@ Không áp dụng.
 422 Unprocessable Entity
 ```
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Dữ liệu không hợp lệ.",
-    "details": [
-      {
-        "field": "email",
-        "message": "Địa chỉ email không đúng định dạng."
-      }
-    ]
-  }
-}
-```
-
 ### Unauthorized
 
 ```
 401 Unauthorized
-```
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "UNAUTHORIZED",
-    "message": "Yêu cầu xác thực tài khoản."
-  }
-}
 ```
 
 ### Forbidden
@@ -287,30 +261,10 @@ Không áp dụng.
 403 Forbidden
 ```
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "Bạn không có quyền thực hiện thao tác này."
-  }
-}
-```
-
 ### Not Found
 
 ```
 404 Not Found
-```
-
-```json
-{
-  "success": false,
-  "error": {
-    "code": "NOT_FOUND",
-    "message": "Không tìm thấy người dùng SAKI cần cập nhật."
-  }
-}
 ```
 
 ### System Error
@@ -319,19 +273,12 @@ Không áp dụng.
 500 Internal Server Error
 ```
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "Đã xảy ra lỗi hệ thống nghiêm trọng."
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |

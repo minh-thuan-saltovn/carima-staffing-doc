@@ -250,33 +250,16 @@ HTTP Status: 422 Unprocessable Entity
 
 HTTP Status: 403 Forbidden
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "FORBIDDEN",
-    "message": "この操作を行う権限がありません"
-  }
-}
-```
-
 ## 6.4 Error Response - System Error
 
 HTTP Status: 500 Internal Server Error
 
-```json
-{
-  "success": false,
-  "error": {
-    "code": "INTERNAL_SERVER_ERROR",
-    "message": "システムエラーが発生しました"
-  }
-}
-```
-
 ---
 
+
 # 7. Validation Rules
+
+Message list 
 
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
