@@ -209,43 +209,69 @@ Không áp dụng.
 ---
 ### 6.3 Error Response - Validation Error
 
+```
+422 Unprocessable Entity
+```
+
 ### 6.4 Error Response - Invalid Credentials
 
-HTTP Status: 401 Unauthorized
+```
+401 Unauthorized
+```
 
 ### 6.5 Error Response - Account Locked
 
-HTTP Status: 403 Forbidden
+```
+403 Forbidden
+```
 
 ### 6.6 Error Response - Account Inactive
 
+```
+403 Forbidden
+```
+
 ### 6.7 Error Response - Tenant Not Found
 
-HTTP Status: 404 Not Found
+```
+404 Not Found
+```
 
 ### 6.8 Error Response - System Error
 
-HTTP Status: 500 Internal Server Error
+```
+500 Internal Server Error
+```
 
 ### 6.9 Error Response - Bad Request
 
-HTTP Status: 400 Bad Request
+```
+400 Bad Request
+```
 
 ### 6.10 Error Response - Method Not Allowed
 
-HTTP Status: 405 Method Not Allowed
+```
+405 Method Not Allowed
+```
 
 ### 6.11 Error Response - Too Many Requests
 
-HTTP Status: 429 Too Many Requests
+```
+429 Too Many Requests
+```
 
 ### 6.12 Error Response - Service Unavailable
 
-HTTP Status: 503 Service Unavailable
+```
+503 Service Unavailable
+```
 
 ### 6.13 Error Response - Gateway Timeout
 
-HTTP Status: 504 Gateway Timeout
+```
+504 Gateway Timeout
+```
 
 Untitled
 
