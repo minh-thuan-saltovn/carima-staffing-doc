@@ -257,24 +257,22 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | workplace_code | Bắt buộc (Path Parameter), chuỗi ký tự | CMS-VAL-23 | 区分コードを入力してください. |
-| 2 | workplace_code | Tối đa 20 ký tự, Half-width | CMS-VAL-6 | 区分コードは20文字以内で入力してください. |
-| 3 | pc_display_name | Bắt buộc, chuỗi ký tự | CMS-VAL-23 | PC表示名を入力してください. |
-| 4 | pc_display_name | Tối đa 50 ký tự | CMS-VAL-6 | PC表示名は50文字以内で入力してください. |
-| 5 | pc_display_name_en | Không bắt buộc, chuỗi ký tự, tối đa 50 ký tự | CMS-VAL-6 | PC表示名（英語）は50文字以内で入力してください. |
-| 6 | mobile_display_name | Bắt buộc, chuỗi ký tự | CMS-VAL-23 | モバイル表示名を入力してください. |
-| 7 | mobile_display_name | Tối đa 20 ký tự | CMS-VAL-6 | モバイル表示名は20文字以内で入力してください. |
-| 8 | mobile_display_name_en | Không bắt buộc, chuỗi ký tự, tối đa 20 ký tự | CMS-VAL-6 | モバイル表示名（英語）は20文字以内で入力してください. |
-| 9 | valid_from_month | Bắt buộc, định dạng YYYY-MM | CMS-VAL-23 | 適用開始月を入力してください. |
-| 10 | valid_from_month | Đúng định dạng YYYY-MM | CMS-VAL-24 | 適用開始月に正しい形式を指定してください. |
-| 11 | valid_to_month | Không bắt buộc, định dạng YYYY-MM | CMS-VAL-24 | 適用終了月に正しい形式を指定してください. |
-| 12 | valid_to_month | Phải >= valid_from_month | CMS-VAL-41 | 適用終了月は適用開始月以降を指定してください. |
-| 13 | use_fax_flg | Bắt buộc, số nguyên | CMS-VAL-23 | FAX利用フラグを入力してください. |
-| 14 | use_fax_flg | Phải thuộc tập hợp: 0, 1 | CMS-VAL-41 | 選択されたFAX利用フラグは正しくありません. |
+| 1 | workplace_code | required | - | required |
+| 2 | workplace_code | max | 20 | max |
+| 3 | pc_display_name | required | - | required |
+| 4 | pc_display_name | max | 50 | max |
+| 5 | pc_display_name_en | max | 50 | max |
+| 6 | mobile_display_name | required | - | required |
+| 7 | mobile_display_name | max | 20 | max |
+| 8 | mobile_display_name_en | max | 20 | max |
+| 9 | valid_from_month | required | - | required |
+| 10 | valid_from_month | date_format | YYYY-MM | date_format |
+| 11 | valid_to_month | date_format | YYYY-MM | date_format |
+| 12 | valid_to_month | after_or_equal | valid_from_month | after_or_equal |
+| 13 | use_fax_flg | required | - | required |
+| 14 | use_fax_flg | in | 0, 1 | in |
 
 ---
 

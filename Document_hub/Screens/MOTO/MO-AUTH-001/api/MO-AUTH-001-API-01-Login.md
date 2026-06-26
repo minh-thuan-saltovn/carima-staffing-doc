@@ -266,14 +266,12 @@ Untitled
 
 ## 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link)
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | user_id | required | - | required |
-| 2 | user_id | max | 100 | max |
+| 2 | user_id | max | - | max |
 | 3 | password | required | - | required |
-| 4 | password | max | 255 | max |
+| 4 | password | max | - | max |
 | 5 | remember_me | boolean | - | boolean |
 
 ### 7.1 Validation xử lý trước Business Rule

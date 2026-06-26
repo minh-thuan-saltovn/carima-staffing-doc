@@ -255,19 +255,17 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | route_name | required | - | required |
-| 2 | route_name | max | 24 | max |
+| 2 | route_name | max | - | max |
 | 3 | target_module | required | - | required |
 | 4 | target_module | string | - | string |
 | 5 | approver_user_ids | required | - | required |
 | 6 | approver_user_ids | string | - | string |
-| 7 | approver_user_ids | max | 3 | max |
+| 7 | approver_user_ids | max | - | max |
 | 8 | approver_user_ids[] | required | - | required |
-| 9 | approver_user_ids[] | exists | mst_saki_user,approver_user_ids[] | exists |
+| 9 | approver_user_ids[] | exists | - | exists |
 
 ---
 

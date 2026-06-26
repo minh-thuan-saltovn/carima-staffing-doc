@@ -270,13 +270,11 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
-| No. | Field | Rule | Error Code | Error Message |
+| No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | keyword | Không bắt buộc, chuỗi ký tự, tối đa 100 ký tự | CMS-VAL-6 | 検索キーワードは100文字以内で入力してください. |
-| 2 | status | Không bắt buộc, số nguyên | CMS-VAL-40 | ステータスは整数で指定してください. |
-| 3 | status | Không bắt buộc, phải thuộc tập hợp: 0, 1, 2 | CMS-VAL-41 | 選択されたステータスは正しくありません. |
+| 1 | keyword | max | 100 | max |
+| 2 | status | integer | - | integer |
+| 3 | status | in | 0, 1 | in |
 
 ---
 
@@ -368,7 +366,6 @@ Không áp dụng.
    - Sắp xếp theo workplace_code ASC và phân trang.
 3. Trả về HTTP 200 kèm dữ liệu JSON.
 ```
-
 
 ---
 

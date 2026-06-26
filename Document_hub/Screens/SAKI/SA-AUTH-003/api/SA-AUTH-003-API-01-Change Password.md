@@ -227,16 +227,14 @@ Untitled
 
 ## 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | current_password | required | - | required |
-| 2 | current_password | max | 255 | max |
+| 2 | current_password | max | - | max |
 | 3 | new_password | required | - | required |
-| 4 | new_password | min | 8 | min |
-| 5 | new_password | max | 255 | max |
-| 6 | new_password | regex | /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ | regex |
+| 4 | new_password | min | - | min |
+| 5 | new_password | max | - | max |
+| 6 | new_password | string | - | string |
 | 7 | new_password | string | - | string |
 | 8 | new_password_confirmation | required | - | required |
 | 9 | new_password_confirmation | string | - | string |

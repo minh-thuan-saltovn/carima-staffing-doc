@@ -288,54 +288,52 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | official_name_ja | required | - | required |
-| 2 | official_name_ja | max | 100 | max |
+| 2 | official_name_ja | max | - | max |
 | 3 | official_name_kana | required | - | required |
-| 4 | official_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
-| 5 | official_name_kana | max | 200 | max |
+| 4 | official_name_kana | string | - | string |
+| 5 | official_name_kana | max | - | max |
 | 6 | display_name_ja | required | - | required |
-| 7 | display_name_ja | max | 24 | max |
+| 7 | display_name_ja | max | - | max |
 | 8 | official_name_en | required | - | required |
 | 9 | official_name_en | string | - | string |
-| 10 | official_name_en | max | 100 | max |
+| 10 | official_name_en | max | - | max |
 | 11 | display_name_en | required | - | required |
 | 12 | display_name_en | string | - | string |
-| 13 | display_name_en | max | 24 | max |
+| 13 | display_name_en | max | - | max |
 | 14 | postal_code | required | - | required |
-| 15 | postal_code | digits | 7 | digits |
+| 15 | postal_code | string | - | string |
 | 16 | address_ja | required | - | required |
-| 17 | address_ja | max | 50 | max |
-| 18 | address2_ja | max | 50 | max |
+| 17 | address_ja | max | - | max |
+| 18 | address2_ja | max | - | max |
 | 19 | manage_permit_by_office_flg | required | - | required |
-| 20 | manage_permit_by_office_flg | in | 0, 1 | in |
+| 20 | manage_permit_by_office_flg | string | - | string |
 | 21 | dispatch_permit_first | required | - | required |
-| 22 | dispatch_permit_first | max | 2 | max |
+| 22 | dispatch_permit_first | max | - | max |
 | 23 | dispatch_permit_last | required | - | required |
-| 24 | dispatch_permit_last | digits | 6 | digits |
+| 24 | dispatch_permit_last | string | - | string |
 | 25 | qualified_invoice_status | required | - | required |
-| 26 | qualified_invoice_status | in | 0, 1 | in |
+| 26 | qualified_invoice_status | string | - | string |
 | 27 | qualified_invoice_no | required | - | required |
-| 28 | qualified_invoice_no | digits | 13 | digits |
+| 28 | qualified_invoice_no | string | - | string |
 | 29 | contacts | required | - | required |
-| 30 | contacts | max | 2 | max |
+| 30 | contacts | max | - | max |
 | 31 | contacts[].seq_no | required | - | required |
-| 32 | contacts[].seq_no | in | 1, 2 | in |
-| 33 | contacts[].department | max | 100 | max |
+| 32 | contacts[].seq_no | string | - | string |
+| 33 | contacts[].department | max | - | max |
 | 34 | contacts[].name_ja | required | - | required |
-| 35 | contacts[].name_ja | max | 48 | max |
-| 36 | contacts[].name_kana | regex | /^[ァ-ヶー]+$/u | regex |
-| 37 | contacts[].name_kana | max | 48 | max |
+| 35 | contacts[].name_ja | max | - | max |
+| 36 | contacts[].name_kana | string | - | string |
+| 37 | contacts[].name_kana | max | - | max |
 | 38 | contacts[].tel | required | - | required |
-| 39 | contacts[].tel | max | 15 | max |
+| 39 | contacts[].tel | max | - | max |
 | 40 | contacts[].tel | string | - | string |
 | 41 | contacts[].email | required | - | required |
 | 42 | contacts[].email | string | - | string |
-| 43 | contacts[].email | max | 128 | max |
-| 44 | contacts[].remarks | max | 500 | max |
+| 43 | contacts[].email | max | - | max |
+| 44 | contacts[].remarks | max | - | max |
 
 ---
 

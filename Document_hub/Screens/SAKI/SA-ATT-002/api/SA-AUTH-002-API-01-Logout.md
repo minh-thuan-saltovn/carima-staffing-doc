@@ -256,14 +256,12 @@ Untitled
 
 ## 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | Authorization | required | - | required |
-| 2 | Authorization | regex | /^Bearer\s\S+$/ | regex |
+| 2 | Authorization | string | - | string |
 | 3 | logout_all_devices | boolean | - | boolean |
-| 4 | logout_all_devices | nullable | default: false | nullable |
+| 4 | logout_all_devices | string | - | string |
 
 ### 7.1 Validation xử lý trước Business Rule
 

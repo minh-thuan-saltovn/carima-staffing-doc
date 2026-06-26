@@ -258,24 +258,22 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id (Path) | required | - | required |
-| 2 | id (Path) | exists | mst_saki_approval_group,id (Path) | exists |
+| 2 | id (Path) | exists | - | exists |
 | 3 | route_name | required | - | required |
-| 4 | route_name | max | 24 | max |
+| 4 | route_name | max | - | max |
 | 5 | target_module | required | - | required |
 | 6 | target_module | string | - | string |
 | 7 | status | required | - | required |
 | 8 | status | integer | - | integer |
-| 9 | status | in | 0, 1 | in |
+| 9 | status | string | - | string |
 | 10 | approver_user_ids | required | - | required |
 | 11 | approver_user_ids | string | - | string |
-| 12 | approver_user_ids | max | 3 | max |
+| 12 | approver_user_ids | max | - | max |
 | 13 | approver_user_ids[] | required | - | required |
-| 14 | approver_user_ids[] | exists | mst_saki_user,approver_user_ids[] | exists |
+| 14 | approver_user_ids[] | exists | - | exists |
 
 ---
 

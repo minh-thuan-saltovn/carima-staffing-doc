@@ -264,40 +264,38 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | tenant_code | required | - | required |
 | 2 | tenant_code | string | - | string |
-| 3 | tenant_code | max | 50 | max |
+| 3 | tenant_code | max | - | max |
 | 4 | tenant_code | unique | mst_moto_tenant,tenant_code | unique |
 | 5 | domain | required | - | required |
-| 6 | domain | max | 50 | max |
+| 6 | domain | max | - | max |
 | 7 | domain | string | - | string |
 | 8 | domain | unique | - | unique |
 | 9 | plan_code | required | - | required |
 | 10 | plan_code | string | - | string |
 | 11 | official_name_ja | required | - | required |
-| 12 | official_name_ja | max | 100 | max |
+| 12 | official_name_ja | max | - | max |
 | 13 | display_name_ja | required | - | required |
-| 14 | display_name_ja | max | 24 | max |
+| 14 | display_name_ja | max | - | max |
 | 15 | postal_code | required | - | required |
-| 16 | postal_code | digits | 7 | digits |
+| 16 | postal_code | string | - | string |
 | 17 | tel | required | - | required |
-| 18 | tel | regex | /^[0-9-]+$/ | regex |
+| 18 | tel | string | - | string |
 | 19 | address_ja | required | - | required |
-| 20 | address_ja | max | 100 | max |
+| 20 | address_ja | max | - | max |
 | 21 | admin_user | required | - | required |
 | 22 | admin_user.last_name_ja | required | - | required |
-| 23 | admin_user.last_name_ja | max | 24 | max |
+| 23 | admin_user.last_name_ja | max | - | max |
 | 24 | admin_user.first_name_ja | required | - | required |
-| 25 | admin_user.first_name_ja | max | 24 | max |
+| 25 | admin_user.first_name_ja | max | - | max |
 | 26 | admin_user.email | required | - | required |
 | 27 | admin_user.email | email | - | email |
 | 28 | admin_user.email | unique | - | unique |
 | 29 | admin_user.tel | required | - | required |
-| 30 | admin_user.tel | regex | /^[0-9-]+$/ | regex |
+| 30 | admin_user.tel | string | - | string |
 
 ---
 

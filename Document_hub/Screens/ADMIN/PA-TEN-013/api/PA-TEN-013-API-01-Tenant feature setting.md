@@ -240,11 +240,9 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | id | size | 26 | size |
+| 1 | id | string | - | string |
 | 2 | plan_code | required | - | required |
 | 3 | plan_code | string | - | string |
 

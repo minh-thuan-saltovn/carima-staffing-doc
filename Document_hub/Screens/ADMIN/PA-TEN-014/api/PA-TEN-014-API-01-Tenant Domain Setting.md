@@ -236,18 +236,16 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id | required | - | required |
-| 2 | id | size | 26 | size |
+| 2 | id | string | - | string |
 | 3 | domain_type | required | - | required |
 | 4 | domain_type | string | - | string |
 | 5 | domain_name | required | - | required |
-| 6 | domain_name | max | 255 | max |
+| 6 | domain_name | max | - | max |
 | 7 | domain_name | string | - | string |
-| 8 | domain_name | size | 2 | size |
+| 8 | domain_name | string | - | string |
 | 9 | domain_name | unique | - | unique |
 
 ---

@@ -244,20 +244,18 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id | required | - | required |
-| 2 | id | size | 26 | size |
+| 2 | id | string | - | string |
 | 3 | theme_color | required | - | required |
-| 4 | theme_color | size | 6 | size |
+| 4 | theme_color | string | - | string |
 | 5 | logo_file | string | - | string |
-| 6 | logo_file | max | 2 | max |
+| 6 | logo_file | max | - | max |
 | 7 | login_bg_file | string | - | string |
-| 8 | login_bg_file | max | 5 | max |
-| 9 | delete_logo_flg | in | 0, 1 | in |
-| 10 | delete_login_bg_flg | in | 0, 1 | in |
+| 8 | login_bg_file | max | - | max |
+| 9 | delete_logo_flg | string | - | string |
+| 10 | delete_login_bg_flg | string | - | string |
 
 ---
 

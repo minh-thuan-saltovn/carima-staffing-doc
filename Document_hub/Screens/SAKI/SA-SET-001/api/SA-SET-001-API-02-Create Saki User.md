@@ -316,41 +316,39 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | user_id | required | - | required |
-| 2 | user_id | max | 100 | max |
+| 2 | user_id | max | - | max |
 | 3 | user_id | string | - | string |
 | 4 | user_id | unique | - | unique |
 | 5 | last_name_ja | required | - | required |
-| 6 | last_name_ja | max | 24 | max |
+| 6 | last_name_ja | max | - | max |
 | 7 | first_name_ja | required | - | required |
-| 8 | first_name_ja | max | 24 | max |
+| 8 | first_name_ja | max | - | max |
 | 9 | last_name_kana | required | - | required |
-| 10 | last_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
-| 11 | last_name_kana | max | 24 | max |
+| 10 | last_name_kana | string | - | string |
+| 11 | last_name_kana | max | - | max |
 | 12 | first_name_kana | required | - | required |
-| 13 | first_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
-| 14 | first_name_kana | max | 24 | max |
+| 13 | first_name_kana | string | - | string |
+| 14 | first_name_kana | max | - | max |
 | 15 | email | required | - | required |
 | 16 | email | email | - | email |
 | 17 | email | unique | - | unique |
 | 18 | tel | required | - | required |
-| 19 | tel | regex | /^[0-9-]+$/ | regex |
-| 20 | tel | max | 15 | max |
+| 19 | tel | string | - | string |
+| 20 | tel | max | - | max |
 | 21 | office_id | required | - | required |
-| 22 | office_id | exists | mst_saki_office,office_id | exists |
+| 22 | office_id | exists | - | exists |
 | 23 | department_id | required | - | required |
-| 24 | department_id | exists | mst_saki_department,department_id | exists |
+| 24 | department_id | exists | - | exists |
 | 25 | reference_scope | required | - | required |
-| 26 | reference_scope | in | 1, 2, 3, 4, 5, 6 | in |
+| 26 | reference_scope | string | - | string |
 | 27 | custom_scopes | required | - | required |
 | 28 | password | required | - | required |
-| 29 | password | min | 8 | min |
-| 30 | password | max | 255 | max |
-| 31 | password | regex | /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/ | regex |
+| 29 | password | min | - | min |
+| 30 | password | max | - | max |
+| 31 | password | string | - | string |
 
 ## 7.1 Validation xử lý trước Business Rule
 
@@ -425,14 +423,29 @@ Untitled
 | first_name_ja | tenant_db | mst_saki_user | first_name_ja | INSERT | Tên tiếng Nhật |
 | last_name_kana | tenant_db | mst_saki_user | last_name_kana | INSERT | Họ Katakana |
 | first_name_kana | tenant_db | mst_saki_user | first_name_kana | INSERT | Tên Katakana |
-| email | tenant_db | mst_saki_user | email | INSERT | Email |
+| last_name_en | tenant_db | mst_saki_user | last_name_en | INSERT | Họ tiếng Anh |
+| middle_name_en | tenant_db | mst_saki_user | middle_name_en | INSERT | Tên đệm tiếng Anh |
+| first_name_en | tenant_db | mst_saki_user | first_name_en | INSERT | Tên tiếng Anh |
+| position_ja | tenant_db | mst_saki_user | position_ja | INSERT | Chức vụ tiếng Nhật |
+| position_en | tenant_db | mst_saki_user | position_en | INSERT | Chức vụ tiếng Anh |
 | tel | tenant_db | mst_saki_user | tel | INSERT | Điện thoại |
+| fax | tenant_db | mst_saki_user | fax | INSERT | Số Fax |
+| email | tenant_db | mst_saki_user | email | INSERT | Email |
 | mail_language | tenant_db | mst_saki_user | mail_language | INSERT | Ngôn ngữ thông báo |
 | execution_role_id | tenant_db | mst_saki_user | execution_role_id | INSERT | Vai trò phân quyền |
 | reference_scope | tenant_db | mst_saki_user | reference_scope | INSERT | Phạm vi tham chiếu dữ liệu |
 | edit_on_approval_flg | tenant_db | mst_saki_user | edit_on_approval_flg | INSERT | Cờ sửa khi duyệt |
 | view_group_company_flg | tenant_db | mst_saki_user | view_group_company_flg | INSERT | Cờ xem thông tin nhóm |
 | edit_contract_dept_flg | tenant_db | mst_saki_user | edit_contract_dept_flg | INSERT | Cờ sửa bộ phận hợp đồng |
+| approval_group_id | tenant_db | mst_saki_user | approval_group_id | INSERT | Mã nhóm phê duyệt nhận yêu cầu |
+| show_as_approver_flg | tenant_db | mst_saki_user | show_as_approver_flg | INSERT | Cờ hiển thị làm người phê duyệt |
+| final_approver_flg | tenant_db | mst_saki_user | final_approver_flg | INSERT | Cờ duyệt cuối |
+| select_dispatch_company_flg | tenant_db | mst_saki_user | select_dispatch_company_flg | INSERT | Cờ chọn công ty MOTO gửi báo giá |
+| attendance_approver1_id | tenant_db | mst_saki_user | attendance_approver1_id | INSERT | Người duyệt chấm công 1 |
+| attendance_approver2_id | tenant_db | mst_saki_user | attendance_approver2_id | INSERT | Người duyệt chấm công 2 |
+| attendance_approver3_id | tenant_db | mst_saki_user | attendance_approver3_id | INSERT | Người duyệt chấm công 3 |
+| cost_center_code | tenant_db | mst_saki_user | cost_center_code | INSERT | Mã cost center |
+| cost_center_comment | tenant_db | mst_saki_user | cost_center_comment | INSERT | Ghi chú cost center |
 | status | tenant_db | mst_saki_user | status | INSERT | Trạng thái hoạt động |
 | password (hashed) | tenant_db | TBD: saki_user_credential | password_hash | INSERT | Hash mật khẩu đăng nhập |
 | require_password_change_flg | tenant_db | TBD: saki_user_credential | require_change_flg | INSERT | Bắt buộc đổi mật khẩu lần đầu |

@@ -312,13 +312,11 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | page | integer | - | integer |
 | 2 | limit | integer | - | integer |
-| 3 | keyword | max | 100 | max |
+| 3 | keyword | max | - | max |
 | 4 | status | integer | - | integer |
 | 5 | sort_column | string | - | string |
 | 6 | sort_direction | string | - | string |

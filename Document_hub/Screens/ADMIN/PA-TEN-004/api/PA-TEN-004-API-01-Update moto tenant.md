@@ -277,35 +277,33 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id | required | - | required |
-| 2 | id | size | 26 | size |
+| 2 | id | string | - | string |
 | 3 | plan_code | required | - | required |
-| 4 | plan_code | max | 20 | max |
+| 4 | plan_code | max | - | max |
 | 5 | company_profile.official_name_ja | required | - | required |
-| 6 | company_profile.official_name_ja | max | 100 | max |
+| 6 | company_profile.official_name_ja | max | - | max |
 | 7 | company_profile.display_name_ja | required | - | required |
-| 8 | company_profile.display_name_ja | max | 24 | max |
+| 8 | company_profile.display_name_ja | max | - | max |
 | 9 | company_profile.postal_code | required | - | required |
-| 10 | company_profile.postal_code | digits | 7 | digits |
+| 10 | company_profile.postal_code | string | - | string |
 | 11 | company_profile.tel | required | - | required |
-| 12 | company_profile.tel | regex | /^[0-9-]+$/ | regex |
-| 13 | company_profile.tel | max | 15 | max |
+| 12 | company_profile.tel | string | - | string |
+| 13 | company_profile.tel | max | - | max |
 | 14 | company_profile.address_ja | required | - | required |
-| 15 | company_profile.address_ja | max | 100 | max |
+| 15 | company_profile.address_ja | max | - | max |
 | 16 | admin_user.last_name_ja | required | - | required |
-| 17 | admin_user.last_name_ja | max | 24 | max |
+| 17 | admin_user.last_name_ja | max | - | max |
 | 18 | admin_user.first_name_ja | required | - | required |
-| 19 | admin_user.first_name_ja | max | 24 | max |
+| 19 | admin_user.first_name_ja | max | - | max |
 | 20 | admin_user.email | required | - | required |
 | 21 | admin_user.email | email | - | email |
-| 22 | admin_user.email | max | 128 | max |
+| 22 | admin_user.email | max | - | max |
 | 23 | admin_user.tel | required | - | required |
-| 24 | admin_user.tel | regex | /^[0-9-]+$/ | regex |
-| 25 | admin_user.tel | max | 15 | max |
+| 24 | admin_user.tel | string | - | string |
+| 25 | admin_user.tel | max | - | max |
 
 ---
 

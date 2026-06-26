@@ -311,33 +311,31 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id (path) | required | - | required |
-| 2 | id (path) | exists | mst_saki_user,id (path) | exists |
+| 2 | id (path) | exists | - | exists |
 | 3 | last_name_ja | required | - | required |
-| 4 | last_name_ja | max | 24 | max |
+| 4 | last_name_ja | max | - | max |
 | 5 | first_name_ja | required | - | required |
-| 6 | first_name_ja | max | 24 | max |
+| 6 | first_name_ja | max | - | max |
 | 7 | last_name_kana | required | - | required |
-| 8 | last_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
+| 8 | last_name_kana | string | - | string |
 | 9 | first_name_kana | required | - | required |
-| 10 | first_name_kana | regex | /^[ァ-ヶー]+$/u | regex |
+| 10 | first_name_kana | string | - | string |
 | 11 | office_id | required | - | required |
-| 12 | office_id | exists | mst_saki_office,office_id | exists |
+| 12 | office_id | exists | - | exists |
 | 13 | department_id | required | - | required |
-| 14 | department_id | exists | mst_saki_department,department_id | exists |
+| 14 | department_id | exists | - | exists |
 | 15 | email | required | - | required |
 | 16 | email | email | - | email |
 | 17 | tel | required | - | required |
-| 18 | tel | max | 15 | max |
+| 18 | tel | max | - | max |
 | 19 | reference_scope | required | - | required |
-| 20 | reference_scope | in | 1, 2, 3, 4, 5, 6 | in |
+| 20 | reference_scope | string | - | string |
 | 21 | user_scopes | required | - | required |
 | 22 | user_scopes[].target_id | exists | - | exists |
-| 23 | cost_center_code | regex | /^[ァ-ヶー]+$/u | regex |
+| 23 | cost_center_code | string | - | string |
 
 ---
 

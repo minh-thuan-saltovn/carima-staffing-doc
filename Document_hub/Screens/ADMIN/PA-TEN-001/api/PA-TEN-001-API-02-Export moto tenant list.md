@@ -231,14 +231,12 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
-| 1 | status | in | 0, 1 | in |
+| 1 | status | string | - | string |
 | 2 | plan_code | string | - | string |
-| 3 | tenant_code | max | 50 | max |
-| 4 | company_name | max | 255 | max |
+| 3 | tenant_code | max | - | max |
+| 4 | company_name | max | - | max |
 | 5 | sort_column | string | - | string |
 | 6 | sort_direction | string | - | string |
 

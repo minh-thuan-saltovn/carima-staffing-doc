@@ -259,17 +259,15 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | client_company_id | required | - | required |
 | 2 | client_company_id | exists | - | exists |
 | 3 | start_date | required | - | required |
 | 4 | end_date | required | - | required |
-| 5 | end_date | after_or_equal | start_date | after_or_equal |
-| 6 | required_number | after_or_equal | 1 | after_or_equal |
-| 7 | work_end_time | after | work_start_time | after |
+| 5 | end_date | after_or_equal | after_or_equal | after_or_equal |
+| 6 | required_number | after_or_equal | after_or_equal | after_or_equal |
+| 7 | work_end_time | string | - | string |
 
 ---
 

@@ -233,13 +233,11 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | id | required | - | required |
 | 2 | onboarding_type | required | - | required |
-| 3 | notes | max | 500 | max |
+| 3 | notes | max | - | max |
 
 ---
 

@@ -349,17 +349,15 @@ Untitled
 
 # 7. Validation Rules
 
-[Message list](https://app.notion.com/p/sokucom/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link) 
-
 | No. | Field | Rule | Params | Message Key |
 | --- | --- | --- | --- | --- |
 | 1 | page | integer | - | integer |
 | 2 | limit | integer | - | integer |
-| 3 | user_name | max | 100 | max |
-| 4 | user_id | max | 100 | max |
-| 5 | department_id | max | 20 | max |
-| 6 | execution_role_id | max | 64 | max |
-| 7 | status | in | 0, 1, 2 | in |
+| 3 | user_name | max | - | max |
+| 4 | user_id | max | - | max |
+| 5 | department_id | max | - | max |
+| 6 | execution_role_id | max | - | max |
+| 7 | status | string | - | string |
 | 8 | is_approver_only | integer | - | integer |
 | 9 | is_active_only | integer | - | integer |
 | 10 | sort_column | email | - | email |
