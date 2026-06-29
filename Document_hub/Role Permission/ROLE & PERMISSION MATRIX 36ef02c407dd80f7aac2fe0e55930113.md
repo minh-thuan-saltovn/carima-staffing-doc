@@ -3,7 +3,7 @@
 Created by: Anh Ngo
 Created time: May 28, 2026 12:43 PM
 Last edited by: Anh Ngo
-Last updated time: June 8, 2026 11:55 AM
+Last updated time: June 17, 2026 2:47 PM
 
 # Hệ thống  Carima Staffing
 
@@ -578,8 +578,65 @@ Device/User Agent
 
 ---
 
-## Build Full matrix permission
+# Build Full matrix permission
 
 ```markdown
 system.module.screen.action
 ```
+
+## 1. System Code chuẩn
+
+| System | System Code |
+| --- | --- |
+| Platform SaaS Admin | `platform` |
+| MOTO Portal / 派遣元ポータル | `moto` |
+| SAKI Portal / 派遣先ポータル | `saki` |
+| Staff Mobile App / スタッフアプリ | `staff` |
+
+### 3. Module Code chuẩn
+
+| Module | Module Code |
+| --- | --- |
+| Common / Authentication | `common`  |
+| Tenant Management | `tenant` |
+| Request Management / 派遣照会 | `request` |
+| Contract Management | `contract` |
+| Staff Management | `staff` |
+| Attendance Management | `attendance` |
+| Billing Management | `billing` |
+| Company Settings | `settings` |
+| Batch Processing | `batch` |
+| Global Master Management | `global_master` |
+| System Management | `system` |
+| User Management | `user` |
+| Dashboard | `dashboard` |
+
+### 4. Action
+
+| Action | JP | Ý nghĩa |
+| --- | --- | --- |
+| view | 参照 | Xem màn hình / dữ liệu |
+| create | 作成 | Tạo mới |
+| edit | 修正 | Chỉnh sửa |
+| delete | 削除 | Xóa |
+| cancel | 取消 | Hủy nghiệp vụ |
+| submit | 提出 | Submit workflow |
+| approve | 承認 | Phê duyệt |
+| reject | 却下 / 差戻し | Từ chối / trả lại |
+| finalize | 確定 | Chốt dữ liệu |
+| reopen | 解除 | Mở lại dữ liệu đã chốt |
+| upload | アップロード | Upload file |
+| download | ダウンロード | Download file/PDF |
+| export | エクスポート | Export CSV/Excel |
+| import | インポート | Import dữ liệu |
+| assign | 割当 | Gán user/quyền |
+| issue | 発行 | Phát hành account |
+| reset | 初期化 | Reset password |
+| lock | ロック | Khóa account |
+| unlock | ロック解除 | Mở khóa account |
+| hide | 非表示 | Ẩn dữ liệu |
+| restore | 復帰 | Khôi phục dữ liệu |
+| execute | 実行 | Chạy process/batch |
+| remind | 督促 / 連絡 | Gửi nhắc nhở |
+
+[Actions Permission ](ROLE%20&%20PERMISSION%20MATRIX/Actions%20Permission%20382f02c407dd806e87dff95dc6765f49.csv)

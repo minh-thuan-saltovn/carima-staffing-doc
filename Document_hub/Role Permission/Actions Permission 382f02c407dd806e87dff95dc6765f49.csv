@@ -1,0 +1,552 @@
+﻿Name,System Code,Module Code,Screen Key,Action,Action JP,Action Description VI,Data Scope,Screen ID,Screen JP,Screen VN
+moto.attendance.attendance_dashboard.view,moto,attendance,attendance_dashboard,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-001,勤怠TOP,Dashboard attendance tổng hợp
+moto.attendance.attendance_search.view,moto,attendance,attendance_search,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-002,勤怠検索,Search attendance
+moto.attendance.attendance_detail.view,moto,attendance,attendance_detail,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-003,勤怠詳細,Xem chi tiết attendance
+moto.attendance.proxy_attendance.view,moto,attendance,proxy_attendance,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-004,代理申請,Nhập attendance thay staff
+moto.attendance.proxy_attendance.submit,moto,attendance,proxy_attendance,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-004,代理申請,Nhập attendance thay staff
+moto.attendance.pending_attendance_list.view,moto,attendance,pending_attendance_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-005,未申請一覧,"• Danh sách attendance chưa submit
+  • tính năng nhắc staffing qua email, staff app notification khi staff ko đăng ký giờ làm"
+moto.attendance.pending_attendance_list.remind,moto,attendance,pending_attendance_list,remind,督促/連絡,Gửi nhắc nhở/liên lạc,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-005,未申請一覧,"• Danh sách attendance chưa submit
+  • tính năng nhắc staffing qua email, staff app notification khi staff ko đăng ký giờ làm"
+moto.attendance.pending_approval_list.view,moto,attendance,pending_approval_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-006,未承認一覧,"• Danh sách attendance chưa approve
+  • 締め申請や締め承認が完了していないスタッフを検索し、スタッフや承認者にメールで連絡するなどのフォローを行います。"
+moto.attendance.pending_approval_list.remind,moto,attendance,pending_approval_list,remind,督促/連絡,Gửi nhắc nhở/liên lạc,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-006,未承認一覧,"• Danh sách attendance chưa approve
+  • 締め申請や締め承認が完了していないスタッフを検索し、スタッフや承認者にメールで連絡するなどのフォローを行います。"
+moto.attendance.attendance_export.view,moto,attendance,attendance_export,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-007,勤怠/集計DL,"Export attendance, Export monthly summary"
+moto.attendance.attendance_export.download,moto,attendance,attendance_export,download,ダウンロード,Download file/PDF,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-007,勤怠/集計DL,"Export attendance, Export monthly summary"
+moto.attendance.attendance_export.export,moto,attendance,attendance_export,export,エクスポート,Export CSV/Excel,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-007,勤怠/集計DL,"Export attendance, Export monthly summary"
+moto.attendance.proxy_application.view,moto,attendance,proxy_application,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-009,代理申請（締め申請×複数,"Chức năng upload , đăng ký giờ làm nhiều"
+moto.attendance.proxy_application.submit,moto,attendance,proxy_application,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-009,代理申請（締め申請×複数,"Chức năng upload , đăng ký giờ làm nhiều"
+moto.attendance.proxy_application.upload,moto,attendance,proxy_application,upload,アップロード,Upload file,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-009,代理申請（締め申請×複数,"Chức năng upload , đăng ký giờ làm nhiều"
+moto.attendance.proxy_application.import,moto,attendance,proxy_application,import,インポート,Import dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-009,代理申請（締め申請×複数,"Chức năng upload , đăng ký giờ làm nhiều"
+moto.attendance.legal_holiday_setting.view,moto,attendance,legal_holiday_setting,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-010,法定休日設定,Quản lý luật nghỉ pháp định và holiday rule áp dụng cho attendance/billing.
+moto.attendance.legal_holiday_setting.edit,moto,attendance,legal_holiday_setting,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-010,法定休日設定,Quản lý luật nghỉ pháp định và holiday rule áp dụng cho attendance/billing.
+moto.attendance.shift_reference.view,moto,attendance,shift_reference,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-020,シフト参照,Xem shift của contract/staff.
+moto.attendance.daily_attendance_export.view,moto,attendance,daily_attendance_export,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-022,日々勤怠DL,"• Export daily attendance report.
+  • Download List chưa gửi, list chưa approval"
+moto.attendance.daily_attendance_export.approve,moto,attendance,daily_attendance_export,approve,承認,Phê duyệt,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-022,日々勤怠DL,"• Export daily attendance report.
+  • Download List chưa gửi, list chưa approval"
+moto.attendance.daily_attendance_export.reject,moto,attendance,daily_attendance_export,reject,却下/差戻し,Từ chối/trả lại,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-022,日々勤怠DL,"• Export daily attendance report.
+  • Download List chưa gửi, list chưa approval"
+moto.attendance.daily_attendance_export.download,moto,attendance,daily_attendance_export,download,ダウンロード,Download file/PDF,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-022,日々勤怠DL,"• Export daily attendance report.
+  • Download List chưa gửi, list chưa approval"
+moto.attendance.daily_attendance_export.export,moto,attendance,daily_attendance_export,export,エクスポート,Export CSV/Excel,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-022,日々勤怠DL,"• Export daily attendance report.
+  • Download List chưa gửi, list chưa approval"
+moto.attendance.monthly_attendance_summary_export.view,moto,attendance,monthly_attendance_summary_export,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-023,勤怠集計DL,Export monthly attendance summary.
+moto.attendance.monthly_attendance_summary_export.download,moto,attendance,monthly_attendance_summary_export,download,ダウンロード,Download file/PDF,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-023,勤怠集計DL,Export monthly attendance summary.
+moto.attendance.monthly_attendance_summary_export.export,moto,attendance,monthly_attendance_summary_export,export,エクスポート,Export CSV/Excel,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-023,勤怠集計DL,Export monthly attendance summary.
+moto.attendance.approved_attendance_export.view,moto,attendance,approved_attendance_export,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-024,締め承認済勤怠DL,Export approved/closed attendance records.
+moto.attendance.approved_attendance_export.download,moto,attendance,approved_attendance_export,download,ダウンロード,Download file/PDF,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-024,締め承認済勤怠DL,Export approved/closed attendance records.
+moto.attendance.approved_attendance_export.export,moto,attendance,approved_attendance_export,export,エクスポート,Export CSV/Excel,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-024,締め承認済勤怠DL,Export approved/closed attendance records.
+moto.attendance.select_attendance_approver.view,moto,attendance,select_attendance_approver,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-025,勤怠承認者選択,Chọn người phê duyệt tổng kết điểm danh
+moto.attendance.select_attendance_approver.assign,moto,attendance,select_attendance_approver,assign,割当,Gán người dùng/quyền/đối tượng,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-025,勤怠承認者選択,Chọn người phê duyệt tổng kết điểm danh
+moto.attendance.confirm_attendance_approver.view,moto,attendance,confirm_attendance_approver,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-026,勤怠集計承認者の確定,Xác nhận trở thành người phê duyệt tổng kết điểm danh
+moto.attendance.confirm_attendance_approver.finalize,moto,attendance,confirm_attendance_approver,finalize,確定,Chốt/xác định dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-026,勤怠集計承認者の確定,Xác nhận trở thành người phê duyệt tổng kết điểm danh
+moto.attendance.special_clause_application_detail.view,moto,attendance,special_clause_application_detail,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-027,特別条項適用申請詳細,Chi tiết yêu cầu điều khoản đặc biệt
+moto.attendance.special_clause_application_approval.view,moto,attendance,special_clause_application_approval,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-028,特別条項適用申請承認,Approve/reject attendance.
+moto.attendance.special_clause_application_approval.submit,moto,attendance,special_clause_application_approval,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-028,特別条項適用申請承認,Approve/reject attendance.
+moto.attendance.special_clause_application_approval.approve,moto,attendance,special_clause_application_approval,approve,承認,Phê duyệt,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-028,特別条項適用申請承認,Approve/reject attendance.
+moto.attendance.special_clause_application_approval.reject,moto,attendance,special_clause_application_approval,reject,却下/差戻し,Từ chối/trả lại,ALL/BRANCH/ASSIGNED_ONLY,MO-ATT-028,特別条項適用申請承認,Approve/reject attendance.
+moto.common.change_password.edit,moto,common,change_password,edit,修正,Chỉnh sửa dữ liệu,SELF_ONLY/ALL,MO-AUTH-003,パスワード変更,Đổi password user hiện tại.
+moto.common.password_reset.reset,moto,common,password_reset,reset,初期化,Reset/khởi tạo lại,SELF_ONLY/ALL,MO-AUTH-004,パスワード初期化,Admin reset password cho user/staff.
+moto.common.account_unlock.unlock,moto,common,account_unlock,unlock,ロック解除,Mở khóa account/dữ liệu,SELF_ONLY/ALL,MO-AUTH-005,ロック解除,Unlock account bị lock do login fail.
+moto.common.login_history.view,moto,common,login_history,view,参照,Thực hiện process/batch,SELF_ONLY/ALL,MO-AUTH-006,ログイン履歴,Xem lịch sử login/logout user.
+moto.batch.file_import_result.view,moto,batch,file_import_result,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH,MO-BAT-002,ファイル取込結果,Xem kết quả import file hàng loạt.
+moto.batch.validation_error_list.view,moto,batch,validation_error_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH,MO-BAT-003,検証エラー一覧,Danh sách validation errors sau upload/import.
+moto.batch.async_job_status.view,moto,batch,async_job_status,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH,MO-BAT-004,非同期処理状況,Theo dõi async jobs/background processing.
+moto.batch.csv_error_download.view,moto,batch,csv_error_download,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH,MO-BAT-005,エラーCSV DL,Download CSV chứa error records.
+moto.batch.csv_error_download.export,moto,batch,csv_error_download,export,エクスポート,Export CSV/Excel,ALL/BRANCH,MO-BAT-005,エラーCSV DL,Download CSV chứa error records.
+moto.billing.invoice_list.view,moto,billing,invoice_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-001,請求一覧,Danh sách invoice
+moto.billing.invoice_detail.view,moto,billing,invoice_detail,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-002,請求詳細,Xem chi tiết invoice
+moto.billing.create_invoice.create,moto,billing,create_invoice,create,作成,Tạo mới dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-003,請求書作成,"Generate invoice từ attendance
+Generaste Invoice từ Tính toán
+Create manual invoice"
+moto.billing.submit_invoice.submit,moto,billing,submit_invoice,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-004,請求書提出,Submit invoice cho SAKI
+moto.billing.billing_default_setting.edit,moto,billing,billing_default_setting,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-010,請求書初期値設定,Thiết lập default value cho invoice generation.
+moto.billing.invoice_finalize.submit,moto,billing,invoice_finalize,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-020,請求書確定,Finalize invoice trước khi submit cho SAKI.
+moto.billing.invoice_finalize.finalize,moto,billing,invoice_finalize,finalize,確定,Chốt/xác định dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-020,請求書確定,Finalize invoice trước khi submit cho SAKI.
+moto.billing.invoice_attendance_reference.view,moto,billing,invoice_attendance_reference,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-BILL-022,請求明細勤怠参照,Xem attendance linked với invoice detail.
+moto.common.tenant_init_setup.edit,moto,common,tenant_init_setup,edit,修正,Chỉnh sửa dữ liệu,SELF_ONLY/ALL,MO-COM-000,派遣元テナント初期設定,
+moto.common.user_operation_log.view,moto,common,user_operation_log,view,参照,Xem màn hình/dữ liệu,SELF_ONLY/ALL,MO-COM-007,操作履歴,Xem audit log thao tác user trên hệ thống.
+moto.contract.contract_list.view,moto,contract,contract_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-001,契約一覧,Danh sách contract
+moto.contract.contract_detail.view,moto,contract,contract_detail,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-002,契約詳細,Xem chi tiết contract
+moto.contract.create_contract.create,moto,contract,create_contract,create,作成,Tạo mới dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-003,契約作成,Tạo contract mới
+moto.contract.create_contract_from_request.create,moto,contract,create_contract_from_request,create,作成,Tạo mới dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-004,派遣照会から契約作成,Tạo contract từ staffing request
+moto.contract.draft_contract_list.view,moto,contract,draft_contract_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-005,作成中契約一覧,Danh sách contract draft
+moto.contract.contract_extension.view,moto,contract,contract_extension,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-006,契約延長,Gia hạn contract
+moto.contract.contract_end.cancel,moto,contract,contract_end,cancel,取消,Hủy nghiệp vụ,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-007,契約終了,Kết thúc contract
+moto.contract.contract_upload.view,moto,contract,contract_upload,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-008,契約アップロード,Upload contract hàng loạt
+moto.contract.contract_upload.upload,moto,contract,contract_upload,upload,アップロード,Upload file,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-008,契約アップロード,Upload contract hàng loạt
+moto.contract.contract_upload.import,moto,contract,contract_upload,import,インポート,Import dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-008,契約アップロード,Upload contract hàng loạt
+moto.contract.contract_document_download.download,moto,contract,contract_document_download,download,ダウンロード,Download file/PDF,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-009,契約帳票DL,Bulk PDF/ZIP DL
+moto.contract.contract_edit.edit,moto,contract,contract_edit,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-010,契約編集,Edit hợp đồng
+moto.contract.draft_contract_restore.create,moto,contract,draft_contract_restore,create,作成,Tạo mới dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-020,一時保存契約から作成,Khôi phục contract draft đã lưu và tiếp tục tạo contract.
+moto.contract.draft_contract_restore.restore,moto,contract,draft_contract_restore,restore,復帰,Khôi phục dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-020,一時保存契約から作成,Khôi phục contract draft đã lưu và tiếp tục tạo contract.
+moto.contract.contract_extension_upload.view,moto,contract,contract_extension_upload,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-021,アップロードで延長する,Upload file để bulk extend contracts.
+moto.contract.contract_extension_upload.upload,moto,contract,contract_extension_upload,upload,アップロード,Upload file,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-021,アップロードで延長する,Upload file để bulk extend contracts.
+moto.contract.contract_extension_upload.import,moto,contract,contract_extension_upload,import,インポート,Import dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-021,アップロードで延長する,Upload file để bulk extend contracts.
+moto.contract.contract_revision_upload.view,moto,contract,contract_revision_upload,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-022,アップロードで修正する,Upload file để bulk revise contracts.
+moto.contract.contract_revision_upload.edit,moto,contract,contract_revision_upload,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-022,アップロードで修正する,Upload file để bulk revise contracts.
+moto.contract.contract_revision_upload.upload,moto,contract,contract_revision_upload,upload,アップロード,Upload file,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-022,アップロードで修正する,Upload file để bulk revise contracts.
+moto.contract.sales_pic.delete,moto,contract,sales_pic,delete,削除,Xóa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-023,営業担当者削除,"Xóa sales PIC khỏi contract/client mapping.
+Chuỷen màn hình sang modal"
+moto.contract.sales_pic.assign,moto,contract,sales_pic,assign,割当,Gán người dùng/quyền/đối tượng,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-023,営業担当者削除,"Xóa sales PIC khỏi contract/client mapping.
+Chuỷen màn hình sang modal"
+moto.contract.unsubmitted_contract_list.view,moto,contract,unsubmitted_contract_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-CON-024,未提出契約一覧,Danh sách contract chưa submit hoặc pending submit.
+moto.settings.additional_onboarding_procedure.view,moto,settings,additional_onboarding_procedure,view,参照,Xem màn hình/dữ liệu,ALL,MO-OTH-020,追加導入手続き,Thực hiện thủ tục onboarding/additional setup.
+moto.settings.additional_onboarding_procedure.create,moto,settings,additional_onboarding_procedure,create,作成,Tạo mới dữ liệu,ALL,MO-OTH-020,追加導入手続き,Thực hiện thủ tục onboarding/additional setup.
+moto.settings.onboarding_preparation_status.view,moto,settings,onboarding_preparation_status,view,参照,Xem màn hình/dữ liệu,ALL,MO-OTH-021,導入準備状況,Dashboard trạng thái onboarding/setup.
+moto.billing.usage_billing_list.view,moto,billing,usage_billing_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-OTH-022,利用料金一覧,Danh sách dung lượng sử dụng
+moto.billing.usage_billing_list.export,moto,billing,usage_billing_list,export,エクスポート,Export CSV/Excel,ALL/BRANCH/ASSIGNED_ONLY,MO-OTH-022,利用料金一覧,Danh sách dung lượng sử dụng
+moto.request.request_list.view,moto,request,request_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-001,派遣照会一覧,"Danh sách staffing request từ SAKI, hỗ trợ search/filter/export/detail"
+moto.request.request_list.export,moto,request,request_list,export,エクスポート,Export CSV/Excel,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-001,派遣照会一覧,"Danh sách staffing request từ SAKI, hỗ trợ search/filter/export/detail"
+moto.request.request_detail.view,moto,request,request_detail,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-002,派遣照会詳細,Xem chi tiết staffing request và requirement
+moto.request.estimate_response.view,moto,request,estimate_response,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-003,見積回答,Tạo và submit estimate response
+moto.request.estimate_response.submit,moto,request,estimate_response,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-003,見積回答,Tạo và submit estimate response
+moto.request.staffing_response.view,moto,request,staffing_response,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-004,派遣照会回答,Submit staff cho staffing request
+moto.request.staffing_response.submit,moto,request,staffing_response,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-004,派遣照会回答,Submit staff cho staffing request
+moto.request.staffing_response_cancel.view,moto,request,staffing_response_cancel,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-006,派遣照会回答キャンセル,HIển thị thông tin khi cancel trả lời
+moto.request.staffing_response_cancel.cancel,moto,request,staffing_response_cancel,cancel,取消,Hủy nghiệp vụ,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-006,派遣照会回答キャンセル,HIển thị thông tin khi cancel trả lời
+moto.request.staffing_response_cancel.submit,moto,request,staffing_response_cancel,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-006,派遣照会回答キャンセル,HIển thị thông tin khi cancel trả lời
+moto.request.response_history.view,moto,request,response_history,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-REQ-005,見積/派遣照会回答履歴,Xem lịch sử trả lời 見積/派遣照会.
+moto.client.client_list.view,moto,client,client_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-SAKI-001,派遣先一覧,Danh sách các 派遣先 đang giao dịch/kết nối với MOTO. Hỗ trợ search/filter/detail/export.
+moto.client.client_list.export,moto,client,client_list,export,エクスポート,Export CSV/Excel,ALL/BRANCH/ASSIGNED_ONLY,MO-SAKI-001,派遣先一覧,Danh sách các 派遣先 đang giao dịch/kết nối với MOTO. Hỗ trợ search/filter/detail/export.
+moto.client.client_detail.view,moto,client,client_detail,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-SAKI-002,派遣先詳細,Xem chi tiết 派遣先 và lịch sử giao dịch.
+moto.client.client_contract_list.view,moto,client,client_contract_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-SAKI-003,派遣先契約一覧,Danh sách contract theo 派遣先.
+moto.client.client_request_history.view,moto,client,client_request_history,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-SAKI-004,派遣照会履歴,Lịch sử staffing request từ 派遣先.
+moto.client.trading_client_setting.view,moto,client,trading_client_setting,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-SAKI-005,取引派遣先設定,Enable/disable/config 派遣先 usage.
+moto.client.trading_client_setting.edit,moto,client,trading_client_setting,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-SAKI-005,取引派遣先設定,Enable/disable/config 派遣先 usage.
+moto.settings.company_master.view,moto,settings,company_master,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-001,企業マスタ,Quản lý thông tin công ty
+moto.settings.company_master.edit,moto,settings,company_master,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-001,企業マスタ,Quản lý thông tin công ty
+moto.settings.company_master.create,moto,settings,company_master,create,作成,Tạo mới dữ liệu,ALL,MO-SET-001,企業マスタ,Quản lý thông tin công ty
+moto.settings.company_master.delete,moto,settings,company_master,delete,削除,Xóa dữ liệu,ALL,MO-SET-001,企業マスタ,Quản lý thông tin công ty
+moto.settings.branch_master.view,moto,settings,branch_master,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-002,事業所マスタ,"Quản lý branch
+CRUD, CSV UPload"
+moto.settings.branch_master.edit,moto,settings,branch_master,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-002,事業所マスタ,"Quản lý branch
+CRUD, CSV UPload"
+moto.settings.branch_master.create,moto,settings,branch_master,create,作成,Tạo mới dữ liệu,ALL,MO-SET-002,事業所マスタ,"Quản lý branch
+CRUD, CSV UPload"
+moto.settings.branch_master.delete,moto,settings,branch_master,delete,削除,Xóa dữ liệu,ALL,MO-SET-002,事業所マスタ,"Quản lý branch
+CRUD, CSV UPload"
+moto.settings.branch_master.upload,moto,settings,branch_master,upload,アップロード,Upload file,ALL,MO-SET-002,事業所マスタ,"Quản lý branch
+CRUD, CSV UPload"
+moto.settings.branch_master.import,moto,settings,branch_master,import,インポート,Import dữ liệu,ALL,MO-SET-002,事業所マスタ,"Quản lý branch
+CRUD, CSV UPload"
+moto.settings.branch_master.export,moto,settings,branch_master,export,エクスポート,Export CSV/Excel,ALL,MO-SET-002,事業所マスタ,"Quản lý branch
+CRUD, CSV UPload"
+moto.settings.department_master.view,moto,settings,department_master,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-003,部署マスタ,Quản lý department
+moto.settings.department_master.edit,moto,settings,department_master,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-003,部署マスタ,Quản lý department
+moto.settings.department_master.create,moto,settings,department_master,create,作成,Tạo mới dữ liệu,ALL,MO-SET-003,部署マスタ,Quản lý department
+moto.settings.department_master.delete,moto,settings,department_master,delete,削除,Xóa dữ liệu,ALL,MO-SET-003,部署マスタ,Quản lý department
+moto.settings.user_master.view,moto,settings,user_master,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-004,ユーザーマスタ,Quản lý user hệ thống
+moto.settings.user_master.edit,moto,settings,user_master,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-004,ユーザーマスタ,Quản lý user hệ thống
+moto.settings.user_master.create,moto,settings,user_master,create,作成,Tạo mới dữ liệu,ALL,MO-SET-004,ユーザーマスタ,Quản lý user hệ thống
+moto.settings.user_master.delete,moto,settings,user_master,delete,削除,Xóa dữ liệu,ALL,MO-SET-004,ユーザーマスタ,Quản lý user hệ thống
+moto.settings.role_master.view,moto,settings,role_master,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-005,権限マスタ,Quản lý RBAC
+moto.settings.role_master.edit,moto,settings,role_master,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-005,権限マスタ,Quản lý RBAC
+moto.settings.role_master.create,moto,settings,role_master,create,作成,Tạo mới dữ liệu,ALL,MO-SET-005,権限マスタ,Quản lý RBAC
+moto.settings.role_master.delete,moto,settings,role_master,delete,削除,Xóa dữ liệu,ALL,MO-SET-005,権限マスタ,Quản lý RBAC
+moto.settings.attendance_type_master.view,moto,settings,attendance_type_master,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-006,勤怠区分マスタ,Quản lý attendance type
+moto.settings.attendance_type_master.edit,moto,settings,attendance_type_master,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-006,勤怠区分マスタ,Quản lý attendance type
+moto.settings.attendance_type_master.create,moto,settings,attendance_type_master,create,作成,Tạo mới dữ liệu,ALL,MO-SET-006,勤怠区分マスタ,Quản lý attendance type
+moto.settings.attendance_type_master.delete,moto,settings,attendance_type_master,delete,削除,Xóa dữ liệu,ALL,MO-SET-006,勤怠区分マスタ,Quản lý attendance type
+moto.settings.workplace_type_master.view,moto,settings,workplace_type_master,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-007,就業場所区分マスタ,Quản lý workplace type
+moto.settings.workplace_type_master.edit,moto,settings,workplace_type_master,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-007,就業場所区分マスタ,Quản lý workplace type
+moto.settings.workplace_type_master.create,moto,settings,workplace_type_master,create,作成,Tạo mới dữ liệu,ALL,MO-SET-007,就業場所区分マスタ,Quản lý workplace type
+moto.settings.workplace_type_master.delete,moto,settings,workplace_type_master,delete,削除,Xóa dữ liệu,ALL,MO-SET-007,就業場所区分マスタ,Quản lý workplace type
+moto.settings.mail_alert_setting.view,moto,settings,mail_alert_setting,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-008,メール・アラーム設定,Thiết lập mail notification
+moto.settings.mail_alert_setting.edit,moto,settings,mail_alert_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-008,メール・アラーム設定,Thiết lập mail notification
+moto.settings.contract_default_setting.view,moto,settings,contract_default_setting,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-010,契約書初期値設定,Thiết lập default contract values và wording.
+moto.settings.contract_default_setting.edit,moto,settings,contract_default_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-010,契約書初期値設定,Thiết lập default contract values và wording.
+moto.settings.file_layout_setting.view,moto,settings,file_layout_setting,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-011,ファイルレイアウト設定,Thiết lập mapping column cho CSV upload/download.
+moto.settings.file_layout_setting.edit,moto,settings,file_layout_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-011,ファイルレイアウト設定,Thiết lập mapping column cho CSV upload/download.
+moto.settings.file_layout_setting.upload,moto,settings,file_layout_setting,upload,アップロード,Upload file,ALL,MO-SET-011,ファイルレイアウト設定,Thiết lập mapping column cho CSV upload/download.
+moto.settings.file_layout_setting.import,moto,settings,file_layout_setting,import,インポート,Import dữ liệu,ALL,MO-SET-011,ファイルレイアウト設定,Thiết lập mapping column cho CSV upload/download.
+moto.settings.file_layout_setting.download,moto,settings,file_layout_setting,download,ダウンロード,Download file/PDF,ALL,MO-SET-011,ファイルレイアウト設定,Thiết lập mapping column cho CSV upload/download.
+moto.settings.file_layout_setting.export,moto,settings,file_layout_setting,export,エクスポート,Export CSV/Excel,ALL,MO-SET-011,ファイルレイアウト設定,Thiết lập mapping column cho CSV upload/download.
+moto.settings.billing_destination_setting.view,moto,settings,billing_destination_setting,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-020,請求書送付先設定,Thiết lập địa chỉ/mail nhận invoice hệ thống.
+moto.settings.billing_destination_setting.edit,moto,settings,billing_destination_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-020,請求書送付先設定,Thiết lập địa chỉ/mail nhận invoice hệ thống.
+moto.settings.editable_user_field_setting.view,moto,settings,editable_user_field_setting,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-021,ユーザー編集可能項目設定,Thiết lập field nào user được edit.
+moto.settings.editable_user_field_setting.edit,moto,settings,editable_user_field_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-021,ユーザー編集可能項目設定,Thiết lập field nào user được edit.
+moto.settings.invoice_initial_setup.view,moto,settings,invoice_initial_setup,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-022,請求書初期設定,Setup hoá đơn
+moto.settings.invoice_initial_setup.edit,moto,settings,invoice_initial_setup,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-022,請求書初期設定,Setup hoá đơn
+moto.settings.user_master_create.view,moto,settings,user_master_create,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-023,ユーザー登録,Thêm mới user hệ thống
+moto.settings.user_master_create.create,moto,settings,user_master_create,create,作成,Tạo mới dữ liệu,ALL,MO-SET-023,ユーザー登録,Thêm mới user hệ thống
+moto.settings.user_master_create.edit,moto,settings,user_master_create,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-023,ユーザー登録,Thêm mới user hệ thống
+moto.settings.user_master_create.delete,moto,settings,user_master_create,delete,削除,Xóa dữ liệu,ALL,MO-SET-023,ユーザー登録,Thêm mới user hệ thống
+moto.settings.user_master_update.view,moto,settings,user_master_update,view,参照,Xem màn hình/dữ liệu,ALL,MO-SET-024,ユーザー編集,Cập nhật user hệ thống
+moto.settings.user_master_update.edit,moto,settings,user_master_update,edit,修正,Chỉnh sửa dữ liệu,ALL,MO-SET-024,ユーザー編集,Cập nhật user hệ thống
+moto.settings.user_master_update.create,moto,settings,user_master_update,create,作成,Tạo mới dữ liệu,ALL,MO-SET-024,ユーザー編集,Cập nhật user hệ thống
+moto.settings.user_master_update.delete,moto,settings,user_master_update,delete,削除,Xóa dữ liệu,ALL,MO-SET-024,ユーザー編集,Cập nhật user hệ thống
+moto.staff.staff_management.import,moto,staff,staff_management,import,インポート,Import dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-001−1,Staff import,
+moto.staff.staff_management.view,moto,staff,staff_management,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-002,スタッフ登録,Tạo staff mới
+moto.staff.staff_management.create,moto,staff,staff_management,create,作成,Tạo mới dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-002,スタッフ登録,Tạo staff mới
+moto.staff.staff_management.view,moto,staff,staff_management,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-004,スタッフアカウント管理,Staff Account
+moto.staff.staff_attendance_status.view,moto,staff,staff_attendance_status,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-005,スタッフ勤怠状況,Staff Attendance Status
+moto.staff.contract.history,moto,staff,contract_history,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-006,スタッフ契約履歴,Staff Employment History
+moto.staff.account.edit,moto,staff,staff_account,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-007,スタッフアカウント編集,
+moto.staff.modal_change_staff_status.edit,moto,staff,staff_account,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-008,アカウント発行,Modal change staff status
+moto.staff.modal_change_staff_status.issue,moto,staff,staff_account,issue,発行,Phát hành account/tài liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-008,アカウント発行,Modal change staff status
+saki.common.audit_log.view,saki,common,audit_log,view,参照,Xem màn hình/dữ liệu,SELF_ONLY/ALL,SA-COM-011,操作履歴,Audit thao tác user.
+saki.common.validation_error_list.view,saki,common,validation_error_list,view,参照,Xem màn hình/dữ liệu,SELF_ONLY/ALL,SA-COM-010,検証エラー一覧,Danh sách validation errors.
+saki.common.upload_result.view,saki,common,upload_result,view,参照,Xem màn hình/dữ liệu,SELF_ONLY/ALL,SA-COM-009,アップロード結果,Xem kết quả upload/import file.
+saki.common.download_history.export,saki,common,download_history,export,エクスポート,Export CSV/Excel,SELF_ONLY/ALL,SA-COM-007,ダウンロード履歴,Lịch sử download/export file.
+saki.common.login_history.view,saki,common,login_history,view,参照,Xem màn hình/dữ liệu,SELF_ONLY/ALL,SA-AUTH-006,ログイン履歴,Xem login history.
+saki.request.pending_response_list.view,saki,request,pending_response_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-013,未回答一覧,Danh sách request chưa có response.
+platform.tenant.moto_tenant_list.view,platform,tenant,moto_tenant_list,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-001,派遣元テナント一覧,Danh sách tenant MOTO
+saki.request.response_detail.view,saki,request,response_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-011,派遣照会回答詳細,Xem response detail.
+saki.request.staffing_response_list.view,saki,request,staffing_response_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-010,派遣照会回答一覧,Danh sách response từ MOTO.
+saki.request.estimate_export.export,saki,request,estimate_export,export,エクスポート,Export CSV/Excel,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-009,見積DL,Export estimate CSV/PDF.
+saki.request.estimate_compare.view,saki,request,estimate_compare,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-008,見積比較,So sánh estimate giữa nhiều MOTO.
+saki.request.estimate_detail.view,saki,request,estimate_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-007,見積詳細,Chi tiết estimate.
+saki.request.estimate_list.view,saki,request,estimate_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-006,見積一覧,Danh sách estimate từ MOTO.
+saki.request.staffing_request_cancel.cancel,saki,request,staffing_request_cancel,cancel,取消,Hủy nghiệp vụ,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-005,派遣照会取消,Hủy staffing request.
+saki.request.staffing_request_edit.edit,saki,request,staffing_request_edit,edit,修正,Chỉnh sửa dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-004,派遣照会修正,Chỉnh sửa request trước khi finalized.
+saki.request.staffing_request_create.create,saki,request,staffing_request_create,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-003,派遣照会作成,Tạo staffing request mới.
+saki.request.staffing_request_detail.view,saki,request,staffing_request_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-002,派遣照会詳細,Xem chi tiết staffing request.
+saki.request.staffing_request_list.view,saki,request,staffing_request_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-REQ-001,派遣照会一覧,Danh sách staffing requests.
+saki.contract.contract_end_confirmation.cancel,saki,contract,contract_end_confirmation,cancel,取消,Hủy nghiệp vụ,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-009,契約終了確認,Confirm contract end.
+saki.contract.contract_extension_approval.approve,saki,contract,contract_extension_approval,approve,承認,Phê duyệt,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-008,契約延長承認,Approve extension request.
+saki.contract.contract_extension_approval.reject,saki,contract,contract_extension_approval,reject,却下/差戻し,Từ chối/trả lại,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-008,契約延長承認,Approve extension request.
+saki.contract.contract_download_history.download,saki,contract,contract_download_history,download,ダウンロード,Download file/PDF,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-007,契約DL履歴,Lịch sử download contract.
+saki.contract.contract_pdf_download.download,saki,contract,contract_pdf_download,download,ダウンロード,Download file/PDF,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-006,契約書DL,Download contract PDF.
+saki.contract.contract_revision_history.view,saki,contract,contract_revision_history,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-005,契約変更履歴,Lịch sử chỉnh sửa contract.
+saki.contract.pending_contract_approval.view,saki,contract,pending_contract_approval,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-004,未承認契約一覧,Danh sách contract chờ approve.
+saki.contract.contract_approval.view,saki,contract,contract_approval,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-003,契約承認,Approve/reject contract.
+saki.contract.contract_approval.approve,saki,contract,contract_approval,approve,承認,Phê duyệt,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-003,契約承認,Approve/reject contract.
+saki.contract.contract_approval.reject,saki,contract,contract_approval,reject,却下/差戻し,Từ chối/trả lại,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-003,契約承認,Approve/reject contract.
+saki.contract.contract_detail.view,saki,contract,contract_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-002,契約詳細,Xem contract detail.
+saki.contract.contract_list.view,saki,contract,contract_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-CON-001,契約一覧,Danh sách contract.
+saki.attendance.attendance_dashboard.view,saki,attendance,attendance_dashboard,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-001,勤怠TOP,Dashboard attendance approval.
+saki.attendance.attendance_list.view,saki,attendance,attendance_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-002,勤怠一覧,Danh sách attendance submitted.
+saki.attendance.attendance_detail.view,saki,attendance,attendance_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-003,勤怠詳細,Xem attendance detail.
+saki.attendance.attendance_approval.view,saki,attendance,attendance_approval,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-004,勤怠承認,Approve/reject attendance.
+saki.attendance.attendance_approval.approve,saki,attendance,attendance_approval,approve,承認,Phê duyệt,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-004,勤怠承認,Approve/reject attendance.
+saki.attendance.attendance_approval.reject,saki,attendance,attendance_approval,reject,却下/差戻し,Từ chối/trả lại,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-004,勤怠承認,Approve/reject attendance.
+saki.attendance.unsubmitted_attendance_list.view,saki,attendance,unsubmitted_attendance_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-005,未申請勤怠一覧,Danh sách attendance chưa submit.
+saki.attendance.unapproved_attendance_list.view,saki,attendance,unapproved_attendance_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-006,未承認勤怠一覧,Danh sách attendance chưa approve.
+saki.attendance.attendance_reminder_history.view,saki,attendance,attendance_reminder_history,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-007,勤怠通知履歴,Lịch sử reminder attendance.
+saki.attendance.attendance_approval_history.view,saki,attendance,attendance_approval_history,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-008,勤怠承認履歴,Lịch sử approve attendance.
+saki.attendance.attendance_export.export,saki,attendance,attendance_export,export,エクスポート,Export CSV/Excel,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-009,勤怠DL,Export attendance CSV/Excel.
+saki.billing.invoice_list.view,saki,billing,invoice_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-001,請求一覧,Xem danh sách tất cả các invoice
+saki.billing.company_invoice_list.view,saki,billing,company_invoice_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-002,請求一覧,Xem danh sách các công ty MOTO đang làm việc với SAKI có invoice cần xác nhận
+saki.billing.department_invoice_list.view,saki,billing,department_invoice_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-003,請求一覧,Xem danh sách các department có invoice cần xác nhận
+saki.billing.lock_invoice_list.lock,saki,billing,lock_invoice_list,lock,ロック,Khóa account/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-004,請求一覧,Xem danh sách các invoice đã được lock
+saki.billing.unlock_invoice_list.view,saki,billing,unlock_invoice_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-005,請求一覧,Xem danh sách các invoice chưa được lock
+saki.billing.unlock_invoice_list.unlock,saki,billing,unlock_invoice_list,unlock,ロック解除,Mở khóa account/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-005,請求一覧,Xem danh sách các invoice chưa được lock
+saki.billing.company_invoice_detail.view,saki,billing,company_invoice_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-006,請求一覧,Xem danh sách các invoice trong 1 company MOTO
+saki.billing.department_invoice_detail.view,saki,billing,department_invoice_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-007,請求一覧,Xem danh sách cáci invoice trong 1 department
+saki.billing.invoice_detail.view,saki,billing,invoice_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-008,請求詳細,Xem chi tiết invoice.
+saki.billing.invoice_pdf_download.view,saki,billing,invoice_pdf_download,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-009,請求書PDF,Download invoice PDF.
+saki.billing.invoice_pdf_download.download,saki,billing,invoice_pdf_download,download,ダウンロード,Download file/PDF,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-BILL-009,請求書PDF,Download invoice PDF.
+saki.settings.mail_notification_setting.view,saki,settings,mail_notification_setting,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-007,メール通知設定,Thiết lập mail notification.
+saki.settings.mail_notification_setting.edit,saki,settings,mail_notification_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-007,メール通知設定,Thiết lập mail notification.
+saki.settings.approval_group_master.view,saki,settings,approval_group_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-006,承認グループマスタ,Approval Group Master
+saki.settings.approval_group_master.create,saki,settings,approval_group_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-006,承認グループマスタ,Approval Group Master
+saki.settings.approval_group_master.edit,saki,settings,approval_group_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-006,承認グループマスタ,Approval Group Master
+saki.settings.approval_group_master.delete,saki,settings,approval_group_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-006,承認グループマスタ,Approval Group Master
+saki.settings.approval_group_master.approve,saki,settings,approval_group_master,approve,承認,Phê duyệt,ALL,SA-SET-006,承認グループマスタ,Approval Group Master
+saki.settings.approval_group_master.reject,saki,settings,approval_group_master,reject,却下/差戻し,Từ chối/trả lại,ALL,SA-SET-006,承認グループマスタ,Approval Group Master
+saki.settings.approval_group_member_user_master.view,saki,settings,approval_group_member_user_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-008,承認グループ所属ユーザーマスタ,Nhóm cho phép sử dụng master
+saki.settings.approval_group_member_user_master.create,saki,settings,approval_group_member_user_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-008,承認グループ所属ユーザーマスタ,Nhóm cho phép sử dụng master
+saki.settings.approval_group_member_user_master.edit,saki,settings,approval_group_member_user_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-008,承認グループ所属ユーザーマスタ,Nhóm cho phép sử dụng master
+saki.settings.approval_group_member_user_master.delete,saki,settings,approval_group_member_user_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-008,承認グループ所属ユーザーマスタ,Nhóm cho phép sử dụng master
+saki.settings.approval_group_member_user_master.approve,saki,settings,approval_group_member_user_master,approve,承認,Phê duyệt,ALL,SA-SET-008,承認グループ所属ユーザーマスタ,Nhóm cho phép sử dụng master
+saki.settings.approval_group_member_user_master.reject,saki,settings,approval_group_member_user_master,reject,却下/差戻し,Từ chối/trả lại,ALL,SA-SET-008,承認グループ所属ユーザーマスタ,Nhóm cho phép sử dụng master
+saki.settings.conflict_date_applicable_establishment_master.view,saki,settings,conflict_date_applicable_establishment_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-009,抵触日適用事業所マスタ,
+saki.settings.conflict_date_applicable_establishment_master.create,saki,settings,conflict_date_applicable_establishment_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-009,抵触日適用事業所マスタ,
+saki.settings.conflict_date_applicable_establishment_master.edit,saki,settings,conflict_date_applicable_establishment_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-009,抵触日適用事業所マスタ,
+saki.settings.conflict_date_applicable_establishment_master.delete,saki,settings,conflict_date_applicable_establishment_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-009,抵触日適用事業所マスタ,
+saki.settings.job_title_master.view,saki,settings,job_title_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-010,職種マスタ,
+saki.settings.job_title_master.edit,saki,settings,job_title_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-010,職種マスタ,
+saki.settings.job_title_master.create,saki,settings,job_title_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-010,職種マスタ,
+saki.settings.job_title_master.delete,saki,settings,job_title_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-010,職種マスタ,
+saki.settings.file_layout_settings.view,saki,settings,file_layout_settings,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-011,ファイルレイアウト設定,
+saki.settings.file_layout_settings.edit,saki,settings,file_layout_settings,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-011,ファイルレイアウト設定,
+saki.settings.company_holidays.view,saki,settings,company_holidays,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-012,自社の休日,Quản lý ngày nghỉ lễ
+saki.settings.company_holidays.edit,saki,settings,company_holidays,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-012,自社の休日,Quản lý ngày nghỉ lễ
+saki.settings.user_editable_item_settings.view,saki,settings,user_editable_item_settings,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-013,ユーザー編集可能項目設定,Quản lý user có thể edit settings
+saki.settings.user_editable_item_settings.edit,saki,settings,user_editable_item_settings,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-013,ユーザー編集可能項目設定,Quản lý user có thể edit settings
+saki.settings.role_master.view,saki,settings,role_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-004,権限マスタ,Quản lý RBAC role.
+saki.settings.role_master.edit,saki,settings,role_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-004,権限マスタ,Quản lý RBAC role.
+saki.settings.role_master.create,saki,settings,role_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-004,権限マスタ,Quản lý RBAC role.
+saki.settings.role_master.delete,saki,settings,role_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-004,権限マスタ,Quản lý RBAC role.
+saki.settings.user_master.view,saki,settings,user_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-005,ユーザーマスタ,Quản lý SAKI users.
+saki.settings.user_master.edit,saki,settings,user_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-005,ユーザーマスタ,Quản lý SAKI users.
+saki.settings.user_master.create,saki,settings,user_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-005,ユーザーマスタ,Quản lý SAKI users.
+saki.settings.user_master.delete,saki,settings,user_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-005,ユーザーマスタ,Quản lý SAKI users.
+saki.settings.user_master_create.view,saki,settings,user_master_create,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-014,ユーザー登録,Thêm mới Saki Users
+saki.settings.user_master_create.create,saki,settings,user_master_create,create,作成,Tạo mới dữ liệu,ALL,SA-SET-014,ユーザー登録,Thêm mới Saki Users
+saki.settings.user_master_create.edit,saki,settings,user_master_create,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-014,ユーザー登録,Thêm mới Saki Users
+saki.settings.user_master_create.delete,saki,settings,user_master_create,delete,削除,Xóa dữ liệu,ALL,SA-SET-014,ユーザー登録,Thêm mới Saki Users
+saki.settings.user_master_update.view,saki,settings,user_master_update,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-015,ユーザー編集,Cập nhật SAKI users.
+saki.settings.user_master_update.edit,saki,settings,user_master_update,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-015,ユーザー編集,Cập nhật SAKI users.
+saki.settings.user_master_update.create,saki,settings,user_master_update,create,作成,Tạo mới dữ liệu,ALL,SA-SET-015,ユーザー編集,Cập nhật SAKI users.
+saki.settings.user_master_update.delete,saki,settings,user_master_update,delete,削除,Xóa dữ liệu,ALL,SA-SET-015,ユーザー編集,Cập nhật SAKI users.
+saki.settings.workplace_detail.view,saki,settings,workplace_detail,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-004,就業場所詳細,Chi tiết workplace.
+saki.settings.workplace_detail.edit,saki,settings,workplace_detail,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-004,就業場所詳細,Chi tiết workplace.
+saki.settings.workplace_list.view,saki,settings,workplace_list,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-003,就業場所一覧,Danh sách workplace.
+saki.settings.workplace_list.edit,saki,settings,workplace_list,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-003,就業場所一覧,Danh sách workplace.
+saki.settings.department_master.view,saki,settings,department_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-002,部署マスタ,Quản lý department.
+saki.settings.department_master.edit,saki,settings,department_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-002,部署マスタ,Quản lý department.
+saki.settings.department_master.create,saki,settings,department_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-002,部署マスタ,Quản lý department.
+saki.settings.department_master.delete,saki,settings,department_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-002,部署マスタ,Quản lý department.
+saki.settings.company_master.view,saki,settings,company_master,view,参照,Xem màn hình/dữ liệu,ALL,SA-SET-001,企業マスタ,Quản lý company info.
+saki.settings.company_master.edit,saki,settings,company_master,edit,修正,Chỉnh sửa dữ liệu,ALL,SA-SET-001,企業マスタ,Quản lý company info.
+saki.settings.company_master.create,saki,settings,company_master,create,作成,Tạo mới dữ liệu,ALL,SA-SET-001,企業マスタ,Quản lý company info.
+saki.settings.company_master.delete,saki,settings,company_master,delete,削除,Xóa dữ liệu,ALL,SA-SET-001,企業マスタ,Quản lý company info.
+saki.common.tenant_init_setup.edit,saki,common,tenant_init_setup,edit,修正,Chỉnh sửa dữ liệu,SELF_ONLY/ALL,SA-COM-000,派遣先テナント初期設定,
+platform.dashboard.platform_dashboard.view,platform,dashboard,platform_dashboard,view,参照,Xem màn hình/dữ liệu,ALL,PA-DB-001,プラットフォームダッシュボード,Dashboard tổng quan toàn hệ thống SaaS
+platform.dashboard.saas_kpi_dashboard.view,platform,dashboard,saas_kpi_dashboard,view,参照,Xem màn hình/dữ liệu,ALL,PA-DB-002,SaaS KPIダッシュボード,Dashboard KPI SaaS business
+platform.dashboard.system_health_dashboard.view,platform,dashboard,system_health_dashboard,view,参照,Xem màn hình/dữ liệu,ALL,PA-DB-003,システム監視ダッシュボード,Monitoring hạ tầng hệ thống
+platform.tenant.moto_tenant_detail.view,platform,tenant,moto_tenant_detail,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-002,派遣元テナント詳細,Chi tiết tenant MOTO
+platform.tenant.create_moto_tenant.view,platform,tenant,create_moto_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-003,派遣元テナント作成,Tạo tenant MOTO mới
+platform.tenant.create_moto_tenant.create,platform,tenant,create_moto_tenant,create,作成,Tạo mới dữ liệu,ALL,PA-TEN-003,派遣元テナント作成,Tạo tenant MOTO mới
+platform.tenant.edit_moto_tenant.view,platform,tenant,edit_moto_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-004,派遣元テナント編集,Chỉnh sửa tenant MOTO
+platform.tenant.edit_moto_tenant.edit,platform,tenant,edit_moto_tenant,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-TEN-004,派遣元テナント編集,Chỉnh sửa tenant MOTO
+platform.tenant.suspend_moto_tenant.view,platform,tenant,suspend_moto_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-005,派遣元テナント停止,Suspend tenant MOTO
+platform.tenant.suspend_moto_tenant.cancel,platform,tenant,suspend_moto_tenant,cancel,取消,Hủy nghiệp vụ,ALL,PA-TEN-005,派遣元テナント停止,Suspend tenant MOTO
+platform.tenant.restore_moto_tenant.view,platform,tenant,restore_moto_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-006,派遣元テナント復旧,Restore tenant MOTO
+platform.tenant.restore_moto_tenant.restore,platform,tenant,restore_moto_tenant,restore,復帰,Khôi phục dữ liệu,ALL,PA-TEN-006,派遣元テナント復旧,Restore tenant MOTO
+platform.tenant.saki_tenant_list.view,platform,tenant,saki_tenant_list,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-007,派遣先テナント一覧,Danh sách tenant SAKI
+platform.tenant.saki_tenant_detail.view,platform,tenant,saki_tenant_detail,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-008,派遣先テナント詳細,Chi tiết tenant SAKI
+platform.tenant.create_saki_tenant.view,platform,tenant,create_saki_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-009,派遣先テナント作成,Tạo tenant SAKI mới
+platform.tenant.create_saki_tenant.create,platform,tenant,create_saki_tenant,create,作成,Tạo mới dữ liệu,ALL,PA-TEN-009,派遣先テナント作成,Tạo tenant SAKI mới
+platform.tenant.edit_saki_tenant.view,platform,tenant,edit_saki_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-010,派遣先テナント編集,Chỉnh sửa tenant SAKI
+platform.tenant.edit_saki_tenant.edit,platform,tenant,edit_saki_tenant,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-TEN-010,派遣先テナント編集,Chỉnh sửa tenant SAKI
+platform.tenant.suspend_saki_tenant.view,platform,tenant,suspend_saki_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-011,派遣先テナント停止,Suspend tenant SAKI
+platform.tenant.suspend_saki_tenant.cancel,platform,tenant,suspend_saki_tenant,cancel,取消,Hủy nghiệp vụ,ALL,PA-TEN-011,派遣先テナント停止,Suspend tenant SAKI
+platform.tenant.restore_saki_tenant.view,platform,tenant,restore_saki_tenant,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-012,派遣先テナント復旧,Restore tenant SAKI
+platform.tenant.restore_saki_tenant.restore,platform,tenant,restore_saki_tenant,restore,復帰,Khôi phục dữ liệu,ALL,PA-TEN-012,派遣先テナント復旧,Restore tenant SAKI
+platform.tenant.tenant_feature_setting.view,platform,tenant,tenant_feature_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-013,テナント機能設定,Enable/disable module cho tenant
+platform.tenant.tenant_feature_setting.edit,platform,tenant,tenant_feature_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-TEN-013,テナント機能設定,Enable/disable module cho tenant
+platform.tenant.tenant_domain_setting.view,platform,tenant,tenant_domain_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-014,ドメイン設定,Mapping domain/subdomain tenant
+platform.tenant.tenant_domain_setting.edit,platform,tenant,tenant_domain_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-TEN-014,ドメイン設定,Mapping domain/subdomain tenant
+platform.tenant.tenant_branding_setting.view,platform,tenant,tenant_branding_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-015,テナントブランド設定,Thiết lập logo/theme tenant
+platform.tenant.tenant_branding_setting.edit,platform,tenant,tenant_branding_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-TEN-015,テナントブランド設定,Thiết lập logo/theme tenant
+platform.tenant.tenant_usage_dashboard.view,platform,tenant,tenant_usage_dashboard,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-016,テナント利用状況,Dashboard usage theo tenant
+platform.tenant.tenant_onboarding_status.view,platform,tenant,tenant_onboarding_status,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-017,導入準備状況,Theo dõi onboarding/setup tenant
+platform.tenant.additional_onboarding_procedure.view,platform,tenant,additional_onboarding_procedure,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-018,追加導入手続き,Thực hiện thêm module/setup onboarding
+platform.tenant.additional_onboarding_procedure.create,platform,tenant,additional_onboarding_procedure,create,作成,Tạo mới dữ liệu,ALL,PA-TEN-018,追加導入手続き,Thực hiện thêm module/setup onboarding
+platform.tenant_contract.tenant_contract_list.view,platform,tenant_contract,tenant_contract_list,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-001,テナント契約一覧,Danh sách hợp đồng sử dụng hệ thống của tenant
+platform.tenant_contract.tenant_contract_detail.view,platform,tenant_contract,tenant_contract_detail,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-002,テナント契約詳細,Chi tiết hợp đồng tenant và phạm vi sử dụng
+platform.tenant_contract.create_tenant_contract.view,platform,tenant_contract,create_tenant_contract,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-003,テナント契約作成,Tạo hợp đồng sử dụng cho tenant
+platform.tenant_contract.create_tenant_contract.create,platform,tenant_contract,create_tenant_contract,create,作成,Tạo mới dữ liệu,ALL,PA-LIC-003,テナント契約作成,Tạo hợp đồng sử dụng cho tenant
+platform.tenant_contract.edit_tenant_contract.view,platform,tenant_contract,edit_tenant_contract,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-004,テナント契約編集,Chỉnh sửa điều kiện hợp đồng tenant
+platform.tenant_contract.edit_tenant_contract.edit,platform,tenant_contract,edit_tenant_contract,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-LIC-004,テナント契約編集,Chỉnh sửa điều kiện hợp đồng tenant
+platform.tenant_contract.tenant_feature_grant_setting.view,platform,tenant_contract,tenant_feature_grant_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-005,利用機能付与設定,Cấp/bỏ quyền sử dụng từng module/function cho tenant
+platform.tenant_contract.tenant_feature_grant_setting.edit,platform,tenant_contract,tenant_feature_grant_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-LIC-005,利用機能付与設定,Cấp/bỏ quyền sử dụng từng module/function cho tenant
+platform.tenant_contract.tenant_feature_grant_setting.assign,platform,tenant_contract,tenant_feature_grant_setting,assign,割当,Gán người dùng/quyền/đối tượng,ALL,PA-LIC-005,利用機能付与設定,Cấp/bỏ quyền sử dụng từng module/function cho tenant
+platform.tenant_contract.contract_feature_history.view,platform,tenant_contract,contract_feature_history,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-007,利用機能変更履歴,Lịch sử thay đổi tính năng được cấp cho tenant
+platform.tenant_contract.contract_feature_history.edit,platform,tenant_contract,contract_feature_history,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-LIC-007,利用機能変更履歴,Lịch sử thay đổi tính năng được cấp cho tenant
+platform.tenant_contract.contract_document_management.view,platform,tenant_contract,contract_document_management,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-008,契約書管理,Quản lý file hợp đồng tenant
+platform.tenant_contract.contract_document_management.create,platform,tenant_contract,contract_document_management,create,作成,Tạo mới dữ liệu,ALL,PA-LIC-008,契約書管理,Quản lý file hợp đồng tenant
+platform.tenant_contract.contract_document_management.edit,platform,tenant_contract,contract_document_management,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-LIC-008,契約書管理,Quản lý file hợp đồng tenant
+platform.tenant_contract.contract_document_management.delete,platform,tenant_contract,contract_document_management,delete,削除,Xóa dữ liệu,ALL,PA-LIC-008,契約書管理,Quản lý file hợp đồng tenant
+platform.tenant_contract.tenant_contract_suspend.view,platform,tenant_contract,tenant_contract_suspend,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-009,テナント契約停止,Tạm dừng hợp đồng sử dụng tenant
+platform.tenant_contract.tenant_contract_suspend.cancel,platform,tenant_contract,tenant_contract_suspend,cancel,取消,Hủy nghiệp vụ,ALL,PA-LIC-009,テナント契約停止,Tạm dừng hợp đồng sử dụng tenant
+platform.tenant_contract.tenant_contract_restore.view,platform,tenant_contract,tenant_contract_restore,view,参照,Xem màn hình/dữ liệu,ALL,PA-LIC-010,テナント契約復旧,Khôi phục hợp đồng tenant đã tạm dừng
+platform.tenant_contract.tenant_contract_restore.restore,platform,tenant_contract,tenant_contract_restore,restore,復帰,Khôi phục dữ liệu,ALL,PA-LIC-010,テナント契約復旧,Khôi phục hợp đồng tenant đã tạm dừng
+platform.billing.billing_dashboard.view,platform,billing,billing_dashboard,view,参照,Xem màn hình/dữ liệu,ALL,PA-BILL-001,利用料金ダッシュボード,Dashboard doanh thu SaaS
+platform.billing.usage_billing_list.view,platform,billing,usage_billing_list,view,参照,Xem màn hình/dữ liệu,ALL,PA-BILL-002,利用料金一覧,Danh sách billing SaaS
+platform.billing.usage_billing_detail.view,platform,billing,usage_billing_detail,view,参照,Xem màn hình/dữ liệu,ALL,PA-BILL-003,利用料金詳細,Chi tiết billing SaaS
+platform.billing.billing_invoice_export.download,platform,billing,billing_invoice_export,download,ダウンロード,Download file/PDF,ALL,PA-BILL-004,請求書DL,Export invoice PDF/CSV
+platform.billing.billing_invoice_export.export,platform,billing,billing_invoice_export,export,エクスポート,Export CSV/Excel,ALL,PA-BILL-004,請求書DL,Export invoice PDF/CSV
+platform.billing.payment_status_management.view,platform,billing,payment_status_management,view,参照,Xem màn hình/dữ liệu,ALL,PA-BILL-005,支払管理,Theo dõi payment status
+platform.user.platform_user_list.view,platform,user,platform_user_list,view,参照,Xem màn hình/dữ liệu,ALL,PA-USER-001,管理ユーザー一覧,Danh sách platform admins
+platform.user.platform_user_list.create,platform,user,platform_user_list,create,作成,Tạo mới dữ liệu,ALL,PA-USER-001,管理ユーザー一覧,Danh sách platform admins
+platform.user.platform_user_list.edit,platform,user,platform_user_list,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-USER-001,管理ユーザー一覧,Danh sách platform admins
+platform.user.platform_user_list.delete,platform,user,platform_user_list,delete,削除,Xóa dữ liệu,ALL,PA-USER-001,管理ユーザー一覧,Danh sách platform admins
+platform.user.platform_user.view,platform,user,platform_user,view,参照,Xem màn hình/dữ liệu,ALL,PA-USER-002,管理ユーザー作成,Tạo platform admin user
+platform.user.platform_user.create,platform,user,platform_user,create,作成,Tạo mới dữ liệu,ALL,PA-USER-002,管理ユーザー作成,Tạo platform admin user
+platform.user.platform_user.edit,platform,user,platform_user,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-USER-002,管理ユーザー作成,Tạo platform admin user
+platform.user.platform_user.delete,platform,user,platform_user,delete,削除,Xóa dữ liệu,ALL,PA-USER-002,管理ユーザー作成,Tạo platform admin user
+platform.user.role_master.view,platform,user,role_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-USER-003,権限マスタ,RBAC role management
+platform.user.role_master.create,platform,user,role_master,create,作成,Tạo mới dữ liệu,ALL,PA-USER-003,権限マスタ,RBAC role management
+platform.user.role_master.edit,platform,user,role_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-USER-003,権限マスタ,RBAC role management
+platform.user.role_master.delete,platform,user,role_master,delete,削除,Xóa dữ liệu,ALL,PA-USER-003,権限マスタ,RBAC role management
+platform.user.password_reset.reset,platform,user,password_reset,reset,初期化,Reset/khởi tạo lại,ALL,PA-USER-004,パスワード初期化,Reset password admin user
+platform.user.account_lock_unlock.view,platform,user,account_lock_unlock,view,参照,Xem màn hình/dữ liệu,ALL,PA-USER-005,ロック解除,Lock/unlock account
+platform.user.account_lock_unlock.unlock,platform,user,account_lock_unlock,unlock,ロック解除,Mở khóa account/dữ liệu,ALL,PA-USER-005,ロック解除,Lock/unlock account
+platform.system.system_parameter_setting.view,platform,system,system_parameter_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-SYS-001,システム設定,Global system settings
+platform.system.system_parameter_setting.edit,platform,system,system_parameter_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-SYS-001,システム設定,Global system settings
+platform.system.mail_server_setting.view,platform,system,mail_server_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-SYS-002,メールサーバ設定,SMTP/SES settings
+platform.system.mail_server_setting.edit,platform,system,mail_server_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-SYS-002,メールサーバ設定,SMTP/SES settings
+platform.system.storage_setting.view,platform,system,storage_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-SYS-003,ストレージ設定,S3/storage configuration
+platform.system.storage_setting.edit,platform,system,storage_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-SYS-003,ストレージ設定,S3/storage configuration
+platform.system.api_key_management.view,platform,system,api_key_management,view,参照,Xem màn hình/dữ liệu,ALL,PA-SYS-004,APIキー管理,Quản lý API keys
+platform.system.api_key_management.create,platform,system,api_key_management,create,作成,Tạo mới dữ liệu,ALL,PA-SYS-004,APIキー管理,Quản lý API keys
+platform.system.api_key_management.edit,platform,system,api_key_management,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-SYS-004,APIキー管理,Quản lý API keys
+platform.system.api_key_management.delete,platform,system,api_key_management,delete,削除,Xóa dữ liệu,ALL,PA-SYS-004,APIキー管理,Quản lý API keys
+platform.system.maintenance_mode.view,platform,system,maintenance_mode,view,参照,Xem màn hình/dữ liệu,ALL,PA-SYS-005,メンテナンスモード,Enable maintenance mode
+platform.system.maintenance_mode.execute,platform,system,maintenance_mode,execute,実行,Thực hiện process/batch,ALL,PA-SYS-005,メンテナンスモード,Enable maintenance mode
+platform.system.backup_management.view,platform,system,backup_management,view,参照,Xem màn hình/dữ liệu,ALL,PA-SYS-006,バックアップ管理,Quản lý backup system
+platform.system.backup_management.create,platform,system,backup_management,create,作成,Tạo mới dữ liệu,ALL,PA-SYS-006,バックアップ管理,Quản lý backup system
+platform.system.backup_management.edit,platform,system,backup_management,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-SYS-006,バックアップ管理,Quản lý backup system
+platform.system.backup_management.delete,platform,system,backup_management,delete,削除,Xóa dữ liệu,ALL,PA-SYS-006,バックアップ管理,Quản lý backup system
+platform.batch.upload_history.view,platform,batch,upload_history,view,参照,Xem màn hình/dữ liệu,ALL,PA-BAT-001,アップロード履歴,Upload history viewer
+platform.batch.validation_error_list.view,platform,batch,validation_error_list,view,参照,Xem màn hình/dữ liệu,ALL,PA-BAT-005,検証エラー一覧,Validation errors after upload
+platform.batch.queue_monitoring.view,platform,batch,queue_monitoring,view,参照,Xem màn hình/dữ liệu,ALL,PA-BAT-004,キュー監視,Monitor queue jobs
+platform.batch.batch_execution_history.view,platform,batch,batch_execution_history,view,参照,Xem màn hình/dữ liệu,ALL,PA-BAT-003,バッチ実行履歴,Batch execution history
+platform.batch.upload_result.view,platform,batch,upload_result,view,参照,Xem màn hình/dữ liệu,ALL,PA-BAT-002,アップロード結果,Upload result viewer
+saki.attendance.special_clause_application_create.create,saki,attendance,special_clause_application_create,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-010,特別条項適用申請作成,Tạo mới và đăng ký yêu cầu áp dụng điều khoản đặc biệt của Hiệp định 36
+saki.attendance.special_clause_application_create.submit,saki,attendance,special_clause_application_create,submit,提出,Submit/gửi workflow,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-010,特別条項適用申請作成,Tạo mới và đăng ký yêu cầu áp dụng điều khoản đặc biệt của Hiệp định 36
+staff.attendance.attendance_list.view,staff,attendance,attendance_list,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-001,勤怠一覧,Danh sách attendance của staff.
+staff.attendance.attendance_detail.view,staff,attendance,attendance_detail,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-002,勤怠詳細,Xem chi tiết attendance.
+staff.attendance.attendance_input.view,staff,attendance,attendance_input,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-003,勤怠入力,Nhập attendance hàng ngày.
+staff.attendance.attendance_input.create,staff,attendance,attendance_input,create,作成,Tạo mới dữ liệu,SELF_ONLY,ST-ATT-003,勤怠入力,Nhập attendance hàng ngày.
+staff.attendance.attendance_edit.view,staff,attendance,attendance_edit,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-004,勤怠修正,Chỉnh sửa attendance trước approval.
+staff.attendance.attendance_edit.edit,staff,attendance,attendance_edit,edit,修正,Chỉnh sửa dữ liệu,SELF_ONLY,ST-ATT-004,勤怠修正,Chỉnh sửa attendance trước approval.
+staff.attendance.attendance_approval_status.view,staff,attendance,attendance_approval_status,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-006,勤怠承認状況,Kiểm tra trạng thái approve attendance.
+staff.attendance.shift_schedule.view,staff,attendance,shift_schedule,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-007,シフト予定,Xem lịch làm việc/shift.
+staff.attendance.work_schedule_calendar.view,staff,attendance,work_schedule_calendar,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-008,勤務カレンダー,Calendar attendance/work schedule.
+staff.attendance.overtime_alert.view,staff,attendance,overtime_alert,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-ATT-009,残業アラート,Alert overtime/36 agreement limit.
+saki.attendance.special_clause_application_detail.view,saki,attendance,special_clause_application_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-011,特別条項適用申請詳細,Chi tiết yêu cầu điều khoản đặc biệt
+saki.attendance.special_clause_application_edit.edit,saki,attendance,special_clause_application_edit,edit,修正,Chỉnh sửa dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SA-ATT-012,特別条項適用申請編集,Sửa đổi yêu cầu điều khoản đặc biệt
+staff.auth.login.view,staff,auth,login,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-AUTH-001,ログイン,Đăng nhập staff app bằng ID/password hoặc OTP.
+staff.auth.login.execute,staff,auth,login,execute,実行,Thực hiện process/batch,SELF_ONLY,ST-AUTH-001,ログイン,Đăng nhập staff app bằng ID/password hoặc OTP.
+staff.auth.logout.execute,staff,auth,logout,execute,実行,Thực hiện process/batch,SELF_ONLY,ST-AUTH-002,ログアウト,Logout khỏi app.
+staff.auth.password_reset.reset,staff,auth,password_reset,reset,初期化,Reset/khởi tạo lại,SELF_ONLY,ST-AUTH-003,パスワード初期化,Reset/change password.
+staff.auth.forgot_password.reset,staff,auth,forgot_password,reset,初期化,Reset/khởi tạo lại,SELF_ONLY,ST-AUTH-006,パスワードの再設定,Staff forgot password
+staff.home.staff_dashboard.view,staff,home,staff_dashboard,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-HOME-001,ホーム,Dashboard chính của staff app.
+staff.home.notification_center.view,staff,home,notification_center,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-HOME-002,お知らせ一覧,Danh sách thông báo tới staff.
+staff.home.notification_detail.view,staff,home,notification_detail,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-HOME-003,お知らせ詳細,Chi tiết announcement/notice.
+staff.home.account_dashboard.view,staff,home,account_dashboard,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-HOME-004,アカウント,Common account dashboard
+staff.common.staff_profile.view,staff,common,staff_profile,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-PRO-001,プロフィール,Trang thông tin staff
+staff.common.change_staff_info.view,staff,common,change_staff_info,view,参照,Xem màn hình/dữ liệu,SELF_ONLY,ST-PRO-002,プロフィール編集,Staff tự chỉnh sửa thông tin
+staff.common.change_staff_info.edit,staff,common,change_staff_info,edit,修正,Chỉnh sửa dữ liệu,SELF_ONLY,ST-PRO-002,プロフィール編集,Staff tự chỉnh sửa thông tin
+platform.global_master.attendance_type_master.view,platform,global_master,attendance_type_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-101,勤怠区分マスタ,Quản lý attendance type
+platform.global_master.attendance_type_master.create,platform,global_master,attendance_type_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-101,勤怠区分マスタ,Quản lý attendance type
+platform.global_master.attendance_type_master.edit,platform,global_master,attendance_type_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-101,勤怠区分マスタ,Quản lý attendance type
+platform.global_master.attendance_type_master.delete,platform,global_master,attendance_type_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-101,勤怠区分マスタ,Quản lý attendance type
+platform.global_master.industry_master.view,platform,global_master,industry_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-504,業種マスタ,Quản lý industry
+platform.global_master.industry_master.create,platform,global_master,industry_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-504,業種マスタ,Quản lý industry
+platform.global_master.industry_master.edit,platform,global_master,industry_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-504,業種マスタ,Quản lý industry
+platform.global_master.industry_master.delete,platform,global_master,industry_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-504,業種マスタ,Quản lý industry
+platform.global_master.prefecture_master.view,platform,global_master,prefecture_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-502,都道府県マスタ,Quản lý prefecture JP
+platform.global_master.prefecture_master.create,platform,global_master,prefecture_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-502,都道府県マスタ,Quản lý prefecture JP
+platform.global_master.prefecture_master.edit,platform,global_master,prefecture_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-502,都道府県マスタ,Quản lý prefecture JP
+platform.global_master.prefecture_master.delete,platform,global_master,prefecture_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-502,都道府県マスタ,Quản lý prefecture JP
+platform.global_master.alert_rule_master.view,platform,global_master,alert_rule_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-304,アラートルールマスタ,Quản lý alert/overtime rule
+platform.global_master.alert_rule_master.create,platform,global_master,alert_rule_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-304,アラートルールマスタ,Quản lý alert/overtime rule
+platform.global_master.alert_rule_master.edit,platform,global_master,alert_rule_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-304,アラートルールマスタ,Quản lý alert/overtime rule
+platform.global_master.alert_rule_master.delete,platform,global_master,alert_rule_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-304,アラートルールマスタ,Quản lý alert/overtime rule
+platform.global_master.mail_template_master.view,platform,global_master,mail_template_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-303,メールテンプレートマスタ,Quản lý mail template
+platform.global_master.mail_template_master.create,platform,global_master,mail_template_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-303,メールテンプレートマスタ,Quản lý mail template
+platform.global_master.mail_template_master.edit,platform,global_master,mail_template_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-303,メールテンプレートマスタ,Quản lý mail template
+platform.global_master.mail_template_master.delete,platform,global_master,mail_template_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-303,メールテンプレートマスタ,Quản lý mail template
+platform.global_master.notification_type_master.view,platform,global_master,notification_type_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-302,通知種別マスタ,Quản lý notification type
+platform.global_master.notification_type_master.create,platform,global_master,notification_type_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-302,通知種別マスタ,Quản lý notification type
+platform.global_master.notification_type_master.edit,platform,global_master,notification_type_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-302,通知種別マスタ,Quản lý notification type
+platform.global_master.notification_type_master.delete,platform,global_master,notification_type_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-302,通知種別マスタ,Quản lý notification type
+platform.global_master.approval_status_master.view,platform,global_master,approval_status_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-301,承認状態マスタ,Quản lý approval status
+platform.global_master.approval_status_master.create,platform,global_master,approval_status_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-301,承認状態マスタ,Quản lý approval status
+platform.global_master.approval_status_master.edit,platform,global_master,approval_status_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-301,承認状態マスタ,Quản lý approval status
+platform.global_master.approval_status_master.delete,platform,global_master,approval_status_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-301,承認状態マスタ,Quản lý approval status
+platform.global_master.approval_status_master.approve,platform,global_master,approval_status_master,approve,承認,Phê duyệt,ALL,PA-GM-301,承認状態マスタ,Quản lý approval status
+platform.global_master.approval_status_master.reject,platform,global_master,approval_status_master,reject,却下/差戻し,Từ chối/trả lại,ALL,PA-GM-301,承認状態マスタ,Quản lý approval status
+platform.global_master.tax_rate_master.view,platform,global_master,tax_rate_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-205,税率マスタ,Quản lý tax rate
+platform.global_master.tax_rate_master.create,platform,global_master,tax_rate_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-205,税率マスタ,Quản lý tax rate
+platform.global_master.tax_rate_master.edit,platform,global_master,tax_rate_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-205,税率マスタ,Quản lý tax rate
+platform.global_master.tax_rate_master.delete,platform,global_master,tax_rate_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-205,税率マスタ,Quản lý tax rate
+platform.global_master.billing_status_master.view,platform,global_master,billing_status_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-204,請求状態マスタ,Quản lý billing status
+platform.global_master.billing_status_master.create,platform,global_master,billing_status_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-204,請求状態マスタ,Quản lý billing status
+platform.global_master.billing_status_master.edit,platform,global_master,billing_status_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-204,請求状態マスタ,Quản lý billing status
+platform.global_master.billing_status_master.delete,platform,global_master,billing_status_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-204,請求状態マスタ,Quản lý billing status
+platform.global_master.estimate_status_master.view,platform,global_master,estimate_status_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-203,見積状態マスタ,Quản lý trạng thái estimate
+platform.global_master.estimate_status_master.create,platform,global_master,estimate_status_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-203,見積状態マスタ,Quản lý trạng thái estimate
+platform.global_master.estimate_status_master.edit,platform,global_master,estimate_status_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-203,見積状態マスタ,Quản lý trạng thái estimate
+platform.global_master.estimate_status_master.delete,platform,global_master,estimate_status_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-203,見積状態マスタ,Quản lý trạng thái estimate
+platform.global_master.contract_type_master.view,platform,global_master,contract_type_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-202,契約種別マスタ,Quản lý loại contract
+platform.global_master.contract_type_master.create,platform,global_master,contract_type_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-202,契約種別マスタ,Quản lý loại contract
+platform.global_master.contract_type_master.edit,platform,global_master,contract_type_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-202,契約種別マスタ,Quản lý loại contract
+platform.global_master.contract_type_master.delete,platform,global_master,contract_type_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-202,契約種別マスタ,Quản lý loại contract
+platform.global_master.contract_status_master.view,platform,global_master,contract_status_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-201,契約状態マスタ,Quản lý trạng thái contract
+platform.global_master.contract_status_master.create,platform,global_master,contract_status_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-201,契約状態マスタ,Quản lý trạng thái contract
+platform.global_master.contract_status_master.edit,platform,global_master,contract_status_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-201,契約状態マスタ,Quản lý trạng thái contract
+platform.global_master.contract_status_master.delete,platform,global_master,contract_status_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-201,契約状態マスタ,Quản lý trạng thái contract
+platform.global_master.36_agreement_master.view,platform,global_master,36_agreement_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-107,36協定マスタ,Template labor agreement
+platform.global_master.36_agreement_master.create,platform,global_master,36_agreement_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-107,36協定マスタ,Template labor agreement
+platform.global_master.36_agreement_master.edit,platform,global_master,36_agreement_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-107,36協定マスタ,Template labor agreement
+platform.global_master.36_agreement_master.delete,platform,global_master,36_agreement_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-107,36協定マスタ,Template labor agreement
+platform.global_master.legal_holiday_master.view,platform,global_master,legal_holiday_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-106,法定休日マスタ,Quản lý legal holiday
+platform.global_master.legal_holiday_master.create,platform,global_master,legal_holiday_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-106,法定休日マスタ,Quản lý legal holiday
+platform.global_master.legal_holiday_master.edit,platform,global_master,legal_holiday_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-106,法定休日マスタ,Quản lý legal holiday
+platform.global_master.legal_holiday_master.delete,platform,global_master,legal_holiday_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-106,法定休日マスタ,Quản lý legal holiday
+platform.global_master.holiday_type_master.view,platform,global_master,holiday_type_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-105,休日区分マスタ,Quản lý holiday type
+platform.global_master.holiday_type_master.create,platform,global_master,holiday_type_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-105,休日区分マスタ,Quản lý holiday type
+platform.global_master.holiday_type_master.edit,platform,global_master,holiday_type_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-105,休日区分マスタ,Quản lý holiday type
+platform.global_master.holiday_type_master.delete,platform,global_master,holiday_type_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-105,休日区分マスタ,Quản lý holiday type
+platform.global_master.overtime_rule_master.view,platform,global_master,overtime_rule_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-104,残業ルールマスタ,Quản lý overtime rule
+platform.global_master.overtime_rule_master.create,platform,global_master,overtime_rule_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-104,残業ルールマスタ,Quản lý overtime rule
+platform.global_master.overtime_rule_master.edit,platform,global_master,overtime_rule_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-104,残業ルールマスタ,Quản lý overtime rule
+platform.global_master.overtime_rule_master.delete,platform,global_master,overtime_rule_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-104,残業ルールマスタ,Quản lý overtime rule
+platform.global_master.work_pattern_master.view,platform,global_master,work_pattern_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-103,勤務パターンマスタ,Quản lý work pattern
+platform.global_master.work_pattern_master.create,platform,global_master,work_pattern_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-103,勤務パターンマスタ,Quản lý work pattern
+platform.global_master.work_pattern_master.edit,platform,global_master,work_pattern_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-103,勤務パターンマスタ,Quản lý work pattern
+platform.global_master.work_pattern_master.delete,platform,global_master,work_pattern_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-103,勤務パターンマスタ,Quản lý work pattern
+platform.global_master.workplace_type_master.view,platform,global_master,workplace_type_master,view,参照,Xem màn hình/dữ liệu,ALL,PA-GM-102,就業場所区分マスタ,Quản lý workplace type
+platform.global_master.workplace_type_master.create,platform,global_master,workplace_type_master,create,作成,Tạo mới dữ liệu,ALL,PA-GM-102,就業場所区分マスタ,Quản lý workplace type
+platform.global_master.workplace_type_master.edit,platform,global_master,workplace_type_master,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-GM-102,就業場所区分マスタ,Quản lý workplace type
+platform.global_master.workplace_type_master.delete,platform,global_master,workplace_type_master,delete,削除,Xóa dữ liệu,ALL,PA-GM-102,就業場所区分マスタ,Quản lý workplace type
+moto.staff.modal_change_staff_password.issue,moto,staff,staff_account_password,issue,発行,Phát hành account/tài liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-009,PW再発行,Modal change staff password
+moto.staff.modal_lock_staff.lock,moto,staff,staff_account_lock,lock,ロック,Khóa account/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-010,アカウントロック,Modal lock staff
+moto.staff.modal_unlock_staff.unlock,moto,staff,staff_account_unlock,unlock,ロック解除,Mở khóa account/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,MO-STF-011,アカウントロック解除,Modal unlock staff
+moto.attendance.multi_staff_attendance_proxy_application.view,moto,attendance,multi_staff_attendance_proxy_application,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,SCR-ATT-021,代理申請（勤怠申請×複数）,
+moto.attendance.multi_staff_attendance_proxy_application.submit,moto,attendance,multi_staff_attendance_proxy_application,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,SCR-ATT-021,代理申請（勤怠申請×複数）,
+saki.request.draft_staffing_request_list.view,saki,request,draft_staffing_request_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-001,作成中派遣照会一覧,
+saki.request.draft_staffing_request_detail.create,saki,request,draft_staffing_request_detail,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-002,作成中派遣照会詳細,
+saki.request.draft_staffing_request_delete_confirmation.delete,saki,request,draft_staffing_request_delete_confirmation,delete,削除,Xóa dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-003,作成中派遣照会削除,
+saki.request.hidden_request_restore.hide,saki,request,hidden_request_restore,hide,非表示,Ẩn dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-006,非表示案件復帰,
+saki.request.staffing_request_creator_profile_confirmation.view,saki,request,staffing_request_creator_profile_confirmation,view,参照,xác nhận tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-007,派遣照会作成 - 起票者プロファイル確認,
+saki.request.staffing_request_condition_input.create,saki,request,staffing_request_condition_input,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-008,派遣照会作成 - 依頼条件入力,
+saki.request.staffing_request_agency_selection.view,saki,request,staffing_request_agency_selection,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-009,派遣照会作成 - 派遣会社指定,
+saki.request.staffing_request_agency_selection.create,saki,request,staffing_request_agency_selection,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-009,派遣照会作成 - 派遣会社指定,
+saki.request.staffing_request_agency_selection.assign,saki,request,staffing_request_agency_selection,assign,割当,Gán người dùng/quyền/đối tượng,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-009,派遣照会作成 - 派遣会社指定,
+saki.request.staffing_request_approver_selection.assign,saki,request,staffing_request_approver_selection,assign,割当,Gán người dùng/quyền/đối tượng,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-010,派遣照会作成 - 承認者選択,
+saki.request.staffing_request_content_confirmation.view,saki,request,staffing_request_content_confirmation,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-011,派遣照会作成 - 依頼内容確認,
+saki.request.staffing_request_content_confirmation.create,saki,request,staffing_request_content_confirmation,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-011,派遣照会作成 - 依頼内容確認,
+saki.request.staffing_request_completion.view,saki,request,staffing_request_completion,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-SHO-012,派遣照会作成 - 派遣照会完了,
+moto.common.initial_password_setup.view,moto,common,initial_password_setup,view,参照,Xem màn hình/dữ liệu,SELF_ONLY/ALL,SCR-AUT-003,本パスワード設定画面,
+moto.common.initial_password_setup.edit,moto,common,initial_password_setup,edit,修正,Chỉnh sửa dữ liệu,SELF_ONLY/ALL,SCR-AUT-003,本パスワード設定画面,
+moto.common.password_reissue_procedure.view,moto,common,password_reissue_procedure,view,参照,Xem màn hình/dữ liệu,SELF_ONLY/ALL,SCR-AUT-004,パスワード再発行手続き画面,
+moto.common.password_reissue_procedure.reset,moto,common,password_reissue_procedure,reset,初期化,Reset/khởi tạo lại,SELF_ONLY/ALL,SCR-AUT-004,パスワード再発行手続き画面,
+moto.common.password_reissue_procedure.issue,moto,common,password_reissue_procedure,issue,発行,Phát hành account/tài liệu,SELF_ONLY/ALL,SCR-AUT-004,パスワード再発行手続き画面,
+moto.billing.invoice_submission_cancel.view,moto,billing,invoice_submission_cancel,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,SCR-INV-014,請求書提出取り消し画面,
+moto.billing.invoice_submission_cancel.cancel,moto,billing,invoice_submission_cancel,cancel,取消,Hủy nghiệp vụ,ALL/BRANCH/ASSIGNED_ONLY,SCR-INV-014,請求書提出取り消し画面,
+moto.billing.invoice_submission_cancel.submit,moto,billing,invoice_submission_cancel,submit,提出,Submit/gửi workflow,ALL/BRANCH/ASSIGNED_ONLY,SCR-INV-014,請求書提出取り消し画面,
+moto.billing.unbilled_contract_list.view,moto,billing,unbilled_contract_list,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,SCR-INV-015,未請求契約一覧,
+moto.billing.invoice_revision_adjustment.view,moto,billing,invoice_revision_adjustment,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,SCR-INV-016,請求書修正・調整画面,
+moto.billing.invoice_revision_adjustment.edit,moto,billing,invoice_revision_adjustment,edit,修正,Chỉnh sửa dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,SCR-INV-016,請求書修正・調整画面,
+moto.staff.staff_detail_scr_stf_detail.view,moto,staff,staff_detail_scr_stf_detail,view,参照,Xem màn hình/dữ liệu,ALL/BRANCH/ASSIGNED_ONLY,SCR-STF-008,スタッフ詳細画面,
+saki.contract.benefit_information_and_conflict_date_notice_setting.view,saki,contract,benefit_information_and_conflict_date_notice_setting,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-001,待遇情報提供・事業所抵触日通知内容設定,
+saki.contract.benefit_information_and_conflict_date_notice_setting.edit,saki,contract,benefit_information_and_conflict_date_notice_setting,edit,修正,Chỉnh sửa dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-001,待遇情報提供・事業所抵触日通知内容設定,
+saki.contract.benefit_information_notice_content_input.view,saki,contract,benefit_information_notice_content_input,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-002,提供・通知内容入力,
+saki.contract.benefit_information_notice_content_input.create,saki,contract,benefit_information_notice_content_input,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-002,提供・通知内容入力,
+saki.contract.draft_benefit_information_and_conflict_date_notice_list.view,saki,contract,draft_benefit_information_and_conflict_date_notice_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-003,作成中待遇情報提供・事業所抵触日一覧,
+saki.contract.draft_benefit_information_and_conflict_date_notice_edit.view,saki,contract,draft_benefit_information_and_conflict_date_notice_edit,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-004,作成中待遇情報提供・事業所抵触日修正,
+saki.contract.draft_benefit_information_and_conflict_date_notice_edit.create,saki,contract,draft_benefit_information_and_conflict_date_notice_edit,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-004,作成中待遇情報提供・事業所抵触日修正,
+saki.contract.draft_benefit_information_and_conflict_date_notice_edit.edit,saki,contract,draft_benefit_information_and_conflict_date_notice_edit,edit,修正,Chỉnh sửa dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-004,作成中待遇情報提供・事業所抵触日修正,
+saki.attendance.attendance_closing_approval.view,saki,attendance,attendance_closing_approval,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-005,勤怠締め承認,
+saki.attendance.attendance_closing_approval.approve,saki,attendance,attendance_closing_approval,approve,承認,Phê duyệt,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-005,勤怠締め承認,
+saki.attendance.attendance_closing_approval.reject,saki,attendance,attendance_closing_approval,reject,却下/差戻し,Từ chối/trả lại,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-BNF-005,勤怠締め承認,
+saki.contract.benefit_information_conflict_date_notice_list.view,saki,contract,benefit_information_conflict_date_notice_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-ATT-022,待遇情報提供・事業所抵触日一覧,
+saki.settings.approval_route_management.view,saki,settings,approval_route_management,view,参照,Xem màn hình/dữ liệu,ALL,SCR-APR-001,承認ルート管理,
+saki.settings.approval_route_management.create,saki,settings,approval_route_management,create,作成,Tạo mới dữ liệu,ALL,SCR-APR-001,承認ルート管理,
+saki.settings.approval_route_management.edit,saki,settings,approval_route_management,edit,修正,Chỉnh sửa dữ liệu,ALL,SCR-APR-001,承認ルート管理,
+saki.settings.approval_route_management.delete,saki,settings,approval_route_management,delete,削除,Xóa dữ liệu,ALL,SCR-APR-001,承認ルート管理,
+saki.settings.approval_route_management.approve,saki,settings,approval_route_management,approve,承認,Phê duyệt,ALL,SCR-APR-001,承認ルート管理,
+saki.settings.approval_route_management.reject,saki,settings,approval_route_management,reject,却下/差戻し,Từ chối/trả lại,ALL,SCR-APR-001,承認ルート管理,
+saki.vendor.trading_agency_detail.view,saki,vendor,trading_agency_detail,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-AGY-001,取引派遣元詳細,
+saki.vendor.trading_agency_add.view,saki,vendor,trading_agency_add,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-AGY-002,取引派遣元追加,
+saki.vendor.trading_agency_add.create,saki,vendor,trading_agency_add,create,作成,Tạo mới dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-AGY-002,取引派遣元追加,
+saki.vendor.trading_agency_list.view,saki,vendor,trading_agency_list,view,参照,Xem màn hình/dữ liệu,ALL/DEPARTMENT/ASSIGNED_ONLY,SCR-AGY-003,取引派遣元一覧,
+platform.tenant.tenant_security_setting.view,platform,tenant,tenant_security_setting,view,参照,Xem màn hình/dữ liệu,ALL,PA-TEN-019,テナントセキュリティ設定,
+platform.tenant.tenant_security_setting.create,platform,tenant,tenant_security_setting,create,作成,Tạo mới dữ liệu,ALL,PA-TEN-019,テナントセキュリティ設定,
+platform.tenant.tenant_security_setting.edit,platform,tenant,tenant_security_setting,edit,修正,Chỉnh sửa dữ liệu,ALL,PA-TEN-019,テナントセキュリティ設定,
+platform.tenant.saki_client_management.view,platform,tenant,saki_client_management,view,参照,Xem màn hình/dữ liệu,ALL,,派遣先取引先管理,
+platform.tenant.saki_client_management.create,platform,tenant,saki_client_management,create,作成,Tạo mới dữ liệu,ALL,,派遣先取引先管理,
+platform.tenant.saki_client_management.edit,platform,tenant,saki_client_management,edit,修正,Chỉnh sửa dữ liệu,ALL,,派遣先取引先管理,
+platform.tenant.saki_client_management.delete,platform,tenant,saki_client_management,delete,削除,Xóa dữ liệu,ALL,,派遣先取引先管理,
+platform.common.unclassified_screen_needs_review.view,platform,common,unclassified_screen_needs_review,view,参照,Xem màn hình/dữ liệu,ALL,,,
+platform.common.operation_log.view,platform,common,operation_log,view,参照,Xem màn hình/dữ liệu,ALL,,操作ログ,
