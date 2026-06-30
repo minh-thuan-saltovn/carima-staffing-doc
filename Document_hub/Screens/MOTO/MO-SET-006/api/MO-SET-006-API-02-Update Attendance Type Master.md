@@ -139,7 +139,6 @@ HTTP Status: 200 OK
 
 ```json
 {
-  "success": true,
   "data": {
     "category_code": "ATT002",
     "short_name": "残業",
@@ -159,7 +158,6 @@ HTTP Status: 200 OK
 
 | Field | Type | Mô tả |
 | --- | --- | --- |
-| success | boolean | Kết quả xử lý |
 | data.category_code | string | Mã chủng loại chấm công |
 | data.short_name | string | Tên viết tắt đã cập nhật |
 | data.category_name | string | Tên chủng loại đã cập nhật |

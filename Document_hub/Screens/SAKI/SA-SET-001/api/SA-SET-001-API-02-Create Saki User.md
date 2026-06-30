@@ -208,15 +208,13 @@ HTTP Status: 201 Created
 
 ```json
 {
-  "success": true,
   "data": {
     "user_id": "saki_user_09",
     "company_id": "SAKI0000000000000001",
     "email": "yamada@saki-company.co.jp",
     "status": 1,
     "created_at": "2026-06-23T16:00:00+09:00"
-  },
-  "message": "ユーザーを作成しました"
+  }
 }
 ```
 

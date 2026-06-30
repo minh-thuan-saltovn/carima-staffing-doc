@@ -168,20 +168,10 @@ Không áp dụng.
       "updated_at": "2026-05-08T00:00:00+09:00"
     }
   ],
-  "links": {
-    "first": "http://example.com/api/v1/admin/saki-tenants?page=1",
-    "last": "http://example.com/api/v1/admin/saki-tenants?page=4",
-    "prev": null,
-    "next": "http://example.com/api/v1/admin/saki-tenants?page=2"
-  },
   "meta": {
-    "current_page": 1,
-    "from": 1,
-    "last_page": 4,
-    "path": "http://example.com/api/v1/admin/saki-tenants",
-    "per_page": 20,
-    "to": 20,
-    "total": 62
+    "total": 62,
+    "page": 1,
+    "limit": 20
   }
 }
 ```
@@ -207,19 +197,10 @@ Không áp dụng.
 | data[].status | tinyint | Trạng thái hoạt động của tenant (0: Tạm ngưng, 1: Hoạt động) |
 | data[].created_at | datetime | Thời gian tạo |
 | data[].updated_at | datetime | Thời gian cập nhật |
-| links | object | Các link điều hướng phân trang |
-| links.first | string | Link đến trang đầu tiên |
-| links.last | string | Link đến trang cuối cùng |
-| links.prev | string | Link đến trang trước đó (null nếu đang ở trang 1) |
-| links.next | string | Link đến trang tiếp theo (null nếu đang ở trang cuối) |
-| meta | object | Metadata phân trang hệ thống |
-| meta.current_page | number | Trang hiện tại |
-| meta.from | number | Vị trí bản ghi bắt đầu của trang |
-| meta.last_page | number | Trang cuối cùng |
-| meta.path | string | Đường dẫn API |
-| meta.per_page | number | Số lượng bản ghi trên một trang |
-| meta.to | number | Vị trí bản ghi kết thúc của trang |
+| meta | object | Metadata phân trang |
 | meta.total | number | Tổng số bản ghi thỏa mãn bộ lọc |
+| meta.page | number | Trang hiện tại |
+| meta.limit | number | Số lượng bản ghi trên một trang |
 
 ---
 ### 6.3 Error Response - Validation Error

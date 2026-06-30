@@ -204,20 +204,10 @@ Không áp dụng.
       "updated_at": "2026-04-15T14:20:00+09:00"
     }
   ],
-  "links": {
-    "first": "http://example.com/api/v1/saki/settings/users?page=1",
-    "last": "http://example.com/api/v1/saki/settings/users?page=5",
-    "prev": null,
-    "next": "http://example.com/api/v1/saki/settings/users?page=2"
-  },
   "meta": {
-    "current_page": 1,
-    "from": 1,
-    "last_page": 5,
-    "path": "http://example.com/api/v1/saki/settings/users",
-    "per_page": 10,
-    "to": 10,
     "total": 45,
+    "page": 1,
+    "limit": 10,
     "kpi": {
       "total_users": 45,
       "active_users": 42,
@@ -257,19 +247,10 @@ Không áp dụng.
 | data[].last_login_at | datetime \| null | Thời điểm đăng nhập cuối cùng |
 | data[].created_at | datetime | Thời điểm tạo bản ghi |
 | data[].updated_at | datetime | Thời điểm cập nhật gần nhất |
-| links | object | Các link điều hướng phân trang |
-| links.first | string | Link đến trang đầu tiên |
-| links.last | string | Link đến trang cuối cùng |
-| links.prev | string \| null | Link đến trang trước đó (null nếu đang ở trang đầu) |
-| links.next | string \| null | Link đến trang tiếp theo (null nếu đang ở trang cuối) |
-| meta | object | Metadata phân trang hệ thống |
-| meta.current_page | number | Trang hiện tại |
-| meta.from | number | Vị trí bản ghi bắt đầu của trang |
-| meta.last_page | number | Trang cuối cùng |
-| meta.path | string | Đường dẫn API |
-| meta.per_page | number | Số lượng bản ghi trên mỗi trang |
-| meta.to | number | Vị trí bản ghi kết thúc của trang |
+| meta | object | Metadata phân trang |
 | meta.total | number | Tổng số bản ghi thỏa mãn bộ lọc |
+| meta.page | number | Trang hiện tại |
+| meta.limit | number | Số lượng bản ghi trên mỗi trang |
 | **meta.kpi** | object | Số liệu thống kê phục vụ hiển thị KPI Cards |
 | meta.kpi.total_users | number | Tổng số người dùng thuộc tenant |
 | meta.kpi.active_users | number | Số lượng người dùng đang hoạt động (status = 1 và không bị khóa) |

@@ -159,20 +159,10 @@ Không áp dụng cho phương thức GET.
       "updated_at": "2026-06-23T08:05:00+09:00"
     }
   ],
-  "links": {
-    "first": "http://localhost/api/v1/moto/settings/workplace-type-master?page=1",
-    "last": "http://localhost/api/v1/moto/settings/workplace-type-master?page=1",
-    "prev": null,
-    "next": null
-  },
   "meta": {
-    "current_page": 1,
-    "from": 1,
-    "last_page": 1,
-    "path": "http://localhost/api/v1/moto/settings/workplace-type-master",
-    "per_page": 20,
-    "to": 2,
-    "total": 2
+    "total": 2,
+    "page": 1,
+    "limit": 20
   }
 }
 ```
@@ -195,8 +185,10 @@ Không áp dụng cho phương thức GET.
 | data[].use_fax_flg | number | Cờ sử dụng cho FAX (1: Có, 0: Không) |
 | data[].created_at | datetime | Thời điểm tạo |
 | data[].updated_at | datetime | Thời điểm cập nhật |
-| links | object | Các link điều hướng phân trang |
-| meta | object | Metadata thông tin phân trang |
+| meta | object | Metadata phân trang |
+| meta.total | number | Tổng số bản ghi thỏa mãn bộ lọc |
+| meta.page | number | Trang hiện tại |
+| meta.limit | number | Số lượng bản ghi trên một trang |
 
 ---
 ### 6.3 Error Response - Validation Error
