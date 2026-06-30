@@ -1,147 +1,177 @@
-# **SCREEN SPECIFICATION**
+# SCREEN SPECIFICATION
 
 ---
 
-# **1. Thông tin màn hình**
+# 1. Thông tin màn hình
 
 | Item | Nội dung |
 | --- | --- |
-| Screen ID | SA-AUT-004 |
+| Screen ID | SA-AUTH-004 |
 | Tên màn hình | Cấp lại mật khẩu |
 | Tên tiếng Nhật | パスワード再発行 |
 | Module | Authentication |
-| Chức năng | Gửi yêu cầu cấp lại mật khẩu qua email khi quên mật khẩu |
-| Actor | Common User |
-| URL | /saki/password-reset |
+| Chức năng | Khởi tạo và cấp lại mật khẩu cho tài khoản người dùng SAKI trên Popup/Modal |
+| Actor | SAKI Admin |
+| URL | Không có (Popup/Modal trên màn hình danh sách người dùng SAKI) |
 | Priority | P1 |
 | Phiên bản | v1.0 |
 
 ---
 
-# **2. Mục đích màn hình**
+# 2. Mục đích
 
-Cho phép người dùng gửi yêu cầu cấp lại mật khẩu bằng cách nhập thông tin tài khoản (Mã doanh nghiệp, User ID, Email). Hệ thống sẽ xác thực và gửi liên kết đặt lại mật khẩu mới tới email của người dùng.
-
----
-
-# **3. Điều kiện truy cập**
-
-## **Điều kiện trước**
-
-- Người dùng chưa đăng nhập hoặc đã click vào liên kết quên mật khẩu từ màn hình đăng nhập.
-
-## **Điều kiện sau**
-
-- Hệ thống xác thực thông tin thành công, gửi email chứa liên kết khôi phục mật khẩu và quay lại màn hình đăng nhập.
+Cho phép quản trị viên SAKI (SAKI Admin) thực hiện cấp lại mật khẩu cho người dùng trực thuộc bằng 3 phương thức lựa chọn: gửi email đặt lại link, tự động sinh mật khẩu tạm thời, hoặc tự chỉ định mật khẩu tạm thời.
 
 ---
 
-# **4. Di chuyển màn hình**
+# 3. Điều kiện truy cập
 
-## **Màn hình nguồn**
+## Điều kiện trước
+
+- Đã đăng nhập vào hệ thống quản trị SAKI.
+- Có quyền quản lý và cập nhật thông tin người dùng.
+- Đang ở màn hình Chi tiết người dùng SAKI (SA-USER-003) và click vào nút `パスワードリセット` (Password Reset) ở menu Thao tác bên phải.
+
+## Điều kiện sau
+
+- Cấp lại mật khẩu thành công và gửi thông tin tương ứng cho người dùng.
+
+---
+
+# 4. Di chuyển màn hình
+
+## Màn hình nguồn
 
 | Screen ID | Tên màn hình |
 | --- | --- |
-| SA-AUTH-001 | Login |
-
-## **Màn hình đích**
-
-| Screen ID | Tên màn hình |
-| --- | --- |
-| SA-AUTH-001 | Login |
+| SA-USER-003 | Chi tiết người dùng SAKI |
 
 ---
 
-# **5. UI/UX Layout**
+## Màn hình đích
 
+| Action | Screen ID | Tên màn hình |
+| --- | --- | --- |
+| Xác nhận thành công | SA-USER-003 | Chi tiết người dùng SAKI (Reload) |
+| Hủy bỏ (Cancel) | SA-USER-003 | Chi tiết người dùng SAKI |
 
 ---
 
-# **6. Danh sách Item màn hình**
+# 5. UI/UX Layout
 
-## **Khu vực nhập liệu**
+{image}
+
+---
+
+# 6. Định nghĩa Item màn hình
+
+## Khu vực lựa chọn phương thức đặt lại (Reset Method)
 
 | No | Item | Loại | Format | Bắt buộc | Mô tả |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Company ID | Textbox | varchar | Yes | Mã doanh nghiệp của người dùng |
-| 2 | User ID | Textbox | varchar | Yes | ID đăng nhập của người dùng |
-| 3 | Email | Textbox | varchar | Yes | Địa chỉ email đăng ký tài khoản |
-| 4 | Submit Button | Button | Action | Yes | Gửi yêu cầu cấp lại mật khẩu |
-| 5 | Cancel Button | Button | Action | Yes | Hủy yêu cầu và quay lại màn hình đăng nhập |
-| 6 | Error Message | Label | Text | No | Hiển thị thông điệp lỗi hệ thống hoặc xác thực |
+| 1 | Send Reset Email | Radio | smallint | Yes | Gửi email chứa link đặt lại mật khẩu (Giá trị = 1) |
+| 2 | Issue Temporary Password | Radio | smallint | Yes | Hệ thống tự động tạo mật khẩu tạm thời (Giá trị = 2) |
+| 3 | Specify Temporary Password | Radio | smallint | Yes | Quản trị viên tự nhập mật khẩu tạm thời (Giá trị = 3) |
+| 4 | Manual Password | Textbox | password | Yes | Nhập mật khẩu tạm thời thủ công (Chỉ hiển thị khi chọn Item 3) |
+
+## Khu vực tùy chọn nâng cao (Options)
+
+| No | Item | Loại | Format | Bắt buộc | Mô tả |
+| --- | --- | --- | --- | --- | --- |
+| 5 | Force Password Change | Checkbox | boolean | No | Bắt buộc người dùng đổi mật khẩu ở lần đăng nhập đầu tiên |
+| 6 | Send Notification Email | Checkbox | boolean | No | Gửi email thông báo thiết lập cho người dùng |
+| 7 | Record Comment | Checkbox | boolean | No | Ghi nhận ý kiến lý do vào lịch sử thao tác |
+| 8 | Admin Comment | Textarea | varchar | No | Nhập lý do hoặc thông tin bổ sung (Chỉ hiển thị khi chọn Item 7) |
+
+## Thao tác điều khiển
+
+| No | Item | Loại | Format | Bắt buộc | Mô tả |
+| --- | --- | --- | --- | --- | --- |
+| 9 | Submit Reset | Button | Action | Yes | Thực hiện đặt lại mật khẩu |
+| 10 | Cancel | Button | Action | Yes | Đóng Modal và quay lại |
 
 ---
 
-# **7. Validation**
+# 7. Validation
 
-| Item | Rule | Message |
-| --- | --- | --- |
-| Company ID | Required | 企業IDを入力してください |
-| User ID | Required | ユーザーIDを入力してください |
-| Email | Required | メールアドレスを入力してください |
-| Email | Email Format | メールアドレスの形式が正しくありません |
-| Submit | Tài khoản hoặc email không tồn tại | 入力された情報に該当するアカウントが見つかりません |
+Reference Link
 
 ---
 
-# **8. Event Definition**
+# 8. Event Definition
 
 | **Type** | **Event** | **Trigger** | **Permission Key** | **Process/Flow** |
 | --- | --- | --- | --- | --- |
-| api | Submit Request | Click 送信 button | - | 1. Validate Company ID, User ID, Email<br>2. Gọi API POST `/api/v1/saki/auth/password-reset-request`<br>3. Hệ thống gửi email khôi phục mật khẩu và hiển thị popup thông báo gửi thành công<br>4. Chuyển hướng người dùng về màn hình Login |
-| screen | Cancel | Click キャンセル button | - | 1. Chuyển hướng người dùng quay lại màn hình Login |
+| api | Initial Load | Mở Popup | saki.user.edit | 1. Nhận thông tin ID người dùng từ màn hình Chi tiết người dùng SAKI (SA-USER-003).<br>2. Hiển thị Popup với phương thức mặc định là "Send Reset Email" (Item 1). |
+| screen | Toggle Method | Thay đổi lựa chọn Radio | saki.user.edit | 1. Nếu chọn "Specify Temporary Password" (Item 3), hiển thị trường nhập mật khẩu (Item 4). Ngược lại ẩn đi.<br>2. Nếu chọn Checkbox "Record Comment" (Item 7), hiển thị Textarea nhập lý do (Item 8). Ngược lại ẩn đi. |
+| screen | Cancel | Click Cancel button | - | Đóng Modal và quay lại màn hình Chi tiết người dùng SAKI (SA-USER-003). |
+| api | Submit Reset | Click Submit button | saki.user.edit | 1. Validate dữ liệu đầu vào (nếu chọn phương thức thủ công, bắt buộc nhập mật khẩu tạm thời).<br>2. Gọi API POST `/api/v1/saki/users/{id}/password-reset`. Payload truyền các tùy chọn đã chọn.<br>3. Nếu chọn tự động sinh mật khẩu, hiển thị popup thông báo mật khẩu tạm thời vừa sinh cho quản trị viên sao chép.<br>4. Đóng Modal và reload màn hình Chi tiết người dùng SAKI (SA-USER-003). |
 
 ---
 
-# **9. API Mapping**
+# 9. API Mapping
 
-## **Yêu cầu cấp lại mật khẩu**
+## Password Reset
 
-### **Endpoint**
+### Endpoint
 
 ```
-POST /api/v1/saki/auth/password-reset-request
+POST /api/v1/saki/users/{id}/password-reset
 ```
 
 Request
 
 ```json
 {
-  "company_id": "comp001",
-  "user_id": "user001",
-  "email": "user001@example.com"
+  "reset_method": 2,
+  "temporary_password": "",
+  "force_change_on_first_login": true,
+  "send_notification_email": true,
+  "record_comment": true,
+  "admin_comment": "Khởi tạo lại mật khẩu định kỳ theo yêu cầu bảo mật."
 }
 ```
 
 Response
 
+*Trường hợp 1: Chọn phương thức 1 (Gửi email) hoặc 3 (Tự chỉ định mật khẩu)*
+
 ```json
 {
-  "message": "パスワード再設定用のメールを送信しました"
+  "message": "パスワードの再設定が完了しました"
+}
+```
+
+*Trường hợp 2: Chọn phương thức 2 (Hệ thống tự động sinh mật khẩu tạm thời)*
+
+```json
+{
+  "data": {
+    "temporary_password": "kG9$mP2_tX7#",
+    "reset_at": "2026-06-30T10:30:00Z"
+  }
 }
 ```
 
 ---
 
-# **10. Message Definition**
+# 10. Message Definition
 
 Reference Link
 
 ---
 
-# **11. Error Handling**
+# 11. Error Handling
 
 Reference Link
 
 ---
 
-# **12. Related Documents**
+# 12. Related Documents
 
 - Business Flow Diagram
 - ERD
 - API Specification
+- Role Matrix
 - Wireframe
-- Message List
-- Error Handling
-- Audit Log
-- Notification Flow
+- NFR

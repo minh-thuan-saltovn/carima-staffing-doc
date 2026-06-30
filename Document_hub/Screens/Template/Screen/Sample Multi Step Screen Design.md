@@ -65,7 +65,10 @@ Sau khi lưu thành công:
 
 # 5. UI/UX Layout List
 
- Screen List
+| Name |
+| --- |
+| Screen 1 (Screen hoặc Popup / Modal) |
+| Screen 2 |
 
 ---
 
