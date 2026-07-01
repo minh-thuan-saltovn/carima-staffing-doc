@@ -58,7 +58,7 @@ Sau khi thực hiện thành công:
 | Action | Screen ID | Tên màn hình |
 | --- | --- | --- |
 | Reset thành công | PA-USER-001 | Platform User List |
-| Hủy bỏ (Cancel) | PA-USER-001 | Platform User List |
+| Hủy bỏ | PA-USER-001 | Platform User List |
 
 ---
 
@@ -89,7 +89,7 @@ Sau khi thực hiện thành công:
 
 # 7. Validation
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Validation-Rule-378f02c407dd805aae8acbb637c995d5?source=copy_link)
 
 ---
 
@@ -99,13 +99,13 @@ Reference Link
 | --- | --- | --- | --- | --- |
 | api | Initial Load | Mở màn hình | platform.user.password_reset.reset | 1. Nhận ID người dùng từ màn hình PA-USER-001.<br>2. Gọi API GET `/api/v1/admin/users/{id}` để lấy thông tin chi tiết.<br>3. Hiển thị thông tin tài khoản (Login ID, Name, Email) dạng readonly. |
 | screen | Cancel | Click Cancel button | platform.user.password_reset.reset | Quay lại màn hình danh sách PA-USER-001. |
-| api | Reset Password | Click Reset button | platform.user.password_reset.reset | 1. Hiển thị popup xác nhận:<br>パスワードを初期化します。よろしいですか。<br>2. Gọi API POST `/api/v1/admin/users/{id}/password-reset`.<br>3. Hệ thống gửi email chứa liên kết thiết lập lại mật khẩu đến email đích.<br>4. Hiển thị Toast thông báo thành công (bao gồm thời gian thực hiện).<br>5. Chuyển hướng người dùng quay lại màn hình PA-USER-001. |
+| api | Reset Password | Click Reset button | platform.user.password_reset.reset | 1. Hiển thị popup xác nhận<br>2. Gọi API POST `/api/v1/admin/users/{id}/password-reset`.<br>3. Hệ thống gửi email chứa liên kết thiết lập lại mật khẩu đến email đích.<br>4. Hiển thị Toast thông báo thành công.<br>5. Chuyển hướng người dùng quay lại màn hình PA-USER-001. |
 
 ---
 
 # 9. API Mapping
 
-## 1. Get Platform User Detail (Initial Load)
+## 1. Get Platform User Detail
 
 ### Endpoint
 
@@ -118,9 +118,9 @@ Response
 ```json
 {
   "data": {
-    "admin_user_id": "01H2MX7Z...",
+    "id": 1002,
     "login_id": "admin002",
-    "admin_name": "山田 太郎",
+    "full_name": "山田 太郎",
     "email": "yamada@platform-admin.jp"
   }
 }
@@ -140,7 +140,7 @@ Request
 
 ```json
 {
-  "admin_user_id": "01H2MX7Z..."
+  "id": 1002
 }
 ```
 
@@ -159,13 +159,13 @@ Response
 
 # 10. Message Definition
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link)
 
 ---
 
 # 11. Error Handling
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Common-Error-Handling-37af02c407dd802093eac2ec6dd5a000?source=copy_link)
 
 ---
 

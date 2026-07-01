@@ -29,7 +29,7 @@ Cho phép quản trị viên SAKI (SAKI Admin) thực hiện cấp lại mật k
 ## Điều kiện trước
 
 - Đã đăng nhập vào hệ thống quản trị SAKI.
-- Có quyền quản lý và cập nhật thông tin người dùng.
+- Có quyền chỉnh sửa thông tin người dùng (saki.settings.user_master_update.edit).
 - Đang ở màn hình Chi tiết người dùng SAKI (SA-USER-003) và click vào nút `パスワードリセット` (Password Reset) ở menu Thao tác bên phải.
 
 ## Điều kiện sau
@@ -94,7 +94,7 @@ Cho phép quản trị viên SAKI (SAKI Admin) thực hiện cấp lại mật k
 
 # 7. Validation
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Validation-Rule-378f02c407dd805aae8acbb637c995d5?source=copy_link)
 
 ---
 
@@ -102,10 +102,10 @@ Reference Link
 
 | **Type** | **Event** | **Trigger** | **Permission Key** | **Process/Flow** |
 | --- | --- | --- | --- | --- |
-| api | Initial Load | Mở Popup | saki.user.edit | 1. Nhận thông tin ID người dùng từ màn hình Chi tiết người dùng SAKI (SA-USER-003).<br>2. Hiển thị Popup với phương thức mặc định là "Send Reset Email" (Item 1). |
-| screen | Toggle Method | Thay đổi lựa chọn Radio | saki.user.edit | 1. Nếu chọn "Specify Temporary Password" (Item 3), hiển thị trường nhập mật khẩu (Item 4). Ngược lại ẩn đi.<br>2. Nếu chọn Checkbox "Record Comment" (Item 7), hiển thị Textarea nhập lý do (Item 8). Ngược lại ẩn đi. |
+| api | Initial Load | Mở Popup | saki.settings.user_master_update.edit | 1. Nhận thông tin ID người dùng từ màn hình Chi tiết người dùng SAKI (SA-USER-003).<br>2. Hiển thị Popup với phương thức mặc định là "Send Reset Email" (Item 1). |
+| screen | Toggle Method | Thay đổi lựa chọn Radio | saki.settings.user_master_update.edit | 1. Nếu chọn "Specify Temporary Password" (Item 3), hiển thị trường nhập mật khẩu (Item 4). Ngược lại ẩn đi.<br>2. Nếu chọn Checkbox "Record Comment" (Item 7), hiển thị Textarea nhập lý do (Item 8). Ngược lại ẩn đi. |
 | screen | Cancel | Click Cancel button | - | Đóng Modal và quay lại màn hình Chi tiết người dùng SAKI (SA-USER-003). |
-| api | Submit Reset | Click Submit button | saki.user.edit | 1. Validate dữ liệu đầu vào (nếu chọn phương thức thủ công, bắt buộc nhập mật khẩu tạm thời).<br>2. Gọi API POST `/api/v1/saki/users/{id}/password-reset`. Payload truyền các tùy chọn đã chọn.<br>3. Nếu chọn tự động sinh mật khẩu, hiển thị popup thông báo mật khẩu tạm thời vừa sinh cho quản trị viên sao chép.<br>4. Đóng Modal và reload màn hình Chi tiết người dùng SAKI (SA-USER-003). |
+| api | Submit Reset | Click Submit button | saki.settings.user_master_update.edit | 1. Validate dữ liệu đầu vào (nếu chọn phương thức thủ công, bắt buộc nhập mật khẩu tạm thời).<br>2. Gọi API POST `/api/v1/saki/users/{id}/password-reset`. Payload truyền các tùy chọn đã chọn.<br>3. Nếu chọn tự động sinh mật khẩu, hiển thị popup thông báo mật khẩu tạm thời vừa sinh cho quản trị viên sao chép.<br>4. Đóng Modal và reload màn hình Chi tiết người dùng SAKI (SA-USER-003). |
 
 ---
 
@@ -157,13 +157,13 @@ Response
 
 # 10. Message Definition
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link)
 
 ---
 
 # 11. Error Handling
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Common-Error-Handling-37af02c407dd802093eac2ec6dd5a000?source=copy_link)
 
 ---
 

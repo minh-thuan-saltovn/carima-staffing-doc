@@ -29,7 +29,7 @@ Cho phép quản trị viên Platform tạo mới tài khoản quản trị viê
 ## Điều kiện trước
 
 - Đã đăng nhập vào hệ thống Platform SaaS Admin.
-- Có quyền tạo mới người dùng (platform.user.create).
+- Có quyền tạo mới người dùng (platform.user.platform_user.create).
 
 ## Điều kiện sau
 
@@ -52,7 +52,7 @@ Cho phép quản trị viên Platform tạo mới tài khoản quản trị viê
 | Action | Screen ID | Tên màn hình |
 | --- | --- | --- |
 | Đăng ký thành công | PA-USER-001 | Platform User List |
-| Hủy bỏ (Cancel) | PA-USER-001 | Platform User List |
+| Hủy bỏ | PA-USER-001 | Platform User List |
 
 ---
 
@@ -68,10 +68,10 @@ Cho phép quản trị viên Platform tạo mới tài khoản quản trị viê
 
 | No | Item | Loại | Format | Bắt buộc | Mô tả |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Login ID | Textbox | varchar | Yes | Mã đăng nhập tài khoản mới |
+| 1 | Login ID | Textbox | varchar | Yes | Tên đăng nhập của Admin |
 | 2 | Name | Textbox | varchar | Yes | Tên quản trị viên |
 | 3 | Email | Textbox | varchar | Yes | Địa chỉ email nhận thông tin kích hoạt |
-| 4 | Role | Dropdown | smallint | Yes | Vai trò (1: Super Admin, 2: Operator) |
+| 4 | Role | Dropdown | bigint | Yes | Vai trò quản trị |
 | 5 | Register | Button | Action | Yes | Thực hiện tạo mới |
 | 6 | Cancel | Button | Action | Yes | Hủy bỏ và quay lại |
 
@@ -79,7 +79,7 @@ Cho phép quản trị viên Platform tạo mới tài khoản quản trị viê
 
 # 7. Validation
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Validation-Rule-378f02c407dd805aae8acbb637c995d5?source=copy_link)
 
 ---
 
@@ -87,9 +87,9 @@ Reference Link
 
 | **Type** | **Event** | **Trigger** | **Permission Key** | **Process/Flow** |
 | --- | --- | --- | --- | --- |
-| api | Initial Load | Mở màn hình | platform.user.create | Load danh sách Vai trò (Role) từ Database vào Dropdown Role. |
-| screen | Cancel | Click Cancel button | platform.user.create | Quay lại màn hình danh sách PA-USER-001. |
-| api | Submit Create | Click Register button | platform.user.create | 1. Thực hiện validate form nhập liệu.<br>2. Gọi API POST `/api/v1/admin/users`.<br>3. Tài khoản được tạo với `status = 0` (chưa kích hoạt).<br>4. Hệ thống gửi email chứa link thiết lập mật khẩu lần đầu đến địa chỉ email đã nhập.<br>5. Sau khi người dùng click link và đặt mật khẩu thành công, `status` tự động chuyển sang `1` (hoạt động).<br>6. Quay lại màn hình danh sách PA-USER-001 và hiển thị Toast thông báo thành công. |
+| api | Initial Load | Mở màn hình | platform.user.platform_user.view | Load danh sách Vai trò từ Database vào Dropdown Role. |
+| screen | Cancel | Click Cancel button | - | Quay lại màn hình danh sách PA-USER-001. |
+| api | Submit Create | Click Register button | platform.user.platform_user.create | 1. Thực hiện validate form nhập liệu.<br>2. Gọi API POST `/api/v1/admin/users`.<br>3. Tài khoản được tạo với `status = 0` (chưa kích hoạt).<br>4. Hệ thống gửi email chứa link thiết lập mật khẩu lần đầu đến địa chỉ email đã nhập.<br>5. Sau khi người dùng click link và đặt mật khẩu thành công, `status` tự động chuyển sang `1` (hoạt động).<br>6. Quay lại màn hình danh sách PA-USER-001 và hiển thị Toast thông báo thành công. |
 
 ---
 
@@ -108,9 +108,9 @@ Request
 ```json
 {
   "login_id": "admin002",
-  "admin_name": "山田 太郎",
+  "full_name": "山田 太郎",
   "email": "yamada@platform-admin.jp",
-  "role": 2
+  "role_id": 2
 }
 ```
 
@@ -119,11 +119,11 @@ Response
 ```json
 {
   "data": {
-    "admin_user_id": "01H2MX7Z...",
+    "id": 1002,
     "login_id": "admin002",
-    "admin_name": "山田 太郎",
+    "full_name": "山田 太郎",
     "email": "yamada@platform-admin.jp",
-    "role": 2,
+    "role_id": 2,
     "status": 0
   }
 }
@@ -133,13 +133,13 @@ Response
 
 # 10. Message Definition
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link)
 
 ---
 
 # 11. Error Handling
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Common-Error-Handling-37af02c407dd802093eac2ec6dd5a000?source=copy_link)
 
 ---
 

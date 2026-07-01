@@ -75,8 +75,8 @@ Cho phép người dùng:
 | --- | --- | --- | --- | --- | --- |
 | 1 | Login ID | Textbox | varchar | No | Tên đăng nhập của quản trị viên |
 | 2 | Name | Textbox | varchar | No | Tên quản trị viên |
-| 3 | Role | Dropdown | smallint | No | Vai trò quản trị (1: Super Admin, 2: Operator) |
-| 4 | Status | Dropdown | smallint | No | Trạng thái (0: Vô hiệu, 1: Hoạt động) |
+| 3 | Role | Dropdown | bigint | No | Vai trò quản trị |
+| 4 | Status | Dropdown | smallint | No | Trạng thái |
 | 5 | Search | Button | Action | Yes | Thực hiện tìm kiếm |
 | 6 | Clear | Button | Action | Yes | Xóa điều kiện tìm kiếm |
 
@@ -90,17 +90,17 @@ Cho phép người dùng:
 | 8 | Login ID Column | Label | varchar | No | Mã đăng nhập tài khoản |
 | 9 | Name Column | Label | varchar | No | Tên quản trị viên |
 | 10 | Email Column | Label | varchar | No | Địa chỉ email đăng ký |
-| 11 | Role Column | Label | smallint | No | Vai trò quản trị |
+| 11 | Role Column | Label | bigint | No | Vai trò quản trị |
 | 12 | Status Column | Label | smallint | No | Trạng thái hoạt động tài khoản |
-| 13 | Last Login Column | Label | timestamptz | No | Thời gian đăng nhập gần nhất |
-| 14 | Reset Password Action | Link | Action | No | Click để mở màn hình đặt lại mật khẩu (PA-USER-004) |
-| 15 | Lock/Unlock Action | Link | Action | No | Click để mở màn hình khóa/mở khóa (PA-USER-005) |
+| 13 | Last Login Column | Label | timestamp | No | Thời gian đăng nhập gần nhất |
+| 14 | Reset Password Action | Link | Action | No | Click để mở màn hình đặt lại mật khẩu |
+| 15 | Lock/Unlock Action | Link | Action | No | Click để mở màn hình khóa/mở khóa |
 
 ---
 
 # 7. Validation
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Validation-Rule-378f02c407dd805aae8acbb637c995d5?source=copy_link)
 
 ---
 
@@ -111,9 +111,9 @@ Reference Link
 | api | Initial Load | Mở màn hình | platform.user.platform_user_list.view | 1. Load danh sách vai trò và trạng thái vào Dropdown lọc.<br>2. Gọi API GET `/api/v1/admin/users` để lấy danh sách mặc định. |
 | api | Search | Click Search button | platform.user.platform_user_list.view | 1. Lấy điều kiện tìm kiếm từ Form.<br>2. Gọi API GET `/api/v1/admin/users` kèm các tham số lọc tìm kiếm.<br>3. Hiển thị kết quả lên bảng danh sách. |
 | screen | Clear | Click Clear button | platform.user.platform_user_list.view | 1. Xóa toàn bộ điều kiện tìm kiếm trên Form.<br>2. Gọi API lấy danh sách mặc định ban đầu. |
-| screen | Create User | Click Create User button | platform.user.create | Chuyển hướng sang màn hình PA-USER-002. |
-| screen | Reset Password | Click Reset Password link | platform.user.password_reset.reset | Truyền thông tin ID và chuyển hướng sang màn hình PA-USER-004. |
-| screen | Lock/Unlock | Click Lock/Unlock link | platform.user.platform_user_list.edit | Truyền thông tin ID và chuyển hướng sang màn hình PA-USER-005. |
+| screen | Create User | Click Create User button | platform.user.platform_user.create | Chuyển hướng sang màn hình PA-USER-002. |
+| screen | Reset Password | Click Reset Password link | platform.user.password_reset.reset | Truyền ID và chuyển hướng sang màn hình PA-USER-004. |
+| screen | Lock/Unlock | Click Lock/Unlock link | platform.user.account_lock_unlock.view | Truyền ID và chuyển hướng sang màn hình PA-USER-005. |
 
 ---
 
@@ -132,9 +132,9 @@ Request Param
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | login_id | string | No | Tên đăng nhập |
-| admin_name | string | No | Tên quản trị viên |
-| role | number | No | Vai trò quản trị |
-| status | number | No | Trạng thái (0: Vô hiệu, 1: Hoạt động) |
+| full_name | string | No | Tên quản trị viên |
+| role_id | number | No | ID vai trò quản trị |
+| status | number | No | Trạng thái |
 | page | number | Yes | Số trang |
 | limit | number | Yes | Kích thước trang |
 
@@ -144,11 +144,11 @@ Response
 {
   "data": [
     {
-      "admin_user_id": "01H2MX7Z...",
+      "id": 1002,
       "login_id": "admin002",
-      "admin_name": "山田 太郎",
+      "full_name": "山田 太郎",
       "email": "yamada@platform-admin.jp",
-      "role": 2,
+      "role_id": 2,
       "status": 1,
       "last_login_at": "2026-06-30T09:00:00Z"
     }
@@ -165,13 +165,13 @@ Response
 
 # 10. Message Definition
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Message-list-374f02c407dd8037808eea01e93be8aa?source=copy_link)
 
 ---
 
 # 11. Error Handling
 
-Reference Link
+[Reference Link](https://app.notion.com/p/Common-Error-Handling-37af02c407dd802093eac2ec6dd5a000?source=copy_link)
 
 ---
 

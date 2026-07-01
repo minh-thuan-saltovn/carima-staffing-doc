@@ -1,10 +1,5 @@
 # ERD (Official Version)
 
-Created by: Sang Nguyen Chu Kim
-Created time: June 30, 2026 9:34 AM
-Last edited by: Sang Nguyen Chu Kim
-Last updated time: June 30, 2026 1:46 PM
-
 ## DB Diagram IO
 
 - Global Master Schema: [https://dbdiagram.io/d/Carima-Staffing-GLOBAL-MASTER-Schema-6a4347d236d348d1202fd600](https://dbdiagram.io/d/Carima-Staffing-GLOBAL-MASTER-Schema-6a4347d236d348d1202fd600)
