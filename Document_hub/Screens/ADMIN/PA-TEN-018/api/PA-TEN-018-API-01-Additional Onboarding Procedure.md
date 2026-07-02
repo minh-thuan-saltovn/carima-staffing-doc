@@ -245,7 +245,7 @@ Untitled
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Role authorization | Chỉ Platform SaaS Admin có quyền `tenant.update` mới được phép khởi tạo quy trình này. |
+| BR-001 | Role authorization | Chỉ Platform SaaS Admin có quyền `platform.tenant.additional_onboarding_procedure.view` mới được phép khởi tạo quy trình này. |
 | BR-002 | Status Initialization | Quy trình onboarding bổ sung mới tạo luôn được đặt trạng thái mặc định ban đầu là `1` (準備中 - Preparing). |
 | BR-003 | Audit Log | Thao tác khởi tạo quy trình phải ghi nhận nhật ký vào `platform.tenant_provision_log`. |
 
@@ -268,7 +268,7 @@ Untitled
 ```
 1. Xác thực token JWT gửi kèm trong header Authorization.
 2. Xác minh tài khoản thuộc nhóm Platform SaaS Admin.
-3. Kiểm tra quyền "tenant.update".
+3. Kiểm tra quyền "platform.tenant.additional_onboarding_procedure.view".
 4. Nếu hợp lệ, cho phép tiếp tục xử lý.
 ```
 
@@ -379,7 +379,7 @@ Không áp dụng.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc xác thực token JWT và kiểm tra quyền Platform SaaS Admin (`tenant.update`). |
+| 1 | Authentication & Authorization | Bắt buộc xác thực token JWT và kiểm tra quyền Platform SaaS Admin (`platform.tenant.additional_onboarding_procedure.view`). |
 | 2 | Input Validation | Validate giới hạn độ dài ký tự notes, trị số onboarding_type hợp lệ. |
 
 ---

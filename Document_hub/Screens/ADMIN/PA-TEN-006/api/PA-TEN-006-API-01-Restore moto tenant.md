@@ -121,13 +121,7 @@ Không áp dụng (Hành động khôi phục thông qua Path Parameter không c
 
 ```json
 {
-  "data": {
-    "tenant_id": "01H2PJX7G3P681729X4R09Q871",
-    "company_id": "MOTO-0001",
-    "company_name": "MOTO Staffing Solutions",
-    "status": 1,
-    "updated_at": "2026-06-17T09:30:00+09:00"
-  }
+  "message": "派遣元テナントを復旧しました"
 }
 ```
 
@@ -207,7 +201,7 @@ Không áp dụng (Hành động khôi phục thông qua Path Parameter không c
 | --- | --- | --- |
 | BR-001 | Tenant type restriction | Chỉ cho phép thực hiện khôi phục trạng thái đối với tenant thuộc loại `tenant_type = 'moto'`. Nếu tìm thấy tenant có ID đó nhưng là loại khác, hệ thống sẽ trả về lỗi `404 Not Found`. |
 | BR-002 | Initial status requirement | Chỉ cho phép khôi phục khi trạng thái hiện tại trong cơ sở dữ liệu của tenant là tạm ngưng (`status = 0`). Trường hợp tenant đã ở trạng thái hoạt động (`status = 1`), trả về lỗi `409 Conflict`. |
-| BR-003 | Authorization check | Chỉ người dùng thuộc nhóm quản trị Platform (SaaS Admin / SaaS Staff) có quyền `tenant.restore` mới được phép gọi API này. |
+| BR-003 | Authorization check | Chỉ người dùng thuộc nhóm quản trị Platform (SaaS Admin / SaaS Staff) có quyền `platform.tenant.restore_moto_tenant.restore` mới được phép gọi API này. |
 
 ---
 
@@ -236,12 +230,8 @@ Không áp dụng (Hành động khôi phục thông qua Path Parameter không c
 ## 10.2 Mapping từ DB ra Response
 
 | Table | Column | Response Field | Mô tả |
-| --- | --- | --- | --- |
-| platform.tenant_registry | tenant_id | data.tenant_id | ID khóa chính (ULID) |
-| platform.tenant_registry | company_id | data.company_id | Mã Tenant |
-| platform.tenant_registry | company_name | data.company_name | Tên doanh nghiệp MOTO |
-| platform.tenant_registry | status | data.status | Trạng thái hoạt động (1: Hoạt động) |
-| platform.tenant_registry | updated_at | data.updated_at | Thời gian cập nhật |
+| --- | --- | --- |
+| - | - | message | Thông báo 復旧 thành công |
 
 ---
 
@@ -284,7 +274,7 @@ Không áp dụng (Hành động khôi phục thông qua Path Parameter không c
 ```
 1. Client gửi request: PATCH /api/v1/admin/moto-tenants/{id}/restore.
 2. Middleware thực hiện kiểm tra Authentication và xác định JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin/Staff có quyền "tenant.restore".
+3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin/Staff có quyền "platform.tenant.restore_moto_tenant.restore".
 4. Controller nhận request và thực hiện validate tham số Path Parameter `id` (ULID format).
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity.
 5. Controller gọi Service thực hiện nghiệp vụ khôi phục trong một Database Transaction:
@@ -357,7 +347,7 @@ Không áp dụng (Hành động khôi phục thông qua Path Parameter không c
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin/Staff (`tenant.restore`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin/Staff (`platform.tenant.restore_moto_tenant.restore`). |
 | 2 | SQL Injection Prevention | Sử dụng Eloquent ORM hoặc Query Builder với bindings tham số đầy đủ khi thực hiện các câu lệnh kiểm tra và cập nhật dữ liệu. |
 | 3 | Lock Concurrency | Sử dụng cơ chế khóa dòng `SELECT ... FOR UPDATE` để tránh tranh chấp trạng thái (Race Condition) khi có nhiều Admin cùng thực hiện thao tác khôi phục/tạm ngưng một tenant tại cùng một thời điểm. |
 

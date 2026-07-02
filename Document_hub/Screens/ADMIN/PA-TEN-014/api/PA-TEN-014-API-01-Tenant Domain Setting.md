@@ -254,7 +254,7 @@ Untitled
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Role authorization | Chỉ tài khoản người dùng thuộc nhóm quản trị Platform (SaaS Admin) có quyền `tenant.update` mới được phép thực hiện gọi API này. Platform SaaS Staff bị từ chối truy cập (HTTP 403). |
+| BR-001 | Role authorization | Chỉ tài khoản người dùng thuộc nhóm quản trị Platform (SaaS Admin) có quyền `platform.tenant.tenant_domain_setting.edit` mới được phép thực hiện gọi API này. Platform SaaS Staff bị từ chối truy cập (HTTP 403). |
 | BR-002 | Subdomain domain suffix auto-generation | Trường hợp `domain_type = 1` (Subdomain), hệ thống sẽ tự động ghép phần tiền tố nhập vào với phần hậu tố cố định của nền tảng (ví dụ: `.carima.link`) để lưu trữ giá trị tên miền FQDN hoàn chỉnh vào cột `domain_name`. |
 | BR-003 | Connection status initialization | Khi cấu hình tên miền của một Tenant thay đổi hoặc được thiết lập mới, hệ thống bắt buộc phải khởi tạo lại trạng thái DNS và SSL về `0` (`dns_status = 0` - Chưa xác minh và `ssl_status = 0` - Chưa cấp phát) để đưa vào hàng đợi kiểm tra tự động của tiến trình nền hệ thống. |
 | BR-004 | Audit log recording | Mọi thao tác cập nhật cấu hình tên miền của Tenant đều phải ghi nhận chi tiết nhật ký thao tác (Audit Log) vào bảng `platform.tenant_provision_log` để phục vụ công tác giám sát hệ thống. |
@@ -278,7 +278,7 @@ Untitled
 ```
 1. Xác thực token JWT gửi kèm trong header Authorization.
 2. Trích xuất thông tin tài khoản người dùng và xác minh thuộc nhóm Platform SaaS Admin.
-3. Kiểm tra quyền hạn "tenant.update" của tài khoản.
+3. Kiểm tra quyền hạn "platform.tenant.tenant_domain_setting.edit" của tài khoản.
 4. Nếu hợp lệ, cho phép đi tiếp để xử lý logic API.
 5. Nếu không hợp lệ, từ chối yêu cầu và trả về lỗi HTTP 403 Forbidden.
 ```
@@ -350,7 +350,7 @@ Không áp dụng.
 ```
 1. Client gửi yêu cầu: PATCH /api/v1/admin/tenants/{id}/domains kèm theo Request Body.
 2. Middleware thực hiện kiểm tra Authentication và xác minh JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin (quyền "tenant.update").
+3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin (quyền "platform.tenant.tenant_domain_setting.edit").
 4. Controller validate các tham số đầu vào:
    - Tham số Path Parameter `id` (ULID format).
    - Tham số Request Body `domain_type` (1 hoặc 2) và `domain_name` (đúng định dạng tương ứng).
@@ -402,7 +402,7 @@ Không áp dụng.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc xác thực JWT Token hợp lệ và kiểm tra quyền admin quản trị Platform (`tenant.update`). |
+| 1 | Authentication & Authorization | Bắt buộc xác thực JWT Token hợp lệ và kiểm tra quyền admin quản trị Platform (`platform.tenant.tenant_domain_setting.edit`). |
 | 2 | Input Sanitization | Thực hiện làm sạch và validate ký tự đầu vào của tên miền (ngăn chặn ký tự đặc biệt, SQL injection, Command injection qua tên miền). |
 | 3 | Domain hijacking prevention | Chỉ cho phép cập nhật tên miền duy nhất trên toàn hệ thống, ngăn chặn một tenant cấu hình đè hoặc cướp tên miền của tenant khác. |
 

@@ -51,7 +51,7 @@ Sau khi lưu thành công:
 ## Điều kiện trước
 
 - Đã đăng nhập vào hệ thống SaaS Platform Admin.
-- Có quyền quản trị tương ứng (`tenant.create`).
+- Có quyền quản trị tương ứng (`platform.tenant.create_moto_tenant.create`).
 
 ## Điều kiện sau
 

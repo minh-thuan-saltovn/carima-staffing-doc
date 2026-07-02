@@ -143,13 +143,7 @@ Không áp dụng.
 
 ```json
 {
-  "data": {
-    "tenant_id": "01H2PJX7G3P681729X4R09Q872",
-    "company_id": "SAKI-0001",
-    "company_name": "SAKI Partner Factory",
-    "status": 1,
-    "updated_at": "2026-06-17T09:30:00+09:00"
-  }
+  "message": "派遣先テナントを復旧しました"
 }
 ```
 
@@ -159,11 +153,7 @@ Không áp dụng.
 
 | Field | Type | Mô tả |
 | --- | --- | --- |
-| data.tenant_id | string | ID khóa chính (ULID) của tenant vừa khôi phục |
-| data.company_id | string | Mã doanh nghiệp (business key) của tenant |
-| data.company_name | string | Tên doanh nghiệp SAKI |
-| data.status | number | Trạng thái mới của tenant (1: Hoạt động) |
-| data.updated_at | string | Thời gian cập nhật trạng thái |
+| message | string | Thông báo thực hiện 復旧 thành công |
 
 ---
 ### 6.3 Error Response - Validation Error
@@ -250,7 +240,7 @@ Untitled
 | --- | --- | --- |
 | BR-001 | Tenant type restriction | Chỉ cho phép thực hiện khôi phục đối với tenant thuộc loại `tenant_type = 'saki'`. Nếu tìm thấy tenant có ID đó nhưng là loại khác, hệ thống sẽ trả về lỗi `404 Not Found`. |
 | BR-002 | Initial status requirement | Chỉ cho phép khôi phục khi trạng thái hiện tại trong cơ sở dữ liệu của tenant là tạm ngưng (`status = 0`). Trường hợp tenant đã ở trạng thái hoạt động (`status = 1`), trả về lỗi `409 Conflict`. |
-| BR-003 | Authorization check | Chỉ người dùng thuộc nhóm Platform SaaS Admin có quyền `tenant.restore` mới được phép gọi API này. |
+| BR-003 | Authorization check | Chỉ người dùng thuộc nhóm Platform SaaS Admin có quyền `platform.tenant.restore_saki_tenant.restore` mới được phép gọi API này. |
 | BR-004 | Access recovery | Sau khi khôi phục thành công, toàn bộ người dùng thuộc tenant SAKI được phép đăng nhập và truy cập, sử dụng hệ thống bình thường. |
 
 ---
@@ -273,7 +263,7 @@ Untitled
 1. Validate JWT token
 2. Xác định admin user từ token context
 3. Kiểm tra user thuộc nhóm Platform SaaS Admin
-4. Kiểm tra quyền tenant.restore
+4. Kiểm tra quyền platform.tenant.restore_saki_tenant.restore
 5. Từ chối request nếu user không đủ quyền (HTTP 403)
 ```
 
@@ -299,12 +289,8 @@ Untitled
 ## 10.2 Mapping từ DB ra Response
 
 | Table | Column | Response Field | Mô tả |
-| --- | --- | --- | --- |
-| platform.tenant_registry | tenant_id | data.tenant_id | ID khóa chính (ULID) |
-| platform.tenant_registry | company_id | data.company_id | Mã Tenant |
-| platform.tenant_registry | company_name | data.company_name | Tên doanh nghiệp SAKI |
-| platform.tenant_registry | status | data.status | Trạng thái hoạt động (1: Hoạt động) |
-| platform.tenant_registry | updated_at | data.updated_at | Thời gian cập nhật |
+| --- | --- | --- |
+| - | - | message | Thông báo 復旧 thành công |
 
 ---
 
@@ -347,7 +333,7 @@ Untitled
 ```
 1. Client gửi request: PATCH /api/v1/admin/saki-tenants/{id}/restore.
 2. Middleware thực hiện kiểm tra Authentication và xác định JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "tenant.restore".
+3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "platform.tenant.restore_saki_tenant.restore".
 4. Controller nhận request và thực hiện validate tham số Path Parameter `id` (ULID format).
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity.
 5. Controller gọi Service thực hiện nghiệp vụ khôi phục trong một Database Transaction:
@@ -420,7 +406,7 @@ Untitled
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`tenant.restore`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`platform.tenant.restore_saki_tenant.restore`). |
 | 2 | SQL Injection Prevention | Sử dụng Eloquent ORM hoặc Query Builder với bindings tham số đầy đủ khi thực hiện các câu lệnh kiểm tra và cập nhật dữ liệu. |
 | 3 | Lock Concurrency | Sử dụng cơ chế khóa dòng `SELECT ... FOR UPDATE` để tránh tranh chấp trạng thái (Race Condition) khi có nhiều Admin cùng thực hiện thao tác khôi phục/tạm ngưng một tenant tại cùng một thời điểm. |
 

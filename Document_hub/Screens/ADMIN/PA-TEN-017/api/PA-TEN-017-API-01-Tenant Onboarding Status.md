@@ -240,7 +240,7 @@ Untitled
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Role authorization | Cả Platform SaaS Admin và Platform SaaS Staff có quyền `tenant.view` đều được gọi API này. |
+| BR-001 | Role authorization | Cả Platform SaaS Admin và Platform SaaS Staff có quyền `platform.tenant.tenant_onboarding_status.view` đều được gọi API này. |
 | BR-002 | Checklist evaluation logic | Tiến trình checklist 5 bước được tính toán động như sau:<br>- **Bước 1 (step_account_created)**: Trả về `1` nếu tồn tại ít nhất 1 tài khoản người dùng trong schema của Tenant tương ứng (`mst_saki_user` với SAKI hoặc `mst_moto_user` với MOTO). Ngược lại trả về `0`.<br>- **Bước 2 (step_features_configured)**: Trả về `1` nếu trường `plan_code` trong bảng `platform.tenant_registry` của Tenant khác NULL. Ngược lại trả về `0`.<br>- **Bước 3 (step_domain_verified)**: Trả về `1` nếu tồn tại bản ghi trong bảng cấu hình domain `platform.tenant_domain` (TBD) có trạng thái `dns_status = 1` và `ssl_status = 1`. Ngược lại trả về `0`.<br>- **Bước 4 (step_branding_configured)**: Trả về `1` nếu các cấu hình branding tương ứng đã được thiết lập (TBD).<br>- **Bước 5 (step_master_data_imported)**: Trả về trạng thái nhập master data từ bảng theo dõi `platform.tenant_onboarding` (TBD). Mặc định trả về `0` nếu chưa cấu hình. |
 | BR-003 | No DB modification | API này chỉ thực hiện truy vấn và tính toán động, tuyệt đối không thay đổi trạng thái hoặc chỉnh sửa dữ liệu trong cơ sở dữ liệu. |
 
@@ -263,7 +263,7 @@ Untitled
 ```
 1. Xác thực token JWT gửi kèm trong header Authorization.
 2. Xác minh tài khoản thuộc nhóm Platform SaaS Admin hoặc Platform SaaS Staff.
-3. Kiểm tra quyền "tenant.view".
+3. Kiểm tra quyền "platform.tenant.tenant_onboarding_status.view".
 4. Nếu hợp lệ, cho phép tiếp tục xử lý.
 5. Nếu không hợp lệ, từ chối yêu cầu và trả về lỗi HTTP 403 Forbidden.
 ```
@@ -308,7 +308,7 @@ Không áp dụng.
 ```
 1. Client gửi yêu cầu: POST /api/v1/admin/tenants/{id}/onboarding (Request Body rỗng {}).
 2. Middleware thực hiện kiểm tra Authentication và xác minh JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin/Staff (quyền "tenant.view").
+3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin/Staff (quyền "platform.tenant.tenant_onboarding_status.view").
 4. Controller validate Path Parameter `id` (ULID format).
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity.
 5. Service truy vấn thông tin Tenant trong bảng `platform.tenant_registry` theo `id`.
@@ -347,7 +347,7 @@ Không áp dụng.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc xác thực token JWT và kiểm tra quyền `tenant.view`. |
+| 1 | Authentication & Authorization | Bắt buộc xác thực token JWT và kiểm tra quyền `platform.tenant.tenant_onboarding_status.view`. |
 | 2 | Tenant Isolation | Khi truy vấn dữ liệu chi tiết của user bên trong schema tenant để đánh giá bước 1, hệ thống phải kết nối đúng schema của Tenant tương ứng (`tenant_saki_{id}` hoặc `tenant_moto_{id}`), ngăn chặn việc kết nối chéo schema. |
 
 ---

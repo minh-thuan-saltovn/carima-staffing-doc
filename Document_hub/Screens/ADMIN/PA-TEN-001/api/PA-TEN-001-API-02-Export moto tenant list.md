@@ -63,7 +63,7 @@ API được gọi khi Platform SaaS Admin nhấn nút "Xuất file" (CSV) trên
 | --- | --- |
 | Hành động kích hoạt | User nhấn nút Export CSV trên giao diện màn hình PA-TEN-001 |
 | Actor | Platform SaaS Admin / Platform SaaS Staff |
-| Trước khi gọi API | Đã đăng nhập vào hệ thống Platform Manager và có quyền `tenant.view` / `tenant.export` |
+| Trước khi gọi API | Đã đăng nhập vào hệ thống Platform Manager và có quyền `platform.tenant.moto_tenant_list.view` / `tenant.export` |
 | Sau khi gọi API | Tải tệp tin CSV chứa danh sách Tenant MOTO về máy của Client |
 | Thay đổi trạng thái liên quan | Không |
 
@@ -247,7 +247,7 @@ Untitled
 | No. | Rule | Mô tả |
 | --- | --- | --- |
 | BR-001 | Tenant type restriction | Chỉ xuất các tenant có `tenant_type = 'moto'` (MOTO Tenant). |
-| BR-002 | Role authorization | Chỉ người dùng thuộc nhóm quản trị Platform (SaaS Admin / SaaS Staff) có quyền `tenant.view` và `tenant.export` mới được gọi API này. |
+| BR-002 | Role authorization | Chỉ người dùng thuộc nhóm quản trị Platform (SaaS Admin / SaaS Staff) có quyền `platform.tenant.moto_tenant_list.view` và `tenant.export` mới được gọi API này. |
 | BR-003 | Filter and Order application | Dữ liệu xuất ra file CSV bắt buộc phải được lọc và sắp xếp chính xác theo các tham số Query Parameters được truyền lên. |
 | BR-004 | File formatting | Xuất file dưới dạng mã hóa UTF-8 kèm BOM (Byte Order Mark) để đảm bảo hiển thị đúng font tiếng Nhật/tiếng Việt khi mở bằng Microsoft Excel. |
 | BR-005 | Billing Status mapping | Trạng thái thanh toán hiển thị trên CSV được ánh xạ từ `platform.t_usage_billing.billing_status`: Nếu là `2` (đã thu) thì hiển thị "Đã thanh toán" (支払い済), còn lại (`0`: nháp, `1`: chốt) hoặc không có bản ghi cho tháng hiện tại thì hiển thị "Chưa thanh toán" (未払い). |
@@ -331,7 +331,7 @@ Untitled
 ```
 1. Client gửi request: GET /api/v1/admin/moto-tenants/export kèm query parameters bộ lọc.
 2. Middleware thực hiện kiểm tra Authentication và xác định JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập: Platform SaaS Admin/Staff có quyền "tenant.view" và "tenant.export".
+3. Middleware kiểm tra quyền truy cập: Platform SaaS Admin/Staff có quyền "platform.tenant.moto_tenant_list.view" và "tenant.export".
 4. Controller nhận request và thực hiện Validate các tham số Query Parameters.
    - Nếu lỗi: Trả về HTTP 422 Unprocessable Entity kèm chi tiết lỗi JSON.
 5. Controller gọi Service để lấy dữ liệu xuất bản:
@@ -404,7 +404,7 @@ Untitled
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin/Staff (`tenant.view` và `tenant.export`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin/Staff (`platform.tenant.moto_tenant_list.view` và `tenant.export`). |
 | 2 | SQL Injection Prevention | Sử dụng Eloquent ORM / Query Builder với bindings tham số để ngăn chặn tấn công SQL injection qua bộ lọc. |
 | 3 | Path Traversal / Parameter Tampering | Giới hạn danh sách các cột trong `sort_column` để tránh việc truyền tên cột bất hợp pháp phá hỏng câu query SQL. |
 

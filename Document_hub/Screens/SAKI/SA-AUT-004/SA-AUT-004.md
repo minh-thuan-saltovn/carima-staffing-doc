@@ -6,13 +6,13 @@
 
 | Item | Nội dung |
 | --- | --- |
-| Screen ID | SA-AUTH-004 |
+| Screen ID | SA-AUT-004 |
 | Tên màn hình | Cấp lại mật khẩu |
 | Tên tiếng Nhật | パスワード再発行 |
 | Module | Authentication |
 | Chức năng | Khởi tạo và cấp lại mật khẩu cho tài khoản người dùng SAKI trên Popup/Modal |
 | Actor | SAKI Admin |
-| URL | Không có (Popup/Modal trên màn hình danh sách người dùng SAKI) |
+| URL | Không có (Popup/Modal trên màn hình Chỉnh sửa người dùng SAKI SA-SET-015) |
 | Priority | P1 |
 | Phiên bản | v1.0 |
 
@@ -30,7 +30,7 @@ Cho phép quản trị viên SAKI (SAKI Admin) thực hiện cấp lại mật k
 
 - Đã đăng nhập vào hệ thống quản trị SAKI.
 - Có quyền chỉnh sửa thông tin người dùng (saki.settings.user_master_update.edit).
-- Đang ở màn hình Chi tiết người dùng SAKI (SA-USER-003) và click vào nút `パスワードリセット` (Password Reset) ở menu Thao tác bên phải.
+- Đang ở màn hình Chỉnh sửa người dùng SAKI (SA-SET-015) và click vào nút `パスワードリセット` (Password Reset) ở menu Thao tác bên phải.
 
 ## Điều kiện sau
 
@@ -44,7 +44,7 @@ Cho phép quản trị viên SAKI (SAKI Admin) thực hiện cấp lại mật k
 
 | Screen ID | Tên màn hình |
 | --- | --- |
-| SA-USER-003 | Chi tiết người dùng SAKI |
+| SA-SET-015 | Chỉnh sửa người dùng SAKI |
 
 ---
 
@@ -52,8 +52,8 @@ Cho phép quản trị viên SAKI (SAKI Admin) thực hiện cấp lại mật k
 
 | Action | Screen ID | Tên màn hình |
 | --- | --- | --- |
-| Xác nhận thành công | SA-USER-003 | Chi tiết người dùng SAKI (Reload) |
-| Hủy bỏ (Cancel) | SA-USER-003 | Chi tiết người dùng SAKI |
+| Xác nhận thành công | SA-SET-015 | Chỉnh sửa người dùng SAKI (Reload) |
+| Hủy bỏ (Cancel) | SA-SET-015 | Chỉnh sửa người dùng SAKI |
 
 ---
 
@@ -102,10 +102,10 @@ Cho phép quản trị viên SAKI (SAKI Admin) thực hiện cấp lại mật k
 
 | **Type** | **Event** | **Trigger** | **Permission Key** | **Process/Flow** |
 | --- | --- | --- | --- | --- |
-| api | Initial Load | Mở Popup | saki.settings.user_master_update.edit | 1. Nhận thông tin ID người dùng từ màn hình Chi tiết người dùng SAKI (SA-USER-003).<br>2. Hiển thị Popup với phương thức mặc định là "Send Reset Email" (Item 1). |
+| api | Initial Load | Mở Popup | saki.settings.user_master_update.edit | 1. Nhận thông tin ID người dùng từ màn hình Chỉnh sửa người dùng SAKI (SA-SET-015).<br>2. Hiển thị Popup với phương thức mặc định là "Send Reset Email" (Item 1). |
 | screen | Toggle Method | Thay đổi lựa chọn Radio | saki.settings.user_master_update.edit | 1. Nếu chọn "Specify Temporary Password" (Item 3), hiển thị trường nhập mật khẩu (Item 4). Ngược lại ẩn đi.<br>2. Nếu chọn Checkbox "Record Comment" (Item 7), hiển thị Textarea nhập lý do (Item 8). Ngược lại ẩn đi. |
-| screen | Cancel | Click Cancel button | - | Đóng Modal và quay lại màn hình Chi tiết người dùng SAKI (SA-USER-003). |
-| api | Submit Reset | Click Submit button | saki.settings.user_master_update.edit | 1. Validate dữ liệu đầu vào (nếu chọn phương thức thủ công, bắt buộc nhập mật khẩu tạm thời).<br>2. Gọi API POST `/api/v1/saki/users/{id}/password-reset`. Payload truyền các tùy chọn đã chọn.<br>3. Nếu chọn tự động sinh mật khẩu, hiển thị popup thông báo mật khẩu tạm thời vừa sinh cho quản trị viên sao chép.<br>4. Đóng Modal và reload màn hình Chi tiết người dùng SAKI (SA-USER-003). |
+| screen | Cancel | Click Cancel button | - | Đóng Modal và quay lại màn hình Chỉnh sửa người dùng SAKI (SA-SET-015). |
+| api | Submit Reset | Click Submit button | saki.settings.user_master_update.edit | 1. Validate dữ liệu đầu vào (nếu chọn phương thức thủ công, bắt buộc nhập mật khẩu tạm thời).<br>2. Gọi API POST `/api/v1/saki/users/{id}/password-reset`. Payload truyền các tùy chọn đã chọn.<br>3. Nếu chọn tự động sinh mật khẩu, hiển thị popup thông báo mật khẩu tạm thời vừa sinh cho quản trị viên sao chép.<br>4. Đóng Modal và reload màn hình Chỉnh sửa người dùng SAKI (SA-SET-015). |
 
 ---
 

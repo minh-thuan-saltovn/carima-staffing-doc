@@ -45,7 +45,7 @@ Cho phép quản trị viên hệ thống (Platform SaaS Admin/Staff) theo dõi 
 ## Điều kiện trước
 
 - Đã đăng nhập vào hệ thống SaaS Platform Admin.
-- Có quyền quản trị hoặc xem thông tin tương ứng (`tenant.view`).
+- Có quyền quản trị hoặc xem thông tin tương ứng (`platform.tenant.tenant_usage_dashboard.view`).
 - Tenant ID (hoặc `:id` trên URL) tồn tại trong hệ thống.
 
 ## Điều kiện sau

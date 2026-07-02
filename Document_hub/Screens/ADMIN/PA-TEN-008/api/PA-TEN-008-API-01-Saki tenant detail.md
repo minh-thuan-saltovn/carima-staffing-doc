@@ -556,7 +556,7 @@ Untitled
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Role authorization | Cả Platform SaaS Admin và Platform SaaS Staff có quyền `tenant.view` đều được gọi API này. |
+| BR-001 | Role authorization | Cả Platform SaaS Admin và Platform SaaS Staff có quyền `platform.tenant.saki_tenant_detail.view` đều được gọi API này. |
 | BR-002 | Tenant Registry filter | API chỉ lọc và trả về dữ liệu của đúng `tenant_id` được truyền vào từ bảng `platform.tenant_registry`, với điều kiện `tenant_type = 'SAKI'` (hoặc 1). |
 | BR-003 | Dynamic Connection | Hệ thống chuyển kết nối DB động sang schema `tenant_saki_<company_id>` (lấy từ trường `schema_name` của registry) để query tiếp các bảng cấu trúc nội bộ của tenant SAKI. |
 
@@ -579,7 +579,7 @@ Untitled
 ```
 1. Xác thực token JWT gửi kèm trong header Authorization.
 2. Xác minh tài khoản thuộc nhóm Platform SaaS Admin hoặc Platform SaaS Staff.
-3. Kiểm tra quyền "tenant.view".
+3. Kiểm tra quyền "platform.tenant.saki_tenant_detail.view".
 4. Nếu hợp lệ, cho phép tiếp tục xử lý.
 ```
 
@@ -616,7 +616,7 @@ Không áp dụng.
 ```
 1. Client gửi yêu cầu: GET /api/v1/admin/saki-tenants/{id}.
 2. Middleware thực hiện kiểm tra Authentication và xác minh JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin/Staff (quyền "tenant.view").
+3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin/Staff (quyền "platform.tenant.saki_tenant_detail.view").
 4. Controller validate Path Parameter `id` (ULID format).
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity.
 5. Service truy vấn thông tin Tenant Registry trong bảng `platform.tenant_registry` theo `id` và loại `tenant_type = 'SAKI'` (hoặc 1).
@@ -661,7 +661,7 @@ Không áp dụng.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token JWT hợp lệ và phân quyền Platform SaaS Admin/Staff (`tenant.view`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token JWT hợp lệ và phân quyền Platform SaaS Admin/Staff (`platform.tenant.saki_tenant_detail.view`). |
 | 2 | Dynamic Connection Security | Ràng buộc kết nối DB sang schema chỉ định phải sử dụng DB Role có phạm vi phân quyền chính xác cho tenant đó. |
 
 ---

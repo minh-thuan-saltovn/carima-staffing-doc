@@ -53,7 +53,7 @@ Cho phép quản trị viên hệ thống (Platform SaaS Admin):
 ## Điều kiện trước
 
 - Đã đăng nhập vào hệ thống quản trị SaaS Platform Admin.
-- Tài khoản người dùng có quyền quản trị tương ứng (`tenant.view`).
+- Tài khoản người dùng có quyền quản trị tương ứng (`platform.tenant.saki_tenant_list.view`).
 
 ## Điều kiện sau
 

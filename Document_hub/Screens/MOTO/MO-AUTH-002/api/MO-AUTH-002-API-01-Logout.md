@@ -157,12 +157,6 @@ HTTP Status: 200 OK
 
 ```json
 {
-  "success": true,
-  "data": {
-    "logged_out": true,
-    "logout_all_devices": false,
-    "logout_at": "2026-01-01T18:00:00+09:00"
-  },
   "message": "ログアウトしました"
 }
 ```
@@ -173,13 +167,6 @@ HTTP Status: 200 OK
 
 ```json
 {
-  "success": true,
-  "data": {
-    "logged_out": true,
-    "logout_all_devices": true,
-    "revoked_token_count": 3,
-    "logout_at": "2026-01-01T18:00:00+09:00"
-  },
   "message": "ログアウトしました"
 }
 ```

@@ -7,10 +7,10 @@
 | Item | Nội dung |
 | --- | --- |
 | Screen ID | PA-USER-004 |
-| Tên màn hình | Khởi tạo lại mật khẩu |
+| Tên màn hình | Password Reset |
 | Tên tiếng Nhật | パスワード初期化 |
 | Module | User Management |
-| Chức năng | Khởi tạo lại mật khẩu của tài khoản quản trị viên Platform bằng cách gửi email thiết lập mật khẩu |
+| Chức năng | Password Reset |
 | Actor | Platform SaaS Admin |
 | URL | /admin/users/password-reset |
 | Priority | P1 |
@@ -22,11 +22,6 @@
 
 Cho phép quản trị viên Platform khởi tạo lại mật khẩu cho một tài khoản quản trị viên khác khi họ quên mật khẩu hoặc cần thiết lập lại.
 
-Sau khi thực hiện thành công:
-- Mật khẩu cũ bị vô hiệu hóa.
-- Hệ thống gửi email chứa liên kết thiết lập mật khẩu mới đến email của tài khoản được chọn.
-- Hiển thị thông tin kết quả reset và thời gian thực hiện.
-
 ---
 
 # 3. Điều kiện truy cập
@@ -35,7 +30,7 @@ Sau khi thực hiện thành công:
 
 - Đã đăng nhập vào hệ thống Platform SaaS Admin.
 - Có quyền khởi tạo lại mật khẩu (platform.user.password_reset.reset).
-- Đã chọn một quản trị viên từ màn hình danh sách (PA-USER-001).
+- Đã chọn một quản trị viên từ màn hình danh sách.
 
 ## Điều kiện sau
 
@@ -64,26 +59,47 @@ Sau khi thực hiện thành công:
 
 # 5. UI/UX Layout
 
-{image}
+![Giao diện modal đặt lại mật khẩu](image.png)
 
 ---
 
 # 6. Định nghĩa Item màn hình
 
-## Khu vực hiển thị thông tin (Readonly)
+## 1. Thông tin người dùng mục tiêu 
 
 | No | Item | Loại | Format | Bắt buộc | Mô tả |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Login ID | Label | varchar | No | Mã đăng nhập tài khoản mục tiêu |
-| 2 | Name | Label | varchar | No | Tên quản trị viên tài khoản mục tiêu |
-| 3 | Email | Label | varchar | No | Email nhận liên kết reset |
+| 1 | Họ và tên | Label | varchar | No | Họ và tên của người dùng |
+| 2 | User ID | Label | varchar | No | ID tài khoản của người dùng |
+| 3 | Email Address | Label | varchar | No | Địa chỉ email |
+| 4 | Trạng thái | Badge | varchar | No | Trạng thái hiện tại |
+| 5 | Đăng nhập cuối cùng | Label | datetime | No | Thời gian đăng nhập cuối cùng |
 
-## Khu vực thao tác
+## 2. Phương thức đặt lại mật khẩu 
 
 | No | Item | Loại | Format | Bắt buộc | Mô tả |
 | --- | --- | --- | --- | --- | --- |
-| 4 | Reset | Button | Action | Yes | Xác nhận khởi tạo lại mật khẩu |
-| 5 | Cancel | Button | Action | Yes | Hủy bỏ và quay lại |
+| 6 | Gửi mail đặt lại mật khẩu | Radio | smallint | Yes | Chọn để gửi link đặt lại mật khẩu qua email cho user |
+| 7 | Phát hành mật khẩu tạm thời | Radio | smallint | Yes | Hệ thống tự động tạo mật khẩu tạm thời hiển thị trên màn hình |
+| 8 | Quản trị chỉ định mật khẩu | Radio | smallint | Yes | Nhập mật khẩu tạm thời do Admin tự chỉ định |
+| 9 | Textbox nhập mật khẩu | Textbox | varchar | No | Chỉ hiển thị và bắt buộc nhập nếu chọn Item 8 |
+
+## 3. Tùy chọn nâng cao 
+
+| No | Item | Loại | Format | Bắt buộc | Mô tả |
+| --- | --- | --- | --- | --- | --- |
+| 10 | Bắt buộc đổi mật khẩu | Checkbox | boolean | No | Bắt buộc đổi mật khẩu ở lần đăng nhập tiếp theo |
+| 11 | Gửi mail thông báo | Checkbox | boolean | No | Gửi thông báo về việc thay đổi mật khẩu qua email cho user |
+| 12 | Ghi nhận comment | Checkbox | boolean | No | Tích chọn để hiển thị textarea ghi nhận lý do đổi mật khẩu |
+| 13 | Comment của quản trị viên | Textarea | text | No | Nhập lý do thay đổi mật khẩu (Chỉ hiển thị nếu tích Item 12) |
+
+## 4. Các nút thao tác
+
+| No | Item | Loại | Format | Bắt buộc | Mô tả |
+| --- | --- | --- | --- | --- | --- |
+| 14 | Nút đóng | Button | Action | No | Click để đóng Modal và quay lại trang `PA-USER-001` |
+| 15 | Hủy bỏ | Button | Action | Yes | Click để đóng Modal và quay lại trang `PA-USER-001` |
+| 16 | Đặt lại mật khẩu | Button | Action | Yes | Thực hiện đặt lại mật khẩu với các thông tin đã chọn |
 
 ---
 
@@ -97,9 +113,10 @@ Sau khi thực hiện thành công:
 
 | **Type** | **Event** | **Trigger** | **Permission Key** | **Process/Flow** |
 | --- | --- | --- | --- | --- |
-| api | Initial Load | Mở màn hình | platform.user.password_reset.reset | 1. Nhận ID người dùng từ màn hình PA-USER-001.<br>2. Gọi API GET `/api/v1/admin/users/{id}` để lấy thông tin chi tiết.<br>3. Hiển thị thông tin tài khoản (Login ID, Name, Email) dạng readonly. |
-| screen | Cancel | Click Cancel button | platform.user.password_reset.reset | Quay lại màn hình danh sách PA-USER-001. |
-| api | Reset Password | Click Reset button | platform.user.password_reset.reset | 1. Hiển thị popup xác nhận<br>2. Gọi API POST `/api/v1/admin/users/{id}/password-reset`.<br>3. Hệ thống gửi email chứa liên kết thiết lập lại mật khẩu đến email đích.<br>4. Hiển thị Toast thông báo thành công.<br>5. Chuyển hướng người dùng quay lại màn hình PA-USER-001. |
+| api | Initial Load | Mở modal | platform.user.password_reset.reset | 1. Nhận ID người dùng được chọn từ màn hình danh sách.<br>2. Gọi API để hiển thị thông tin readonly tương ứng. |
+| screen | Close / Cancel | Click nút X hoặc click nút キャンセル | platform.user.password_reset.reset | Đóng modal và quay về màn hình danh sách `PA-USER-001`. |
+| screen | Toggle Comment Area | Tích/bỏ tích checkbox "操作履歴にコメントを記録する" | platform.user.password_reset.reset | Ẩn hoặc hiển thị textarea. |
+| api | Reset Password | Click button | platform.user.password_reset.reset | 1. Thực hiện validate form.<br>2. Gọi API reset password.<br>3. Hiển thị Toast thông báo thành công.<br>4. Đóng modal và reload danh sách `PA-USER-001`. |
 
 ---
 
@@ -118,10 +135,12 @@ Response
 ```json
 {
   "data": {
-    "id": 1002,
-    "login_id": "admin002",
-    "full_name": "山田 太郎",
-    "email": "yamada@platform-admin.jp"
+    "id": 1001,
+    "full_name": "山田太郎",
+    "login_id": "yamada.t",
+    "email": "yamada.t@moto.jp",
+    "status": 1,
+    "last_login_at": "2026-04-28 09:30:00"
   }
 }
 ```
@@ -136,11 +155,16 @@ Response
 POST /api/v1/admin/users/{id}/password-reset
 ```
 
-Request
+Request Body
 
 ```json
 {
-  "id": 1002
+  "reset_method": 1,
+  "specified_password": null,
+  "force_change_on_next_login": true,
+  "send_notification_email": true,
+  "record_comment_log": true,
+  "admin_comment": "Nhập lý do đặt lại mật khẩu theo yêu cầu"
 }
 ```
 
@@ -148,9 +172,8 @@ Response
 
 ```json
 {
-  "message": "パスワード初期化メールを送信しました",
-  "data": {
-    "reset_at": "2026-06-30T09:30:00Z"
+  "data" : {
+    "temporary_password": "TEMP_PWD_ABC123"
   }
 }
 ```

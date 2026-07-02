@@ -135,13 +135,7 @@ Không áp dụng (Hành động tạm ngưng thông qua Path Parameter, không 
 
 ```json
 {
-  "data": {
-    "tenant_id": "01H2PJX7G3P681729X4R09Q871",
-    "company_id": "MOTO-0001",
-    "company_name": "MOTO Staffing Solutions",
-    "status": 0,
-    "updated_at": "2026-06-17T09:30:00+09:00"
-  }
+  "message": "派遣元テナントを停止しました"
 }
 ```
 
@@ -266,7 +260,7 @@ Không áp dụng (Hành động tạm ngưng thông qua Path Parameter, không 
 | --- | --- | --- |
 | BR-001 | Tenant type restriction | Chỉ cho phép thực hiện tạm ngưng đối với tenant thuộc loại `tenant_type = 'moto'`. Nếu tìm thấy tenant có ID đó nhưng là loại khác, hệ thống sẽ trả về lỗi `404 Not Found`. |
 | BR-002 | Initial status requirement | Chỉ cho phép tạm ngưng khi trạng thái hiện tại trong cơ sở dữ liệu của tenant là hoạt động (`status = 1`). Trường hợp tenant đã ở trạng thái tạm ngưng (`status = 0`), trả về lỗi `409 Conflict`. |
-| BR-003 | Authorization check | Chỉ người dùng thuộc nhóm Platform SaaS Admin có quyền `tenant.suspend` mới được phép gọi API này. |
+| BR-003 | Authorization check | Chỉ người dùng thuộc nhóm Platform SaaS Admin có quyền `platform.tenant.suspend_moto_tenant.cancel` mới được phép gọi API này. |
 | BR-004 | Access blocking | Sau khi tạm ngưng thành công, toàn bộ người dùng thuộc tenant MOTO bị từ chối đăng nhập và truy cập hệ thống cho đến khi tenant được khôi phục qua API Restore. |
 
 ---
@@ -289,7 +283,7 @@ Không áp dụng (Hành động tạm ngưng thông qua Path Parameter, không 
 1. Validate JWT token
 2. Xác định admin user từ token context
 3. Kiểm tra user thuộc nhóm Platform SaaS Admin
-4. Kiểm tra quyền tenant.suspend
+4. Kiểm tra quyền platform.tenant.suspend_moto_tenant.cancel
 5. Từ chối request nếu user không đủ quyền (HTTP 403)
 ```
 
@@ -317,12 +311,8 @@ Không áp dụng (Hành động tạm ngưng thông qua Path Parameter, không 
 ## 10.2 Mapping từ DB ra Response
 
 | Table | Column | Response Field | Mô tả |
-| --- | --- | --- | --- |
-| platform.tenant_registry | tenant_id | data.tenant_id | ID khóa chính (ULID) |
-| platform.tenant_registry | company_id | data.company_id | Mã Tenant |
-| platform.tenant_registry | company_name | data.company_name | Tên doanh nghiệp MOTO |
-| platform.tenant_registry | status | data.status | Trạng thái hoạt động (0: Tạm ngưng) |
-| platform.tenant_registry | updated_at | data.updated_at | Thời gian cập nhật |
+| --- | --- | --- |
+| - | - | message | Thông báo 停止 thành công |
 
 ---
 
@@ -365,7 +355,7 @@ Không áp dụng (Hành động tạm ngưng thông qua Path Parameter, không 
 ```
 1. Client gửi request: PATCH /api/v1/admin/moto-tenants/{id}/suspend.
 2. Middleware thực hiện kiểm tra Authentication và xác định JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "tenant.suspend".
+3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "platform.tenant.suspend_moto_tenant.cancel".
 4. Controller nhận request và thực hiện validate tham số Path Parameter `id` (ULID format).
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity.
 5. Controller gọi Service thực hiện nghiệp vụ tạm ngưng trong một Database Transaction:
@@ -438,7 +428,7 @@ Không áp dụng (Hành động tạm ngưng thông qua Path Parameter, không 
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`tenant.suspend`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`platform.tenant.suspend_moto_tenant.cancel`). |
 | 2 | SQL Injection Prevention | Sử dụng Eloquent ORM hoặc Query Builder với bindings tham số đầy đủ khi thực hiện các câu lệnh kiểm tra và cập nhật dữ liệu. |
 | 3 | Lock Concurrency | Sử dụng cơ chế khóa dòng `SELECT ... FOR UPDATE` để tránh tranh chấp trạng thái (Race Condition) khi có nhiều Admin cùng thực hiện thao tác tạm ngưng/khôi phục một tenant tại cùng một thời điểm. |
 

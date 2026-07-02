@@ -311,7 +311,7 @@ Untitled
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Role authorization | Chỉ Platform SaaS Admin hoặc Platform SaaS Staff có quyền `tenant.edit` mới được phép gọi API này. |
+| BR-001 | Role authorization | Chỉ Platform SaaS Admin hoặc Platform SaaS Staff có quyền `platform.tenant.edit_moto_tenant.edit` mới được phép gọi API này. |
 | BR-002 | Target validation | Xác minh xem `id` (ULID) có tồn tại trong bảng `platform.tenant_registry` với `tenant_type = 'MOTO'` (hoặc 2) hay không. |
 | BR-003 | Dynamic Connection | Sử dụng `schema_name` lấy từ bảng registry để thiết lập kết nối động tới tenant schema để thực hiện update thông tin. |
 | BR-004 | Update Target User / Contacts | Cập nhật thông tin admin user trong schema Tenant (xác định qua `execution_role_id = 'role_admin'` hoặc user đầu tiên). Đồng thời, cập nhật số điện thoại của công ty (`company_profile.tel`) vào bảng `mst_moto_company_contact` cho bản ghi liên hệ chính đầu tiên (`seq_no = 1`). |
@@ -336,7 +336,7 @@ Untitled
 ```
 1. Xác thực token JWT gửi kèm trong header Authorization.
 2. Xác minh tài khoản thuộc nhóm Platform SaaS Admin hoặc Platform SaaS Staff.
-3. Kiểm tra quyền "tenant.edit".
+3. Kiểm tra quyền "platform.tenant.edit_moto_tenant.edit".
 4. Nếu hợp lệ, cho phép tiếp tục xử lý.
 ```
 
@@ -417,7 +417,7 @@ Untitled
 ```
 1. Client gửi yêu cầu: PATCH /api/v1/admin/moto-tenants/{id} kèm Request Body.
 2. Middleware thực hiện kiểm tra Authentication và xác minh JWT Token.
-3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin/Staff (quyền "tenant.edit").
+3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin/Staff (quyền "platform.tenant.edit_moto_tenant.edit").
 4. Controller thực hiện validation dữ liệu Request Body theo Validation Rules (Section 7).
    - Nếu dữ liệu không hợp lệ: Trả về HTTP 422 Unprocessable Entity kèm thông tin lỗi chi tiết.
 5. Service kiểm tra sự tồn tại của Tenant MOTO trong bảng `platform.tenant_registry` theo `id`.
@@ -489,7 +489,7 @@ Untitled
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token JWT hợp lệ và phân quyền Platform SaaS Admin/Staff (`tenant.edit`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token JWT hợp lệ và phân quyền Platform SaaS Admin/Staff (`platform.tenant.edit_moto_tenant.edit`). |
 | 2 | SQL Injection & Data Sanitization | Đảm bảo dữ liệu đầu vào được validate và sanitize đầy đủ trước khi thực hiện câu lệnh UPDATE trong DB. |
 | 3 | Schema Isolation | Ràng buộc kết nối DB sang schema chỉ định phải sử dụng DB Role có phạm vi phân quyền chính xác cho tenant đó. |
 

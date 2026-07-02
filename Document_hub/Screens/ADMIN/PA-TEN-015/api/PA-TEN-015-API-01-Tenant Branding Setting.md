@@ -263,7 +263,7 @@ Untitled
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Role authorization | Chỉ tài khoản thuộc nhóm Platform SaaS Admin có quyền `tenant.update` mới được phép thực hiện API này. Platform SaaS Staff bị từ chối (HTTP 403). |
+| BR-001 | Role authorization | Chỉ tài khoản thuộc nhóm Platform SaaS Admin có quyền `platform.tenant.tenant_branding_setting.edit` mới được phép thực hiện API này. Platform SaaS Staff bị từ chối (HTTP 403). |
 | BR-002 | File storage path convention | Tệp tin ảnh được lưu trên CDN/Cloud Storage theo cấu trúc path: `branding/{tenant_id}/{logo\|login-bg}.{ext}`. Mỗi lần cập nhật sẽ ghi đè (overwrite) file cũ cùng path để tránh tích lũy file rác. |
 | BR-003 | Delete flag priority | Nếu `delete_logo_flg = 1` được gửi đồng thời với `logo_file` mới, hệ thống ưu tiên xóa file cũ, sau đó lưu file mới và cập nhật URL mới vào DB. |
 | BR-004 | Partial update | Chỉ các trường được gửi lên trong request sẽ được cập nhật. Nếu không có `logo_file` và `delete_logo_flg != 1`, URL Logo hiện tại được giữ nguyên. |
@@ -289,7 +289,7 @@ Untitled
 ```
 1. Xác thực token JWT gửi kèm trong header Authorization.
 2. Trích xuất thông tin tài khoản người dùng và xác minh thuộc nhóm Platform SaaS Admin.
-3. Kiểm tra quyền hạn "tenant.update" của tài khoản.
+3. Kiểm tra quyền hạn "platform.tenant.tenant_branding_setting.edit" của tài khoản.
 4. Nếu hợp lệ, cho phép tiếp tục xử lý.
 5. Nếu không hợp lệ, từ chối yêu cầu và trả về HTTP 403 Forbidden.
 ```
@@ -376,7 +376,7 @@ Không áp dụng.
 ```
 1. Client gửi yêu cầu: PATCH /api/v1/admin/tenants/{id}/branding (multipart/form-data).
 2. Middleware thực hiện kiểm tra Authentication và xác minh JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin (quyền "tenant.update").
+3. Middleware kiểm tra quyền truy cập (Authorization) của Platform SaaS Admin (quyền "platform.tenant.tenant_branding_setting.edit").
 4. Controller validate các tham số đầu vào:
    - Path Parameter `id` (ULID format).
    - Form field `theme_color` (HEX format).
@@ -442,7 +442,7 @@ Không áp dụng cho API này.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc xác thực JWT Token hợp lệ và kiểm tra quyền Platform SaaS Admin (`tenant.update`). |
+| 1 | Authentication & Authorization | Bắt buộc xác thực JWT Token hợp lệ và kiểm tra quyền Platform SaaS Admin (`platform.tenant.tenant_branding_setting.edit`). |
 | 2 | File MIME type validation | Kiểm tra MIME type thực tế của file (không chỉ dựa vào phần mở rộng) để ngăn chặn upload file độc hại. |
 | 3 | File content scanning | Khuyến nghị quét virus/malware với tệp tin upload trước khi lưu vào Storage chính thức. |
 | 4 | Storage access control | URL CDN của ảnh phải được phân quyền phù hợp (public-read với logo/background là chấp nhận được vì đây là tài nguyên giao diện). |

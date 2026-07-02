@@ -51,7 +51,7 @@ Sau khi lưu thành công:
 ## Điều kiện trước
 
 - Đã đăng nhập vào hệ thống SaaS Platform Admin.
-- Có quyền quản trị tương ứng (`tenant.update`).
+- Có quyền quản trị tương ứng (`platform.tenant.tenant_onboarding_status.view`).
 - Tenant ID (hoặc `:id` trên URL) tồn tại trong hệ thống.
 
 ## Điều kiện sau

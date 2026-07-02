@@ -302,7 +302,7 @@ Untitled
 
 | No. | Rule | Mô tả |
 | --- | --- | --- |
-| BR-001 | Role authorization | Cả Platform SaaS Admin và Platform SaaS Staff đều có quyền xem Dashboard (quyền `tenant.view`). |
+| BR-001 | Role authorization | Cả Platform SaaS Admin và Platform SaaS Staff đều có quyền xem Dashboard (quyền `platform.tenant.tenant_usage_dashboard.view`). |
 | BR-002 | Metric data source | Dữ liệu số liệu được đọc từ bảng `platform.t_tenant_usage_metric`. Bảng này được Batch Job cập nhật định kỳ (không phải real-time). |
 | BR-003 | Current month metrics | Số liệu tháng hiện tại (`current_month`) là bản ghi mới nhất trong `t_tenant_usage_metric` có `target_year_month` = tháng hiện tại của hệ thống. |
 | BR-004 | History range | Trả về dữ liệu của **6 tháng liên tiếp gần nhất trước tháng hiện tại** theo chiều tăng dần (`ORDER BY target_year_month ASC`). Nếu tháng nào chưa có dữ liệu thì không trả về tháng đó. |
@@ -329,7 +329,7 @@ Untitled
 1. Xác thực token JWT gửi kèm trong header Authorization.
 2. Trích xuất thông tin tài khoản người dùng.
 3. Xác minh tài khoản thuộc nhóm Platform SaaS Admin hoặc Platform SaaS Staff.
-4. Kiểm tra quyền hạn "tenant.view" của tài khoản.
+4. Kiểm tra quyền hạn "platform.tenant.tenant_usage_dashboard.view" của tài khoản.
 5. Nếu hợp lệ, cho phép tiếp tục xử lý.
 6. Nếu không hợp lệ, từ chối yêu cầu và trả về HTTP 403 Forbidden.
 ```
@@ -383,7 +383,7 @@ Không áp dụng.
 ```
 1. Client gửi yêu cầu: GET /api/v1/admin/tenants/{id}/usage.
 2. Middleware thực hiện kiểm tra Authentication và xác minh JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin hoặc Staff (quyền "tenant.view").
+3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin hoặc Staff (quyền "platform.tenant.tenant_usage_dashboard.view").
 4. Controller validate Path Parameter `id` (ULID format).
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity.
 5. Service tra cứu thông tin Tenant trong `platform.tenant_registry` theo `id`.
@@ -425,7 +425,7 @@ Không áp dụng.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc xác thực JWT Token và kiểm tra quyền `tenant.view`. |
+| 1 | Authentication & Authorization | Bắt buộc xác thực JWT Token và kiểm tra quyền `platform.tenant.tenant_usage_dashboard.view`. |
 | 2 | Tenant Isolation | API chỉ trả về dữ liệu của đúng `tenant_id` được truyền vào. Không cho phép truy xuất dữ liệu tenant khác. |
 | 3 | Parameter Validation | Path parameter `id` phải được validate đúng định dạng ULID trước khi truy vấn DB. |
 

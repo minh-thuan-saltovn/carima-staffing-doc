@@ -306,7 +306,7 @@ Untitled
 | BR-001 | Tenant type assignment | Toàn bộ các tenant tạo mới qua endpoint này mặc định được cấu hình trường `tenant_type = 'moto'` trong cơ sở dữ liệu dùng chung. |
 | BR-002 | Schema and DB provisioning | Hệ thống tự động phát sinh tên schema độc lập (`schema_name` có tiền tố `tenant_moto_` kết hợp ngẫu nhiên để tránh đụng độ) và tạo PostgreSQL role tương ứng (`db_user`). Chạy tự động các lệnh migrations để tạo cấu trúc bảng trên schema mới này. |
 | BR-003 | Default status assignment | Sau khi khởi tạo thành công, Tenant mới mặc định có trạng thái kích hoạt hoạt động (`status = 1`). |
-| BR-004 | Authorization restriction | Chỉ người dùng thuộc nhóm Platform SaaS Admin có quyền `tenant.create` mới được phép truy cập và thực thi API này. |
+| BR-004 | Authorization restriction | Chỉ người dùng thuộc nhóm Platform SaaS Admin có quyền `platform.tenant.create_moto_tenant.create` mới được phép truy cập và thực thi API này. |
 | BR-005 | Asynchronous Email | Hành động gửi email kích hoạt cho Admin của tenant không được xử lý đồng bộ làm chậm phản hồi API. Hệ thống phải đẩy job gửi email kích hoạt vào hàng đợi (Queue Job) để xử lý ngầm. |
 
 ---
@@ -329,7 +329,7 @@ Untitled
 1. Validate JWT token
 2. Xác định admin user từ token context
 3. Kiểm tra user thuộc nhóm Platform SaaS Admin
-4. Kiểm tra quyền tenant.create
+4. Kiểm tra quyền platform.tenant.create_moto_tenant.create
 5. Từ chối request nếu user không đủ quyền (HTTP 403)
 ```
 
@@ -447,7 +447,7 @@ Untitled
 ```
 1. Client gửi request POST /api/v1/admin/moto-tenants chứa đầy đủ dữ liệu đăng ký.
 2. Middleware thực hiện kiểm tra Authentication và xác định JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "tenant.create".
+3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "platform.tenant.create_moto_tenant.create".
 4. Controller nhận request và thực hiện validate tham số request body đầu vào:
    - Kiểm tra định dạng bắt buộc, chiều dài chuỗi, định dạng email, số điện thoại, mã bưu điện.
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity kèm chi tiết lỗi validate.
@@ -525,7 +525,7 @@ Untitled
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`tenant.create`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`platform.tenant.create_moto_tenant.create`). |
 | 2 | Tenant Isolation (Schema level) | Đảm bảo mỗi tenant được cấp phát một schema PostgreSQL riêng biệt để cách ly dữ liệu triệt để, không cho phép truy cập chéo. |
 | 3 | Input Sanitization | Thực hiện làm sạch dữ liệu đầu vào và sử dụng parameterized query/bindings khi thực thi các lệnh DB để phòng tránh SQL Injection, đặc biệt tại bước tạo schema động. |
 | 4 | Secure Email Token | Mã token kích hoạt tài khoản đính kèm trong email gửi cho admin tenant phải có thời gian hết hạn (ví dụ: 24 giờ) và được mã hóa bảo mật. |

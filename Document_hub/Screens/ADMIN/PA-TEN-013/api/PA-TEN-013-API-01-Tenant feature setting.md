@@ -275,7 +275,7 @@ Untitled
 1. Validate JWT token
 2. Xác định admin user từ token context
 3. Kiểm tra user thuộc nhóm quản trị Platform
-4. Kiểm tra quyền ghi tenant.update (phải thuộc Platform SaaS Admin)
+4. Kiểm tra quyền ghi platform.tenant.tenant_feature_setting.edit (phải thuộc Platform SaaS Admin)
 5. Từ chối request nếu user không đủ quyền (HTTP 403)
 ```
 
@@ -314,7 +314,7 @@ Untitled
 | Step | Process | Transaction |
 | --- | --- | --- |
 | 1 | Validate request body đầu vào (plan_code hợp lệ) | Ngoài transaction |
-| 2 | Check permission (Phải có quyền tenant.update) | Ngoài transaction |
+| 2 | Check permission (Phải có quyền platform.tenant.tenant_feature_setting.edit) | Ngoài transaction |
 | 3 | SELECT FOR UPDATE bản ghi tenant trong platform.tenant_registry | Trong transaction |
 | 4 | UPDATE plan_code, updated_at = now() | Trong transaction |
 | 5 | INSERT ghi nhận audit log vào platform.tenant_provision_log | Trong transaction |
@@ -346,7 +346,7 @@ Không áp dụng cho API này.
 ```
 1. Client gửi request: PATCH /api/v1/admin/tenants/{id}/features với Request Body chứa `plan_code`.
 2. Middleware thực hiện kiểm tra Authentication và xác định JWT Token hợp lệ.
-3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "tenant.update".
+3. Middleware kiểm tra quyền truy cập (Authorization): Platform SaaS Admin có quyền "platform.tenant.tenant_feature_setting.edit".
 4. Controller nhận request và thực hiện validate tham số:
    - Validate Path Parameter `id` (ULID format).
    - Validate Request Body (`plan_code` bắt buộc và phải nằm trong list LITE, STANDARD, PRO, ENTERPRISE).
@@ -419,7 +419,7 @@ Không áp dụng cho API này.
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`tenant.update`) trước khi thực hiện lưu. |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin (`platform.tenant.tenant_feature_setting.edit`) trước khi thực hiện lưu. |
 | 2 | SQL Injection Prevention | Sử dụng Eloquent ORM hoặc Query Builder với bindings tham số đầy đủ khi thực hiện các câu lệnh kiểm tra và cập nhật dữ liệu. |
 | 3 | Lock Concurrency | Sử dụng cơ chế khóa dòng `SELECT ... FOR UPDATE` trên bảng `platform.tenant_registry` để tránh tranh chấp trạng thái (Race Condition) khi có nhiều Admin cùng thực hiện thay đổi cấu hình một tenant tại cùng một thời điểm. |
 

@@ -77,7 +77,7 @@ API được gọi khi Platform SaaS Admin truy cập vào màn hình quản lý
 | --- | --- |
 | Hành động kích hoạt | User truy cập màn hình hoặc thay đổi bộ lọc, chuyển trang |
 | Actor | Platform SaaS Admin / Platform SaaS Staff |
-| Trước khi gọi API | Đã đăng nhập vào hệ thống Platform Manager và có quyền `tenant.view` |
+| Trước khi gọi API | Đã đăng nhập vào hệ thống Platform Manager và có quyền `platform.tenant.saki_tenant_list.view` |
 | Sau khi gọi API | Hiển thị danh sách tenant SAKI lên bảng dữ liệu cùng thông tin phân trang |
 | Thay đổi trạng thái liên quan | Không |
 
@@ -292,7 +292,7 @@ Untitled
 | No. | Rule | Mô tả |
 | --- | --- | --- |
 | BR-001 | Tenant type restriction | API này chỉ được phép trả về các tenant có loại `tenant_type = 'saki'` (SAKI Tenant). |
-| BR-002 | Role authorization | Chỉ người dùng thuộc nhóm quản trị Platform (SaaS Admin / SaaS Staff) có quyền `tenant.view` mới được phép thực hiện gọi API này. |
+| BR-002 | Role authorization | Chỉ người dùng thuộc nhóm quản trị Platform (SaaS Admin / SaaS Staff) có quyền `platform.tenant.saki_tenant_list.view` mới được phép thực hiện gọi API này. |
 | BR-003 | Filter logic | Lọc theo `tenant_code` (map vào `company_id` like '%keyword%'), `company_name` (like '%keyword%'), `status`, và `plan_code` nếu các giá trị này được gửi lên. |
 | BR-004 | Default values | Nếu `page` không được truyền, mặc định là 1. Nếu `limit` không được truyền, mặc định là 20. Nếu `sort_column` và `sort_direction` không được truyền, mặc định sắp xếp theo `created_at` DESC. |
 | BR-005 | Dynamically calculated counts | `connected_moto_count` được tính bằng cách đếm số relation trong `platform.mst_moto_saki_relation` mà có `saki_tenant_id = tenant_id`. `active_contract_count`, `approval_user_count` và `billing_status` được lấy từ bảng cache thống kê hoạt động `platform.t_tenant_usage_metric` và `platform.t_usage_billing` của tháng hiện tại để tránh truy vấn trực tiếp vào database riêng của từng tenant, nhằm đảm bảo hiệu năng. |
@@ -316,7 +316,7 @@ Untitled
 ```
 1. Xác thực access token JWT gửi kèm trong Authorization header.
 2. Trích xuất thông tin người dùng và quyền hạn từ token hoặc database trung tâm.
-3. Kiểm tra xem user có thuộc hệ thống quản trị Platform Manager và có permission "tenant.view" hay không.
+3. Kiểm tra xem user có thuộc hệ thống quản trị Platform Manager và có permission "platform.tenant.saki_tenant_list.view" hay không.
 4. Nếu hợp lệ, cho phép đi tiếp để xử lý truy vấn.
 5. Nếu không hợp lệ, từ chối yêu cầu và trả về HTTP 403 Forbidden.
 ```
@@ -392,7 +392,7 @@ Untitled
 ```
 1. Client gửi request: GET /api/v1/admin/saki-tenants kèm query parameters.
 2. Middleware thực hiện kiểm tra Authentication và xác định JWT Token hợp lệ.
-3. Middleware thực hiện kiểm tra Authorization (quyền "tenant.view").
+3. Middleware thực hiện kiểm tra Authorization (quyền "platform.tenant.saki_tenant_list.view").
 4. Controller nhận request và thực hiện Validate các tham số Query Parameters.
    - Nếu không hợp lệ: Trả về HTTP 422 Unprocessable Entity kèm chi tiết lỗi validation.
 5. Controller gọi Service để lấy dữ liệu:
@@ -468,7 +468,7 @@ Untitled
 
 | No. | Hạng mục | Mô tả |
 | --- | --- | --- |
-| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin/Staff (`tenant.view`). |
+| 1 | Authentication & Authorization | Bắt buộc kiểm tra token hợp lệ và phân quyền Platform SaaS Admin/Staff (`platform.tenant.saki_tenant_list.view`). |
 | 2 | SQL Injection Prevention | Sử dụng Eloquent ORM / Query Builder với bindings tham số để ngăn chặn tấn công SQL injection thông qua các tham số search text (`tenant_code`, `company_name`). |
 | 3 | Parameter Tampering | Giới hạn danh sách các cột được phép dùng trong `sort_column` để tránh việc khai thác cấu trúc DB hoặc gây lỗi truy vấn khi truyền tên cột không hợp lệ. |
 
